@@ -5,7 +5,7 @@ const app = express();
 const port = process.env.PORT || 5000;
 const axios = require('axios');
 var pgp = require('pg-promise')(/*options*/);
-var db = pgp(process.env.DATABASE_URL);
+var db = pgp(process.env.DATABASE_URL || 'postgres://bbansavage:pass@localhost:5432/five_alive_2018');
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
@@ -14,8 +14,9 @@ app.get('/api/hello', (req, res) => {
   res.send({ express: 'Hello From Express' });
 });
 app.post('/api/world', (req, res) => {
-  console.log(req.body);
-  db.none(`INSERT INTO users (name) VALUES (${req.body})`)
+  console.log(req.body.post);
+  let queryString = `INSERT into users (name) values ('${req.body.post}')`;
+  db.none(queryString)
     .then(() => {
       res.send(`I received your POST request. This is what you sent me: ${req.body.post}`);
     })
