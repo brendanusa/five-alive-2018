@@ -20,7 +20,7 @@ app.post('/api/world', (req, res) => {
       res.send(`I received your POST request. This is what you sent me: ${req.body.post}`);
     })
     .catch(error => {
-      res.send('there has been an error: ' + error);
+      res.send(error + 'here is the db url: ' + process.env.DATABASE_URL);
     });
 });
 
