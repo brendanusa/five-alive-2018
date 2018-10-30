@@ -50,7 +50,7 @@ render() {
         <p>{this.state.response}</p>
         <form onSubmit={this.handleSubmit}>
           <p>
-            <strong>Post to Server:</strong>
+            <strong>Enter name:</strong>
           </p>
           <input
             type="text"
