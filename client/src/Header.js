@@ -16,13 +16,13 @@ const Header = () => (
     <Router>
       <span className="link">
           <span>
-            <Link to='/login' style={{marginRight:"40px"}}>Login</Link>
+            <Link to={'/login'} style={{marginRight:"40px"}}>Login</Link>
           </span>
           <span>
-            <Link to='/teamselect' style={{marginRight:"40px"}}>Select Teams</Link>
+            <Link to={'/teamselect'} style={{marginRight:"40px"}}>Select Teams</Link>
           </span>
           <span>
-            <Link to='/standings'>Standings</Link>
+            <Link to={'/standings'}>Standings</Link>
           </span>
       </span>
     </Router>

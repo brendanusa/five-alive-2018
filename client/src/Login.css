@@ -1,16 +1,19 @@
-.login {
-
+@keyframes FadeIn {
+  0%   { opacity: 0; }
+  80%  { opacity: 0; }
+  100% { opacity: 1; }
 }
 
 #logincontainer {
   margin: auto;
-  margin-top: 80px;
+  margin-top: 44px;
   width: 360px;
   border: 5px solid;
   border-color: white;
   border-radius: 8px;
   padding: 40px;
   text-align: center;
+  animation: FadeIn 10s ease;
 }
 
 #containercontents {

@@ -8,34 +8,56 @@ header {
   85% {transform: scale(1.1, 0.9);}
 }
 
+@keyframes TitleShrink {
+  0% {font-size: 500px;}
+  70% {font-size: 200px;}
+  90% {font-size: 100px;}
+}
+
+@keyframes TitleRotate {
+  0% {transform: rotate(320deg);}
+  85% {transform: rotate(270deg);}
+  97% {transform: rotate(30deg);}
+}
+
+@keyframes FadeIn {
+  0%   { opacity: 0; }
+  92%  { opacity: 0; }
+  100% { opacity: 1; }
+}
+
 a {
   color: #00c0ce;
 }
 
 .title {
-  font-size: 24px;
+  position: relative;
+  padding: 4px;
+  font-size: 56px;
   font-style: oblique;
   text-align: center;
   display: inline-block;
   transform: rotate(-2deg);
-  animation: TitleSqueeze 2s ease 2s;
+  animation: TitleSqueeze 1s ease 7s, TitleShrink 6.4s linear;
 }
 
 .bordered {
   border: 5px solid;
   border-radius: 8px;
   padding: 4px;
-  width: 28px;
+  width: 48px;
   display: inline-block;
   transform: skew(10deg);
 }
 
 .link {
+  font-weight: bold;
   display: inline-flex;
   position: absolute;
-  right: 32px;
-  top: 36px;
+  right: 20px;
+  top: 32px;
   align-items: flex-end;
+  animation: 11s FadeIn;
 }
 
 #one {
