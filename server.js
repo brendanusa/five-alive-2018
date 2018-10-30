@@ -5,7 +5,7 @@ const app = express();
 const port = process.env.PORT || 5000;
 const axios = require('axios');
 var pgp = require('pg-promise')(/*options*/);
-var db = pgp(`${process.env.DATABASE_URL}ssl=true`);
+var db = pgp(process.env.DATABASE_URL);
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
