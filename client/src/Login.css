@@ -1,0 +1,30 @@
+.login {
+
+}
+
+#logincontainer {
+  margin: auto;
+  margin-top: 80px;
+  width: 360px;
+  border: 5px solid;
+  border-color: white;
+  border-radius: 8px;
+  padding: 40px;
+  text-align: center;
+}
+
+#containercontents {
+  position: absolute;
+  margin: auto;
+  margin-top: -40px;
+  margin-left: -42px;
+  width: 436px;
+  height: 196px;
+  border: 5px solid;
+  border-color: white;
+  border-radius: 8px;
+  background-color: white;
+  opacity: 0.2;
+}
+
+p {position: auto;}
