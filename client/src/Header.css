@@ -10,8 +10,6 @@ header {
 
 @keyframes TitleShrink {
   0% {font-size: 500px;}
-  70% {font-size: 200px;}
-  90% {font-size: 100px;}
 }
 
 @keyframes TitleRotate {
@@ -38,7 +36,7 @@ a {
   text-align: center;
   display: inline-block;
   transform: rotate(-2deg);
-  animation: TitleSqueeze 1s ease 7s, TitleShrink 6.4s linear;
+  animation: TitleSqueeze 1s ease 6.8s, TitleShrink 6.4s ease-in;
 }
 
 .bordered {
@@ -57,7 +55,7 @@ a {
   right: 20px;
   top: 32px;
   align-items: flex-end;
-  animation: 11s FadeIn;
+  animation: 10s FadeIn;
 }
 
 #one {

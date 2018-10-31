@@ -11,7 +11,8 @@ class Main extends Component {
       <main>
         <Router>
           <div>
-            <Route exact path='/' component={Login}/>
+            <Route path='/' exact component={Login}/>
+            <Route path='/login' component={Login}/>
             <Route path='/teamselect' component={TeamSelect}/>
             <Route path='/standings' component={Standings}/>
           </div>
@@ -21,4 +22,4 @@ class Main extends Component {
   }
 }
 
- export default Main;
+export default Main;

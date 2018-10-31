@@ -14,7 +14,7 @@ class TeamSelect extends Component {
   render() {
     return (
       <div className="TeamSelect">
-      Hello
+      Please log in.
       </div>
     )
   }

@@ -13,19 +13,17 @@ const Header = () => (
       <span className="bordered" id="six">V</span>
       <span className="bordered" id="seven">E</span>
     </strong></span>
-    <Router>
-      <span className="link">
-          <span>
-            <Link to={'/login'} style={{marginRight:"40px"}}>Login</Link>
-          </span>
-          <span>
-            <Link to={'/teamselect'} style={{marginRight:"40px"}}>Select Teams</Link>
-          </span>
-          <span>
-            <Link to={'/standings'}>Standings</Link>
-          </span>
-      </span>
-    </Router>
+    <span className="link">
+        <span>
+          <Link to={'/login'} style={{marginRight:"40px"}}>LOGIN</Link>
+        </span>
+        <span>
+          <Link to={'/teamselect'} style={{marginRight:"40px"}}>SELECT TEAMS</Link>
+        </span>
+        <span>
+          <Link to={'/standings'}>STANDINGS</Link>
+        </span>
+    </span>
   </header>
 )
 
