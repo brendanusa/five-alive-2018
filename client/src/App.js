@@ -5,6 +5,7 @@ import Login from './Login';
 import TeamSelect from './TeamSelect';
 import Standings from './Standings';
 import Info from './Info';
+import PastChamps from './PastChamps';
 
 class App extends Component {
 
@@ -23,6 +24,7 @@ class App extends Component {
             <Route path='/teamselect' component={TeamSelect}/>
             <Route path='/standings' component={Standings}/>
             <Route path='/info' component={Info}/>
+            <Route path='/pastchamps' component={PastChamps}/>
           </div>
         </Router>
       </div>

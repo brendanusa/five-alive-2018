@@ -1,15 +1,15 @@
 self.__precacheManifest = [
   {
-    "revision": "db5ee79c53b1729253a0",
-    "url": "/static/css/main.17aff8f8.chunk.css"
+    "revision": "0df958d0b21c0ac6f372",
+    "url": "/static/css/main.57f71178.chunk.css"
   },
   {
-    "revision": "db5ee79c53b1729253a0",
-    "url": "/static/js/main.db5ee79c.chunk.js"
+    "revision": "0df958d0b21c0ac6f372",
+    "url": "/static/js/main.0df958d0.chunk.js"
   },
   {
-    "revision": "906199accce7a9b0efe6",
-    "url": "/static/js/1.906199ac.chunk.js"
+    "revision": "24bea9fac1d4afc76ae3",
+    "url": "/static/js/1.24bea9fa.chunk.js"
   },
   {
     "revision": "229c360febb4351a89df",
@@ -20,7 +20,7 @@ self.__precacheManifest = [
     "url": "/static/media/kembawalker-fivea-bgkd.cf6290f9.jpg"
   },
   {
-    "revision": "a9d2a67e9dd2e7295d035f0bc7c75c5d",
+    "revision": "b749c21f2db98bdf240aae137d20e2bf",
     "url": "/index.html"
   }
 ];
