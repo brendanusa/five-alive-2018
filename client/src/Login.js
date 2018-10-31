@@ -4,11 +4,13 @@ import "./Login.css";
 class Login extends Component {
 
   constructor(props) {
-    super(props);
+    // super(props);
     this.state = {
       passwordFeedback: '',
-      user: '',
-      post: ''
+      userId: null,
+      name: '',
+      post: '',
+      isAuthenticated: false
     }
   }
 
@@ -26,18 +28,22 @@ class Login extends Component {
   //   return body;
   // };
 
+  componentWillUpdate() {
+
+  }
+
   handleSubmit = e => {
     e.preventDefault();
     fetch('/api/password?password=' + e)
       .then(res => res.json())
-      .then(username => {
-        if (username) {
+      .then(user => {
+        if (user) {
           this.setState({passwordFeedback: 'Accepted!'})
         } else {
           this.setState({passwordFeedback: 'No good!'})
         }
       })
-      .then(username => this.setState({ user: username }))
+      .then(username => this.setState({ userId: username,  }))
   };
 
   render() {

@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import './TeamSelect.css';
 
 class TeamSelect extends Component {
 
@@ -14,7 +15,7 @@ class TeamSelect extends Component {
   render() {
     return (
       <div className="TeamSelect">
-      Please log in.
+        <span>COMING REAL SOON</span>
       </div>
     )
   }

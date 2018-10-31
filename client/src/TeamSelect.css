@@ -1,0 +1,7 @@
+.TeamSelect {
+  position: relative;
+  font-weight: bold;
+  top: 120px;
+  display: flex;
+  justify-content: center
+}
