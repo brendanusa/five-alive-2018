@@ -11,23 +11,6 @@ class App extends Component {
     super(props)
   }
 
-  handleSubmit = e => {
-    e.preventDefault();
-    fetch('/api/password?password=' + e)
-      .then(res => res.json())
-      .then(user => {
-        if (user) {
-          this.setState({
-            passwordFeedback: 'Thank you!',
-            isAuthenticated: true
-          })
-        } else {
-          this.setState({passwordFeedback: 'No good!'})
-        }
-      })
-      .then(username => this.setState({ userId: username,  }))
-  };
-
   render() {
     return (
       <div>

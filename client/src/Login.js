@@ -4,7 +4,7 @@ import "./Login.css";
 class Login extends Component {
 
   constructor(props) {
-    // super(props);
+    super(props);
     this.state = {
       passwordFeedback: '',
       userId: null,
