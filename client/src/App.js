@@ -4,6 +4,7 @@ import { BrowserRouter as Router, Route } from 'react-router-dom';
 import Login from './Login';
 import TeamSelect from './TeamSelect';
 import Standings from './Standings';
+import Info from './Info';
 
 class App extends Component {
 
@@ -21,6 +22,7 @@ class App extends Component {
             <Route path='/login' component={Login}/>
             <Route path='/teamselect' component={TeamSelect}/>
             <Route path='/standings' component={Standings}/>
+            <Route path='/info' component={Info}/>
           </div>
         </Router>
       </div>

@@ -15,13 +15,16 @@ const Header = () => (
     </strong></span>
     <span className="link">
         <span>
-          <Link to={'/login'} style={{marginRight:"40px"}}>LOGIN</Link>
+          <Link to={'/login'}>HOME</Link>
         </span>
         <span>
-          <Link to={'/teamselect'} style={{marginRight:"40px"}}>SELECT TEAMS</Link>
+          <Link to={'/info'}>INFO</Link>
         </span>
         <span>
           <Link to={'/standings'}>STANDINGS</Link>
+        </span>
+        <span>
+          <Link to={'/teamselect'} style={{marginRight:"40px"}}>SELECT TEAMS</Link>
         </span>
     </span>
   </header>

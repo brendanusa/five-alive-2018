@@ -39,21 +39,18 @@ class Standings extends Component {
     'Amol Vohra': 75}};
   }
 
-
-  componentDidMount() {
-    console.log('standings mounted')
-    console.log(Object.keys(this.state.standingsHard))
-  }
-
   render() {
     return (
+    <div className="outstandings">
       <div className="Standings">
+        <div id="names">
         {Object.keys(this.state.standingsHard).map((person, i) => {
           return (<Standing key={i} name={person} wins={this.state.standingsHard[person]}/>)
         })}
-        <div id="bkgd"/>
-        <div id="comment">These are from last year</div>
+        </div>
       </div>
+    <div id="comment">These are from last year</div>
+    </div>
     );
   }
 

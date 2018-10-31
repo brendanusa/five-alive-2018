@@ -1,33 +1,27 @@
+.outstandings {
+  display: flex;
+  justify-content: center;
+}
+
 .Standings {
-  display: table;
+  position: absolute;
+  font-weight: bold;
   margin: auto;
-  margin-top: 44px;
+  margin-top: 42px;
   width: 360px;
+  height: 808px;
   border: 5px solid;
-  border-color: white;
+  border-color: #ff6e00;
   border-radius: 8px;
   padding: 12px;
   text-align: center;
-  animation: FadeIn 2s ease;
+  background-color: rgba(0, 0, 0, 0.5);
+  animation: FadeIn 1s ease;
 }
 
-#bkgd {
-  display: table-header-group;
-  position: absolute;
-  /*margin: auto;*/
-  margin-top: -824px;
-  margin-left: -19px;
-  height: 670px;
-  width: 228px;
-  border: 5px solid;
-  border-color: white;
-  border-radius: 8px;
-  padding: 80px;
-  text-align: center;
-  background-color: black;
-  opacity: 0.5;
-  z-index: -1;
-  animation: FadeIn 2s ease;
+#names {
+  position: relative;
+  top: 0;
 }
 
 #comment {
@@ -39,4 +33,6 @@
   border-color: white;
   border-radius: 8px;
   padding: 10px;
+  animation: FadeIn 2s ease;
+
 }
