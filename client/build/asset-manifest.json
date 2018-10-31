@@ -1,7 +1,7 @@
 {
   "main.css": "/static/css/main.7923ac0b.chunk.css",
-  "main.js": "/static/js/main.6c416c30.chunk.js",
-  "main.js.map": "/static/js/main.6c416c30.chunk.js.map",
+  "main.js": "/static/js/main.b0a8b366.chunk.js",
+  "main.js.map": "/static/js/main.b0a8b366.chunk.js.map",
   "static/js/1.24bea9fa.chunk.js": "/static/js/1.24bea9fa.chunk.js",
   "static/js/1.24bea9fa.chunk.js.map": "/static/js/1.24bea9fa.chunk.js.map",
   "runtime~main.js": "/static/js/runtime~main.229c360f.js",
@@ -9,6 +9,6 @@
   "static/media/index.css": "/static/media/kembawalker-fivea-bgkd.cf6290f9.jpg",
   "static/css/main.7923ac0b.chunk.css.map": "/static/css/main.7923ac0b.chunk.css.map",
   "index.html": "/index.html",
-  "precache-manifest.3c94e36595f82b992e8ba217ae6c677c.js": "/precache-manifest.3c94e36595f82b992e8ba217ae6c677c.js",
+  "precache-manifest.e7e264d44ec2f944be9e0cc3363df165.js": "/precache-manifest.e7e264d44ec2f944be9e0cc3363df165.js",
   "service-worker.js": "/service-worker.js"
 }
