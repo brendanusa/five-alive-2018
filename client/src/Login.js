@@ -14,12 +14,11 @@ class Login extends Component {
     }
   }
 
-  componentDidMount() {
-    console.log('login page mounted')
+  // componentDidMount() {
     // this.callApi()
     //   .then(res => this.setState({ response: res.express }))
     //   .catch(err => console.log(err));
-  }
+  // }
 
   // callApi = async () => {
   //   const response = await fetch('/api/hello');
@@ -28,29 +27,28 @@ class Login extends Component {
   //   return body;
   // };
 
-  componentWillUpdate() {
+  // componentWillUpdate() {
 
-  }
+  // }
 
-  handleSubmit = e => {
-    e.preventDefault();
-    fetch('/api/password?password=' + e)
-      .then(res => res.json())
-      .then(user => {
-        if (user) {
-          this.setState({passwordFeedback: 'Accepted!'})
-        } else {
-          this.setState({passwordFeedback: 'No good!'})
-        }
-      })
-      .then(username => this.setState({ userId: username,  }))
-  };
+  // handleSubmit = e => {
+  //   e.preventDefault();
+  //   fetch('/api/password?password=' + e)
+  //     .then(res => res.json())
+  //     .then(user => {
+  //       if (user) {
+  //         this.setState({passwordFeedback: 'Accepted!'})
+  //       } else {
+  //         this.setState({passwordFeedback: 'No good!'})
+  //       }
+  //     })
+  //     .then(username => this.setState({ userId: username,  }))
+  // };
 
   render() {
     return (
       <div className="Login">
         <div id="logincontainer">
-        <div id="containercontents" />
           <p><strong>Come get some nice #5ALIVE</strong></p>
             <form onSubmit={this.handleSubmit}>
               <p>Enter password:</p>
