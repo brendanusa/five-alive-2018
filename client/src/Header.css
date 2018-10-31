@@ -50,8 +50,10 @@ a {
 
 .link {
   font-weight: bold;
+  font-size: 14px;
   display: inline-flex;
   position: absolute;
+  margin-left: 400px;
   right: 20px;
   top: 32px;
   align-items: flex-end;
