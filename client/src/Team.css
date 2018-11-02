@@ -1,0 +1,6 @@
+.TeamSelectRows {
+  display: flex;
+  justify-content: space-between;
+  border-radius: 4px;
+  padding: 4px;
+}

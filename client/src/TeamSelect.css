@@ -1,7 +1,124 @@
 .TeamSelect {
   position: relative;
   font-weight: bold;
-  top: 120px;
+  top: 80px;
   display: flex;
-  justify-content: center
+  justify-content: space-between;
+}
+
+.TeamsContainer {
+  height: 500px;
+  display: inline-block;
+  border: 5px solid;
+  border-color: #42d117;
+  background-color: rgba(0, 0, 0, 0.5);
+  border-radius: 8px;
+  padding: 12px;
+  animation: FadeIn 1.5s ease;
+  font-size: 14px;
+}
+
+.TeamsContainerHeading {
+  display: flex;
+  justify-content: space-between;
+  border: 1px solid;
+  border-color: white;
+  border-radius: 8px;
+  font-size: 10px;
+  padding: 4px;
+  margin-bottom: 4px;
+}
+
+.TeamsContainerBody {
+  height: 480px;
+  overflow: scroll;
+}
+
+.TeamsContainerBody div:hover {
+  background-color: rgba(0,192,206,0.5)
+}
+
+.TeamsContainerBody div:active {
+  background-color: rgba(0,192,206)
+}
+
+.TeamSelectRow {
+  display: flex;
+  justify-content: space-between;
+  border-radius: 4px;
+  padding: 4px;
+}
+
+.SelectBoxContainer {
+  margin-top: 80px;
+  margin-right: 80px;
+  height: 400px;
+  display: inline-block;
+  border: 5px solid;
+  border-color: #00c0ce;
+  background-color: rgba(0, 0, 0, 0.5);
+  border-radius: 8px;
+  padding: 12px;
+  animation: FadeIn 2s ease;
+  font-size: 14px;
+  text-align: center;
+}
+
+.SelectBoxHeader {
+  display: flex;
+  justify-content: space-between;
+  border: 1px solid;
+  border-color: white;
+  border-radius: 8px;
+  font-size: 12px;
+  padding: 4px;
+  margin-bottom: 4px;
+}
+
+.SelectBoxTeams {
+  margin-top: 20px;
+  font-size: 16px;
+  height: 160px;
+  overflow: scroll;
+}
+
+.SelectBoxTeamRow {
+  padding: 4px;
+}
+
+.SelectBoxFooter {
+  display: flex;
+  justify-content: space-evenly;
+  margin-top: 20px;
+}
+
+.SelectBoxSubmit {
+  margin-top: 20px; 
+}
+
+.SelectBoxWinTotal {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  height: 80px;
+  width: 80px;
+  border: 3px solid;
+  border-radius: 50%;
+  border-color: white;
+  padding: 12px;
+  font-size: 40px;
+  background-color: rgba(0, 0, 0, 0.5);
+}
+
+.UserBox {
+  margin-top: 60px;
+  margin-left: 120px;
+  display: inline-block;
+  border: 3px solid;
+  border-color: #ffffff;
+  background-color: rgba(0, 0, 0, 0.5);
+  border-radius: 8px;
+  padding: 12px;
+  animation: FadeIn 1s ease;
+  font-size: 12px;
 }
