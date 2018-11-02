@@ -394,27 +394,42 @@ class TeamSelect extends Component {
 
 
   handleSelectBoxSubmit = () => {
-    let selectedTeamIds = Object.keys(this.state.selectedTeams).filter(team => {
-      return this.state.selectedTeams[team].selected === true;
-    }).join(',')
-    console.log('teams', selectedTeamIds, 'user', this.state.user.id)
-    fetch(`/api/teams?teamids=${selectedTeamIds}&userid=${this.state.user.id}`)
-      // .then(res => res.json())
-      .then(data => {
-        fetch('/api/password?password=' + this.state.user.password)
-          .then(res => res.json())
-          .then(data => {
-            console.log(data[0])
-            if (data[0]) {
-              console.log('2nd req', data[0]);
-              let tempState = this.state;
-              tempState.user = data[0];
-              tempState.user.teams_2018 = tempState.user.teams_2018.map(teamId => teamId + 1)
-              this.setState({tempState});
-            }
-          })
-          // .then(() => console.log('new state' this.state.user))
-      })
+
+    const actualSelectedTeams = Object.keys(this.state.selectedTeams).filter(team => {
+        return this.state.selectedTeams[team].selected === true;
+      });
+
+    const activeWinsTotal = actualSelectedTeams.reduce((acc, val) => {
+      return acc += this.state.teamsHard[val].w
+    }, 0)
+
+    console.log(actualSelectedTeams, activeWinsTotal)
+
+    if (!this.state.user.name) {
+      this.setState({submitFeedback: 'Not signed in!'});
+    } else if (actualSelectedTeams.length !== 5) {
+      this.setState({submitFeedback: 'Select five teams!'});
+    } else if (activeWinsTotal > 100) {
+      this.setState({submitFeedback: 'Not in my house!'});
+    } else {
+      fetch(`/api/teams?teamids=${actualSelectedTeams.join(',')}&userid=${this.state.user.id}`)
+        .then(data => {
+          fetch('/api/password?password=' + this.state.user.password)
+            .then(res => res.json())
+            .then(data => {
+              console.log(data[0])
+              if (data[0]) {
+                console.log('2nd req', data[0]);
+                let tempState = this.state;
+                tempState.user = data[0];
+                tempState.user.teams_2018 = tempState.user.teams_2018.map(teamId => teamId + 1)
+                tempState.submitFeedback = 'Picks submitted!';
+                this.setState({tempState});
+              }
+            })
+        })
+    }
+
   }
 
 // inside map for Team comp
@@ -425,9 +440,7 @@ class TeamSelect extends Component {
       <div className="TeamSelect">
         <div>
           <div className="UserBox">
-            <p>
-              {this.state.user.name ? `Welcome ${this.state.user.name}!` : 'Please sign in on home page before submitting teams!'}
-            </p>
+              <span style={{fontSize:"14px"}}>{this.state.user.name ? this.state.user.name : 'Please sign in on home page before submitting teams'}</span>
             <p>
               <br></br>
               {this.state.user.teams_2018 ? 'Current teams:' : null}
@@ -500,7 +513,7 @@ class TeamSelect extends Component {
               <button onClick={this.handleSelectBoxSubmit}>SUBMIT</button>
             </div>
             <div className="SelectBoxNotification">
-              {this.state.notification || null}
+              {this.state.submitFeedback || null}
             </div>
           </div>
         </div>

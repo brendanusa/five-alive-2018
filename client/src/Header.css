@@ -36,7 +36,7 @@ a {
   text-align: center;
   display: inline-block;
   transform: rotate(-2deg);
-  /*animation: TitleSqueeze 1s ease 6.8s, TitleShrink 6.4s ease-in;*/
+  animation: TitleSqueeze 1s ease 6.8s, TitleShrink 6.4s ease-in;
 }
 
 .bordered {
@@ -56,7 +56,7 @@ a {
   top: 32px;
   right: -32px;
   align-items: flex-end;
-  /*animation: 10s FadeIn;*/
+  animation: 10s FadeIn;
 }
 
 .link span {

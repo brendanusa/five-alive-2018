@@ -8,7 +8,6 @@
 
 .TeamsContainer {
   height: 560px;
-  /*display: inline-block;*/
   border: 5px solid;
   border-color: #42d117;
   background-color: rgba(0, 0, 0, 0.5);
@@ -32,7 +31,6 @@
 }
 
 .TeamsContainerBody {
-  /*display: inline-block;*/
   height: 520px;
   overflow: scroll;
 }
@@ -109,10 +107,16 @@
   background-color: rgba(0, 0, 0, 0.5);
 }
 
+.SelectBoxNotification {
+  font-size: 16px;
+  margin-top: 8px;
+  color: #00c0ce;
+}
+
 .UserBox {
   margin-top: 60px;
   margin-left: 80px;
-  width: 150px;
+  width: 140px;
   border: 3px solid;
   border-color: #00c0ce;
   background-color: rgba(0, 0, 0, 0.5);

@@ -42,7 +42,7 @@ class Login extends Component {
           console.log(data[0]);
           this.setState({user: data[0]});
           this.setState({authenticated: true});
-          this.setState({passwordFeedback: `Welcome ${this.state.user.name}!`});
+          this.setState({passwordFeedback: `Welcome ${this.state.user.name.split(' ')[0]}!`});
         } else {
           this.setState({passwordFeedback: 'No good!'});
         }
