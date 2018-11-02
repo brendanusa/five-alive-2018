@@ -11,6 +11,7 @@ class TeamSelect extends Component {
       user: {},
       submitFeedback: '',
       teamsHard: [
+        {name: 'Abilene Christian', w: 16, l: 16},
         {name: 'Air Force', w: 12, l: 19},
         {name: 'Akron', w: 14, l: 18},
         {name: 'Alabama', w: 20, l: 16},
@@ -397,13 +398,13 @@ class TeamSelect extends Component {
 
     const actualSelectedTeams = Object.keys(this.state.selectedTeams).filter(team => {
         return this.state.selectedTeams[team].selected === true;
-      });
+      }).map(teamid => parseInt(teamid) + 2);
+
+    console.log('actselected', actualSelectedTeams)
 
     const activeWinsTotal = actualSelectedTeams.reduce((acc, val) => {
       return acc += this.state.teamsHard[val].w
     }, 0)
-
-    console.log(actualSelectedTeams, activeWinsTotal)
 
     if (!this.state.user.name) {
       this.setState({submitFeedback: 'Not signed in!'});
@@ -422,7 +423,6 @@ class TeamSelect extends Component {
                 console.log('2nd req', data[0]);
                 let tempState = this.state;
                 tempState.user = data[0];
-                tempState.user.teams_2018 = tempState.user.teams_2018.map(teamId => teamId + 1)
                 tempState.submitFeedback = 'Picks submitted!';
                 this.setState({tempState});
               }
@@ -446,15 +446,15 @@ class TeamSelect extends Component {
               {this.state.user.teams_2018 ? 'Current teams:' : null}
               <br></br>
               <br></br>
-              {this.state.user.teams_2018 ? this.state.teamsHard[this.state.user.teams_2018[0] - 1].name : null}
+              {this.state.user.teams_2018 ? this.state.teamsHard[this.state.user.teams_2018[0] - 2].name : null}
               <br></br>
-              {this.state.user.teams_2018 ? this.state.teamsHard[this.state.user.teams_2018[1] - 1].name : null}
+              {this.state.user.teams_2018 ? this.state.teamsHard[this.state.user.teams_2018[1] - 2].name : null}
               <br></br>
-              {this.state.user.teams_2018 ? this.state.teamsHard[this.state.user.teams_2018[2] - 1].name : null}
+              {this.state.user.teams_2018 ? this.state.teamsHard[this.state.user.teams_2018[2] - 2].name : null}
               <br></br>
-              {this.state.user.teams_2018 ? this.state.teamsHard[this.state.user.teams_2018[3] - 1].name : null}
+              {this.state.user.teams_2018 ? this.state.teamsHard[this.state.user.teams_2018[3] - 2].name : null}
               <br></br>
-              {this.state.user.teams_2018 ? this.state.teamsHard[this.state.user.teams_2018[4] - 1].name : null}
+              {this.state.user.teams_2018 ? this.state.teamsHard[this.state.user.teams_2018[4] - 2].name : null}
             </p>
           </div>
         </div>
