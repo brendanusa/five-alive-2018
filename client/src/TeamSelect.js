@@ -376,7 +376,6 @@ class TeamSelect extends Component {
     }
   }
 
-
   handleTeamsBoxClick = (e) => {
     e.preventDefault();
     document.getElementById(e.target.id).classList.toggle('highlighted');
@@ -389,29 +388,28 @@ class TeamSelect extends Component {
     }
 
     this.setState({selectedTeams: tempState});
-    console.log(this.state.selectedTeams)
   }
 
-
-
   handleSelectBoxSubmit = () => {
-
+    
     const actualSelectedTeams = Object.keys(this.state.selectedTeams).filter(team => {
         return this.state.selectedTeams[team].selected === true;
       }).map(teamid => parseInt(teamid) + 2);
 
-    console.log('actselected', actualSelectedTeams)
-
     const activeWinsTotal = actualSelectedTeams.reduce((acc, val) => {
-      return acc += this.state.teamsHard[val].w
+        console.log('acc', acc, 'val', val)
+        console.log(this.state.teamsHard[val - 2].name, this.state.teamsHard[val].w)
+      return acc += this.state.teamsHard[val - 2].w
     }, 0)
+
+    console.log('activeWinsTotal', activeWinsTotal)
 
     if (!this.state.user.name) {
       this.setState({submitFeedback: 'Not signed in!'});
     } else if (actualSelectedTeams.length !== 5) {
       this.setState({submitFeedback: 'Select five teams!'});
     } else if (activeWinsTotal > 100) {
-      this.setState({submitFeedback: 'Not in my house!'});
+      this.setState({submitFeedback: 'Try again!'});
     } else {
       fetch(`/api/teams?teamids=${actualSelectedTeams.join(',')}&userid=${this.state.user.id}`)
         .then(data => {

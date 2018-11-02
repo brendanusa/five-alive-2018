@@ -31,6 +31,30 @@
 //  20 | Michael Martin     | {42,148,158,219,332}  | mm528372
 //  10 | Dan Vogel          | {42,190,228,254,323}  | owlbike9
 
+// FIXED:  
+//  id |        name        |      teams_2018       | password 
+// ----+--------------------+-----------------------+----------
+//   5 | Reed Lyon          |                       | secret07
+//   7 | Patrick Godfrey    |                       | batman02
+//   9 | Chris Godfrey      |                       | yanktrac
+//  12 | JP Kelly           |                       | mcuban68
+//  14 | Michael Agresti    |                       | ma829388
+//  17 | Adam Sidney        |                       | tyus0481
+//  21 | Tim Falkner        |                       | falk9194
+//   4 | test test          | {2,3,4,5,6}           | 1111
+//  10 | Dan Vogel          | {42,190,228,254,323}  | owlbike9
+//   3 | bren2              | {3,5,10,14,18}        | bren2345
+//   2 | bren               | {5,8,11,15,21}        | bren1234
+//  16 | Patrick Grove      | {87,139,237,326,329}  | schnad61
+//  11 | Jeremy Aquino      | {75,125,163,231,326}  | ja902033
+//   8 | Gilberto Estupinan | {193,284,289,294,346} | ge023980
+//   6 | Amol Vohra         | {23,139,231,317,321}  | av361982
+//  19 | Avi Ringer         | {75,125,129,203,346}  | nixon777
+//  18 | Coreen Kopper      | {92,129,139,294,346}  | coco6142
+//  15 | Kevin Meuse        | {125,151,193,289,331} | km016522
+//  20 | Michael Martin     | {45,151,161,222,335}  | mm528372
+//  13 | Andrew Collins     | {45,193,231,257,326}  | collns56
+
 const addThree = (str, id) => {
   arr = str.replace('{', '').replace('}', '').split(',')
   arr = arr.map(num => {
@@ -40,4 +64,6 @@ const addThree = (str, id) => {
   return 'update users set teams_2018 = \'{' + arr.join(',') + '}\' where id=' + id.toString() + ';';
 }
 
-console.log(addThree('{84,136,234,323,326}', 16))
+console.log(addThree('{42,190,228,254,323}', 13))
+
+
