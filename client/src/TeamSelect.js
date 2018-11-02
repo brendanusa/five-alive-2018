@@ -7,7 +7,9 @@ class TeamSelect extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      selectedTeams: [],
+      selectedTeams: {},
+      user: {},
+      submitFeedback: '',
       teamsHard: [
         {name: 'Air Force', w: 12, l: 19},
         {name: 'Akron', w: 14, l: 18},
@@ -366,26 +368,54 @@ class TeamSelect extends Component {
   }
 
   componentDidMount() {
+    if (this.props.location.state) {
+      if (this.props.location.state.user) {
+        this.setState({user: this.props.location.state.user})
+      }
+    }
   }
 
 
   handleTeamsBoxClick = (e) => {
-    // e.preventDefault();
-    // if () {
+    e.preventDefault();
+    document.getElementById(e.target.id).classList.toggle('highlighted');
+    let tempState = this.state.selectedTeams
 
-    // } else {
+    if (tempState[e.target.id]) {
+      tempState[e.target.id].selected = !tempState[e.target.id].selected;
+    } else {
+      tempState[e.target.id] = {selected: true};
+    }
 
-    // }
-    this.setState({selectedTeams: this.state.selectedTeams.concat([e.target.id])})
+    this.setState({selectedTeams: tempState});
+    console.log(this.state.selectedTeams)
   }
 
-  // handleSelectBoxClick = () => {
-  //   if () {
 
-  //   } else {
 
-  //   }
-  // }
+  handleSelectBoxSubmit = () => {
+    let selectedTeamIds = Object.keys(this.state.selectedTeams).filter(team => {
+      return this.state.selectedTeams[team].selected === true;
+    }).join(',')
+    console.log('teams', selectedTeamIds, 'user', this.state.user.id)
+    fetch(`/api/teams?teamids=${selectedTeamIds}&userid=${this.state.user.id}`)
+      // .then(res => res.json())
+      .then(data => {
+        fetch('/api/password?password=' + this.state.user.password)
+          .then(res => res.json())
+          .then(data => {
+            console.log(data[0])
+            if (data[0]) {
+              console.log('2nd req', data[0]);
+              let tempState = this.state;
+              tempState.user = data[0];
+              tempState.user.teams_2018 = tempState.user.teams_2018.map(teamId => teamId + 1)
+              this.setState({tempState});
+            }
+          })
+          // .then(() => console.log('new state' this.state.user))
+      })
+  }
 
 // inside map for Team comp
 // <Team key={i} name={team.name} w={team.w} l={team.l} handleClick={this.handleTeamsBoxClick.bind(this)}/>
@@ -393,8 +423,27 @@ class TeamSelect extends Component {
   render() {
     return (
       <div className="TeamSelect">
-        <div className="UserBox">
-          <div>{this.props.user || 'Please sign in'}</div>
+        <div>
+          <div className="UserBox">
+            <p>
+              {this.state.user.name ? `Welcome ${this.state.user.name}!` : 'Please sign in on home page before submitting teams!'}
+            </p>
+            <p>
+              <br></br>
+              {this.state.user.teams_2018 ? 'Current teams:' : null}
+              <br></br>
+              <br></br>
+              {this.state.user.teams_2018 ? this.state.teamsHard[this.state.user.teams_2018[0] - 1].name : null}
+              <br></br>
+              {this.state.user.teams_2018 ? this.state.teamsHard[this.state.user.teams_2018[1] - 1].name : null}
+              <br></br>
+              {this.state.user.teams_2018 ? this.state.teamsHard[this.state.user.teams_2018[2] - 1].name : null}
+              <br></br>
+              {this.state.user.teams_2018 ? this.state.teamsHard[this.state.user.teams_2018[3] - 1].name : null}
+              <br></br>
+              {this.state.user.teams_2018 ? this.state.teamsHard[this.state.user.teams_2018[4] - 1].name : null}
+            </p>
+          </div>
         </div>
         <div className="TeamsContainer">
           <div className="TeamsContainerHeading">
@@ -412,39 +461,47 @@ class TeamSelect extends Component {
             })}
           </div>
         </div>
-        <div className="SelectBoxContainer">
-          <div className="SelectBoxHeader">
-            ----------SELECTED TEAMS----------
-          </div>
-          <div className="SelectBoxTeams">
-            {this.state.selectedTeams.map((teamId) => {
-              return (
-                <div key={teamId} className="SelectBoxTeamRow">
-                  <span className="smallteamname">
-                    {this.state.teamsHard[teamId].name} -  
-                  </span>
-                  <span className="smallteamwins">
-                    {this.state.teamsHard[teamId].w}
-                  </span>
-                </div>
-              )
-            })}
-          </div>
-          <div className="SelectBoxFooter">
-            <div className="SelectBoxWinTotal">
-              <div>
-                {this.state.selectedTeams.reduce((acc, val) => {
-                  return acc += this.state.teamsHard[val].w
-                }, 0)}
-              </div>
-              <div style={{fontSize:"8px"}}>TOTAL</div>
+        <div>
+          <div className="SelectBoxContainer">
+            <div className="SelectBoxHeader">
+              SELECTED TEAMS
             </div>
-          </div>
-          <div className="SelectBoxSubmit">
-            <button>SUBMIT</button>
-          </div>
-          <div className="SelectBoxNotification">
-            {this.state.notification || null}
+            <div className="SelectBoxTeams">
+              {Object.keys(this.state.selectedTeams).filter((team) => {
+                return this.state.selectedTeams[team].selected === true;
+              }).map((teamId) => {
+                return (
+                  <div key={teamId} className="SelectBoxTeamRow">
+                    <span className="smallteamname">
+                      {this.state.teamsHard[teamId].name + ' - '}
+                    </span>
+                    <span className="smallteamwins">
+                      {this.state.teamsHard[teamId].w}
+                    </span>
+                  </div>
+                )
+              })}
+            </div>
+            <div className="SelectBoxFooter">
+              <div className="SelectBoxWinTotal">
+                <div>
+                  {Object.keys(this.state.selectedTeams).reduce((acc, val) => {
+                      if (this.state.selectedTeams[val].selected) {
+                          return acc += this.state.teamsHard[val].w;
+                        } else {
+                          return acc;
+                        }
+                  }, 0)}
+                </div>
+                <div style={{fontSize:"10px"}}>WINS</div>
+              </div>
+            </div>
+            <div className="SelectBoxSubmit">
+              <button onClick={this.handleSelectBoxSubmit}>SUBMIT</button>
+            </div>
+            <div className="SelectBoxNotification">
+              {this.state.notification || null}
+            </div>
           </div>
         </div>
       </div>

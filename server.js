@@ -15,7 +15,9 @@ app.get('/api/hello', (req, res) => {
 });
 
 app.get('/api/password', (req, res) => {
-  db.query(`SELECT name FROM users WHERE password = '${req.body.get}'`)
+  console.log('password received!')
+  console.log('DBQUERY', `SELECT * FROM users WHERE password = '${req.query.password}'`)
+  db.query(`SELECT * FROM users WHERE password = '${req.query.password}'`)
     .then((data) => {
       res.send(data);
     })
@@ -24,16 +26,31 @@ app.get('/api/password', (req, res) => {
     })
 })
 
-app.post('/api/world', (req, res) => {
-  console.log(req.body.post);
-  db.query(`INSERT into users (name) values ('${req.body.post}')`)
+// temporarily using GET instead of POST
+app.get('/api/teams', (req, res) => {
+  console.log('teams received!')
+  let teamsArray = req.query.teamids.split(',')
+  teamsArray = teamsArray.map(teamId => parseInt(teamId));
+  db.query(`update users set teams_2018 = '{${teamsArray}}' where id=${parseInt(req.query.userid)} returning teams_2018`)
     .then(() => {
-      res.send(`I received your POST request. This is what you sent me: ${req.body.post}`);
+      res.send('SUCCESS!')
     })
     .catch(error => {
-      res.send(error + 'here is the db url: ' + process.env.DATABASE_URL);
-    });
-});
+      console.log('ERROR ' + error)
+      res.send('UNABLE TO SAVE TEAMS: ' + error)
+    })
+})
+
+// app.post('/api/world', (req, res) => {
+//   console.log(req.body.post);
+//   db.query(`INSERT into users (name) values ('${req.body.post}')`)
+//     .then(() => {
+//       res.send(`I received your POST request. This is what you sent me: ${req.body.post}`);
+//     })
+//     .catch(error => {
+//       res.send(error + 'here is the db url: ' + process.env.DATABASE_URL);
+//     });
+// });
 
 if (process.env.NODE_ENV === 'production') {
   // Serve any static files

@@ -7,8 +7,8 @@
 }
 
 .TeamsContainer {
-  height: 500px;
-  display: inline-block;
+  height: 560px;
+  /*display: inline-block;*/
   border: 5px solid;
   border-color: #42d117;
   background-color: rgba(0, 0, 0, 0.5);
@@ -16,6 +16,8 @@
   padding: 12px;
   animation: FadeIn 1.5s ease;
   font-size: 14px;
+  margin-left: 80px;
+  margin-right: 80px;
 }
 
 .TeamsContainerHeading {
@@ -30,7 +32,8 @@
 }
 
 .TeamsContainerBody {
-  height: 480px;
+  /*display: inline-block;*/
+  height: 520px;
   overflow: scroll;
 }
 
@@ -52,10 +55,8 @@
 .SelectBoxContainer {
   margin-top: 80px;
   margin-right: 80px;
-  height: 400px;
-  display: inline-block;
   border: 5px solid;
-  border-color: #00c0ce;
+  border-color: #fff200;
   background-color: rgba(0, 0, 0, 0.5);
   border-radius: 8px;
   padding: 12px;
@@ -65,8 +66,6 @@
 }
 
 .SelectBoxHeader {
-  display: flex;
-  justify-content: space-between;
   border: 1px solid;
   border-color: white;
   border-radius: 8px;
@@ -78,7 +77,7 @@
 .SelectBoxTeams {
   margin-top: 20px;
   font-size: 16px;
-  height: 160px;
+  height: 140px;
   overflow: scroll;
 }
 
@@ -93,7 +92,7 @@
 }
 
 .SelectBoxSubmit {
-  margin-top: 20px; 
+  margin-top: 20px;
 }
 
 .SelectBoxWinTotal {
@@ -112,13 +111,17 @@
 
 .UserBox {
   margin-top: 60px;
-  margin-left: 120px;
-  display: inline-block;
+  margin-left: 80px;
+  width: 150px;
   border: 3px solid;
-  border-color: #ffffff;
+  border-color: #00c0ce;
   background-color: rgba(0, 0, 0, 0.5);
   border-radius: 8px;
   padding: 12px;
   animation: FadeIn 1s ease;
   font-size: 12px;
+}
+
+.highlighted {
+  background-color: rgba(0,192,206)
 }

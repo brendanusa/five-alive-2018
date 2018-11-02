@@ -24,7 +24,7 @@
 }
 
 #comment {
-  display: inline-block;
+  /*display: inline-block;*/
   position: absolute;
   top: 240px;
   right: 40px;
