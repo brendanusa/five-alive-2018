@@ -22,7 +22,10 @@ const Info = () => {
           <li>Chris Godfrey</li>
           <li>Pat Godfrey</li>
           <li>Ryan Corbalis</li>
+          <li>Dillon Smith</li>
+          <li>Justin McNamee</li>
           <li>Michael Jordan</li>
+          <li>Mark McGill</li>
           <li>JP Kelly</li>
           <li>Dan Vogel</li>
           <li>Wilt Chamberlain</li>
