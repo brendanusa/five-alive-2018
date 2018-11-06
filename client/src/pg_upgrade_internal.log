@@ -1,0 +1,32 @@
+Running in verbose mode
+
+-----------------------------------------------------------------
+  pg_upgrade run on Tue Nov  6 00:29:15 2018
+-----------------------------------------------------------------
+
+You must identify the directory where the new cluster binaries reside.
+Please use the -B command-line option or the PGBINNEW environment variable.
+Running in verbose mode
+
+-----------------------------------------------------------------
+  pg_upgrade run on Tue Nov  6 00:29:32 2018
+-----------------------------------------------------------------
+
+You must identify the directory where the new cluster binaries reside.
+Please use the -B command-line option or the PGBINNEW environment variable.
+Running in verbose mode
+
+-----------------------------------------------------------------
+  pg_upgrade run on Tue Nov  6 00:30:10 2018
+-----------------------------------------------------------------
+
+check for "/usr/local/Cellar/postgresql/10.1/bin" failed: No such file or directory
+
+Running in verbose mode
+
+-----------------------------------------------------------------
+  pg_upgrade run on Tue Nov  6 00:30:57 2018
+-----------------------------------------------------------------
+
+check for "/usr/local/Cellar/postgresql/10.1/bin" failed: No such file or directory
+

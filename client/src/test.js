@@ -55,15 +55,26 @@
 //  20 | Michael Martin     | {45,151,161,222,335}  | mm528372
 //  13 | Andrew Collins     | {45,193,231,257,326}  | collns56
 
-const addThree = (str, id) => {
-  arr = str.replace('{', '').replace('}', '').split(',')
-  arr = arr.map(num => {
-    num = parseInt(num) + 3;
-    return num.toString()
-  });
-  return 'update users set teams_2018 = \'{' + arr.join(',') + '}\' where id=' + id.toString() + ';';
-}
+// heroku pg:pull postgresql-rigid-35531 five_alive_2018 --app five-alive-2018
 
-console.log(addThree('{42,190,228,254,323}', 13))
+// pg_upgrade -v \
+//     -d /usr/local/var/postgres \
+//     -D /usr/local/var/postgres10.1 \
+//     -b /usr/local/Cellar/postgresql/9.6.4/bin/ \
+//     -B /usr/local/Cellar/postgresql/10.1/bin
 
+// cp -a /users/bbansavage/Library/Application\ Support/Postgres/var-9.6/. /usr/local/var/postgres
 
+// DATABASE_URL=$(heroku config:get DATABASE_URL -a your-app) your_process
+
+  // const validCharacters = ['a','b','c','d','e','f','g','h','i','j','k','l','m','n','o','p','q','r','s','t','u','v','w','x','y','z']
+
+  // const caps = (str) => {
+  //   return str.map(char => char.toUpperCase())
+  // }
+
+  // console.log(caps(validCharacters))
+
+  console.log(new Date())
+
+// insert into messages (user_id, user_name, text, created) values (3, 'Brendan Bansavage', 'test2', '2018-11-06T21:46:45.803Z');
