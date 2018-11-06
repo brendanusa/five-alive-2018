@@ -13,7 +13,7 @@ const Info = () => {
         <br></br>
       <br></br>
       <h2>RULES</h2>
-      <p>The rules are simple, and pleasing to the eye - participants select five teams that collectively won no more than 100 games the previous season. The person whose teams win the most games this year wins the grand prize: a Fast & The Furious DVD box set and a 6-pack of Doritos-flavored Mountain Dew.</p>
+      <p>The rules are simple, and pleasing to the eye - participants select five teams that collectively won no more than 100 games the previous season. The person whose teams win the most games this year (excluding non-NCAA postseason tournaments - i.e. NIT, CIT, etc.) wins the grand prize: a Fast & The Furious DVD box set and a 6-pack of Doritos-flavored Mountain Dew.</p>
       <br></br>
       <h2>2018-19</h2>
       <p>This season promises to be our greatest yet, with the following #5ALIVE legends already confirming their commitment:
