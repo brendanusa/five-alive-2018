@@ -2,6 +2,10 @@ import React, { Component } from 'react';
 import { BrowserRouter as Router, Link } from 'react-router-dom';
 import "./Login.css";
 import Testimonials from './Testimonials';
+import Chat from './Chat';
+import { subscribeToTimer } from './api';
+
+console.log(typeof subscribeToTimer)
 
 class Login extends Component {
 
@@ -11,8 +15,12 @@ class Login extends Component {
       user: {},
       passwordFeedback: '',
       post: '',
-      authenticated: false
+      authenticated: false,
+      timestamp: 'nothing yet'
     }
+    subscribeToTimer((err, timestamp) => this.setState({ 
+      timestamp 
+    }));
   }
 
   // componentDidMount() {
@@ -53,34 +61,37 @@ class Login extends Component {
   render() {
     return (
       <div className="Login">
-        <div id="logincontainer">
-          <p><strong>Come get some nice #5ALIVE</strong></p>
-            <form onSubmit={this.handleSubmit}>
-              <p>Enter password:</p>
-              <input
-                type="text"
-                value={this.state.post}
-                onChange={e => this.setState({post: e.target.value})}
-              />
-              <button type="submit" style={{marginLeft:"10px"}}>Submit</button>
-            </form>
-          <br></br>
-          <p className="notification">{this.state.passwordFeedback}</p>
-          <p>
-            {this.state.authenticated ? 
-              <Link 
-                to={{ 
-                pathname: '/teamselect',
-                state: {user: this.state.user} 
-              }}><strong>CLICK HERE TO PICK YOUR TEAMS</strong></Link>
-              : null
-            }
-          </p>
-        </div>
-        <Testimonials />
+      {this.state.timestamp}
+        <Chat />
       </div>
     );
   }
 }
 
 export default Login;
+
+        // <div id="logincontainer">
+        //   <p><strong>Come get some nice #5ALIVE</strong></p>
+        //     <form onSubmit={this.handleSubmit}>
+        //       <p>Enter password:</p>
+        //       <input
+        //         type="text"
+        //         value={this.state.post}
+        //         onChange={e => this.setState({post: e.target.value})}
+        //       />
+        //       <button type="submit" style={{marginLeft:"10px"}}>Submit</button>
+        //     </form>
+        //   <br></br>
+        //   <p className="notification">{this.state.passwordFeedback}</p>
+        //   <p>
+        //     {this.state.authenticated ? 
+        //       <Link 
+        //         to={{ 
+        //         pathname: '/teamselect',
+        //         state: {user: this.state.user} 
+        //       }}><strong>CLICK HERE TO PICK YOUR TEAMS</strong></Link>
+        //       : null
+        //     }
+        //   </p>
+        // </div>
+        // <Testimonials />
