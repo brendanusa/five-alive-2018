@@ -9,14 +9,42 @@ var db = pgp('postgres://akppnbjeltipma:d83a3e7a826cd09a205551a1e4063b60f365201c
 // DATABASE_URL=$(heroku config:get DATABASE_URL -a five-alive-2018) your_process
 // var db = pgp(process.env.DATABASE_URL || 'postgres://bbansavage:pass@localhost:5432/five_alive_2018');
 
+const io = require('socket.io')();
+
+io.on('connection', (client) => {
+  client.on('subscribeToTimer', (interval) => {
+    console.log('client is subscribing to timer with interval ', interval);
+    setInterval(() => {
+      client.emit('timer', new Date());
+    }, interval);
+  });
+  // client.on('message', (messages) => {
+  //   console.log('client is subscribing to messages: ', messages);
+  //   app.get('/api/messages', (req, res) => {
+  //     console.log('retrieving messages inside socket...')
+  //     db.query('select * from messages limit 50')
+  //       .then((data) => {
+  //         res.send(data);
+  //       })
+  //       .catch(error => {
+  //         console.log('ERROR', error)
+  //         res.send(error);
+  //       })
+  //   })
+  //   client.emit('newMessages', messages);
+  // })
+});
+
+io.listen(8000);
+
 console.log('TEST', process.env.NODE_ENV)
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
-app.get('/api/hello', (req, res) => {
-  res.send({ express: 'Hello From Express' });
-});
+// app.get('/api/hello', (req, res) => {
+//   res.send({ express: 'Hello From Express' });
+// });
 
 app.get('/api/password', (req, res) => {
   console.log('password received!')

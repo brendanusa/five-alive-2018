@@ -3,6 +3,9 @@ import { BrowserRouter as Router, Link } from 'react-router-dom';
 import "./Login.css";
 import Testimonials from './Testimonials';
 import Chat from './Chat';
+import { subscribeToTimer } from './api';
+
+console.log(typeof subscribeToTimer)
 
 class Login extends Component {
 
@@ -12,8 +15,12 @@ class Login extends Component {
       user: {},
       passwordFeedback: '',
       post: '',
-      authenticated: false
+      authenticated: false,
+      timestamp: 'nothing yet'
     }
+    subscribeToTimer((err, timestamp) => this.setState({ 
+      timestamp 
+    }));
   }
 
   // componentDidMount() {
@@ -54,6 +61,7 @@ class Login extends Component {
   render() {
     return (
       <div className="Login">
+      {this.state.timestamp}
         <Chat />
       </div>
     );

@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import './Chat.css';
 import Message from './Message';
+// import { subscribeToMessages } from './api';
 
 class Chat extends Component {
 
@@ -10,8 +11,12 @@ class Chat extends Component {
       isAuthenticated: false,
       post: '',
       user: {},
-      messages: []
+      messages: [],
+      temp: 'null'
     }
+    // subscribeToMessages((err, messages) => this.setState({
+    //   temp: messages
+    // }))
   }
 
   componentDidMount() {
@@ -52,11 +57,11 @@ class Chat extends Component {
       return true;
     }
 
-    fetch('/api/messages')
-      .then(res => res.json())
-      .then(data => {
-        this.setState({messages: data})
-      })
+    // fetch('/api/messages')
+    //   .then(res => res.json())
+    //   .then(data => {
+    //     this.setState({messages: data})
+    //   })
   }
 
 
@@ -135,6 +140,7 @@ class Chat extends Component {
   render() {
     return (
       <div className="Chat">
+        {this.state.temp}
         <div className="Messages">
           {this.state.messages.map((message, i) => {
             return (
