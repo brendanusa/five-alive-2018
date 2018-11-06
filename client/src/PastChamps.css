@@ -19,6 +19,11 @@
   padding: 8px;
 }
 
+.champs h2 {
+  border: 2px solid;
+  border-radius: 8px;
+}
+
 .champscontainer {
   display: flex;
   justify-content: center;

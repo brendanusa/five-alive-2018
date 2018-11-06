@@ -5,8 +5,8 @@ import { BrowserRouter as Router, Link } from 'react-router-dom';
 const Info = () => {
 
   return (
-    <div className="infocontainer">
-      <div className="info">
+    <div className="InfoContainer">
+      <div className="Info">
       <h2>HISTORY</h2>
       <p>The first #5ALIVE was conducted by Ryan Corbalis back in 1879 in his small village in Connecticut. All records that year were kept on elk hides and then burned ceremonially at the end of the season, a tradition that we continue today.</p>
         <Link to={'/pastchamps'}>Click to see our past winners</Link>

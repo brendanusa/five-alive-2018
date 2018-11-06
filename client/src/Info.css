@@ -1,4 +1,4 @@
-.info {
+.Info {
   /*position: 'macKenzie';*/
   font-weight: bold;
   display: inline-block;
@@ -16,12 +16,12 @@
   font-size: 14px;
 }
 
-h2 {
+.Info h2 {
   border: 2px solid;
   border-radius: 8px;
 }
 
-.infocontainer {
+.InfoContainer {
   display: flex;
   justify-content: center;
   margin-top: 80px;
