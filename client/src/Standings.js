@@ -15,7 +15,13 @@ class Standings extends Component {
     fetch('/api/standings')
       .then(res => res.json())
       .then(data => {
-        console.log(data)
+        data = data.sort((a, b) => {
+          if (a.name < b.name) {
+            return -1;
+          } else {
+            return 1;
+          }
+        })
         this.setState({standings: data})
       })
   }
