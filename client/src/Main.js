@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { BrowserRouter as Router, Route } from 'react-router-dom';
 import Login from './Login';
 import TeamSelect from './TeamSelect';
-import Standings from './Standings';
+import StandingsOld from './StandingsOld';
 import PastChamps from './PastChamps';
 
 class Main extends Component {
@@ -15,7 +15,7 @@ class Main extends Component {
             <Route path='/' exact component={Login}/>
             <Route path='/login' component={Login}/>
             <Route path='/teamselect' component={TeamSelect}/>
-            <Route path='/standings' component={Standings}/>
+            <Route path='/standingsold' component={Standings}/>
             <Route path='/pastchamps' component={PastChamps}
           </div>
         </Router>

@@ -78,3 +78,216 @@
   console.log(new Date())
 
 // insert into messages (user_id, user_name, text, created) values (3, 'Brendan Bansavage', 'test2', '2018-11-06T21:46:45.803Z');
+
+var obj = {'Alex Raup':
+   [ 'Connecticut',
+     'George Mason',
+     'Penn State',
+     'Princeton',
+     'Virginia' ],
+  'Justin McNamee':
+   [ 'Connecticut',
+     'Georgetown',
+     'Kansas',
+     'Louisiana State',
+     'Washington' ],
+  'Reed Lyon':
+   [ 'Gonzaga', 
+   'Iowa State', 
+   'Saint Louis', 
+   'Texas', 
+   'Wisconsin' ],
+  'Dillon Smith':
+   [ 'Harvard',
+     'Kansas State',
+     "St. John's (NY)",
+     'Tennessee',
+     'Wisconsin' ],
+  'Rob Coloney':
+   [ 'Kansas',
+     'Louisiana State',
+     'Nevada',
+     'Pepperdine',
+     "St. John's (NY)" ],
+  'Greg Ortiz':
+   [ 'Duke', 
+   'George Mason', 
+   'Illinois State', 
+   'Indiana', 
+   'Texas' ],
+  'French-Reiman':
+   [ 'Indiana',
+     'Kentucky',
+     'Louisiana State',
+     'Oregon',
+     "St. John's (NY)" ],
+  'Casey Schutte':
+   [ 'Harvard',
+     'Marquette',
+     'Michigan State',
+     'Minnesota',
+     'Wisconsin' ],
+  'Patrick Grove':
+   [ 'Florida', 
+   'Kentucky', 
+   'Pittsburgh', 
+   'Vanderbilt', 
+   'Virginia' ],
+  'Jeremy Aquino': 
+  [ 'Duke', 
+  'Indiana', 
+  'Maryland', 
+  'Oregon', 
+  'Vanderbilt' ],
+  'Gilberto Estupinan':
+   [ 'Nevada',
+     'Southern Methodist',
+     "St. John's (NY)",
+     'Syracuse',
+     'Wisconsin' ],
+  'Amol Vohra':
+   [ 'Belmont',
+     'Kentucky',
+     'Oregon',
+     'UC-Irvine',
+     'University of California' ],
+  'Avi Ringer':
+   [ 'Duke', 
+   'Indiana', 
+   'Iowa State', 
+   'North Carolina', 
+   'Wisconsin' ],
+  'Coreen Kopper':
+   [ 'Florida State',
+     'Iowa State',
+     'Kentucky',
+     'Syracuse',
+     'Wisconsin' ],
+  'Kevin Meuse':
+   [ 'Indiana',
+     'Louisiana State',
+     'Nevada',
+     "St. John's (NY)",
+     'Virginia Tech' ],
+  'Michael Martin':
+   [ 'Central Florida',
+     'Louisiana State',
+     'Marquette',
+     'Notre Dame',
+     'Washington' ],
+  'Johnny Vohra':
+   [ 'Florida State',
+     'Kentucky',
+     'Oregon',
+     "St. John's (NY)",
+     'Vanderbilt' ],
+  'Adam Sidney': 
+  [ 'Duke', 
+  'Harvard', 
+  'Indiana', 
+  'Iowa State', 
+  'Oregon' ],
+  'Andrew Soltish': 
+  [ 'Bryant', 
+  'Kansas', 
+  'Michigan', 
+  'Siena', 
+  'Syracuse' ],
+  'Chris Clark':
+   [ 'Central Florida',
+     'Indiana',
+     'Seton Hall',
+     'Texas A&M',
+     'Texas Christian' ],
+  'Mark McGill':
+   [ 'Connecticut',
+     'Duke',
+     'Northern Kentucky',
+     "St. John's (NY)",
+     'UC-Irvine' ],
+  'Troy Davis':
+   [ 'Connecticut', 
+   'Davidson', 
+   'Indiana', 
+   'Kentucky', 
+   'Oregon' ],
+  'Brendan Bansavage':
+   [ 'Central Florida',
+     'Connecticut',
+     'Nevada',
+     'Oregon',
+     'Wisconsin' ],
+  'JP Kelly':
+   [ 'Canisius',
+     'Long Island University',
+     'Massachusetts',
+     'Old Dominion',
+     'Southern Utah' ],
+  'Noah Garber':
+   [ 'Connecticut',
+     'Kentucky',
+     "St. John's (NY)",
+     'Syracuse',
+     'Washington' ],
+  'Michael Agresti':
+   [ 'Duke', 
+   'Indiana', 
+   'Iowa State', 
+   'Kentucky', 
+   "St. John's (NY)" ],
+  'Joe Franza':
+   [ 'Indiana', 
+   'Kansas State', 
+   'Kentucky', 
+   'Richmond', 
+   'UCLA' ],
+  'Dan Vogel':
+   [ 'Central Florida',
+     'Nevada',
+     'Oregon',
+     'Saint Louis',
+     'Vanderbilt' ],
+  'Chris Godfrey':
+   [ 'Duke', 
+   'Kentucky', 
+   'Ohio State', 
+   'San Jose State', 
+   'Wisconsin' ],
+  'Tim Falkner':
+   [ 'Evansville',
+     'Maine',
+     'McNeese State',
+     'Texas',
+     'Wichita State' ],
+  'Andrew Collins':
+   [ 'Duke', 
+   'Harvard', 
+   'Kentucky', 
+   'Pepperdine', 
+   'Washington' ],
+  'Patrick Godfrey': 
+  [ 'Dayton', 
+  'Duke', 
+  'Georgetown', 
+  'Oregon', 
+  'Stanford' ]};
+
+var str = JSON.stringify(obj)
+
+// while (str.includes(':')) {
+//   str = str.replace(':', '')
+// }
+
+while (str.includes('],')) {
+  str = str.replace('],', '\n')
+}
+
+while (str.includes('[')) {
+  str = str.replace('[', '')
+}
+
+console.log(str)
+// for (var key in obj) {
+
+//   console.log(key, ': ', obj[key])
+// }

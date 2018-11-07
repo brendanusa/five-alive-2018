@@ -20,13 +20,13 @@ const Header = () => (
     </strong></span>
     <span className="link">
         <span>
-          <Link to={'/login'}>HOME</Link>
+          <Link to={'/home'}>HOME</Link>
         </span>
         <span>
           <Link to={'/info'}>INFO</Link>
         </span>
         <span>
-          <Link to={'/standings'}>STANDINGS</Link>
+          <Link to={'/standingsold'}>STANDINGS</Link>
         </span>
     </span>
   </header>

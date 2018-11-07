@@ -9,38 +9,80 @@ var db = pgp(process.env.DATABASE_URL || 'postgres://akppnbjeltipma:d83a3e7a826c
 // DATABASE_URL=$(heroku config:get DATABASE_URL -a five-alive-2018) your_process
 // var db = pgp(process.env.DATABASE_URL || 'postgres://bbansavage:pass@localhost:5432/five_alive_2018');
 
-const io = require('socket.io')();
-
-io.on('connection', (client) => {
-  client.on('subscribeToTimer', (interval) => {
-    console.log('client is subscribing to timer with interval ', interval);
-    setInterval(() => {
-      client.emit('timer', new Date());
-    }, interval);
-  });
-  // client.on('message', (messages) => {
-  //   console.log('client is subscribing to messages: ', messages);
-  //   app.get('/api/messages', (req, res) => {
-  //     console.log('retrieving messages inside socket...')
-  //     db.query('select * from messages limit 50')
-  //       .then((data) => {
-  //         res.send(data);
-  //       })
-  //       .catch(error => {
-  //         console.log('ERROR', error)
-  //         res.send(error);
-  //       })
-  //   })
-  //   client.emit('newMessages', messages);
-  // })
+server = app.listen(8000, function(){
+  console.log('socket.io server is running on port 8080')
 });
 
-io.listen(8000);
+// const io = require('socket.io')();
+
+var socket = require('socket.io');
+io = socket(server);
+
+io.on('connection', (socket) => {
+  console.log(socket.id);
+
+  socket.on('SEND_MESSAGE', function(data){
+    io.emit('RECEIVE_MESSAGE', data);
+  })
+});
+
+// io.on('connection', (client) => {
+//   client.on('subscribeToTimer', (interval) => {
+//     console.log('client is subscribing to timer with interval ', interval);
+//     setInterval(() => {
+//       client.emit('timer', new Date());
+//     }, interval);
+//   });
+//   client.on('message', (messages) => {
+//     console.log('client is subscribing to messages: ', messages);
+//     // app.get('/api/messages', (req, res) => {
+//     //   console.log('retrieving messages inside socket...')
+//     //   db.query('select * from messages limit 50')
+//     //     .then((data) => {
+//     //       res.send(data);
+//     //     })
+//     //     .catch(error => {
+//     //       console.log('ERROR', error)
+//     //       res.send(error);
+//     //     })
+//     // })
+//     client.emit('newMessages', messages);
+//   })
+// });
+
+// io.listen(8000);
 
 console.log('TEST', process.env.NODE_ENV)
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
+
+// const temp = () => {
+//   const teamsObj = {}
+//   const picks = {}
+//   db.query('select * from teams;')
+//     .then(teams => {
+//       teams.forEach(team => {
+//         teamsObj[team.id] = team.name;
+//       })
+//     })
+//     .then(() => {
+//       db.query('select name, teams_2018 from users;')
+//         .then(users => {
+//           users.forEach(user => {
+//             if (user.name !== 'Ryan Hollywood Corbalis') {
+//               picks[user.name] = [];
+//               user.teams_2018.forEach(team => {
+//                 picks[user.name].push(teamsObj[team])
+//               })
+//             }
+//           })
+//           console.log(picks)
+//         })
+//     })
+// }
+
+// temp();
 
 // app.get('/api/hello', (req, res) => {
 //   res.send({ express: 'Hello From Express' });
@@ -57,6 +99,23 @@ app.get('/api/password', (req, res) => {
     .catch(error => {
       console.log('ERROR', error)
       res.send(error);
+    })
+})
+
+app.get('/api/standings', (req, res) => {
+  console.log('server standings')
+  db.query('select name, teams_2018 from users;')
+    .then(users => {
+      console.log(users)
+      res.send(users)
+      // users.forEach(user => {
+      //   if (user.name !== 'Ryan Hollywood Corbalis') {
+      //     picks[user.name] = [];
+      //     user.teams_2018.forEach(team => {
+      //       picks[user.name].push(teamsObj[team])
+      //     })
+      //   }
+      // })
     })
 })
 
@@ -78,6 +137,20 @@ app.get('/api/teams', (req, res) => {
 app.get('/api/messages', (req, res) => {
   console.log('retrieving messages...')
   db.query('select * from messages limit 50')
+    .then((data) => {
+      res.send(data);
+    })
+    .catch(error => {
+      console.log('ERROR', error)
+      res.send(error);
+    })
+})
+
+app.get('/api/message', (req, res) => {
+  console.log('posting message...')
+  console.log('id', req.query.userid, 'name', req.query.username, 'text', req.query.text)
+  var timestamp = new Date()
+  db.query(`insert into messages (user_id, user_name, text) values (${req.query.userid}, '${req.query.username}', '${req.query.text}');`)
     .then((data) => {
       res.send(data);
     })
