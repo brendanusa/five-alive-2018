@@ -1,0 +1,27 @@
+.StandingsContainer {
+  display: flex;
+  flex-direction: column;
+  font-weight: bold;
+  /*margin: auto;*/
+  /*position: relative;*/
+  /*margin: 80px 80px 80px 80px;*/
+  height: 500px;
+  border: 5px solid;
+  border-color: #ff6e00;
+  border-radius: 8px;
+  padding: 12px;
+  text-align: left;
+  background-color: rgba(0, 0, 0, 0.5);
+  animation: FadeIn 1s ease;
+}
+
+.Standings {
+  overflow: scroll;
+}
+
+.StandingsContainer h3 {
+  font-size: 12px;
+  border: 2px solid;
+  border-radius: 8px;
+  text-align: center;
+}

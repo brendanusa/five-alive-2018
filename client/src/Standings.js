@@ -29,6 +29,7 @@ class Standings extends Component {
   render() {
     return (
     <div className="StandingsContainer">
+      <h3>PICKS</h3>
       <div className="Standings">
         <div>
           {this.state.standings.map((standing, i) => {
