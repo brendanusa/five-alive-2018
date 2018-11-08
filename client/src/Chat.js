@@ -13,9 +13,11 @@ class Chat extends Component {
       post: '',
       user: {},
       messages: [],
+      port: 5000
     }
 
-    this.socket = io('localhost:8000');
+    // this.socket = io(`localhost:${this.state.port}`);
+    this.socket = io();
 
     var context = this;
 
@@ -39,6 +41,17 @@ class Chat extends Component {
       .then(data => {
         this.setState({messages: data})
       })
+
+    // fetch('/api/port')
+    //   .then(res => {
+    //     console.log(res)
+    //     return res.json()
+    //   })
+    //   .then(data => {
+    //     console.log(typeof data)
+    //     this.setState({port: data})
+    //   })
+    //   .then(() => console.log('PORT', this.state.port))
   }
 
   checkChars = message => {

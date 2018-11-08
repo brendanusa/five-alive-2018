@@ -9,8 +9,8 @@ var db = pgp(process.env.DATABASE_URL || 'postgres://akppnbjeltipma:d83a3e7a826c
 // DATABASE_URL=$(heroku config:get DATABASE_URL -a five-alive-2018) your_process
 // var db = pgp(process.env.DATABASE_URL || 'postgres://bbansavage:pass@localhost:5432/five_alive_2018');
 
-server = app.listen(8000, function(){
-  console.log('socket.io server is running on port 8080')
+server = app.listen(port, function(){
+  console.log('socket.io server is running on port', port)
 });
 
 // const io = require('socket.io')();
@@ -19,12 +19,20 @@ var socket = require('socket.io');
 io = socket(server);
 
 io.on('connection', (socket) => {
+  console.log('CONNECTION')
   console.log(socket.id);
 
   socket.on('SEND_MESSAGE', function(data){
     io.emit('RECEIVE_MESSAGE', data);
   })
+
+  socket.on('disconnect', () => console.log('Client disconnected'));
 });
+
+app.get('/api/port', (req, res) => {
+  console.log('PORT', port, typeof port)
+  res.send(port.toString())
+})
 
 // io.on('connection', (client) => {
 //   client.on('subscribeToTimer', (interval) => {
@@ -51,8 +59,6 @@ io.on('connection', (socket) => {
 // });
 
 // io.listen(8000);
-
-console.log('TEST', process.env.NODE_ENV)
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
@@ -179,4 +185,4 @@ if (process.env.NODE_ENV === 'production') {
   });
 }
 
-app.listen(port, () => console.log(`Listening on port ${port}`));
+// app.listen(port, () => console.log(`Listening on port ${port}`));
