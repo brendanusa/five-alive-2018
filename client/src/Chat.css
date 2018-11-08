@@ -9,6 +9,7 @@
   display: flex;
   flex-direction: column;
   justify-content: space-evenly;
+  animation: FadeIn 2s ease;
 }
 
 .Messages {
@@ -36,8 +37,7 @@
 }
 
 .ChatFooter {
-
-  margin: 10px 10px 10px 10px;
+  margin: 4px 10px 16px 10px;
 }
 
 .ChatFooter span {

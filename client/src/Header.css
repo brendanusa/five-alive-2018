@@ -30,7 +30,7 @@ a {
   text-align: center;
   display: inline-block;
   transform: rotate(-2deg);
-  animation: TitleSqueeze 1s ease
+  animation: TitleSqueeze 1s ease;
 }
 
 .bordered {
@@ -50,7 +50,7 @@ a {
   top: 32px;
   right: -32px;
   align-items: flex-end;
-  animation: 1.5s FadeIn;
+  animation: 3s FadeIn;
 }
 
 .link span {
