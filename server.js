@@ -106,7 +106,6 @@ app.get('/api/standings', (req, res) => {
   console.log('server standings')
   db.query('select name, teams_2018 from users;')
     .then(users => {
-      console.log(users)
       res.send(users)
       // users.forEach(user => {
       //   if (user.name !== 'Ryan Hollywood Corbalis') {

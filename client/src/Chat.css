@@ -1,5 +1,48 @@
 .Chat {
   border: 5px solid;
-  border-color: white;
+  border-color: #00c0ce;
   border-radius: 8px;
+  margin-right: 80px;
+  width: 100%;
+  background-color: rgba(0, 0, 0, 0.7);
+  height: 600px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+}
+
+.Messages {
+  padding: 12px;
+  height: 80%;
+}
+
+.ChatHeader {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  font-weight: bold;
+  font-size: 12px;
+  padding: 8px;
+  background-color: rgba(0, 0, 0, 0.8);
+  border-radius: 8px;
+}
+
+.Messages {
+  background-color: rgba(255, 255, 255, 0.2);
+  padding: 12px;
+  margin: 0px 10px 10px 10px;
+  border-radius: 8px;
+  overflow: scroll;
+}
+
+.ChatFooter {
+
+  margin: 10px 10px 10px 10px;
+}
+
+.ChatFooter span {
+  color: #fff200;
+  font-weight: bold;
+  font-size: 14px;
+  padding: 8px;
 }

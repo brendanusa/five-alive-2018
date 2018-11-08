@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import './StandingsTeamList.css';
 
 class StandingsTeamList extends Component {
 
@@ -363,13 +364,16 @@ class StandingsTeamList extends Component {
 
     return(
       <div className="StandingsTeamList">
-        {this.props.teams.map(team => {
-          return (
-            <div>
-              {this.teamsMap[team]}
-            </div>
-          )
-        })}
+        <div className="pointer"></div>
+          <div className="StandingsTeamListContainer">
+            {this.props.teams.map(team => {
+              return (
+                <div>
+                  {this.teamsMap[team]}
+                </div>
+              )
+            })}
+          </div>
       </div>
     )
 

@@ -36,8 +36,8 @@ class Home extends Component {
   render() {
     return (
       <div className="Home">
-        <Chat />
-        <Standings />
+      <div><Standings /></div>
+      <div><Chat /></div>
       </div>
     );
   }

@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import './Chat.css';
 import Message from './Message';
 import io from "socket.io-client";
+import logo from './fivealivelogo.jpg'
 
 class Chat extends Component {
 
@@ -13,6 +14,7 @@ class Chat extends Component {
       user: {},
       messages: [],
     }
+
     this.socket = io('localhost:8000');
 
     var context = this;
@@ -23,37 +25,15 @@ class Chat extends Component {
         .then(data => {
           context.setState({messages: data})
         })
+
     });
 
     this.validCharacters = ['a','b','c','d','e','f','g','h','i','j','k','l','m','n','o','p','q','r','s','t','u','v','w','x','y','z','A',
-    'B','C','D','E','F',
-    'G',
-    'H',
-    'I',
-    'J',
-    'K',
-    'L',
-    'M',
-    'N',
-    'O',
-    'P',
-    'Q',
-    'R',
-    'S',
-    'T',
-    'U',
-    'V',
-    'W',
-    'X',
-    'Y',
-    'Z','!','?','-','+','1','2','3','4','5','6','7','8','9','0'];
+    'B','C','D','E','F','G','H','I','J','K','L','M','N','O','P','Q','R','S','T','U','V','W','X','Y','Z','!','?','-','+','1','2','3','4','5','6','7','8','9','0','"'];
 
   }
 
   componentDidMount() {
-
-
-
     fetch('/api/messages')
       .then(res => res.json())
       .then(data => {
@@ -61,16 +41,15 @@ class Chat extends Component {
       })
   }
 
-    checkChars = message => {
-      // let isMessageValid = true;
-      for (let i = 0; i < message.length; i++) {
-        if (!this.validCharacters.includes(message[i])) {
-          console.log('message[i]', message[i])
-          return false;
-        }
+  checkChars = message => {
+    for (let i = 0; i < message.length; i++) {
+      if (!this.validCharacters.includes(message[i])) {
+        console.log('message[i]', message[i])
+        return false;
       }
-      return true;
     }
+    return true;
+  }
 
   handlePasswordSubmit = e => {
     e.preventDefault();
@@ -88,36 +67,6 @@ class Chat extends Component {
             window.alert('Invalid password!')
           }
         })
-
-    // const ChatFooter = () => {
-
-    //   if (!this.state.isAuthenticated) {
-    //     return (
-    //       <form onSubmit={this.handlePasswordSubmit}>
-    //               <p>Enter password:</p>
-    //               <input
-    //                 type="text"
-    //                 value={this.state.post}
-    //                 onChange={e => this.setState({post: e.target.value})}
-    //               />
-    //               <button type="submit" style={{marginLeft:"10px"}}>Submit</button>
-    //             </form>
-    //     )
-    //   } else {
-    //     return (
-    //       <form onSubmit={this.handleMessageSubmit}>
-    //               <p>{this.state.user.name}:</p>
-    //               <input
-    //                 type="text"
-    //                 value={this.state.post}
-    //                 onChange={e => this.setState({post: e.target.value})}
-    //               />
-    //               <button type="submit" style={{marginLeft:"10px"}}>Send!</button>
-    //             </form>
-    //     )
-    //   }
-
-    // }
   }
 
 
@@ -128,7 +77,7 @@ class Chat extends Component {
       return window.alert('Please enter between 1 and 200 characters!');
     }
     if (!this.checkChars(this.state.post)) {
-      return window.alert('Letters, numbers, !, ?, +, and - only! No fancy stuff.');
+      return window.alert('Letters, numbers, !, ?, +, ", and - only! No fancy stuff.');
     }
     fetch(`/api/message?userid=${this.state.user.id}&username=${this.state.user.name}&text=${this.state.post}`)
       .then(res => res.json())
@@ -157,6 +106,11 @@ class Chat extends Component {
   render() {
     return (
       <div className="Chat">
+        <div className="ChatHeader">
+          <span>CHAT POWERED BY</span>
+          <span><img src={logo} alt="logo" style={{width:"145px", height:"32px"}} /></span>
+          <span>CHAT TECHNOLOGY</span>
+        </div>
         <div className="Messages">
           {this.state.messages.map((message, i) => {
             return (
@@ -166,12 +120,12 @@ class Chat extends Component {
         </div>
         <div className="ChatFooter">
           <form onSubmit={this.handleSubmit}>
-            <span>{this.state.isAuthenticated ? `Posting as ${this.state.user.name}! ` : 'Enter password to post messages-->'}</span>
+            <span>{this.state.isAuthenticated ? `Posting as ${this.state.user.name}! ` : 'Enter password to join-->'}</span>
             <input
               type="text"
               value={this.state.post}
               onChange={e => this.setState({post: e.target.value})}
-              style={{width:"400px"}}
+              style={{width:"40%"}}
             />
             <button type="submit" style={{marginLeft:"10px"}}>{this.state.isAuthenticated ? 'Send' : 'Submit'}</button>
           </form>
