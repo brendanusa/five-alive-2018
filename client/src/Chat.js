@@ -21,11 +21,17 @@ class Chat extends Component {
 
     var context = this;
 
+    this.updateScroll = () => {
+      var element = document.getElementById("scrollhere");
+      element.scrollTop = element.scrollHeight;
+    }
+
     this.socket.on('RECEIVE_MESSAGE', function(data){
       fetch('/api/messages')
         .then(res => res.json())
         .then(data => {
           context.setState({messages: data})
+          context.updateScroll()
         })
 
     });
@@ -124,7 +130,7 @@ class Chat extends Component {
           <span><img src={logo} alt="logo" style={{width:"145px", height:"32px"}} /></span>
           <span>CHAT TECHNOLOGY</span>
         </div>
-        <div className="Messages">
+        <div className="Messages" id="scrollhere">
           {this.state.messages.map((message, i) => {
             return (
               <Message key={i} author={message.user_name} text={message.text} timestamp={message.created}/>

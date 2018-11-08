@@ -34,65 +34,8 @@ app.get('/api/port', (req, res) => {
   res.send(port.toString())
 })
 
-// io.on('connection', (client) => {
-//   client.on('subscribeToTimer', (interval) => {
-//     console.log('client is subscribing to timer with interval ', interval);
-//     setInterval(() => {
-//       client.emit('timer', new Date());
-//     }, interval);
-//   });
-//   client.on('message', (messages) => {
-//     console.log('client is subscribing to messages: ', messages);
-//     // app.get('/api/messages', (req, res) => {
-//     //   console.log('retrieving messages inside socket...')
-//     //   db.query('select * from messages limit 50')
-//     //     .then((data) => {
-//     //       res.send(data);
-//     //     })
-//     //     .catch(error => {
-//     //       console.log('ERROR', error)
-//     //       res.send(error);
-//     //     })
-//     // })
-//     client.emit('newMessages', messages);
-//   })
-// });
-
-// io.listen(8000);
-
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
-
-// const temp = () => {
-//   const teamsObj = {}
-//   const picks = {}
-//   db.query('select * from teams;')
-//     .then(teams => {
-//       teams.forEach(team => {
-//         teamsObj[team.id] = team.name;
-//       })
-//     })
-//     .then(() => {
-//       db.query('select name, teams_2018 from users;')
-//         .then(users => {
-//           users.forEach(user => {
-//             if (user.name !== 'Ryan Hollywood Corbalis') {
-//               picks[user.name] = [];
-//               user.teams_2018.forEach(team => {
-//                 picks[user.name].push(teamsObj[team])
-//               })
-//             }
-//           })
-//           console.log(picks)
-//         })
-//     })
-// }
-
-// temp();
-
-// app.get('/api/hello', (req, res) => {
-//   res.send({ express: 'Hello From Express' });
-// });
 
 app.get('/api/password', (req, res) => {
   console.log('password received!')
@@ -164,17 +107,6 @@ app.get('/api/message', (req, res) => {
       res.send(error);
     })
 })
-
-// app.post('/api/world', (req, res) => {
-//   console.log(req.body.post);
-//   db.query(`INSERT into users (name) values ('${req.body.post}')`)
-//     .then(() => {
-//       res.send(`I received your POST request. This is what you sent me: ${req.body.post}`);
-//     })
-//     .catch(error => {
-//       res.send(error + 'here is the db url: ' + process.env.DATABASE_URL);
-//     });
-// });
 
 if (process.env.NODE_ENV === 'production') {
   // Serve any static files
