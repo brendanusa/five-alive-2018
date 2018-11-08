@@ -35,7 +35,7 @@ class Chat extends Component {
     });
 
     this.validCharacters = ['a','b','c','d','e','f','g','h','i','j','k','l','m','n','o','p','q','r','s','t','u','v','w','x','y','z','A',
-    'B','C','D','E','F','G','H','I','J','K','L','M','N','O','P','Q','R','S','T','U','V','W','X','Y','Z','!','?','-','+','1','2','3','4','5','6','7','8','9','0','"'];
+    'B','C','D','E','F','G','H','I','J','K','L','M','N','O','P','Q','R','S','T','U','V','W','X','Y','Z','!','?','-','+','1','2','3','4','5','6','7','8','9','0','"',',','.',' '];
 
   }
 
@@ -83,7 +83,7 @@ class Chat extends Component {
       return window.alert('Please enter between 1 and 200 characters!');
     }
     if (!this.checkChars(this.state.post)) {
-      return window.alert('Letters, numbers, !, ?, +, ", and - only! No fancy stuff.');
+      return window.alert('Letters, numbers, spaces, , , . , ,!, ?, +, ", and - only! No fancy stuff.');
     }
     fetch(`/api/message?userid=${this.state.user.id}&username=${this.state.user.name}&text=${this.state.post}`)
       .then(res => res.json())
