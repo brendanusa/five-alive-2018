@@ -84,7 +84,7 @@ app.get('/api/teams', (req, res) => {
 
 app.get('/api/messages', (req, res) => {
   console.log('retrieving messages...')
-  db.query('select * from messages limit 50')
+  db.query('select * from messages order by created limit 50')
     .then((data) => {
       res.send(data);
     })
