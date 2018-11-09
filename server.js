@@ -10,17 +10,14 @@ var db = pgp(process.env.DATABASE_URL || 'postgres://akppnbjeltipma:d83a3e7a826c
 // var db = pgp(process.env.DATABASE_URL || 'postgres://bbansavage:pass@localhost:5432/five_alive_2018');
 
 server = app.listen(port, function(){
-  console.log('socket.io server is running on port', port)
+  console.log('server is running on port', port)
 });
-
-// const io = require('socket.io')();
 
 var socket = require('socket.io');
 io = socket(server);
 
 io.on('connection', (socket) => {
-  console.log('CONNECTION')
-  console.log(socket.id);
+  console.log('Client connected on socket', socket.id)
 
   socket.on('SEND_MESSAGE', function(data){
     io.emit('RECEIVE_MESSAGE', data);
@@ -30,7 +27,6 @@ io.on('connection', (socket) => {
 });
 
 app.get('/api/port', (req, res) => {
-  console.log('PORT', port, typeof port)
   res.send(port.toString())
 })
 
@@ -38,9 +34,6 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
 app.get('/api/password', (req, res) => {
-  console.log('password received!')
-  console.log('DBQUERY', `SELECT * FROM users WHERE password = '${req.query.password}'`)
-  console.log(typeof db)
   db.query(`SELECT * FROM users WHERE password = '${req.query.password}'`)
     .then((data) => {
       res.send(data);
@@ -84,9 +77,10 @@ app.get('/api/teams', (req, res) => {
 
 app.get('/api/messages', (req, res) => {
   console.log('retrieving messages...')
-  db.query('select * from messages order by created limit 50')
+  db.query('select * from messages order by created desc limit 50')
     .then((data) => {
-      res.send(data);
+      console.log('DATA', data.reverse())
+      res.send(data.reverse());
     })
     .catch(error => {
       console.log('ERROR', error)
@@ -98,7 +92,17 @@ app.get('/api/message', (req, res) => {
   console.log('posting message...')
   console.log('id', req.query.userid, 'name', req.query.username, 'text', req.query.text)
   var timestamp = new Date()
-  db.query(`insert into messages (user_id, user_name, text) values (${req.query.userid}, '${req.query.username}', '${req.query.text}');`)
+  var message = req.query.text;
+  let i = 0;
+  while (i < message.length) {
+    if (message[i] === '\'') {
+      message = message.slice(0, i + 1) + '\'' + message.slice(i + 1);
+      i++;
+    }
+    i++
+  }
+  console.log('MESSAGE', message)
+  db.query(`insert into messages (user_id, user_name, text) values (${req.query.userid}, '${req.query.username}', '${message}');`)
     .then((data) => {
       res.send(data);
     })

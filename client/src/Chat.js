@@ -28,14 +28,14 @@ class Chat extends Component {
       fetch('/api/messages')
         .then(res => res.json())
         .then(data => {
-          context.setState({messages: data})
+          context.setState({messages: data.reverse()})
           context.updateScroll()
         })
 
     });
 
     this.validCharacters = ['a','b','c','d','e','f','g','h','i','j','k','l','m','n','o','p','q','r','s','t','u','v','w','x','y','z','A',
-    'B','C','D','E','F','G','H','I','J','K','L','M','N','O','P','Q','R','S','T','U','V','W','X','Y','Z','!','?','-','+','1','2','3','4','5','6','7','8','9','0','"',',','.',' '];
+    'B','C','D','E','F','G','H','I','J','K','L','M','N','O','P','Q','R','S','T','U','V','W','X','Y','Z','1','2','3','4','5','6','7','8','9','0','"',',','.',' ','\'','(',')','[', ']','|','@','$','%','^','*','=','_','!','?','-','+','/','<','>',';',':'];
 
   }
 
@@ -43,14 +43,15 @@ class Chat extends Component {
     fetch('/api/messages')
       .then(res => res.json())
       .then(data => {
-        this.setState({messages: data})
+        this.setState({messages: data.reverse()})
+        this.updateScroll()
       })
+
   }
 
   checkChars = message => {
     for (let i = 0; i < message.length; i++) {
       if (!this.validCharacters.includes(message[i])) {
-        console.log('message[i]', message[i])
         return false;
       }
     }
@@ -59,13 +60,10 @@ class Chat extends Component {
 
   handlePasswordSubmit = e => {
     e.preventDefault();
-      console.log(this.state.post)
       fetch('/api/password?password=' + this.state.post)
         .then(res => res.json())
         .then(data => {
-          console.log(data[0])
           if (data[0]) {
-            console.log(data[0]);
             this.setState({user: data[0]});
             this.setState({isAuthenticated: true});
             this.setState({post: ''})
@@ -78,17 +76,15 @@ class Chat extends Component {
 
   handleMessageSubmit = e => {
     e.preventDefault();
-    console.log(this.state.post)
     if (this.state.post.length === 0 || this.state.post.length > 200) {
-      return window.alert('Please enter between 1 and 200 characters!');
+      return window.alert('Please enter between 1 and 200 characters');
     }
     if (!this.checkChars(this.state.post)) {
-      return window.alert('Letters, numbers, spaces, , , . , ,!, ?, +, ", and - only! No fancy stuff.');
+      return window.alert('Invalid message - try removing any fancy punctuation');
     }
     fetch(`/api/message?userid=${this.state.user.id}&username=${this.state.user.name}&text=${this.state.post}`)
       .then(res => res.json())
       .then(data => {
-        console.log(data)
         if (data) {
           this.socket.emit('SEND_MESSAGE', {
               author: this.state.user.name,
