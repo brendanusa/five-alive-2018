@@ -79,7 +79,6 @@ app.get('/api/messages', (req, res) => {
   console.log('retrieving messages...')
   db.query('select * from messages order by created desc limit 50')
     .then((data) => {
-      console.log('DATA', data.reverse())
       res.send(data.reverse());
     })
     .catch(error => {
