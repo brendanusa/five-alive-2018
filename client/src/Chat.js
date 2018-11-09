@@ -28,7 +28,7 @@ class Chat extends Component {
       fetch('/api/messages')
         .then(res => res.json())
         .then(data => {
-          context.setState({messages: data.reverse()})
+          context.setState({messages: data})
           context.updateScroll()
         })
 
@@ -43,7 +43,7 @@ class Chat extends Component {
     fetch('/api/messages')
       .then(res => res.json())
       .then(data => {
-        this.setState({messages: data.reverse()})
+        this.setState({messages: data})
         this.updateScroll()
       })
 
