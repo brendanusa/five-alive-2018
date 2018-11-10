@@ -2,6 +2,7 @@ import './Home.css';
 import React, { Component } from 'react';
 import Chat from './Chat';
 import Standings from './Standings';
+import ChatTestimonials from './ChatTestimonials';
 
 class Home extends Component {
 
@@ -11,7 +12,8 @@ class Home extends Component {
       user: {},
       passwordFeedback: '',
       post: '',
-      authenticated: false
+      authenticated: false,
+      testimonialsActive: false
     }
   }
 
@@ -33,11 +35,32 @@ class Home extends Component {
       })
   };
 
+  handleTestimonialsClick = (e) => {
+    if (!this.state.testimonialsActive) {
+      console.log('41')
+      document.getElementById("dim").classList.add("HomeDim");
+    } else {
+      document.getElementById("dim").classList.remove("HomeDim");
+    }
+    this.setState({testimonialsActive: !this.state.testimonialsActive});
+  }
+
+
   render() {
     return (
-      <div className="Home">
-      <div><Standings /></div>
-      <div><Chat /></div>
+      <div>
+        <div className="HomeInner">
+          {this.state.testimonialsActive ? <ChatTestimonials /> : null}
+        </div>
+        <div className="HomeOuter" id="dim">
+          <div className="Home">
+            <div><Standings /></div>
+            <div><Chat /></div>
+          </div>
+        </div>
+        <div className="TestimonialsToggle">
+          <a onClick={this.handleTestimonialsClick}>{this.state.testimonialsActive ? 'Click to Hide Chat Testimonials' : 'Click to View Chat Testimonials'}</a>
+        </div>
       </div>
     );
   }
