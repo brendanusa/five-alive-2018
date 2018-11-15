@@ -55,7 +55,7 @@ class Home extends Component {
         <div className="HomeOuter" id="dim">
           <div className="Home">
             <div><Standings /></div>
-            <div><Chat /></div>
+            <div className="FixChat"><Chat /></div>
           </div>
         </div>
         <div className="TestimonialsToggle">

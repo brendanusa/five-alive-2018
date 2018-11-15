@@ -109,9 +109,9 @@ class Chat extends Component {
     return (
       <div className="Chat">
         <div className="ChatHeader">
-          <span>CHAT POWERED BY</span>
+          <span>CHAT POWERED BY </span>
           <span><img src={logo} alt="logo" style={{width:"145px", height:"32px"}} /></span>
-          <span>CHAT TECHNOLOGY</span>
+          <span> CHAT TECHNOLOGY</span>
         </div>
         <div className="Messages" id="scrollhere">
           {this.state.messages.map((message, i) => {

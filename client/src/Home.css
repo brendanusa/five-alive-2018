@@ -5,10 +5,16 @@
   align-items: center;
   margin-top: 80px;
   margin-bottom: 100px;
+  /*border: 2px solid;*/
 }
 
 .HomeDim {
   opacity: 0.4;
+}
+
+.FixChat {
+  width: 50%;
+  /*margin-right: 40px;*/
 }
 
 .HomeInner {
