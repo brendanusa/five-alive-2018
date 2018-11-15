@@ -37,7 +37,6 @@ class Home extends Component {
 
   handleTestimonialsClick = (e) => {
     if (!this.state.testimonialsActive) {
-      console.log('41')
       document.getElementById("dim").classList.add("HomeDim");
     } else {
       document.getElementById("dim").classList.remove("HomeDim");

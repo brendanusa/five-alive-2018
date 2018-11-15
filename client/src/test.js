@@ -17,6 +17,10 @@
 
 // update users set teams_2018 = '{3,5,10,14,18}' where id=3;
 
+ {42,148,166,228,286}
+
+update users set teams_2018 = '{45,151,169,231,289}' where id=12;
+
 // VERY IMPORTANT:
 
 //   2 | bren               | {2,5,8,12,18}         | bren1234
@@ -98,6 +102,7 @@ while (str.includes('],')) {
 while (str.includes('[')) {
   str = str.replace('[', '')
 }
+
 
 console.log(str)
 
