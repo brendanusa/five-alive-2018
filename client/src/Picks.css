@@ -24,6 +24,7 @@
 
 .PicksTestimonialsToggle {
   display: flex;
+  animation: FadeIn 2.5s ease;
   /*margin-top: 160px;*/
 }
 
