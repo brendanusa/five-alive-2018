@@ -8,21 +8,18 @@ class StandingNew extends Component {
     super(props);
     this.state = {
       isActive: false
-      
     }
+
+    this.handleClick = this.handleClick.bind(this);
   }
 
-  handleActive = () => {
-    this.setState({isActive: true})
-  }
-
-  handleInactive = () => {
-    this.setState({isActive: false})
+  handleClick() {
+    this.setState({isActive: !this.state.isActive})
   }
 
   render() {
     return(
-      <div className="StandingNew" onMouseEnter={this.handleActive} onMouseLeave={this.handleInactive}>
+      <div className="StandingNew" onClick={this.handleClick}>
         <span className="StandingName">{this.props.name}</span>
         <div>
           {this.state.isActive ? <StandingsTeamList teams={this.props.teams} /> : null}

@@ -7,6 +7,7 @@ import StandingsOld from './StandingsOld';
 import Home from './Home';
 import Info from './Info';
 import PastChamps from './PastChamps';
+import Picks from './Picks';
 
 class App extends Component {
 
@@ -27,6 +28,7 @@ class App extends Component {
             <Route path='/standingsold' component={StandingsOld}/>
             <Route path='/info' component={Info}/>
             <Route path='/pastchamps' component={PastChamps}/>
+            <Route path='/picks' component={Picks}/>
           </div>
         </Router>
       </div>

@@ -24,14 +24,9 @@ class Chat extends Component {
       element.scrollTop = element.scrollHeight;
     }
 
-    this.socket.on('RECEIVE_MESSAGE', function(data){
-      fetch('/api/messages')
-        .then(res => res.json())
-        .then(data => {
-          context.setState({messages: data})
-          context.updateScroll()
-        })
-
+    this.socket.on('RECEIVE_MESSAGES', function(data){
+      context.setState({messages: data})
+      context.updateScroll()
     });
 
     this.validCharacters = ['a','b','c','d','e','f','g','h','i','j','k','l','m','n','o','p','q','r','s','t','u','v','w','x','y','z','A',
@@ -82,19 +77,13 @@ class Chat extends Component {
     if (!this.checkChars(this.state.post)) {
       return window.alert('Invalid message - try removing any fancy punctuation');
     }
-    fetch(`/api/message?userid=${this.state.user.id}&username=${this.state.user.name}&text=${this.state.post}`)
-      .then(res => res.json())
-      .then(data => {
-        if (data) {
-          this.socket.emit('SEND_MESSAGE', {
-              author: this.state.user.name,
-              message: this.state.post
-          });
-          this.setState({post: ''});
-        } else {
-          window.alert('Message failed!')
-        }
-      })
+ 
+    this.socket.emit('SEND_MESSAGE', {
+      userid: this.state.user.id,
+      username: this.state.user.name,
+      text: this.state.post
+    });
+    this.setState({post: ''});
   }
 
   handleSubmit = (e) => {

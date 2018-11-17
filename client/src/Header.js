@@ -26,6 +26,9 @@ const Header = () => (
           <Link to={'/info'}>INFO</Link>
         </span>
         <span>
+          <Link to={'/picks'}>PICKS</Link>
+        </span>
+        <span>
           <Link to={'/standingsold'}>STANDINGS</Link>
         </span>
     </span>
