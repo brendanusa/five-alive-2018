@@ -1,3 +1,24 @@
+@keyframes SlideDown {
+  0% {
+    transform: translateY(-100%);
+  }
+  100% {
+    transform: translateY(0%);
+  } 
+}
+
+@keyframes Hide {
+  0% {
+    opacity: 0;
+  }
+  99% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
 .StandingsTeamList {
   /*border: 2px solid;*/
   /*border-radius: 8px;*/
@@ -10,6 +31,46 @@
 .StandingsTeamListContainer {
   padding: 4px;
   margin-left: 2px;
+  overflow: hidden;
+}
+
+.StandingsTeamContainer {
+  overflow: hidden;
+}
+
+.StandingsTeam0 {
+  /*transition: all 5s ease-in-out;*/
+  animation: SlideDown .05s ease-in-out;
+  overflow: hidden;
+  /*z-index: 5;*/
+}
+
+.StandingsTeam1 {
+  /*transition: all 5s ease-in-out;*/
+  animation: SlideDown .05s ease-in-out .05s, Hide .055s;
+  overflow: hidden;
+  /*z-index: 4;*/
+}
+
+.StandingsTeam2 {
+  /*transition: all 5s ease-in-out;*/
+  animation: SlideDown .05s ease-in-out .1s, Hide .105s;
+  overflow: hidden;
+  /*z-index: -3;*/
+}
+
+.StandingsTeam3 {
+  /*transition: all 5s ease-in-out;*/
+  animation: SlideDown .05s ease-in-out .15s, Hide .155s;
+  overflow: hidden;
+  /*z-index: -4;*/
+}
+
+.StandingsTeam4 {
+  /*transition: all 5s ease-in-out;*/
+  animation: SlideDown .05s ease-in-out .2s, Hide .205s;
+  overflow: hidden;
+  /*z-index: -5;*/
 }
 
 .pointer {

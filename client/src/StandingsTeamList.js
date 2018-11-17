@@ -366,10 +366,12 @@ class StandingsTeamList extends Component {
       <div className="StandingsTeamList">
         <div className="pointer"></div>
           <div className="StandingsTeamListContainer">
-            {this.props.teams.map(team => {
+            {this.props.teams.map((team, i) => {
               return (
-                <div>
-                  {this.teamsMap[team]}
+                <div className="StandingsTeamContainer">
+                  <div key={i} className={"StandingsTeam" + [i]}>
+                    {this.teamsMap[team]}
+                  </div>
                 </div>
               )
             })}
