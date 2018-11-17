@@ -20,7 +20,32 @@ io.on('connection', (socket) => {
   console.log('Client connected on socket', socket.id)
 
   socket.on('SEND_MESSAGE', function(data){
-    io.emit('RECEIVE_MESSAGE', data);
+    console.log('Client sent new message')
+    let {
+      userid,
+      username,
+      text
+    } = data;
+    const timestamp = new Date()
+    let i = 0;
+    while (i < text.length) {
+      if (text[i] === '\'') {
+        text = text.slice(0, i + 1) + '\'' + text.slice(i + 1);
+        i++;
+      }
+      i++;
+    }
+    db.query(`insert into messages (user_id, user_name, text) values (${userid}, '${username}', '${text}');`)
+    .then(() => {
+      db.query('select * from messages order by created desc limit 50')
+      .then(data => {
+        io.emit('RECEIVE_MESSAGES', data.reverse());
+      })
+    })
+    .catch(error => {
+      console.log('ERROR', error)
+      io.emit('RECEIVE_MESSAGES', error);
+    })
   })
 
   socket.on('disconnect', () => console.log('Client disconnected'));
@@ -471,30 +496,6 @@ app.get('/api/messages', (req, res) => {
   db.query('select * from messages order by created desc limit 50')
     .then((data) => {
       res.send(data.reverse());
-    })
-    .catch(error => {
-      console.log('ERROR', error)
-      res.send(error);
-    })
-})
-
-app.get('/api/message', (req, res) => {
-  console.log('posting message...')
-  console.log('id', req.query.userid, 'name', req.query.username, 'text', req.query.text)
-  var timestamp = new Date()
-  var message = req.query.text;
-  let i = 0;
-  while (i < message.length) {
-    if (message[i] === '\'') {
-      message = message.slice(0, i + 1) + '\'' + message.slice(i + 1);
-      i++;
-    }
-    i++
-  }
-  console.log('MESSAGE', message)
-  db.query(`insert into messages (user_id, user_name, text) values (${req.query.userid}, '${req.query.username}', '${message}');`)
-    .then((data) => {
-      res.send(data);
     })
     .catch(error => {
       console.log('ERROR', error)
