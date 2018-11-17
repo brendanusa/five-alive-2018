@@ -11,7 +11,7 @@ const PicksTestimonials = () => {
           <div className="PicksTestimonialsContainer">
               <div className="PicksTestimonialLeft">
                 <div className="PicksTestimonialQuote">
-                "I was looking for info on everyone's picks one evening, and the Picks page had everything I wanted and more."
+                "I was looking for info on everyone's picks one evening, and the #5ALIVE Picks page had everything I wanted and more."
                 </div>
                 <div className="PicksTestimonialAuthor">
                 --2018 #5ALIVE Runner-up Coreen Kopper
@@ -22,7 +22,7 @@ const PicksTestimonials = () => {
                 "[mind blown emoji]"
                 </div>
                 <div className="PicksTestimonialAuthor">
-                --2018 #5ALIVE Participant Patrick Godfrey
+                --2018-19 #5ALIVE Participant Patrick Godfrey
                 </div>
               </div>
               <div className="PicksTestimonialLeft">
