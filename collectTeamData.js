@@ -8,7 +8,33 @@ const collectWLData = (db) => {
   axios.get('https://www.sports-reference.com/cbb/seasons/2019-ratings.html')
     .then(res => {
       var $ = cheerio.load(res.data);
-      console.log('RATINGS', $('#ratings').length)
+      var rows = $('#ratings tbody tr');
+
+      let teams = [];
+
+      const updateTeamRow = (domTableRow) => {
+
+        if (domTableRow > 386) {
+          return console.log('team WL data saved!')
+        }
+
+        if (rows[domTableRow].children.length === 18) {
+          var name = rows[domTableRow].children[1].children[0].children[0].data;
+          name = name.replace("\'", "''")
+          var w = rows[domTableRow].children[4].children[0].data;
+          var l = rows[domTableRow].children[5].children[0].data;
+          db.query(`UPDATE teams SET w2018 = ${w}, l2018 = ${l} WHERE name = '${name}';`)
+            .then(() => {
+              return updateTeamRow(domTableRow + 1);
+            })
+        } else {
+          return updateTeamRow(domTableRow + 1);
+        }
+
+      }
+
+      updateTeamRow(0);
+
     })
 
 
