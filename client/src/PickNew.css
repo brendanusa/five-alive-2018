@@ -1,4 +1,4 @@
-.StandingNew {
+.PickNew {
   padding: 2px;
   border-top: 2px solid;
   border-left: 2px solid;
@@ -7,21 +7,11 @@
   margin-top: 12px;
 }
 
-.StandingName {
+.PickName {
   margin-left: 5px;
   margin-right: 5px;
 }
 
-.StandingWins {
-  margin-left: 5px;
-  margin-right: 5px;
-}
-
-.StandingHeader {
-  display: flex;
-  justify-content: space-between;
-}
-
-.StandingNew:hover {
+.PickNew:hover {
   border-color: #fff200;
 }

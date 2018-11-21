@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import './Picks.css';
-import Standings from './Standings';
+import Pickles from './Pickles';
 import PicksTestimonials from './PicksTestimonials';
 import PicksBySchool from './PicksBySchool';
 import SimScore from './SimScore';
@@ -34,7 +34,7 @@ class Picks extends Component {
         <div className="PicksOuter" id="dim">
           <div className="Picks">
             <div><PicksBySchool /></div>
-            <div><Standings /></div>
+            <div><Pickles /></div>
             <div><SimScore /></div>
           </div>
         </div>

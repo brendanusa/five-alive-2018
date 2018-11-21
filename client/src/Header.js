@@ -28,9 +28,6 @@ const Header = () => (
         <span>
           <Link to={'/picks'}>PICKS</Link>
         </span>
-        <span>
-          <Link to={'/standingsold'}>STANDINGS</Link>
-        </span>
     </span>
   </header>
 )

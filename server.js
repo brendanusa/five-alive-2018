@@ -10,7 +10,8 @@ const db = pgp(process.env.DATABASE_URL || 'postgres://akppnbjeltipma:d83a3e7a82
 // DATABASE_URL=$(heroku config:get DATABASE_URL -a five-alive-2018) your_process
 // var db = pgp(process.env.DATABASE_URL || 'postgres://bbansavage:pass@localhost:5432/five_alive_2018');
 
-collectTeamData.collectWLData(db);
+// TO UPDATE STANDINGS
+// collectTeamData.collectWLData(db);
 
 server = app.listen(port, function(){
   console.log('server is running on port', port)
@@ -72,19 +73,10 @@ app.get('/api/password', (req, res) => {
     })
 })
 
-app.get('/api/standings', (req, res) => {
-  console.log('server standings')
+app.get('/api/picks', (req, res) => {
   db.query('select name, teams_2018 from users;')
     .then(users => {
       res.send(users)
-      // users.forEach(user => {
-      //   if (user.name !== 'Ryan Hollywood Corbalis') {
-      //     picks[user.name] = [];
-      //     user.teams_2018.forEach(team => {
-      //       picks[user.name].push(teamsObj[team])
-      //     })
-      //   }
-      // })
     })
 })
 
@@ -476,6 +468,31 @@ app.get('/api/picksbyschool', (req, res) => {
         return b.picks - a.picks;
       })
       res.send(picksBySchoolArr)
+    })
+})
+
+app.get('/api/standings', (req, res) => {
+  let resData = {}
+  db.query('SELECT id, name, w2018, l2018 from teams;')
+    .then(data => {
+      resData.teams = data.sort((a, b) => a.id - b.id);
+      db.query('SELECT name, teams_2018 from users;')
+        .then(data => {
+          resData.users = data;
+          resData.users.forEach((user, i) => {
+            resData.users[i].wins = user.teams_2018.reduce((acc, val) => {
+              return acc += resData.teams[val - 1].w2018;
+            }, 0)
+            resData.users[i].teams_2018 = resData.users[i].teams_2018.map(teamid => {
+              return resData.teams[teamid - 1];
+            })
+          })
+          resData.users.sort((a, b) => {
+            return b.wins - a.wins;
+          })
+          console.log(resData.users)
+          res.send(resData.users);
+        })
     })
 })
 
