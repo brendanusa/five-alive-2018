@@ -24,8 +24,8 @@ a {
 
 .title {
   position: relative;
-  padding: 4px;
-  font-size: 56px;
+  padding: 0.4vw;
+  font-size: 4vw;
   font-style: oblique;
   text-align: center;
   display: inline-block;
@@ -34,27 +34,28 @@ a {
 }
 
 .bordered {
-  border: 5px solid;
-  border-radius: 8px;
-  padding: 4px;
-  width: 48px;
+  border: 0.5vw solid;
+  border-radius: 1vw;
+  padding: 0.4vw;
+  width: 3.5vw;
   display: inline-block;
   transform: skew(10deg);
 }
 
 .link {
   font-weight: bold;
-  font-size: 14px;
-  display: inline-flex;
+  font-size: 2vw;
+  /*display: inline-flex;*/
   position: absolute;
-  top: 32px;
-  right: -32px;
+  top: 2vw;
+  right: 0vw;
+  padding: 2vw;
   align-items: flex-end;
   animation: 3s FadeIn;
 }
 
 .link span {
-  margin-right: 20px;
+  margin-right: 4vw;
 }
 
 #one {
