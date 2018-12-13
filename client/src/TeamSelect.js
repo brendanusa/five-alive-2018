@@ -8,7 +8,10 @@ class TeamSelect extends Component {
     super(props);
     this.state = {
       selectedTeams: {},
-      user: {},
+      user: {
+        // name: 'Brendan Bansavage',
+        // teams_2018: [45,61,193,231,346]
+      },
       submitFeedback: '',
       teamsHard: [
         {name: 'Abilene Christian', w: 16, l: 16},
@@ -397,8 +400,6 @@ class TeamSelect extends Component {
       }).map(teamid => parseInt(teamid) + 2);
 
     const activeWinsTotal = actualSelectedTeams.reduce((acc, val) => {
-        console.log('acc', acc, 'val', val)
-        console.log(this.state.teamsHard[val - 2].name, this.state.teamsHard[val].w)
       return acc += this.state.teamsHard[val - 2].w
     }, 0)
 
@@ -418,7 +419,6 @@ class TeamSelect extends Component {
             .then(data => {
               console.log(data[0])
               if (data[0]) {
-                console.log('2nd req', data[0]);
                 let tempState = this.state;
                 tempState.user = data[0];
                 tempState.submitFeedback = 'Picks submitted!';
@@ -435,85 +435,9 @@ class TeamSelect extends Component {
 
   render() {
     return (
-      <div className="TeamSelect">
-        <div>
-          <div className="UserBox">
-              <span style={{fontSize:"14px"}}>{this.state.user.name ? this.state.user.name : 'Please sign in on home page before submitting teams'}</span>
-            <p>
-              <br></br>
-              {this.state.user.teams_2018 ? 'Current teams:' : null}
-              <br></br>
-              <br></br>
-              {this.state.user.teams_2018 ? this.state.teamsHard[this.state.user.teams_2018[0] - 2].name : null}
-              <br></br>
-              {this.state.user.teams_2018 ? this.state.teamsHard[this.state.user.teams_2018[1] - 2].name : null}
-              <br></br>
-              {this.state.user.teams_2018 ? this.state.teamsHard[this.state.user.teams_2018[2] - 2].name : null}
-              <br></br>
-              {this.state.user.teams_2018 ? this.state.teamsHard[this.state.user.teams_2018[3] - 2].name : null}
-              <br></br>
-              {this.state.user.teams_2018 ? this.state.teamsHard[this.state.user.teams_2018[4] - 2].name : null}
-            </p>
-          </div>
-        </div>
-        <div className="TeamsContainer">
-          <div className="TeamsContainerHeading">
-            <span>School</span>
-            <span>2017-18 W-L</span>
-          </div>
-          <div className="TeamsContainerBody">
-            {this.state.teamsHard.map((team, i) => {
-              return (
-                <div className="TeamSelectRow" id={i} onClick={this.handleTeamsBoxClick}>
-                  <span id={i} className="MainTeamName">{team.name}</span>
-                  <span id={i} className="MainTeamRecord">{team.w}-{team.l}</span>
-                </div>
-              )
-            })}
-          </div>
-        </div>
-        <div>
-          <div className="SelectBoxContainer">
-            <div className="SelectBoxHeader">
-              SELECTED TEAMS
-            </div>
-            <div className="SelectBoxTeams">
-              {Object.keys(this.state.selectedTeams).filter((team) => {
-                return this.state.selectedTeams[team].selected === true;
-              }).map((teamId) => {
-                return (
-                  <div key={teamId} className="SelectBoxTeamRow">
-                    <span className="smallteamname">
-                      {this.state.teamsHard[teamId].name + ' - '}
-                    </span>
-                    <span className="smallteamwins">
-                      {this.state.teamsHard[teamId].w}
-                    </span>
-                  </div>
-                )
-              })}
-            </div>
-            <div className="SelectBoxFooter">
-              <div className="SelectBoxWinTotal">
-                <div>
-                  {Object.keys(this.state.selectedTeams).reduce((acc, val) => {
-                      if (this.state.selectedTeams[val].selected) {
-                          return acc += this.state.teamsHard[val].w;
-                        } else {
-                          return acc;
-                        }
-                  }, 0)}
-                </div>
-                <div style={{fontSize:"10px"}}>WINS</div>
-              </div>
-            </div>
-            <div className="SelectBoxSubmit">
-              <button onClick={this.handleSelectBoxSubmit}>SUBMIT</button>
-            </div>
-            <div className="SelectBoxNotification">
-              {this.state.submitFeedback || null}
-            </div>
-          </div>
+      <div className="TeamSelectTempContainer">
+        <div className="TeamSelectTemp">
+          NICE TRY! Team select for 2018-2019 is OVER!
         </div>
       </div>
     )
@@ -522,3 +446,85 @@ class TeamSelect extends Component {
 }
 
 export default TeamSelect;
+
+      // <div className="TeamSelect">
+      //   <div>
+      //     <div className="UserBox">
+      //         <span style={{fontSize:"14px"}}>{this.state.user.name ? this.state.user.name : 'Please sign in on home page before submitting teams'}</span>
+      //       <p>
+      //         <br></br>
+      //         {this.state.user.teams_2018 ? 'Current teams:' : null}
+      //         <br></br>
+      //         <br></br>
+      //         {this.state.user.teams_2018 ? this.state.teamsHard[this.state.user.teams_2018[0] - 2].name : null}
+      //         <br></br>
+      //         {this.state.user.teams_2018 ? this.state.teamsHard[this.state.user.teams_2018[1] - 2].name : null}
+      //         <br></br>
+      //         {this.state.user.teams_2018 ? this.state.teamsHard[this.state.user.teams_2018[2] - 2].name : null}
+      //         <br></br>
+      //         {this.state.user.teams_2018 ? this.state.teamsHard[this.state.user.teams_2018[3] - 2].name : null}
+      //         <br></br>
+      //         {this.state.user.teams_2018 ? this.state.teamsHard[this.state.user.teams_2018[4] - 2].name : null}
+      //       </p>
+      //     </div>
+      //   </div>
+      //   <div className="TeamsContainer">
+      //     <div className="TeamsContainerHeading">
+      //       <span>School</span>
+      //       <span>2017-18 W-L</span>
+      //     </div>
+      //     <div className="TeamsContainerBody">
+      //       {this.state.teamsHard.map((team, i) => {
+      //         return (
+      //           <div className="TeamSelectRow" id={i} onClick={this.handleTeamsBoxClick}>
+      //             <span id={i} className="MainTeamName">{team.name}</span>
+      //             <span id={i} className="MainTeamRecord">{team.w}-{team.l}</span>
+      //           </div>
+      //         )
+      //       })}
+      //     </div>
+      //   </div>
+      //   <div>
+      //     <div className="SelectBoxContainer">
+      //       <div className="SelectBoxHeader">
+      //         SELECTED TEAMS
+      //       </div>
+      //       <div className="SelectBoxTeams">
+      //         {Object.keys(this.state.selectedTeams).filter((team) => {
+      //           return this.state.selectedTeams[team].selected === true;
+      //         }).map((teamId) => {
+      //           return (
+      //             <div key={teamId} className="SelectBoxTeamRow">
+      //               <span className="smallteamname">
+      //                 {this.state.teamsHard[teamId].name + ' - '}
+      //               </span>
+      //               <span className="smallteamwins">
+      //                 {this.state.teamsHard[teamId].w}
+      //               </span>
+      //             </div>
+      //           )
+      //         })}
+      //       </div>
+      //       <div className="SelectBoxFooter">
+      //         <div className="SelectBoxWinTotal">
+      //           <div>
+      //             {Object.keys(this.state.selectedTeams).reduce((acc, val) => {
+      //                 if (this.state.selectedTeams[val].selected) {
+      //                     return acc += this.state.teamsHard[val].w;
+      //                   } else {
+      //                     return acc;
+      //                   }
+      //             }, 0)}
+      //           </div>
+      //           <div style={{fontSize:"10px"}}>WINS</div>
+      //         </div>
+      //       </div>
+      //       <div className="SelectBoxSubmit">
+      //         <button onClick={this.handleSelectBoxSubmit}>SUBMIT</button>
+      //       </div>
+      //       <div className="SelectBoxNotification">
+      //         {this.state.submitFeedback || null}
+      //       </div>
+      //     </div>
+      //   </div>
+      // </div>

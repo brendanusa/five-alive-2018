@@ -129,3 +129,23 @@
 .highlighted {
   background-color: rgba(0,192,206)
 }
+
+.TeamSelectTempContainer {
+  display: flex;
+  justify-content: center;
+}
+
+.TeamSelectTemp {
+  text-align: center;
+  margin-top: 100px;
+  border-radius: 8px;
+  border: 3px solid #42d117;
+  /*border-color: #42d117;*/
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-weight: bold;
+  font-size: 20px;
+  padding: 12px;
+  width: 50%;
+}
