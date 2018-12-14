@@ -44,7 +44,7 @@ a {
 
 .link {
   font-weight: bold;
-  font-size: 2vw;
+  font-size: 1.5vw;
   /*display: inline-flex;*/
   position: absolute;
   top: 2vw;
@@ -52,6 +52,10 @@ a {
   padding: 2vw;
   align-items: flex-end;
   animation: 3s FadeIn;
+}
+
+.link :active {
+  color: #fff200;
 }
 
 .link span {
