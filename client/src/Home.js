@@ -38,8 +38,10 @@ class Home extends Component {
   handleTestimonialsClick = (e) => {
     if (!this.state.testimonialsActive) {
       document.getElementById("dim").classList.add("HomeDim");
+      document.getElementsByClassName("HomeInner")[0].classList.add("TestimonialsActive");
     } else {
       document.getElementById("dim").classList.remove("HomeDim");
+      document.getElementsByClassName("HomeInner")[0].classList.remove("TestimonialsActive");
     }
     this.setState({testimonialsActive: !this.state.testimonialsActive});
   }
