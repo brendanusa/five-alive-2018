@@ -22,7 +22,7 @@
 .StandingsTeamList {
   /*border: 2px solid;*/
   /*border-radius: 8px;*/
-  font-size: 12px;
+  font-size: calc(4px + 0.5vw);
   color: #42d117;
   display: flex;
   justify-content: flex-start;

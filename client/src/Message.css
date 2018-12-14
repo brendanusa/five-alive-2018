@@ -1,14 +1,15 @@
 .Message {
   padding: 4px;
+  font-size: calc(8px + 0.5vw);
 }
 
 .MessageAuthor {
   font-weight: bold;
   color: #00c0ce;
-  font-size: 12px;
+  font-size: calc(6px + 0.5vw);
 }
 
 .MessageTimestamp {
-  font-size: 8px;
+  font-size: calc(4px + 0.4vw);
   color: rgba(255, 255, 255, 0.5);
 }

@@ -2,11 +2,11 @@
   display: flex;
   flex-direction: column;
   font-weight: bold;
-  height: 500px;
+  height: 400px;
   border: 5px solid;
   border-color: #ff6e00;
   border-radius: 8px;
-  padding: 12px;
+  padding: calc(2px + 0.5vw);
   text-align: left;
   background-color: rgba(0, 0, 0, 0.7);
   animation: FadeIn 1s ease;
@@ -19,7 +19,7 @@
 }
 
 .StandingsContainer h3 {
-  font-size: 12px;
+  font-size: calc(6px + 0.4vw);
   border: 2px solid;
   border-radius: 8px;
   text-align: center;

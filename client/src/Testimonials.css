@@ -7,7 +7,7 @@
 
 .TestimonialsContainer {
   margin-top: 40px;
-  padding: 10px;
+  /*padding: 1px;*/
   display: flex;
   /*flex-direction: column;*/
   justify-content: space-between;
@@ -15,7 +15,7 @@
 }
 
 .TestimonialLeft {
-  padding: 8px;
+  /*padding: 8px;*/
   /*width: 40%;*/
   /*margin-top: 40px;*/
   /*margin-left: 10px;*/
@@ -25,9 +25,9 @@
 }
 
 .TestimonialRight {
-  padding: 8px;
+  /*padding: 1px;*/
   /*width: 40%;*/
-  margin-top: 64px;
+  /*margin-top: calc(20px + 1vw);*/
 
   /*margin-right: 40px;*/
   border: 2px solid;
