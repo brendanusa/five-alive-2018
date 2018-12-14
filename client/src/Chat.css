@@ -2,19 +2,12 @@
   border: 5px solid;
   border-color: #00c0ce;
   border-radius: 8px;
-  /*margin-right: 80px;*/
-  /*width: 50%;*/
   background-color: rgba(0, 0, 0, 0.7);
-  height: 600px;
+  height: 500px;
   display: flex;
   flex-direction: column;
-  justify-content: space-evenly;
+  /*justify-content: space-evenly;*/
   animation: FadeIn 2s ease;
-}
-
-.Messages {
-  padding: 12px;
-  height: 80%;
 }
 
 .ChatHeader {
@@ -22,27 +15,44 @@
   justify-content: flex-end;
   align-items: center;
   font-weight: bold;
-  font-size: 12px;
+  font-size: 1vw;
   padding: 8px;
   background-color: rgba(0, 0, 0, 0.8);
   border-radius: 8px;
 }
 
+.ChatHeader img {
+  max-width: 10vw;
+  max-height: 2.2vw;
+  padding: 0.2vw;
+}
+
 .Messages {
+  /*padding: 1vw;*/
+  height: 80%;
   background-color: rgba(255, 255, 255, 0.2);
-  padding: 12px;
-  margin: 0px 10px 10px 10px;
+  padding: 0.5vw;
+  margin: 0px 10px 0px 10px;
   border-radius: 8px;
   overflow: scroll;
 }
 
 .ChatFooter {
-  margin: 4px 10px 16px 10px;
+  margin: 8px 10px 10px 10px;
 }
 
-.ChatFooter span {
+.ChatFooter > div {
   color: #fff200;
   font-weight: bold;
-  font-size: 14px;
-  padding: 8px;
+  font-size: 12px;
+  padding: 4px;
+
+}
+
+input {
+  width: 72%;
+}
+
+button {
+  font-size: 10px;
 }

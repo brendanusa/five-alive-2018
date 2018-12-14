@@ -99,7 +99,7 @@ class Chat extends Component {
       <div className="Chat">
         <div className="ChatHeader">
           <span>CHAT POWERED BY </span>
-          <span><img src={logo} alt="logo" style={{width:"145px", height:"32px"}} /></span>
+          <span><img src={logo} alt="logo" /></span>
           <span> CHAT TECHNOLOGY</span>
         </div>
         <div className="Messages" id="scrollhere">
@@ -110,16 +110,18 @@ class Chat extends Component {
           })}
         </div>
         <div className="ChatFooter">
-          <form onSubmit={this.handleSubmit}>
-            <span>{this.state.isAuthenticated ? `Posting as ${this.state.user.name} ` : 'Enter password to join-->'}</span>
-            <input
-              type="text"
-              value={this.state.post}
-              onChange={e => this.setState({post: e.target.value})}
-              style={{width:"40%"}}
-            />
-            <button type="submit" style={{marginLeft:"10px"}}>{this.state.isAuthenticated ? 'Send' : 'Submit'}</button>
-          </form>
+          <div>{this.state.isAuthenticated ? `Posting as ${this.state.user.name} ` : 'Enter password to join:'}</div>
+          <div>
+            <form onSubmit={this.handleSubmit}>
+              <input
+                type="text"
+                value={this.state.post}
+                onChange={e => this.setState({post: e.target.value})}
+                
+              />
+              <button type="submit" style={{marginLeft:"10px"}}>{this.state.isAuthenticated ? 'Send' : 'Submit'}</button>
+            </form>
+          </div>
         </div>
       </div>
     )
