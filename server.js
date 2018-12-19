@@ -120,7 +120,6 @@ app.get('/api/picksbyschool', (req, res) => {
       })
       db.query('select id, name from teams')
         .then(teams => {
-          console.log('TEAMS', teams)
           const teamsMap = {};
           teams.forEach(team => {
             teamsMap[team.id] = team.name;
