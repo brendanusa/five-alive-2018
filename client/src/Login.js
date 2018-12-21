@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { BrowserRouter as Router, Link } from 'react-router-dom';
-import "./Login.css";
-import Testimonials from './Testimonials';
+import './Login.css';
+// import Testimonials from './Testimonials';
 import Chat from './Chat';
 import Standings from './Standings';
 
