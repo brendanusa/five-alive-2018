@@ -44,8 +44,7 @@ a {
 
 .link {
   font-weight: bold;
-  font-size: 1.5vw;
-  /*display: inline-flex;*/
+  font-size: calc(4px + 1vw);
   position: absolute;
   top: 2vw;
   right: 0vw;
