@@ -20,7 +20,7 @@ class SimScore extends Component {
 
   render() {
     return (
-    <div className="SimScoreContainer">
+    <div>
       <h3><span>HIGGS-BOSON SIMILARITY INDEX</span></h3>
       <div className="SimScore">
         <div>
