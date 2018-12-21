@@ -20,7 +20,7 @@ class PicksBySchool extends Component {
 
   render() {
     return (
-    <div className="PicksBySchoolContainer">
+    <div>
       <h3>PICKS BY SCHOOL</h3>
       <div className="PicksBySchool">
         <div>
