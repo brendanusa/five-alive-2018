@@ -8,44 +8,39 @@
   /*border: 2px solid red;*/
 }
 
+.TestimonialsContainer {
+  position: absolute;
+  left: 0;
+  right: 0;
+  margin: auto;
+  margin-top: calc(110px - 5vw);
+  width: 60vw;
+  max-width: 1000px;
+  max-height: 500px;
+  overflow: scroll;
+  z-index: 1;
+  border: 4px solid;
+  border-radius: 8px;
+  animation: FadeIn 0.5s linear;
+  background-color: rgba(255, 255, 255, 0.7);
+  display: none;
+}
+
+.TestimonialsActive {
+  display: inline;
+}
+
+.TestimonialsToggle {
+  display: flex;
+  color: white;
+}
+
 .Picks h3 {
   font-size: calc(7px + 0.4vw);
   border: calc(1px + 0.1vw) solid;
   border-radius: 8px;
   text-align: center;
   padding: 1px;
-}
-
-.PicksInner {
-  position: absolute;
-  left: 0;
-  right: 0;
-  margin: auto;
-  margin-top: 80px;
-  width: 50%;
-  z-index: 1;
-}
-
-.PicksOuter {
-  /*border: 2px solid;*/
-}
-
-.PicksTestimonialsToggle {
-  display: flex;
-  animation: FadeIn 2.5s ease;
-  /*margin-top: -40px;*/
-}
-
-.PicksTestimonialsToggle a {
-  border: 2px solid;
-  border-radius: 8px;
-  display: inline-block;
-  margin: auto;
-  padding: 8px;
-  font-size: 16px;
-  font-weight: bold;
-  background-color: rgba(0, 0, 0, 0.8);
-  color: white;
 }
 
 .PicksBySchoolContainer {

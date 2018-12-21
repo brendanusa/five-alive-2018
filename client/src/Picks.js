@@ -18,9 +18,20 @@ class Picks extends Component {
 
   handleTestimonialsClick = (e) => {
     if (!this.state.testimonialsActive) {
-      document.getElementById("dim").classList.add("HomeDim");
+      document.getElementById("dim").classList.add("Dim");
     } else {
-      document.getElementById("dim").classList.remove("HomeDim");
+      document.getElementById("dim").classList.remove("Dim");
+    }
+    this.setState({testimonialsActive: !this.state.testimonialsActive});
+  }
+
+  handleTestimonialsClick = (e) => {
+    if (!this.state.testimonialsActive) {
+      document.getElementById("dim").classList.add("Dim");
+      document.getElementsByClassName("TestimonialsContainer")[0].classList.add("TestimonialsActive");
+    } else {
+      document.getElementById("dim").classList.remove("Dim");
+      document.getElementsByClassName("TestimonialsContainer")[0].classList.remove("TestimonialsActive");
     }
     this.setState({testimonialsActive: !this.state.testimonialsActive});
   }
@@ -28,18 +39,18 @@ class Picks extends Component {
   render() {
     return (
       <div>
-        <div className="PicksInner">
+        <div className="TestimonialsContainer">
           {this.state.testimonialsActive ? <PicksTestimonials /> : null}
         </div>
-        <div className="PicksOuter" id="dim">
+        <div id="dim">
           <div className="Picks">
             <div className="PicksBySchoolContainer"><PicksBySchool /></div>
             <div className="PicklesContainer"><Pickles /></div>
             <div className="SimScoreContainer"><SimScore /></div>
           </div>
         </div>
-        <div className="PicksTestimonialsToggle">
-          <a onClick={this.handleTestimonialsClick}>{this.state.testimonialsActive ? 'Click to Hide Testimonials' : 'Click to View Picks Page Testimonials'}</a>
+        <div className="TestimonialsToggle">
+          <a onClick={this.handleTestimonialsClick}>{this.state.testimonialsActive ? 'Click to Hide Picks Page Testimonials' : 'Click to View Picks Page Testimonials'}</a>
         </div>
       </div>
     );
