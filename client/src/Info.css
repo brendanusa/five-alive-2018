@@ -1,11 +1,8 @@
 .Info {
-  /*position: 'macKenzie';*/
   font-weight: bold;
-  display: inline-block;
-  margin-left: 240px;
-  margin-right: 240px;
-/*  width: 560px;
-  height: 680px;*/
+  width: calc(120px + 28vw);
+  max-height: 50%;
+  margin-top: calc(24px + 5vw);
   border: 5px solid;
   border-color: #5a19ff;
   background-color: rgba(0, 0, 0, 0.5);
@@ -13,16 +10,17 @@
   padding: 12px;
   text-align: center;
   animation: FadeIn 2s ease;
-  font-size: 14px;
+  font-size: calc(8px + 0.5vw);
+  overflow: scroll;
 }
 
 .Info h2 {
-  border: 2px solid;
+  border: calc(1px + 0.1vw) solid;
   border-radius: 8px;
 }
 
 .InfoContainer {
+  height: 840px;
   display: flex;
   justify-content: center;
-  margin-top: 80px;
 }
