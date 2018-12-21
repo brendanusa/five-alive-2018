@@ -1,43 +1,44 @@
-.Testimonials {
+.TestimonialsHeader h2 {
+  text-align: center;
   margin: auto;
-  margin-top: 120px;
-  width: 90%;
-  animation: FadeIn 10.4s ease;
+  margin-top: 16px;
+  border: 3px solid;
+  border-radius: 8px;
+  width: 50%;
+  font-size: calc(8px + 1vw);
+  padding: 2px;
+  background-color: rgba(0, 0, 0, 0.8);
 }
 
-.TestimonialsContainer {
-  margin-top: 40px;
-  /*padding: 1px;*/
+.TestimonialsBody {
+  padding: 0.2vw;
   display: flex;
-  /*flex-direction: column;*/
-  justify-content: space-between;
-  align-items: stretch;
+  flex-direction: column;
+  margin: 10px 10px 10px 10px;
+  overflow: scroll;
 }
 
 .TestimonialLeft {
-  /*padding: 8px;*/
-  /*width: 40%;*/
-  /*margin-top: 40px;*/
-  /*margin-left: 10px;*/
+  padding: 1vw;
+  margin-top: calc(8px + 1vw);
+  margin-right: calc(64px + 1vw);
   border: 2px solid;
   border-radius: 8px;
-  background-color: rgba(0, 0, 0, 0.7);
+  background-color: rgba(0, 0, 0, 0.8);
 }
 
 .TestimonialRight {
-  /*padding: 1px;*/
-  /*width: 40%;*/
-  /*margin-top: calc(20px + 1vw);*/
-
-  /*margin-right: 40px;*/
+  padding: 8px;
+  margin-top: calc(8px + 1vw);
+  margin-left: calc(64px + 1vw);
   border: 2px solid;
   border-radius: 8px;
-  background-color: rgba(0, 0, 0, 0.7);
+  background-color: rgba(0, 0, 0, 0.8);
 }
 
 .TestimonialQuote {
   text-align: center;
-  font-size: 16px;
+  font-size: calc(8px + 0.5vw);
   font-weight: normal;
 }
 
@@ -46,27 +47,6 @@
   text-align: right;
   font-style: italic;
   margin-right: 20px;
-  font-size: 12px;
+  font-size: calc(4px + 0.5vw);
   font-weight: bold;
-}
-
-.Testimonials h2 {
-  margin: auto;
-  border: 3px solid;
-  border-radius: 8px;
-  width: 50%;
-  font-size: 22px;
-  background-color: rgba(0, 0, 0, 0.5);
-}
-
-.T1 {
-  width: 48%;
-  padding: 12px;
-}
-
-.T2 {
-  width: 48%;
-  margin-top: 80px;
-  margin-left: 40px;
-  padding: 12px;
 }
