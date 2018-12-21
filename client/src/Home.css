@@ -11,7 +11,7 @@
   margin-right: 4px;
 }
 
-.HomeDim {
+.Dim {
   opacity: 0.4;
 }
 
@@ -19,7 +19,7 @@
   width: 60%;
 }
 
-.HomeTestimonialsContainer {
+.TestimonialsContainer {
   position: absolute;
   left: 0;
   right: 0;
@@ -42,7 +42,6 @@
 }
 
 .TestimonialsToggle {
-  margin: auto;
   display: flex;
   color: white;
 }

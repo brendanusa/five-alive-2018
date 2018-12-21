@@ -37,20 +37,19 @@ class Home extends Component {
 
   handleTestimonialsClick = (e) => {
     if (!this.state.testimonialsActive) {
-      document.getElementById("dim").classList.add("HomeDim");
-      document.getElementsByClassName("HomeTestimonialsContainer")[0].classList.add("TestimonialsActive");
+      document.getElementById("dim").classList.add("Dim");
+      document.getElementsByClassName("TestimonialsContainer")[0].classList.add("TestimonialsActive");
     } else {
-      document.getElementById("dim").classList.remove("HomeDim");
-      document.getElementsByClassName("HomeTestimonialsContainer")[0].classList.remove("TestimonialsActive");
+      document.getElementById("dim").classList.remove("Dim");
+      document.getElementsByClassName("TestimonialsContainer")[0].classList.remove("TestimonialsActive");
     }
     this.setState({testimonialsActive: !this.state.testimonialsActive});
   }
 
-
   render() {
     return (
       <div>
-        <div className="HomeTestimonialsContainer">
+        <div className="TestimonialsContainer">
           {this.state.testimonialsActive ? <ChatTestimonials /> : null}
         </div>
         <div id="dim">
