@@ -15,11 +15,11 @@
   opacity: 0.4;
 }
 
-.FixChat {
+.ChatContainer {
   width: 60%;
 }
 
-.HomeInner {
+.HomeTestimonialsContainer {
   position: absolute;
   left: 0;
   right: 0;
@@ -42,7 +42,6 @@
 }
 
 .TestimonialsToggle {
-  position: relative;
   margin: auto;
   display: flex;
   color: white;
