@@ -33,9 +33,9 @@ class Picks extends Component {
         </div>
         <div className="PicksOuter" id="dim">
           <div className="Picks">
-            <div><PicksBySchool /></div>
-            <div><Pickles /></div>
-            <div><SimScore /></div>
+            <div className="PicksBySchoolContainer"><PicksBySchool /></div>
+            <div className="PicklesContainer"><Pickles /></div>
+            <div className="SimScoreContainer"><SimScore /></div>
           </div>
         </div>
         <div className="PicksTestimonialsToggle">

@@ -24,7 +24,7 @@ class Pickles extends Component {
 
   render() {
     return (
-    <div className="PicklesContainer">
+    <div>
       <h3>PICKS</h3>
       <div className="Pickles">
         <div>

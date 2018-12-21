@@ -1,31 +1,5 @@
-.PicklesContainer {
-  display: flex;
-  flex-direction: column;
-  font-weight: bold;
-  /*margin: auto;*/
-  /*position: relative;*/
-  /*margin: 80px 80px 80px 80px;*/
-  height: 500px;
-  border: 5px solid;
-  border-color: #ff6e00;
-  border-radius: 8px;
-  padding: 12px;
-  text-align: left;
-  background-color: rgba(0, 0, 0, 0.7);
-  animation: FadeIn 1s ease;
-  margin-left: 24px;
-  margin-right: 24px;
-}
-
 .Pickles {
   overflow: scroll;
   margin-left: 4px;
   margin-right: 4px;
-}
-
-.PicklesContainer h3 {
-  font-size: 12px;
-  border: 2px solid;
-  border-radius: 8px;
-  text-align: center;
 }
