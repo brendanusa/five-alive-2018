@@ -11,7 +11,7 @@ const ChatTestimonials = () => {
       <div className="TestimonialsBody">
         <div className="TestimonialLeft">
           <div className="TestimonialQuote">
-          "I was feeling chatty one afternoon, and it turned out the #5ALIVE was exactly what I was looking for."
+          "I was feeling chatty one afternoon, and it turned out the #5ALIVE chat was exactly what I was looking for."
           </div>
           <div className="TestimonialAuthor">
           --2018 #5ALIVE Runner-up Coreen Kopper

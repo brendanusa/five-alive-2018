@@ -13,7 +13,7 @@ const db = pgp(process.env.DATABASE_URL || 'postgres://akppnbjeltipma:d83a3e7a82
 // var db = pgp(process.env.DATABASE_URL || 'postgres://bbansavage:pass@localhost:5432/five_alive_2018');
 
 // TO UPDATE STANDINGS
-// collectTeamData.collectWLData(db);
+collectTeamData.collectWLData(db);
 
 server = app.listen(port, function(){
   console.log('server is running on port', port)
