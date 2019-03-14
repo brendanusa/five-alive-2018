@@ -19,8 +19,16 @@
 }
 
 .StandingsContainer h3 {
-  font-size: calc(6px + 0.4vw);
+  font-size: calc(7px + 0.4vw);
   border: 2px solid;
   border-radius: 8px;
   text-align: center;
+}
+
+.UpdateTime {
+  color: #fff200;
+  font-weight: bold;
+  font-size: calc(6px + 0.4vw);
+  text-align: center;
+  margin-top: calc(2px + 0.5vw);
 }
