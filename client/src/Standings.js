@@ -32,7 +32,7 @@ class Standings extends Component {
           }) : null}
         </div>
       </div>
-      <div className="UpdateTime">UPDATED 3/15/2019</div>
+      <div className="UpdateTime">UPDATED 3/16/2019</div>
     </div>
     );
   }
