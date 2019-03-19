@@ -7,7 +7,8 @@ class Standings extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      standings: []
+      standings: [],
+      updated: '3/18/2019'
     }
   }
 
@@ -32,7 +33,7 @@ class Standings extends Component {
           }) : null}
         </div>
       </div>
-      <div className="UpdateTime">UPDATED 3/16/2019</div>
+      <div className="UpdateTime">UPDATED {this.state.updated}</div>
     </div>
     );
   }
