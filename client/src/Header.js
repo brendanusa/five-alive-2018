@@ -23,10 +23,13 @@ const Header = () => (
           <Link to={'/home'}>HOME</Link>
         </span>
         <span>
-          <Link to={'/info'}>INFO</Link>
+          <Link to={'/stats'}>STATS</Link>
         </span>
         <span>
-          <Link to={'/picks'}>PICKS</Link>
+          <Link to={'/history'}>HISTORY</Link>
+        </span>
+        <span>
+          <Link to={'/about'}>ABOUT</Link>
         </span>
     </span>
   </header>

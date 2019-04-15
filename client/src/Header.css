@@ -43,6 +43,7 @@ a {
 }
 
 .link {
+  margin-right: 1vw;
   font-weight: bold;
   font-size: calc(4px + 1vw);
   position: absolute;
@@ -53,12 +54,29 @@ a {
   animation: 3s FadeIn;
 }
 
-.link :active {
+.link > * :hover {
+  background-color: rgb(255, 255, 255, 0.3);
   color: #fff200;
 }
 
-.link span {
-  margin-right: 4vw;
+.link :active {
+  color: #fff200;
+  border-color: #fff200;
+}
+
+.link a {
+  text-decoration: none;
+  border: calc(0.25px + 0.25vw) solid;
+  border-radius: 1vw;
+  border-color: #00c0ce;
+  padding: 0.6vw;
+  display: inline-block;
+  transform: skew(10deg);
+  font-style: oblique;
+}
+
+.link a :active {
+  background: rgb(255, 255, 255, 0.5);
 }
 
 #one {
