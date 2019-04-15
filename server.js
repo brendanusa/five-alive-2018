@@ -131,7 +131,7 @@ app.get('/api/picksbyschool', (req, res) => {
             })
           }
           picksBySchoolArr.sort((a, b) => {
-            return b.picks - a.picks;
+            return b.picks - a.picks || b.name - a.name;
           })
           res.send(picksBySchoolArr)
         })
