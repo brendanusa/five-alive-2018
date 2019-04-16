@@ -42,8 +42,7 @@ a {
   transform: skew(10deg);
 }
 
-.link {
-  margin-right: 1vw;
+.links {
   font-weight: bold;
   font-size: calc(4px + 1vw);
   position: absolute;
@@ -54,17 +53,16 @@ a {
   animation: 3s FadeIn;
 }
 
-.link > * :hover {
+.links > * :hover {
   background-color: rgb(255, 255, 255, 0.3);
   color: #fff200;
 }
 
-.link :active {
-  color: #fff200;
+.links :active {
   border-color: #fff200;
 }
 
-.link a {
+.links a {
   text-decoration: none;
   border: calc(0.25px + 0.25vw) solid;
   border-radius: 1vw;
@@ -75,8 +73,8 @@ a {
   font-style: oblique;
 }
 
-.link a :active {
-  background: rgb(255, 255, 255, 0.5);
+.selectedComponent {
+  color: white;
 }
 
 #one {
