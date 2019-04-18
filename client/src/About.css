@@ -1,0 +1,26 @@
+.About {
+  font-weight: bold;
+  width: calc(120px + 28vw);
+  max-height: 50%;
+  margin-top: calc(24px + 5vw);
+  border: 5px solid;
+  border-color: #5a19ff;
+  background-color: rgba(0, 0, 0, 0.5);
+  border-radius: 8px;
+  padding: 12px;
+  text-align: center;
+  animation: FadeIn 2s ease;
+  font-size: calc(8px + 0.5vw);
+  overflow: scroll;
+}
+
+.About h2 {
+  border: calc(1px + 0.1vw) solid;
+  border-radius: 8px;
+}
+
+.AboutContainer {
+  height: 840px;
+  display: flex;
+  justify-content: center;
+}
