@@ -2,12 +2,14 @@ import React, { Component } from 'react';
 import Header from './Header';
 import { BrowserRouter as Router, Route } from 'react-router-dom';
 import Login from './Login';
-import TeamSelect from './TeamSelect';
-import StandingsOld from './StandingsOld';
+// import TeamSelect from './TeamSelect';
 import Home from './Home';
-import Info from './Info';
+import About from './About';
 import PastChamps from './PastChamps';
 import Picks from './Picks';
+import Stats from './Stats';
+import History from './History';
+import PickFive from './PickFive';
 
 class App extends Component {
 
@@ -24,11 +26,12 @@ class App extends Component {
             <Route path='/' exact component={Home}/>
             <Route path='/home' component={Home}/>
             <Route path='/login' component={Login}/>
-            <Route path='/teamselect' component={TeamSelect}/>
-            <Route path='/standingsold' component={StandingsOld}/>
-            <Route path='/info' component={Info}/>
+            <Route path='/about' component={About}/>
             <Route path='/pastchamps' component={PastChamps}/>
             <Route path='/picks' component={Picks}/>
+            <Route path='/history' component={History}/>
+            <Route path='/stats' component={Picks}/>
+            <Route path='/pickfive' component={PickFive}/>
           </div>
         </Router>
       </div>
