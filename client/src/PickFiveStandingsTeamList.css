@@ -1,0 +1,121 @@
+@keyframes SlideDown {
+  0% {
+    transform: translateY(-100%);
+  }
+  100% {
+    transform: translateY(0%);
+  } 
+}
+
+@keyframes Hide {
+  0% {
+    opacity: 0;
+  }
+  99% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+.PickFiveStandingsTeamList {
+  /*margin-top: -1px;*/
+  font-size: calc(5px + 0.4vw);
+  color: #42d117;
+  padding: calc(1px + 0.5vw);
+}
+
+.PickFiveStandingsTeamList div {
+  /*padding: calc(0.5px + 0.2vw);*/
+}
+
+.PickFiveStandingsTeamListContainer {
+  /*padding: 4px;*/
+  margin-left: 2px;
+  margin-right: 2px;
+  overflow: hidden;
+  /*border: 1px solid yellow;*/
+}
+
+.PickFiveStandingsTeamContainer {
+  overflow: hidden;
+  padding: 1px;
+}
+
+.PickFiveStandingsTeamContainer > div {
+  display: flex;
+  justify-content: space-between;
+  border-bottom: 1px solid green;
+  border-bottom-right-radius: 8px;
+}
+
+.PickFiveStandingsTeamContainer span {
+  display: flex;
+  align-items: center;
+}
+
+.PickFiveStandingsTeam0 {
+  animation: SlideDown .08s ease-in-out 0.5s, Hide 0.55s;;
+  overflow: hidden;
+}
+
+.PickFiveStandingsTeam1 {
+  animation: SlideDown .08s ease-in-out 0.58s, Hide 0.585s;
+  overflow: hidden;
+}
+
+.PickFiveStandingsTeam2 {
+  animation: SlideDown .08s ease-in-out 0.66s, Hide 0.665s;
+  overflow: hidden;
+}
+
+.PickFiveStandingsTeam3 {
+  animation: SlideDown .08s ease-in-out 0.74s, Hide 0.745s;
+  overflow: hidden;
+}
+
+.PickFiveStandingsTeam4 {
+  animation: SlideDown .08s ease-in-out 0.82s, Hide 0.825s;
+  overflow: hidden;
+}
+
+.PickFiveStandingsTeam5 {
+  animation: SlideDown .08s ease-in-out 0.9s, Hide 0.905s;
+  overflow: hidden;
+}
+
+.PickFivePointer {
+  margin-left: 10%;
+  animation: SlideDown 0.5s ease-in-out;
+  overflow: hidden;
+}
+
+.PickFivePointer div {
+  width: 24%;
+  height: calc(2px + 0.2vw);
+  border-left: 1px solid #42d117;
+  border-top-left-radius: 4px;
+  border-top: 1px solid #42d117;
+}
+
+.PickFiveStandingsTeamRound {
+  /*color: #00c0ce;*/
+  font-size: calc(4px + 0.4vw);
+}
+
+.PickFiveStandingsTeamPoints {
+  font-size: calc(6px + 0.4vw);
+  /*color: #00c0ce;*/
+  border: 1px solid #00c0ce;
+  border-right: 2px solid #00c0ce;
+  /*border-top: transparent;*/
+  border-left: transparent;
+  border-bottom: transparent;
+  padding: 0.8px;
+  padding-left: calc(2px + 0.2vw);
+  padding-right: calc(2px + 0.2vw);
+  border-radius: 8px;
+  border-bottom-left-radius: 0px;
+  /*border-top-left-radius: 0px;*/
+}
