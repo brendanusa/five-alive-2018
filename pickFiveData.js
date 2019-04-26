@@ -1,4 +1,4 @@
-module.exports.pickFiveHighScores = [
+var pickFiveHighScores = [
   {
     name: 'Nick Kordesch',
     year: 2014,
@@ -271,7 +271,7 @@ module.exports.pickFiveHighScores = [
   },
 ];
 
-module.exports.pickFiveChamps = [
+var pickFiveChamps = [
   {
     name: 'Dave Andrist',
     year: 2019,
@@ -493,3 +493,17 @@ module.exports.pickFiveChamps = [
     ]
   }
 ];
+
+const parseTeamRound = pickFiveDataset => {
+  for (let i = 0; i < pickFiveDataset.length; i++) {
+    for (let j = 0; j < pickFiveDataset[i].teams.length; j++) {
+      let team = pickFiveDataset[i].teams[j]
+      pickFiveDataset[i].teams[j].round = team.points.slice(team.points.indexOf('(') + 1, team.points.indexOf(')'))
+      pickFiveDataset[i].teams[j].points = pickFiveDataset[i].teams[j].points.slice(0, pickFiveDataset[i].teams[j].points.indexOf(' '))
+    }
+  }
+  return pickFiveDataset
+}
+
+module.exports.pickFiveChamps = parseTeamRound(pickFiveChamps);
+module.exports.pickFiveHighScores = parseTeamRound(pickFiveHighScores);
