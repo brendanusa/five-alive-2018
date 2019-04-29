@@ -1,0 +1,27 @@
+.PickFiveStanding {
+  
+}
+
+.PickFiveStandingName {
+  padding: 1px;
+  font-size: calc(10px + 0.2vw);
+}
+
+.PickFiveStandingScore {
+  border-right: 1px solid #00c0ce;
+  border-radius: 8px;
+  padding: 3px;
+  background-color: rgb(0,192,206, 0.3);
+}
+
+.PickFiveStandingHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: calc(8px + 0.25vw);
+  padding: 2px;
+}
+
+.PickFiveStanding:hover {
+  border-color: #fff200;
+}

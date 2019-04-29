@@ -1,0 +1,37 @@
+.PickFiveHighScoreStanding {
+  
+}
+
+.PickFiveHighScoreStandingRank {
+  border-right: 1px solid;
+  border-radius: 8px;
+  padding: calc(2px + 0.2vw);
+}
+
+.PickFiveHighScoreStandingName {
+  padding: 1px;
+  font-size: calc(10px + 0.2vw);
+}
+
+.PickFiveHighScoreStandingYear {
+  font-size: calc(7px + 0.1vw);
+}
+
+.PickFiveHighScoreStandingScore {
+  border-right: 1px solid #00c0ce;
+  border-radius: 8px;
+  padding: 3px;
+  background-color: rgb(0,192,206, 0.3);
+}
+
+.PickFiveHighScoreStandingHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: calc(8px + 0.25vw);
+  padding: 2px;
+}
+
+.PickFiveHighScoreStanding:hover {
+  border-color: #fff200;
+}
