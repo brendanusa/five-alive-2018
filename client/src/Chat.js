@@ -110,7 +110,7 @@ class Chat extends Component {
           })}
         </div>
         <div className="ChatFooter">
-          <div>{this.state.isAuthenticated ? `Posting as ${this.state.user.name} ` : 'Enter password to join:'}</div>
+          <div>{this.state.isAuthenticated ? `Posting as ${this.state.user.name} ` : 'Enter password to join chat:'}</div>
           <div>
             <form onSubmit={this.handleSubmit}>
               <input
