@@ -46,9 +46,15 @@ class Home extends Component {
     this.setState({testimonialsActive: !this.state.testimonialsActive});
   }
 
+  handleTestimonialsHide = (e) => {
+    if (this.state.testimonialsActive) {
+      this.handleTestimonialsClick(e);
+    }
+  }
+
   render() {
     return (
-      <div>
+      <div onClick={this.handleTestimonialsHide}>
         <div className="TestimonialsContainer">
           {this.state.testimonialsActive ? <ChatTestimonials /> : null}
         </div>
