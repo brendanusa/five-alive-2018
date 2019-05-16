@@ -1,5 +1,5 @@
 .PicksBySchool {
-  overflow: scroll;
+  overflow: auto;
   text-align: left;
   font-size: calc(8px + 0.4vw);
 }

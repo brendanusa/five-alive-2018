@@ -1,5 +1,5 @@
 .SimScore {
-  overflow: scroll;
+  overflow: auto;
 }
 
 .SimScoreScore {

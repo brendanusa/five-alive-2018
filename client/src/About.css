@@ -11,7 +11,7 @@
   text-align: center;
   animation: FadeIn 2s ease;
   font-size: calc(8px + 0.5vw);
-  overflow: scroll;
+  overflow: auto;
 }
 
 .About h2 {
