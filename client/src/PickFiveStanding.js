@@ -21,7 +21,12 @@ class PickFiveStanding extends Component {
     return(
       <div className="PickFiveStanding" onClick={this.handleClick}>
         <div className="PickFiveStandingHeader">
-          <span className="PickFiveStandingName">{this.props.name}</span>
+          <span className="PickFiveStandingNameYearContainer">
+            <span className="PickFiveStandingName">{this.props.name}</span>
+            <span className="PickFiveStandingYear">
+            {this.props.year || null}
+            </span>
+          </span>
           <span className="PickFiveStandingScore">{this.props.score}</span>
         </div>
         <div>

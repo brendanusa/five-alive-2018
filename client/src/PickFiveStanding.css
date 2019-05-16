@@ -1,5 +1,7 @@
-.PickFiveStanding {
-  
+.PickFiveStandingYear {
+  margin-left: 2%;
+  font-size: calc(7.5px + 0.15vw);
+  font-weight: 450;
 }
 
 .PickFiveStandingName {
