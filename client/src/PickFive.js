@@ -23,9 +23,9 @@ class PickFive extends Component {
           Welcome to the PICK 5, #5ALIVE'S tournament-only cousin. Gaze in awe at the the all-time high scores, or take an inspiring stroll down the Hall of Champions.
           </div>
           <div className="PickFive">
-            <div className="PickFiveStandings"><PickFiveStandings /></div>
-            <div className="PickFiveChamps"><PickFiveChamps /></div>
-            <div className="PickFiveHighScores"><PickFiveHighScores /></div>
+            <div><PickFiveStandings /></div>
+            <div><PickFiveChamps /></div>
+            <div><PickFiveHighScores /></div>
           </div>
         </div>
       </div>
