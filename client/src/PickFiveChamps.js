@@ -8,7 +8,14 @@ class PickFiveChamps extends Component {
     super(props);
     this.state = {
       PickFiveChamps: [],
+      isActive: false
     }
+
+    this.handleClick = this.handleClick.bind(this);
+  }
+
+  handleClick() {
+    this.setState({isActive: !this.state.isActive})
   }
 
   componentDidMount() {
@@ -22,16 +29,23 @@ class PickFiveChamps extends Component {
   render() {
     return (
     <div className="PickFiveChampsContainer">
-      <h3>HALL OF CHAMPIONS</h3>
-      <div className="PickFiveChamps">
-        <div className="PickFiveChampsStandings">
-          {this.state.PickFiveChamps ? this.state.PickFiveChamps.map((user, i) => {
-            return (
-              <PickFiveChampsStanding key={i} name={user.name} points={user.points} teams={user.teams} year={user.year}/>
-            )
-          }) : null}
+      <h3 onClick={this.handleClick}>HALL OF CHAMPIONS</h3>
+      {this.state.isActive ? 
+
+        <div className="PickFiveChamps">
+          <div className="PickFiveChampsStandings">
+            {this.state.PickFiveChamps ? this.state.PickFiveChamps.map((user, i) => {
+              return (
+                <PickFiveChampsStanding key={i} name={user.name} points={user.points} teams={user.teams} year={user.year}/>
+              )
+            }) : null}
+          </div>
         </div>
-      </div>
+
+        : null
+
+      }
+      
     </div>
     );
   }

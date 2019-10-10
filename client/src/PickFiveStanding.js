@@ -22,12 +22,16 @@ class PickFiveStanding extends Component {
       <div className="PickFiveStanding" onClick={this.handleClick}>
         <div className="PickFiveStandingHeader">
           <span className="PickFiveStandingNameYearContainer">
-            <span className="PickFiveStandingName">{this.props.name}</span>
+            <span className="PickFiveStandingName">
+              {this.props.name}
+            </span>
             <span className="PickFiveStandingYear">
-            {this.props.year || null}
+              {this.props.year || null}
             </span>
           </span>
-          <span className="PickFiveStandingScore">{this.props.score}</span>
+          <span className="PickFiveStandingScore">
+            {this.props.score}
+          </span>
         </div>
         <div>
           {this.state.isActive ? <PickFiveStandingsTeamList teams={this.props.teams} /> : null}

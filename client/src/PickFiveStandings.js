@@ -39,22 +39,37 @@ class PickFiveStandings extends Component {
         'Dillon Smith': 18,
         'Patrick Cushing': 18,
         'Anish Kurian': 12,
-      }
+      },
+      isActive: false
     }
 
+    this.handleClick = this.handleClick.bind(this);
+
+  }
+
+  handleClick() {
+    this.setState({isActive: !this.state.isActive})
   }
 
   render() {
     return (
     <div className="PickFiveStandingsContainer">
-      <h3>2019 Final Standings</h3>
-      <div className="PickFiveStandings">
-        <div>
-        {Object.keys(this.state.standingsHard).map((person, i) => {
-          return (<PickFiveStanding key={i} name={person} score={this.state.standingsHard[person]}/>)
-        })}
+      <h3 onClick={this.handleClick}>2019 FINAL STANDINGS</h3>
+
+      {this.state.isActive ? 
+
+        <div className="PickFiveStandings">
+          <div>
+          {Object.keys(this.state.standingsHard).map((person, i) => {
+            return (<PickFiveStanding key={i} name={person} score={this.state.standingsHard[person]}/>)
+          })}
+          </div>
         </div>
-      </div>
+
+        : null
+        
+      }
+
     </div>
     );
   }

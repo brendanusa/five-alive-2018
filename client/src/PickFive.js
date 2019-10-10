@@ -13,6 +13,8 @@ class PickFive extends Component {
       // testimonialsActive: false
     }
 
+    
+
   }
 
   render() {
@@ -20,7 +22,7 @@ class PickFive extends Component {
       <div>
         <div id="dim">
           <div className="PickFiveDescription">
-          Welcome to the PICK 5, #5ALIVE'S tournament-only cousin. Gaze in awe at the the all-time high scores, or take an inspiring stroll down the Hall of Champions.
+          Welcome to the PICK 5, #5ALIVE'S tournament-only cousin. Gaze in awe at the the all-time high scores, or take an inspiring stroll down the Hall of Champions. (click header to expand/collapse)
           </div>
           <div className="PickFive">
             <div><PickFiveStandings /></div>
