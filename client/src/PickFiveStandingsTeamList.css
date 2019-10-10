@@ -39,8 +39,10 @@
 .PickFiveStandingsTeamContainer > div {
   display: flex;
   justify-content: space-between;
-  border-bottom: 1px solid rgb(66,209,23,0.3);
+  border-bottom: 1px solid rgb(66,209,23,0.35);
   border-bottom-right-radius: 8px;
+  background-color: rgb(66,209,23,0.15);
+  margin-top: calc(1px + 0.2vw);
 }
 
 .PickFiveStandingsTeamContainer span {
@@ -49,38 +51,38 @@
 }
 
 .PickFiveStandingsTeam0 {
-  animation: SlideDown .08s ease-in-out 0.5s, Hide 0.55s;;
+  animation: SlideDown .08s ease-in-out 0.3s, Hide 0.35s;;
   overflow: hidden;
 }
 
 .PickFiveStandingsTeam1 {
-  animation: SlideDown .08s ease-in-out 0.58s, Hide 0.585s;
+  animation: SlideDown .08s ease-in-out 0.38s, Hide 0.385s;
   overflow: hidden;
 }
 
 .PickFiveStandingsTeam2 {
-  animation: SlideDown .08s ease-in-out 0.66s, Hide 0.665s;
+  animation: SlideDown .08s ease-in-out 0.46s, Hide 0.465s;
   overflow: hidden;
 }
 
 .PickFiveStandingsTeam3 {
-  animation: SlideDown .08s ease-in-out 0.74s, Hide 0.745s;
+  animation: SlideDown .08s ease-in-out 0.54s, Hide 0.545s;
   overflow: hidden;
 }
 
 .PickFiveStandingsTeam4 {
-  animation: SlideDown .08s ease-in-out 0.82s, Hide 0.825s;
+  animation: SlideDown .08s ease-in-out 0.62s, Hide 0.625s;
   overflow: hidden;
 }
 
 .PickFiveStandingsTeam5 {
-  animation: SlideDown .08s ease-in-out 0.9s, Hide 0.905s;
+  animation: SlideDown .08s ease-in-out 0.7s, Hide 0.705s;
   overflow: hidden;
 }
 
 .PickFivePointer {
   margin-left: 10%;
-  animation: SlideDown 0.5s ease-in-out;
+  animation: SlideDown 0.3s ease-in-out;
   overflow: hidden;
 }
 
@@ -100,7 +102,7 @@
 .PickFiveStandingsTeamPoints {
   /*color: #00c0ce;*/
   /*border: 1px solid #42d117;*/
-  background-color: rgb(66,209,23,0.25);
+  background-color: rgb(66,209,23,0.35);
   border-right: 1px solid #42d117;
   padding: 0.8px;
   padding-left: calc(2px + 0.2vw);

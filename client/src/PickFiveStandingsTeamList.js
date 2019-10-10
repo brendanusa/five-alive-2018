@@ -21,9 +21,7 @@ class PickFiveStandingsTeamList extends Component {
                 <div className="PickFiveStandingsTeamContainer">
                   <div key={i} className={"PickFiveStandingsTeam" + [i]}>
                     <span>{team.name}</span>
-                    <span>--</span>
                     <span className="PickFiveStandingsTeamRound">{team.round}</span>
-                    <span>--</span>
                     <span className="PickFiveStandingsTeamPoints">{team.points}</span>
                   </div>
                 </div>
