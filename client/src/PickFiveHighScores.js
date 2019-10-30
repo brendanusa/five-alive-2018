@@ -28,8 +28,8 @@ class PickFiveHighScores extends Component {
 
   render() {
     return (
-    <div className="PickFiveHighScoresContainer" onClick={this.handleClick}>
-      <h3>HALL OF HIGH SCORES</h3>
+    <div className="PickFiveHighScoresContainer">
+      <h3 onClick={this.handleClick}>HALL OF HIGH SCORES</h3>
 
       {this.state.isActive ?
       

@@ -4,8 +4,8 @@ import PickFiveStandings from './PickFiveStandings';
 import PickFiveChamps from './PickFiveChamps';
 import PickFiveHighScores from './PickFiveHighScores';
 import Slider from 'react-slick';
-import "slick-carousel/slick/slick.css";
-import "slick-carousel/slick/slick-theme.css";
+import "./slick/slick.css";
+import "./slick/slick-theme.css";
 
 class PickFive extends Component {
 
@@ -15,8 +15,6 @@ class PickFive extends Component {
     this.state = {
       // testimonialsActive: false
     }
-
-    
 
   }
 
