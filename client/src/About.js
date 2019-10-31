@@ -22,11 +22,12 @@ const About = () => {
             <li>Chris Godfrey</li>
             <li>Patrick Godfrey</li>
             <li>Ryan Excitement</li>
-            <li>Dillon Committee</li>
+            <li>Action Vogel</li>
+            <li>JP Kelly</li>
             <li>Michael Jordan</li>
             <li>Harrison Godfrey</li>
             <li>Wilt Chamberlain</li>
-            <li>Ryan "Hollywood" Excitement</li>
+            <li>Rob "The Committee" Coloney</li>
         </p>
       </div>
     </div>
