@@ -72,6 +72,7 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.get('/api/password', (req, res) => {
   db.query(`SELECT * FROM users WHERE password = '${req.query.password}'`)
     .then((data) => {
+      console.log('BRENDAN', data)
       res.send(data);
     })
     .catch(error => {
@@ -184,7 +185,7 @@ app.get('/api/teams', (req, res) => {
   console.log('Picks received!')
   let teamsArray = req.query.teamids.split(',')
   teamsArray = teamsArray.map(teamId => parseInt(teamId));
-  db.query(`update users set teams_2018 = '{${teamsArray}}' where id=${parseInt(req.query.userid)} returning teams_2018`)
+  db.query(`update users set teams_2019 = '{${teamsArray}}' where id=${parseInt(req.query.userid)} returning teams_2019`)
     .then(() => {
       res.send('Picks saved!')
     })
@@ -216,6 +217,18 @@ app.get('/api/pickfive/champs', (req, res) => {
   res.send(pickFiveData.pickFiveChamps)
 })
 
+app.get('/api/schools', (req, res) => {
+  console.log('fetching team select school list');
+  db.query('SELECT name, w1819, l1819 from teams order by name asc;')
+    .then(data => {
+      res.send(data)
+    })
+    .catch(error => {
+      console.log('ERROR', error)
+      res.send('Unable to retrieve school list: ' + error);
+    })
+})
+
 if (process.env.NODE_ENV === 'production') {
   // Serve any static files
   app.use('/', express.static(path.join(__dirname, 'client/build')));
@@ -226,3 +239,7 @@ if (process.env.NODE_ENV === 'production') {
 }
 
 // app.listen(port, () => console.log(`Listening on port ${port}`));
+
+const teamsHard = [
+  {name: 'Abilene Christian', w: 16, l: 16}
+]
