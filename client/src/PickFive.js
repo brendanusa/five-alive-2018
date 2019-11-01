@@ -27,7 +27,7 @@ class PickFive extends Component {
       slidesToShow: 1,
       slidesToScroll: 1,
       variableWidth: true,
-      initialSlide: 1,
+      initialSlide: 0,
       // centerPadding: '100px'
     };
     return (
