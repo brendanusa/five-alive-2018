@@ -82,7 +82,7 @@ app.get('/api/password', (req, res) => {
 })
 
 app.get('/api/picks', (req, res) => {
-  db.query('select name, teams_2018 from users;')
+  db.query('select name, teams_2018 from users where teams_2018 is not null;')
     .then(users => {
       res.send(users)
     })
@@ -93,7 +93,7 @@ app.get('/api/picks', (req, res) => {
 })
 
 app.get('/api/simscore', (req, res) => {
-  db.query('select name, sim_score_2018 from users;')
+  db.query('select name, sim_score_2018 from users where teams_2018 is not null;')
     .then(users => {
       users.sort((a, b) => {
         return a.sim_score_2018 - b.sim_score_2018;
@@ -153,7 +153,7 @@ app.get('/api/standings', (req, res) => {
   db.query('SELECT id, name, w2018, l2018 from teams;')
     .then(data => {
       resData.teams = data.sort((a, b) => a.id - b.id);
-      db.query('SELECT name, teams_2018 from users;')
+      db.query('SELECT name, teams_2018 from users where teams_2018 is not null;')
         .then(data => {
           resData.users = data;
           resData.users.forEach((user, i) => {
