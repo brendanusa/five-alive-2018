@@ -1,5 +1,5 @@
 {
-  "name": "FIVE-ALIVE-2018",
+  "name": "FIVE-ALIVE-BBALL",
   "version": "1.0.0",
   "scripts": {
     "client": "cd client && npm start",
