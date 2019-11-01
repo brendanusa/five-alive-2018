@@ -158,10 +158,11 @@ app.get('/api/standings', (req, res) => {
           resData.users = data;
           resData.users.forEach((user, i) => {
             resData.users[i].wins = user.teams_2018.reduce((acc, val) => {
-              return acc += resData.teams[val - 1].w2018;
+              // index of team offset bc first id in db = 2
+              return acc += resData.teams[val - 2].w2018;
             }, 0)
             resData.users[i].teams_2018 = resData.users[i].teams_2018.map(teamid => {
-              return resData.teams[teamid - 1];
+              return resData.teams[teamid - 2];
             })
           })
           resData.users.sort((a, b) => {
@@ -207,6 +208,11 @@ app.get('/api/messages', (req, res) => {
     })
 })
 
+app.get('/api/pickfive/standings', (req, res) => {
+  console.log('retrieving pickfive standings')
+  res.send(pickFiveData.pickFiveStandings)
+})
+
 app.get('/api/pickfive/highscores', (req, res) => {
   console.log('retrieving pickfive highscores')
   res.send(pickFiveData.pickFiveHighScores)
@@ -239,7 +245,3 @@ if (process.env.NODE_ENV === 'production') {
 }
 
 // app.listen(port, () => console.log(`Listening on port ${port}`));
-
-const teamsHard = [
-  {name: 'Abilene Christian', w: 16, l: 16}
-]
