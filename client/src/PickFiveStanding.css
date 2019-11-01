@@ -1,3 +1,8 @@
+.PickFiveStanding {
+  border-radius: 8px;
+  margin-bottom: 8px;
+}
+
 .PickFiveStandingYear {
   margin-left: 2%;
   font-size: calc(7.5px + 0.15vw);
@@ -30,4 +35,5 @@
 
 .PickFiveStanding:hover {
   border-color: #fff200;
+  background-color: rgb(255,255,255,0.1);
 }

@@ -20,7 +20,7 @@
 }
 
 .PickFiveStandingsTeamList {
-  font-size: calc(7px + 0.2vw);
+  font-size: calc(8px + 0.2vw);
   color: #42d117;
   padding: calc(1px + 0.2vw);
 }
@@ -38,9 +38,11 @@
 
 .PickFiveStandingsTeamContainer > div {
   display: flex;
-  justify-content: space-between;
+  justify-content: space-around;
   border-bottom: 1px solid rgb(66,209,23,0.35);
   border-bottom-right-radius: 8px;
+  border-bottom-left-radius: 8px;
+  border-top-left-radius: 8px;
   background-color: rgb(66,209,23,0.15);
   margin-top: calc(1px + 0.2vw);
 }
@@ -95,13 +97,10 @@
 }
 
 .PickFiveStandingsTeamRound {
-  /*color: #00c0ce;*/
-  font-size: calc(5px + 0.2vw);
+  font-size: calc(6px + 0.2vw);
 }
 
 .PickFiveStandingsTeamPoints {
-  /*color: #00c0ce;*/
-  /*border: 1px solid #42d117;*/
   background-color: rgb(66,209,23,0.35);
   border-right: 1px solid #42d117;
   padding: 0.8px;
@@ -109,5 +108,4 @@
   padding-right: calc(2px + 0.2vw);
   border-radius: 8px;
   border-bottom-left-radius: 0px;
-  /*border-top-left-radius: 0px;*/
 }

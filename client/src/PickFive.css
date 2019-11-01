@@ -5,11 +5,9 @@
   margin-bottom: 100px;
   height: calc(300px + 10vw);
   font-size: calc(8px + 0.4vw);
-  /*background-color: red;*/
 }
 
 .slick-slider {
-  /*background-color: brown;*/
   width: 80%;
   height: 100%;
   border-radius: 8px;
@@ -18,16 +16,15 @@
 }
 
 .slick-slider div {
-  /*border: 5px dotted white;*/
+
 }
 
 .slick-list {
-  /*top: 10%;*/
   height: 100%;
-  /*border: 5px dotted white;*/
 }
 
 .slick-slide {
+  width: 240px;
   padding: 40px;
 }
 
@@ -36,7 +33,7 @@
   border: calc(1px + 0.1vw) solid;
   border-radius: 8px;
   text-align: center;
-  padding: 1px;
+  padding: 2px;
 }
 
 .PickFive h3:hover {
@@ -65,16 +62,6 @@
   font-size: calc(10px + 0.2vw);
   font-weight: 500;
 }
-
-/*.slick-center h3 {
-  -moz-transform:scale(1.8);
-  -ms-transform:scale(1.8);
-  -o-transform:scale(1.8);
-  -webkit-transform:scale(1.8);
-  color:#e67e22;
-  opacity:1;
-  transform:scale(1.8);
-}*/
 
 #dim {
   display: flex;
