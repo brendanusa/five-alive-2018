@@ -14,7 +14,7 @@ const ChatTestimonials = () => {
           "I was feeling chatty one afternoon, and it turned out the #5ALIVE chat was exactly what I was looking for."
           </div>
           <div className="TestimonialAuthor">
-          --2018 #5ALIVE Runner-up Coreen Kopper
+          --2018 and 2019 #5ALIVE Runner-up Coreen Kopper
           </div>
         </div>
         <div className="TestimonialRight">
