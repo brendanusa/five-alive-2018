@@ -95,6 +95,16 @@ class Chat extends Component {
   }
 
   render() {
+
+    const chatInput =
+
+    <input
+      type="text"
+      value={this.state.post}
+      onChange={e => this.setState({post: e.target.value})}
+      style={{marginRight:"10px"}}
+    />
+
     return (
       <div className="Chat">
         <div className="ChatHeader">
@@ -110,18 +120,34 @@ class Chat extends Component {
           })}
         </div>
         <div className="ChatFooter">
-          <div>{this.state.isAuthenticated ? `${this.state.user.name} has entered the chat` : 'Enter password to join chat:'}</div>
-          <div>
-            <form onSubmit={this.handleSubmit}>
-              <input
-                type="text"
-                value={this.state.post}
-                onChange={e => this.setState({post: e.target.value})}
-                
-              />
-              <button type="submit" style={{marginLeft:"10px"}}>{this.state.isAuthenticated ? 'Send' : 'Submit'}</button>
-            </form>
-          </div>
+          {this.state.isAuthenticated ? 
+            <div>
+              <div className="ChatFooterNotification">
+                {this.state.user.name} has entered the Chat portal
+              </div>
+              <form className="MessageForm" onSubmit={this.handleSubmit}>
+                <input
+                  type="text"
+                  value={this.state.post}
+                  onChange={e => this.setState({post: e.target.value})}
+                  style={{marginRight:"10px"}}
+                />
+                <button type="submit">Send Message</button>
+              </form>
+            </div>
+            :
+            <div>
+              <form className="PasswordForm" onSubmit={this.handleSubmit}>
+                Enter password:
+                <input
+                  type="text"
+                  value={this.state.post}
+                  onChange={e => this.setState({post: e.target.value})}
+                />
+                <button type="submit">Submit</button>
+              </form>
+            </div>
+          }
         </div>
       </div>
     )

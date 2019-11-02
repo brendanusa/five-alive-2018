@@ -14,15 +14,15 @@
   justify-content: flex-end;
   align-items: center;
   font-weight: bold;
-  font-size: 1vw;
+  font-size: calc(4px + 0.4vw);
   padding: 8px;
   background-color: rgba(0, 0, 0, 0.8);
   border-radius: 8px;
 }
 
 .ChatHeader img {
-  max-width: 10vw;
-  max-height: 2.2vw;
+  max-width: 7.5vw;
+  max-height: 1.65vw;
   padding: 0.2vw;
 }
 
@@ -36,18 +36,37 @@
 }
 
 .ChatFooter {
-  margin: 8px 10px 10px 10px;
+  margin-top: 4px;
+}
+
+.ChatFooterNotification {
+  font-size: calc(7px + 0.4vw);
+  margin-bottom: 8px;
 }
 
 .ChatFooter > div {
+  text-align: center;
   color: #fff200;
   font-weight: bold;
   font-size: calc(8px + 0.4vw);
   padding: 4px;
 }
 
-input {
-  width: 64%;
+.MessageForm {
+  margin-bottom: 10px;
+}
+
+.MessageForm input {
+  width: 72%;
+}
+
+.PasswordForm {
+  margin: 0px 8px 0px 8px;
+}
+
+.PasswordForm input {
+  width: 80px;
+  margin: 0px 8px 0px 8px;
 }
 
 button {

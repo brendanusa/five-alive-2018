@@ -1,11 +1,11 @@
 self.__precacheManifest = [
   {
-    "revision": "df95deb59c193e0becd4",
-    "url": "/static/css/main.83f047d3.chunk.css"
+    "revision": "f80d7d1538e20a72b027",
+    "url": "/static/css/main.6e025d05.chunk.css"
   },
   {
-    "revision": "df95deb59c193e0becd4",
-    "url": "/static/js/main.cbcddbf3.chunk.js"
+    "revision": "f80d7d1538e20a72b027",
+    "url": "/static/js/main.90933023.chunk.js"
   },
   {
     "revision": "42ac5946195a7306e2a5",
@@ -24,23 +24,23 @@ self.__precacheManifest = [
     "url": "/static/media/kembawalker-fivea-bgkd.cf6290f9.jpg"
   },
   {
-    "revision": "d41f55a78e6f49a5512878df1737e58a",
-    "url": "/static/media/slick.d41f55a7.ttf"
+    "revision": "ced611daf7709cc778da928fec876475",
+    "url": "/static/media/slick.ced611da.eot"
   },
   {
     "revision": "b7c9e1e479de3b53f1e4e30ebac2403a",
     "url": "/static/media/slick.b7c9e1e4.woff"
   },
   {
+    "revision": "d41f55a78e6f49a5512878df1737e58a",
+    "url": "/static/media/slick.d41f55a7.ttf"
+  },
+  {
     "revision": "f97e3bbf73254b0112091d0192f17aec",
     "url": "/static/media/slick.f97e3bbf.svg"
   },
   {
-    "revision": "ced611daf7709cc778da928fec876475",
-    "url": "/static/media/slick.ced611da.eot"
-  },
-  {
-    "revision": "b91a3ae01895c274b1a38957d7462085",
+    "revision": "840bae4d6e06f4c46f1921b2b6eaf9f8",
     "url": "/index.html"
   }
 ];
