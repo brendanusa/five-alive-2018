@@ -102,7 +102,7 @@ class TeamSelect extends Component {
           <div className="UserBox">
             <div className="UserBoxMessageContainer">
               <div className="UserBoxMessage">WELCOME TO THE NCAA TEAM SELECTION PORTAL</div>
-              <div className="UserBoxForm">{this.state.user.name ? this.state.user.name+' has entered the portal.' : 
+              <div className="UserBoxForm">{this.state.user.name ? this.state.user.name+' has entered the team selection portal.' : 
                   <form onSubmit={this.handleUserBoxSubmit}>
                     Enter password:
                     <input
