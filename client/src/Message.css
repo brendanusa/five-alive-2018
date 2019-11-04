@@ -1,6 +1,7 @@
 .Message {
   padding: 4px;
   font-size: calc(8px + 0.5vw);
+  margin-bottom: calc(1px + 0.7vw);
 }
 
 .MessageAuthor {
