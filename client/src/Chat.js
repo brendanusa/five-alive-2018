@@ -71,8 +71,8 @@ class Chat extends Component {
 
   handleMessageSubmit = e => {
     e.preventDefault();
-    if (this.state.post.length === 0 || this.state.post.length > 200) {
-      return window.alert('Please enter between 1 and 200 characters');
+    if (this.state.post.length === 0 || this.state.post.length > 500) {
+      return window.alert('Please enter between 1 and 500 characters');
     }
     if (!this.checkChars(this.state.post)) {
       return window.alert('Invalid message - try removing any fancy punctuation');
