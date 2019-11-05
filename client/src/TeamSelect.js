@@ -99,7 +99,7 @@ class TeamSelect extends Component {
     return (
       <div className="TeamSelectTempContainer">
         <div className="TeamSelectTemp">
-          NICE TRY! Team selection for 2018-2019 is OVER!
+          NICE TRY! Team selection for 2019-2020 is OVER!
         </div>
       </div>
     )
