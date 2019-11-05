@@ -156,6 +156,10 @@
   color: #fff200;
 }
 
+.UserBoxForm input {
+  width: 80px;
+}
+
 .UserBoxTeams {
   border-radius: 8px;
   background-color: rgb(255,255,255,0.1);

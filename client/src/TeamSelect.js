@@ -110,7 +110,7 @@ class TeamSelect extends Component {
                       value={this.state.post}
                       onChange={e => this.setState({post: e.target.value})}
                     />
-                    <button type="submit" style={{marginLeft:"10px"}}>Submit</button>
+                    <button type="submit" style={{marginLeft:"10px"}}>Login</button>
                   </form>
                 }
               </div>
