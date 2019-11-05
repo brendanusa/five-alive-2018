@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import './Chat.css';
 import Message from './Message';
 import io from "socket.io-client";
-import logo from './fivealivelogo.jpg'
+import logo from './fivealivelogo.jpg';
 
 class Chat extends Component {
 

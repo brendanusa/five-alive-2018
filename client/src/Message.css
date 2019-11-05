@@ -13,6 +13,7 @@
 .MessageTimestamp {
   font-size: calc(4px + 0.4vw);
   color: rgba(255, 255, 255, 0.5);
+  margin-left: 4px;
 }
 
 .Message a {
