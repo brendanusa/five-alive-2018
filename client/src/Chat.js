@@ -75,7 +75,7 @@ class Chat extends Component {
       return window.alert('Please enter between 1 and 500 characters');
     }
     if (!this.checkChars(this.state.post)) {
-      return window.alert('Invalid message - try removing any fancy punctuation');
+      return window.alert('Couldn\'t send message - try removing any fancy punctuation');
     }
  
     this.socket.emit('SEND_MESSAGE', {
@@ -108,9 +108,12 @@ class Chat extends Component {
     return (
       <div className="Chat">
         <div className="ChatHeader">
-          <span>CHAT POWERED BY </span>
-          <span><img src={logo} alt="logo" /></span>
-          <span> CHAT TECHNOLOGY</span>
+          <div>
+            <span>CHAT POWERED BY </span>
+            <span><img src={logo} alt="logo" /></span>
+            <span> CHAT TECHNOLOGY</span>
+          </div>
+          <div>AND ZOOM-LINK TECHNOLOGY</div>
         </div>
         <div className="Messages" id="scrollhere">
           {this.state.messages.map((message, i) => {
@@ -144,7 +147,7 @@ class Chat extends Component {
                   value={this.state.post}
                   onChange={e => this.setState({post: e.target.value})}
                 />
-                <button type="submit">Submit</button>
+                <button type="submit">Login</button>
               </form>
             </div>
           }

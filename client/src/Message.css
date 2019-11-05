@@ -14,3 +14,7 @@
   font-size: calc(4px + 0.4vw);
   color: rgba(255, 255, 255, 0.5);
 }
+
+.Message a {
+  color: lightblue;
+}

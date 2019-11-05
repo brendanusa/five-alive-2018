@@ -11,7 +11,9 @@
     "body-parser": "^1.19.0",
     "cheerio": "^1.0.0-rc.3",
     "express": "^4.17.1",
+    "linkifyjs": "^2.1.8",
     "pg-promise": "^8.7.5",
+    "react-linkify": "^1.0.0-alpha",
     "socket.io": "^2.3.0"
   },
   "devDependencies": {
