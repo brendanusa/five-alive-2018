@@ -16,9 +16,8 @@ const About = () => {
         <p>The rules are simple, and pleasing to the eye - participants select five teams that collectively won no more than 100 games the previous season. The person whose teams win the most games this year (excluding non-NCAA postseason tournaments - i.e. NIT, CIT, etc.) wins the grand prize: a Fast & The Furious DVD box set and a 6-pack of Doritos-flavored Mountain Dew.
           <br></br>
           <p style={{color: "yellow"}}>
-          The deadline for entry this year is Tuesday, November 5th
-          at 9:00 am ET/6:00 am PT. Please contact the entry and
-          deadline committee (Brendan Bansavage) to join.
+          The deadline for entry this year is TODAY. Please contact the entry and
+          deadline committee (Brendan Bansavage) for more info.
           </p>
         </p>
         <br></br>
