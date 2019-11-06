@@ -18,7 +18,7 @@ class StandingsTeamList extends Component {
               return (
                 <div className="StandingsTeamContainer">
                   <div key={i} className={"StandingsTeam" + [i]}>
-                    {team.name} ({team.w2018}-{team.l2018})
+                    {team.name} ({team.w1819}-{team.l1819})
                   </div>
                 </div>
               )

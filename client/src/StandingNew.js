@@ -22,7 +22,7 @@ class StandingNew extends Component {
       <div className="StandingNew" onClick={this.handleClick}>
         <div className="StandingHeader">
           <span className="StandingName">{this.props.name}</span>
-          <span className="StandingWins">{this.props.wins}</span>
+          <span className="StandingWins"></span>
         </div>
         <div>
           {this.state.isActive ? <StandingsTeamList teams={this.props.teams} /> : null}
