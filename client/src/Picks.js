@@ -36,9 +36,15 @@ class Picks extends Component {
     this.setState({testimonialsActive: !this.state.testimonialsActive});
   }
 
+  handleTestimonialsHide = (e) => {
+    if (this.state.testimonialsActive) {
+      this.handleTestimonialsClick(e);
+    }
+  }
+
   render() {
     return (
-      <div>
+      <div onClick={this.handleTestimonialsHide}>
         <div className="TestimonialsContainer">
           {this.state.testimonialsActive ? <PicksTestimonials /> : null}
         </div>
@@ -50,7 +56,7 @@ class Picks extends Component {
           </div>
         </div>
         <div className="TestimonialsToggle">
-          <a onClick={this.handleTestimonialsClick}>{this.state.testimonialsActive ? 'Click to Hide Picks Page Testimonials' : 'Click to View Picks Page Testimonials'}</a>
+          <a onClick={this.handleTestimonialsClick}>{this.state.testimonialsActive ? 'Click to Hide Stats Page Testimonials' : 'Click to View Stats Page Testimonials'}</a>
         </div>
       </div>
     );

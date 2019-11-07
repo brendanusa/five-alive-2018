@@ -93,10 +93,10 @@ app.get('/api/picks', (req, res) => {
 })
 
 app.get('/api/simscore', (req, res) => {
-  db.query('select name, sim_score_2018 from users where teams_2018 is not null;')
+  db.query('select name, sim_score_2019 from users where teams_2019 is not null;')
     .then(users => {
       users.sort((a, b) => {
-        return a.sim_score_2018 - b.sim_score_2018;
+        return a.sim_score_2019 - b.sim_score_2019;
       })
       res.send(users);
     })
@@ -109,14 +109,14 @@ app.get('/api/simscore', (req, res) => {
 app.get('/api/picksbyschool', (req, res) => {
   const picksBySchoolObj = {};
   const picksBySchoolArr = [];
-  db.query('select teams_2018 from users')
+  db.query('select teams_2019 from users')
     .then(users => {
       users.forEach(user => {
-        for (var key in user.teams_2018) {
-          if (picksBySchoolObj[user.teams_2018[key]]) {
-            picksBySchoolObj[user.teams_2018[key]]++;
+        for (var key in user.teams_2019) {
+          if (picksBySchoolObj[user.teams_2019[key]]) {
+            picksBySchoolObj[user.teams_2019[key]]++;
           } else {
-            picksBySchoolObj[user.teams_2018[key]] = 1;
+            picksBySchoolObj[user.teams_2019[key]] = 1;
           }
         }
       })

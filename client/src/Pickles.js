@@ -15,10 +15,7 @@ class Pickles extends Component {
     fetch('/api/standings')
       .then(res => res.json())
       .then(data => {
-        this.setState({pickles: data.sort((a, b) => {
-          if (b.name > a.name) return -1
-          if (a.name > b.name) return 1
-        })})
+        this.setState({pickles: data})
       })
   }
 
@@ -30,7 +27,7 @@ class Pickles extends Component {
         <div>
           {this.state.pickles ? this.state.pickles.map((user, i) => {
             return (
-              <PickNew key={i} name={user.name} teams={user.teams_2018}/>
+              <PickNew key={i} name={user.name} teams={user.teams_2019}/>
             )
           }) : null}
         </div>

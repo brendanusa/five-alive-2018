@@ -9,15 +9,15 @@ const PicksTestimonials = () => {
 
     <div>
       <div className="TestimonialsHeader">
-        <h2>PICKS PAGE TESTIMONIALS</h2>
+        <h2>STATS PAGE TESTIMONIALS</h2>
       </div>
       <div className="TestimonialsBody">
         <div className="TestimonialLeft">
           <div className="TestimonialQuote">
-          "I was looking for info on everyone's picks one evening, and the #5ALIVE Picks page had everything I wanted and more."
+          "I was looking for info on everyone's picks one evening, and the #5ALIVE Stats page had everything I wanted and more."
           </div>
           <div className="TestimonialAuthor">
-          --2018 #5ALIVE Runner-up Coreen Kopper
+          --Two-time #5ALIVE Runner-up Coreen Kopper
           </div>
         </div>
         <div className="TestimonialRight">
@@ -25,7 +25,7 @@ const PicksTestimonials = () => {
           "[mind blown emoji]"
           </div>
           <div className="TestimonialAuthor">
-          --2018-19 #5ALIVE Participant Patrick Godfrey
+          --#5ALIVE Excitement Expert Patrick Godfrey
           </div>
         </div>
         <div className="TestimonialLeft">
@@ -33,12 +33,12 @@ const PicksTestimonials = () => {
           "I met my mistress on the #5ALIVE Picks page - we've been sneaking around and committing lots of adultery ever since"
           </div>
           <div className="TestimonialAuthor">
-          --Steve Johnson
+          --Stan Johnson
           </div>
         </div>
         <div className="TestimonialRight">
           <div className="TestimonialQuote">
-          "The #5ALIVE analytics and research team has aboslutely outdone themselves this time with the 2018 Picks page. It has a list of everyone's teams, plus two other lists for added lists. God bless you, #5ALIVE!"
+          "The #5ALIVE analytics and research team has aboslutely outdone themselves this time with the all-new Stats page. It has a list of everyone's teams, plus two other lists for added lists. God bless you, #5ALIVE!"
           </div>
           <div className="TestimonialAuthor">
           --Four-time NBA MVP Wilt Chamberlain

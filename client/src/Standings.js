@@ -8,7 +8,7 @@ class Standings extends Component {
     super(props);
     this.state = {
       standings: [],
-      updated: '11/6/2019'
+      updated: '11/7/2019'
     }
   }
 
