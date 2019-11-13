@@ -5,8 +5,9 @@ const axios = require('axios');
 
 const collectWLData = (db) => {
 
-  axios.get('https://www.sports-reference.com/cbb/seasons/2019-ratings.html')
+  axios.get('https://www.sports-reference.com/cbb/seasons/2020-ratings.html')
     .then(res => {
+      console.log('HELLO')
       var $ = cheerio.load(res.data);
       var rows = $('#ratings tbody tr');
 
@@ -23,7 +24,7 @@ const collectWLData = (db) => {
           name = name.replace("\'", "''")
           var w = rows[domTableRow].children[4].children[0].data;
           var l = rows[domTableRow].children[5].children[0].data;
-          db.query(`UPDATE teams SET w2018 = ${w}, l2018 = ${l} WHERE name = '${name}';`)
+          db.query(`UPDATE teams SET w2019 = ${w}, l2019 = ${l} WHERE name = '${name}';`)
             .then(() => {
               return updateTeamRow(domTableRow + 1);
             })
