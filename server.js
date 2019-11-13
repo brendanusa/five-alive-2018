@@ -150,24 +150,24 @@ app.get('/api/picksbyschool', (req, res) => {
 
 app.get('/api/standings', (req, res) => {
   let resData = {}
-  db.query('SELECT id, name, w1819, l1819 from teams;')
+  db.query('SELECT id, name, w2019, l2019 from teams;')
     .then(data => {
       resData.teams = data.sort((a, b) => a.id - b.id);
       db.query('SELECT name, teams_2019 from users where teams_2019 is not null order by name asc;')
         .then(data => {
           resData.users = data;
           resData.users.forEach((user, i) => {
-          //   resData.users[i].wins = user.teams_2019.reduce((acc, val) => {
-          //     // index of team offset bc first id in db = 2
-          //     return acc += resData.teams[val - 2].w1819;
-          //   }, 0)
+            resData.users[i].wins = user.teams_2019.reduce((acc, val) => {
+              // index of team offset bc first id in db = 2
+              return acc += resData.teams[val - 2].w2019;
+            }, 0)
             resData.users[i].teams_2019 = resData.users[i].teams_2019.map(teamid => {
               return resData.teams[teamid - 2];
             })
           })
-          // resData.users.sort((a, b) => {
-          //   return b.wins - a.wins;
-          // })
+          resData.users.sort((a, b) => {
+            return b.wins - a.wins;
+          })
           res.send(resData.users);
         })
         .catch(error => {
