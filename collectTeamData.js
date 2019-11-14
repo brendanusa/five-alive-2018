@@ -22,6 +22,9 @@ const collectWLData = (db) => {
         if (rows[domTableRow].children.length === 18) {
           var name = rows[domTableRow].children[1].children[0].children[0].data;
           name = name.replace("\'", "''")
+          if (name === 'Long Island University') {
+            name = 'LIU-Brooklyn';
+          }
           var w = rows[domTableRow].children[4].children[0].data;
           var l = rows[domTableRow].children[5].children[0].data;
           db.query(`UPDATE teams SET w2019 = ${w}, l2019 = ${l} WHERE name = '${name}';`)
