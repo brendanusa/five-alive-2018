@@ -37,47 +37,35 @@
 }
 
 .PicksTeam0 {
-  /*transition: all 5s ease-in-out;*/
   animation: SlideDown .05s ease-in-out;
   overflow: hidden;
-  /*z-index: 5;*/
 }
 
 .PicksTeam1 {
-  /*transition: all 5s ease-in-out;*/
   animation: SlideDown .05s ease-in-out .05s, Hide .055s;
   overflow: hidden;
-  /*z-index: 4;*/
 }
 
 .PicksTeam2 {
-  /*transition: all 5s ease-in-out;*/
   animation: SlideDown .05s ease-in-out .1s, Hide .105s;
   overflow: hidden;
-  /*z-index: -3;*/
 }
 
 .PicksTeam3 {
-  /*transition: all 5s ease-in-out;*/
   animation: SlideDown .05s ease-in-out .15s, Hide .155s;
   overflow: hidden;
-  /*z-index: -4;*/
 }
 
 .PicksTeam4 {
-  /*transition: all 5s ease-in-out;*/
   animation: SlideDown .05s ease-in-out .2s, Hide .205s;
   overflow: hidden;
-  /*z-index: -5;*/
 }
 
 .pointer {
-  border-left: 1px solid;
+/*  border-left: 1px solid;
   border-bottom: 1px solid;
   margin-top: 2px;
   margin-left: 5px;
-  /*float: left;*/
   height: 10px;
-  width: 10px;
-  /*border-color: white;*/
+  width: 10px;*/
 }

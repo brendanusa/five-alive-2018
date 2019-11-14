@@ -1,29 +1,57 @@
 import React, { Component } from 'react';
+import TeamBox from './TeamBox';
 import './StandingsTeamList.css';
 
 class StandingsTeamList extends Component {
 
   constructor(props) {
     super(props);
-    this.state = {};
+    this.state = {
+      activeTeam: null
+    };
+
+    this.handleClick = this.handleClick.bind(this);
+  }
+
+  handleClick(e) {
+    console.log('HELLO')
+    // this.state.activeTeam === e.target.className[e.target.className.length - 1] ? 
+    //   this.setState({activeTeam: null})
+    //   :
+    //   this.setState({activeTeam: e.target.className[e.target.className.length - 1]})
+
+    if (this.state.activeTeam === e.target.className[e.target.className.length - 1]) {
+      this.setState({activeTeam: null})
+    } else {
+      this.setState({activeTeam: e.target.className[e.target.className.length - 1]})
+    }
   }
 
   render() {
 
     return(
       <div className="StandingsTeamList">
-        <div className="pointer"></div>
-          <div className="StandingsTeamListContainer">
-            {this.props.teams.map((team, i) => {
-              return (
-                <div className="StandingsTeamContainer">
-                  <div key={i} className={"StandingsTeam" + [i]}>
-                    {team.name} ({team.w1819}-{team.l1819})
-                  </div>
-                </div>
-              )
-            })}
+        <div className="StandingsTeamListContainer">
+          <div className="StandingsTeamListPointer">
+            <div></div>
           </div>
+          {this.props.teams.map((team, i) => {
+            return (
+              <div className="StandingsTeamContainer">
+                <div key={i} className={"StandingsTeam" + [i]} onClick={this.handleClick}>
+                  <span className={"StandingsSpan" + [i]}>{team.name}</span>
+                  <span>{team.w2019}</span>
+                </div>
+              </div>
+            )
+          })}
+        </div>
+          {this.state.activeTeam ? 
+            <div className="TeamBoxContainer">
+              <TeamBox team={this.props.teams[this.state.activeTeam]} />
+            </div>
+            : null
+          }
       </div>
     )
 

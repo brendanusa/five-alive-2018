@@ -18,7 +18,7 @@ class PicksTeamList extends Component {
               return (
                 <div className="PicksTeamContainer">
                   <div key={i} className={"PicksTeam" + [i]}>
-                    {team.name}
+                    {team.name} ({team.w1819}-{team.l1819})
                   </div>
                 </div>
               )
@@ -31,6 +31,7 @@ class PicksTeamList extends Component {
 
 }
 
-
+// insert this before map to sort teams by wins
+// .sort((a, b) => b.w2018-a.w2018)
 
 export default PicksTeamList;

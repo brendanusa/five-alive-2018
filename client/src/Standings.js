@@ -8,8 +8,8 @@ class Standings extends Component {
     super(props);
     this.state = {
       standings: [],
-      updated: '11/7/2019'
-    }
+      updated: '11/13/2019'
+    };
   }
 
   componentDidMount() {
@@ -23,12 +23,12 @@ class Standings extends Component {
   render() {
     return (
     <div className="StandingsContainer">
-      <h3>PICKS</h3>
+      <h3>STANDINGS</h3>
       <div className="Standings">
         <div>
           {this.state.standings ? this.state.standings.map((user, i) => {
             return (
-              <StandingNew key={i} name={user.name} teams={user.teams_2019}/>
+              <StandingNew key={i} name={user.name} teams={user.teams_2019} wins={user.wins} isActive={false}/>
             )
           }) : null}
         </div>

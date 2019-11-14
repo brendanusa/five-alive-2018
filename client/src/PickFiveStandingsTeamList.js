@@ -12,22 +12,22 @@ class PickFiveStandingsTeamList extends Component {
 
     return(
       <div className="PickFiveStandingsTeamList">
-          <div className="PickFiveStandingsTeamListContainer">
+        <div className="PickFiveStandingsTeamListContainer">
           <div className="PickFivePointer">
             <div></div>
           </div>
-            {this.props.teams.map((team, i) => {
-              return (
-                <div className="PickFiveStandingsTeamContainer">
-                  <div key={i} className={"PickFiveStandingsTeam" + [i]}>
-                    <span>{team.name}</span>
-                    <span className="PickFiveStandingsTeamRound">{team.round}</span>
-                    <span className="PickFiveStandingsTeamPoints">{team.points}</span>
-                  </div>
+          {this.props.teams.map((team, i) => {
+            return (
+              <div className="PickFiveStandingsTeamContainer">
+                <div key={i} className={"PickFiveStandingsTeam" + [i]}>
+                  <span>{team.name}</span>
+                  <span className="PickFiveStandingsTeamRound">{team.round}</span>
+                  <span className="PickFiveStandingsTeamPoints">{team.points}</span>
                 </div>
-              )
-            })}
-          </div>
+              </div>
+            )
+          })}
+        </div>
       </div>
     )
 

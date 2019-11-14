@@ -82,7 +82,7 @@ app.get('/api/password', (req, res) => {
 })
 
 app.get('/api/picks', (req, res) => {
-  db.query('select name, teams_2018 from users where teams_2018 is not null;')
+  db.query('select name, teams_2019 from users where teams_2019 is not null;')
     .then(users => {
       res.send(users)
     })

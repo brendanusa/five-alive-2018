@@ -1,0 +1,45 @@
+.TeamBox {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: calc(8px + 0.5vw);
+  color: white;
+}
+
+.TeamLogoContainer {
+  display: flex;
+  border-radius: 8px;
+  background-color: white;
+  padding: 10px;
+  margin-right: calc(10px + 2vw);
+}
+
+.TeamBox h2 {
+  margin: auto;
+  margin-bottom: 10px;
+}
+
+.TeamBox h6 {
+  margin: auto;
+  margin-top: 8px;
+}
+
+@media only screen and (max-width: 600px) {
+  .TeamBox {
+    flex-direction: column;
+  }
+  .TeamTextContainer {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+  .TeamLogoContainer {
+    margin-right: 0px;
+    margin-bottom: 10px;
+    max-width: 20%;
+  }
+  .TeamBox img {
+    max-width: 100%;
+  }
+}
