@@ -150,7 +150,7 @@ app.get('/api/picksbyschool', (req, res) => {
 
 app.get('/api/standings', (req, res) => {
   let resData = {}
-  db.query('SELECT id, name, w2019, l2019 from teams;')
+  db.query('SELECT id, name, w1819, l1819, w2019, l2019, nickname, conference from teams;')
     .then(data => {
       resData.teams = data.sort((a, b) => a.id - b.id);
       db.query('SELECT name, teams_2019 from users where teams_2019 is not null order by name asc;')
