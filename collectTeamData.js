@@ -7,7 +7,7 @@ const collectWLData = (db) => {
 
   axios.get('https://www.sports-reference.com/cbb/seasons/2020-ratings.html')
     .then(res => {
-      console.log('HELLO')
+      console.log('initiating collectTeamData sequence hypernet')
       var $ = cheerio.load(res.data);
       var rows = $('#ratings tbody tr');
 
@@ -24,6 +24,15 @@ const collectWLData = (db) => {
           name = name.replace("\'", "''")
           if (name === 'Long Island University') {
             name = 'LIU-Brooklyn';
+          }
+          if (name === 'Nevada-Las Vegas') {
+            name = 'UNLV';
+          }
+          if (name === 'University of California') {
+            name = 'California';
+          }
+          if (name === 'Virginia Commonwealth') {
+            name = 'VCU';
           }
           var w = rows[domTableRow].children[4].children[0].data;
           var l = rows[domTableRow].children[5].children[0].data;
