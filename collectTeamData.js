@@ -3,6 +3,22 @@
 const cheerio = require('cheerio');
 const axios = require('axios');
 
+// const collectSchedData = () => {
+//   const teamUrl = ('https://www.sports-reference.com/cbb/schools/[name]/2020-schedule.html')
+//   db.query('SELECT name from schools where teams_2019 is not null;')
+//     .then(schools => {
+//       schools.forEach(school => {
+//         axios.get(url.replace('[name]', school))
+//           .then(res => {
+//             console.log('fetching sched data for ', school);
+//             var $ = cheerio.load(res.data);
+//             var rows = $('#div_schedule tbody tr');
+//             console.log(rows[0])
+//           })
+//       })
+//     })
+// }
+
 const collectWLData = (db) => {
 
   axios.get('https://www.sports-reference.com/cbb/seasons/2020-ratings.html')
@@ -49,6 +65,8 @@ const collectWLData = (db) => {
       updateTeamRow(0);
 
     })
+
+  // collectSchedData();
 
 
 }
