@@ -23,6 +23,10 @@
   justify-content: space-between;
 }
 
+.StandingHeader :active {
+  color: #fff200;
+}
+
 .StandingNew:hover {
   border-color: #fff200;
 }

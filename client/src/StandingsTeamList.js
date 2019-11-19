@@ -14,12 +14,6 @@ class StandingsTeamList extends Component {
   }
 
   handleClick(e) {
-    console.log('HELLO')
-    // this.state.activeTeam === e.target.className[e.target.className.length - 1] ? 
-    //   this.setState({activeTeam: null})
-    //   :
-    //   this.setState({activeTeam: e.target.className[e.target.className.length - 1]})
-
     if (this.state.activeTeam === e.target.className[e.target.className.length - 1]) {
       this.setState({activeTeam: null})
     } else {
