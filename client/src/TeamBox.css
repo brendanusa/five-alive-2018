@@ -11,6 +11,8 @@
   border-radius: 8px;
   background-color: white;
   padding: 10px;
+  height: 100px;
+  width: 150px;
   margin-right: calc(10px + 2vw);
 }
 
@@ -37,6 +39,7 @@
   .TeamLogoContainer {
     margin-right: 0px;
     margin-bottom: 10px;
+    width: 20%;
     max-width: 20%;
   }
   .TeamBox img {
