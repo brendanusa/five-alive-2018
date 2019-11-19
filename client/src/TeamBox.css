@@ -39,6 +39,7 @@
   .TeamLogoContainer {
     margin-right: 0px;
     margin-bottom: 10px;
+    height: auto;
     width: 20%;
     max-width: 20%;
   }
