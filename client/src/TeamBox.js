@@ -17,6 +17,10 @@ const TeamBox = (props) => {
         <div>{props.team.w2019}-{props.team.l2019}</div>
         <h6>2018-19 W-L</h6>
         <div>{props.team.w1819}-{props.team.l1819}</div>
+        <h6>PREV</h6>
+        <div>{props.team.prevgm}</div>
+        <h6>NEXT</h6>
+        <div>{props.team.nextgm}</div>
       </div>
     </div>
 

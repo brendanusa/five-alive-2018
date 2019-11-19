@@ -59,7 +59,4 @@ class StandingsTeamList extends Component {
 
 }
 
-// insert this before map to sort teams by wins
-// .sort((a, b) => b.w2018-a.w2018)
-
 export default StandingsTeamList;

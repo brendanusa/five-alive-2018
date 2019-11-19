@@ -3,27 +3,75 @@
 const cheerio = require('cheerio');
 const axios = require('axios');
 
-// const collectSchedData = () => {
-//   const teamUrl = ('https://www.sports-reference.com/cbb/schools/[name]/2020-schedule.html')
-//   db.query('SELECT name from schools where teams_2019 is not null;')
-//     .then(schools => {
-//       schools.forEach(school => {
-//         axios.get(url.replace('[name]', school))
-//           .then(res => {
-//             console.log('fetching sched data for ', school);
-//             var $ = cheerio.load(res.data);
-//             var rows = $('#div_schedule tbody tr');
-//             console.log(rows[0])
-//           })
-//       })
-//     })
-// }
+const collectTeamData = (db) => {
 
-const collectWLData = (db) => {
+  const collectSchedData = () => {
+    const teamUrl = ('https://www.sports-reference.com/cbb/schools/[name]/2020-schedule.html')
+    db.query('SELECT name from teams where nickname is not null order by id asc;')
+      .then(schools => {
+
+            // ***DOM STRUCTURE***
+            // games[GAME].children[COLUMN].children[0].data
+            // if link, add one children[0]
+
+            // console.log('date ', games[0].children[1].children[0].children[0].data);
+            // console.log('location ', games[0].children[4].children[0].children[0].data);
+            // console.log('opponent ', games[0].children[5].children[0].children[0].data);
+            // console.log('result ', games[0].children[7].children[0].data);
+            // console.log('tm score ', games[0].children[8].children[0].data);
+            // console.log('opp score ', games[0].children[9].children[0].data);
+            // console.log('ot ', games[0].children[10].children[0].data);
+
+          schools.forEach((school, i) => {
+            let schoolUrlName = school.name.toLowerCase().replace(' ', '-').replace(' ', '-');
+            if (schoolUrlName === 'saint-mary\'s-(ca)') {
+              schoolUrlName = 'saint-marys-ca';
+            }
+            if (schoolUrlName === 'liu-brooklyn') {
+              schoolUrlName = 'long-island-university';
+            }
+            if (schoolUrlName === 'vcu') {
+              schoolUrlName = 'virginia-commonwealth';
+            }
+            if (schoolUrlName === 'miami-(fl)') {
+              schoolUrlName = 'miami-fl';
+            }
+            if (schoolUrlName === 'saint-joseph\'s') {
+              schoolUrlName = 'saint-josephs';
+            }
+            if (schoolUrlName === 'unlv') {
+              schoolUrlName = 'nevada-las-vegas';
+            }
+            axios.get(teamUrl.replace('[name]', schoolUrlName))
+              .then(res => {
+                var $ = cheerio.load(res.data);
+                var games = $('#div_schedule tbody tr');
+                for (let i = 0; i < games.length; i++) {
+                  if (!games[i].children[7].children[0]) {
+                    let isHome = !games[i-1].children[4].children[0];
+
+                    const prevGameString = `${isHome ? 'vs.' : 'at'} ${games[i-1].children[5].children[0].children ? games[i-1].children[5].children[0].children[0].data.replace('\'', '\'\'').replace('Long Island University', 'LIU-Brooklyn').replace('Nevada-Las Vegas', 'UNLV').replace('University of California', 'California').replace('Virginia Commonwealth', 'VCU') : games[i-1].children[5].children[0].data.replace('\'', '\'\'').replace('Long Island University', 'LIU-Brooklyn').replace('Nevada-Las Vegas', 'UNLV').replace('University of California', 'California').replace('Virginia Commonwealth', 'VCU')}, ${games[i-1].children[7].children[0].data} ${games[i-1].children[8].children[0].data}-${games[i-1].children[9].children[0].data}`;
+                    const nextGameString = `${games[i].children[1].children[0].data.slice(0, games[i].children[1].children[0].data.indexOf(', 20')).replace(',', '')} ${isHome ? 'vs.' : 'at'} ${games[i].children[5].children[0].children ? games[i].children[5].children[0].children[0].data.replace('\'', '\'\'').replace('Long Island University', 'LIU-Brooklyn').replace('Nevada-Las Vegas', 'UNLV').replace('University of California', 'California').replace('Virginia Commonwealth', 'VCU') : games[i].children[5].children[0].data.replace('\'', '\'\'').replace('Long Island University', 'LIU-Brooklyn').replace('Nevada-Las Vegas', 'UNLV').replace('University of California', 'California').replace('Virginia Commonwealth', 'VCU')}`;
+                    // escape st mary's
+                    if (school.name === 'Saint Mary\'s (CA)') {
+                      school.name = 'Saint Mary\'\'s (CA)'
+                    }
+                    db.query(`update teams set (prevgm, nextgm) = ('${prevGameString}', '${nextGameString}') where name = '${school.name}' returning name`)
+                    i = games.length;
+
+                  }
+                }
+              })
+            if (i === schools.length - 1) {
+              console.log('team sched data saved');
+            }
+          })
+        })
+  }
 
   axios.get('https://www.sports-reference.com/cbb/seasons/2020-ratings.html')
     .then(res => {
-      console.log('initiating collectTeamData sequence hypernet')
+      console.log('initiating collectWLData sequence hypernet')
       var $ = cheerio.load(res.data);
       var rows = $('#ratings tbody tr');
 
@@ -66,9 +114,9 @@ const collectWLData = (db) => {
 
     })
 
-  // collectSchedData();
+  collectSchedData();
 
 
 }
 
-module.exports.collectWLData = collectWLData;
+module.exports.collectTeamData = collectTeamData;
