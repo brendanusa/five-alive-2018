@@ -8,11 +8,16 @@ class Standings extends Component {
     super(props);
     this.state = {
       standings: [],
-      updated: '11/18/2019'
+      updated: ''
     };
   }
 
   componentDidMount() {
+    fetch('/api/standingsDate')
+      .then(res => res.json())
+      .then(data => {
+        this.setState({updated: data[0].updated})
+      })
     fetch('/api/standings')
       .then(res => res.json())
       .then(data => {

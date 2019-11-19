@@ -181,6 +181,17 @@ app.get('/api/standings', (req, res) => {
     })
 })
 
+app.get('/api/standingsDate', (req, res) => {
+  db.query('select to_char(updated_at, \'mm/dd/yyyy\') as updated from update_timestamps where type = \'standings\';')
+  .then(data => {
+    res.send(data);
+  })
+  .catch(error => {
+    console.log('ERROR', error)
+    res.send('Unable to retrieve standings date: ' + error);
+  })
+})
+
 // TODO: Change to post req
 app.get('/api/teams', (req, res) => {
   console.log('Picks received!')
