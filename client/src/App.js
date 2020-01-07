@@ -17,7 +17,7 @@ class App extends Component {
   }
 
   updateBackgroundImage() {
-    console.log(typeof document.body.style)
+    // console.log(typeof document.body.style)
     document.body.style.backgroundImage = `url(${backgroundImage})`;
   }
 

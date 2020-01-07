@@ -42,6 +42,9 @@ const collectTeamData = (db) => {
             if (schoolUrlName === 'unlv') {
               schoolUrlName = 'nevada-las-vegas';
             }
+            if (schoolUrlName === 'utep') {
+              schoolUrlName = 'texas-el-paso';
+            }
             axios.get(teamUrl.replace('[name]', schoolUrlName))
               .then(res => {
                 var $ = cheerio.load(res.data);
@@ -50,8 +53,8 @@ const collectTeamData = (db) => {
                   if (!games[i].children[7].children[0]) {
                     let isHome = !games[i-1].children[4].children[0];
 
-                    const prevGameString = `${isHome ? 'vs.' : 'at'} ${games[i-1].children[5].children[0].children ? games[i-1].children[5].children[0].children[0].data.replace('\'', '\'\'').replace('Long Island University', 'LIU-Brooklyn').replace('Nevada-Las Vegas', 'UNLV').replace('University of California', 'California').replace('Virginia Commonwealth', 'VCU') : games[i-1].children[5].children[0].data.replace('\'', '\'\'').replace('Long Island University', 'LIU-Brooklyn').replace('Nevada-Las Vegas', 'UNLV').replace('University of California', 'California').replace('Virginia Commonwealth', 'VCU')}, ${games[i-1].children[7].children[0].data} ${games[i-1].children[8].children[0].data}-${games[i-1].children[9].children[0].data}`;
-                    const nextGameString = `${games[i].children[1].children[0].data.slice(0, games[i].children[1].children[0].data.indexOf(', 20')).replace(',', '')} ${isHome ? 'vs.' : 'at'} ${games[i].children[5].children[0].children ? games[i].children[5].children[0].children[0].data.replace('\'', '\'\'').replace('Long Island University', 'LIU-Brooklyn').replace('Nevada-Las Vegas', 'UNLV').replace('University of California', 'California').replace('Virginia Commonwealth', 'VCU') : games[i].children[5].children[0].data.replace('\'', '\'\'').replace('Long Island University', 'LIU-Brooklyn').replace('Nevada-Las Vegas', 'UNLV').replace('University of California', 'California').replace('Virginia Commonwealth', 'VCU')}`;
+                    const prevGameString = `${isHome ? 'vs.' : 'at'} ${games[i-1].children[5].children[0].children ? games[i-1].children[5].children[0].children[0].data.replace('\'', '\'\'').replace('Long Island University', 'LIU-Brooklyn').replace('Nevada-Las Vegas', 'UNLV').replace('University of California', 'California').replace('Virginia Commonwealth', 'VCU') : games[i-1].children[5].children[0].data.replace('\'', '\'\'').replace('Long Island University', 'LIU-Brooklyn').replace('Nevada-Las Vegas', 'UNLV').replace('University of California', 'California').replace('Virginia Commonwealth', 'VCU').replace('Texas-El Paso', 'UTEP').replace('Texas Christian', 'TCU')}, ${games[i-1].children[7].children[0].data} ${games[i-1].children[8].children[0].data}-${games[i-1].children[9].children[0].data}`;
+                    const nextGameString = `${games[i].children[1].children[0].data.slice(0, games[i].children[1].children[0].data.indexOf(', 20')).replace(',', '')} ${isHome ? 'vs.' : 'at'} ${games[i].children[5].children[0].children ? games[i].children[5].children[0].children[0].data.replace('\'', '\'\'').replace('Long Island University', 'LIU-Brooklyn').replace('Nevada-Las Vegas', 'UNLV').replace('University of California', 'California').replace('Virginia Commonwealth', 'VCU') : games[i].children[5].children[0].data.replace('\'', '\'\'').replace('Long Island University', 'LIU-Brooklyn').replace('Nevada-Las Vegas', 'UNLV').replace('University of California', 'California').replace('Virginia Commonwealth', 'VCU').replace('Texas-El Paso', 'UTEP').replace('Texas Christian', 'TCU')}`;
                     // escape st mary's
                     if (school.name === 'Saint Mary\'s (CA)') {
                       school.name = 'Saint Mary\'\'s (CA)'
@@ -71,7 +74,7 @@ const collectTeamData = (db) => {
 
   axios.get('https://www.sports-reference.com/cbb/seasons/2020-ratings.html')
     .then(res => {
-      console.log('initiating collectWLData sequence hypernet')
+      console.log('initiating collectWLData hypernet ignition sequence')
       var $ = cheerio.load(res.data);
       var rows = $('#ratings tbody tr');
 
@@ -83,7 +86,7 @@ const collectTeamData = (db) => {
           return console.log('team WL data saved!')
         }
 
-        if (rows[domTableRow].children.length === 18) {
+        if (rows[domTableRow].children.length === 19) {
           var name = rows[domTableRow].children[1].children[0].children[0].data;
           name = name.replace("\'", "''")
           if (name === 'Long Island University') {
@@ -98,8 +101,12 @@ const collectTeamData = (db) => {
           if (name === 'Virginia Commonwealth') {
             name = 'VCU';
           }
-          var w = rows[domTableRow].children[4].children[0].data;
-          var l = rows[domTableRow].children[5].children[0].data;
+          if (name === 'Texas-El Paso') {
+            name = 'UTEP';
+          }
+          var w = rows[domTableRow].children[5].children[0].data;
+          var l = rows[domTableRow].children[6].children[0].data;
+          console.log(name, w, '-', l)
           db.query(`UPDATE teams SET w2019 = ${w}, l2019 = ${l} WHERE name = '${name}';`)
             .then(() => {
               return updateTeamRow(domTableRow + 1);
