@@ -6,6 +6,23 @@ const axios = require('axios');
 const collectTeamData = (db) => {
 
   const collectSchedData = () => {
+
+    const buildGameString = (gameObj, completed) => {
+      let isHome = false;
+      // if location cell is empty or 'N', use 'vs.'; otherwise 'at'
+      if (!gameObj.children[4].children[0]) {
+        isHome = true;
+      } else if (gameObj.children[4].children[0].data === 'N') {
+        isHome = true;
+      }
+      if (completed) {
+        var gameString = `${isHome ? 'vs.' : 'at'} ${gameObj.children[5].children[0].children ? gameObj.children[5].children[0].children[0].data.replace('\'', '\'\'').replace('Long Island University', 'LIU-Brooklyn').replace('Nevada-Las Vegas', 'UNLV').replace('University of California', 'California').replace('Virginia Commonwealth', 'VCU') : gameObj.children[5].children[0].data.replace('\'', '\'\'').replace('Long Island University', 'LIU-Brooklyn').replace('Nevada-Las Vegas', 'UNLV').replace('University of California', 'California').replace('Virginia Commonwealth', 'VCU').replace('Texas-El Paso', 'UTEP').replace('Texas Christian', 'TCU')}, ${gameObj.children[7].children[0].data} ${gameObj.children[8].children[0].data}-${gameObj.children[9].children[0].data}`;
+      } else {
+        var gameString = `${gameObj.children[1].children[0].data.slice(0, gameObj.children[1].children[0].data.indexOf(', 20')).replace(',', '')} ${isHome ? 'vs.' : 'at'} ${gameObj.children[5].children[0].children ? gameObj.children[5].children[0].children[0].data.replace('\'', '\'\'').replace('Long Island University', 'LIU-Brooklyn').replace('Nevada-Las Vegas', 'UNLV').replace('University of California', 'California').replace('Virginia Commonwealth', 'VCU') : gameObj.children[5].children[0].data.replace('\'', '\'\'').replace('Long Island University', 'LIU-Brooklyn').replace('Nevada-Las Vegas', 'UNLV').replace('University of California', 'California').replace('Virginia Commonwealth', 'VCU').replace('Texas-El Paso', 'UTEP').replace('Texas Christian', 'TCU')}`;
+      }
+      return gameString;
+    }
+
     const teamUrl = ('https://www.sports-reference.com/cbb/schools/[name]/2020-schedule.html')
     db.query('SELECT name from teams where nickname is not null order by id asc;')
       .then(schools => {
@@ -49,21 +66,27 @@ const collectTeamData = (db) => {
               .then(res => {
                 var $ = cheerio.load(res.data);
                 var games = $('#div_schedule tbody tr');
-                for (let i = 0; i < games.length; i++) {
-                  if (!games[i].children[7].children[0]) {
-                    let isHome = !games[i-1].children[4].children[0];
-
-                    const prevGameString = `${isHome ? 'vs.' : 'at'} ${games[i-1].children[5].children[0].children ? games[i-1].children[5].children[0].children[0].data.replace('\'', '\'\'').replace('Long Island University', 'LIU-Brooklyn').replace('Nevada-Las Vegas', 'UNLV').replace('University of California', 'California').replace('Virginia Commonwealth', 'VCU') : games[i-1].children[5].children[0].data.replace('\'', '\'\'').replace('Long Island University', 'LIU-Brooklyn').replace('Nevada-Las Vegas', 'UNLV').replace('University of California', 'California').replace('Virginia Commonwealth', 'VCU').replace('Texas-El Paso', 'UTEP').replace('Texas Christian', 'TCU')}, ${games[i-1].children[7].children[0].data} ${games[i-1].children[8].children[0].data}-${games[i-1].children[9].children[0].data}`;
-                    const nextGameString = `${games[i].children[1].children[0].data.slice(0, games[i].children[1].children[0].data.indexOf(', 20')).replace(',', '')} ${isHome ? 'vs.' : 'at'} ${games[i].children[5].children[0].children ? games[i].children[5].children[0].children[0].data.replace('\'', '\'\'').replace('Long Island University', 'LIU-Brooklyn').replace('Nevada-Las Vegas', 'UNLV').replace('University of California', 'California').replace('Virginia Commonwealth', 'VCU') : games[i].children[5].children[0].data.replace('\'', '\'\'').replace('Long Island University', 'LIU-Brooklyn').replace('Nevada-Las Vegas', 'UNLV').replace('University of California', 'California').replace('Virginia Commonwealth', 'VCU').replace('Texas-El Paso', 'UTEP').replace('Texas Christian', 'TCU')}`;
-                    // escape st mary's
-                    if (school.name === 'Saint Mary\'s (CA)') {
-                      school.name = 'Saint Mary\'\'s (CA)'
-                    }
-                    db.query(`update teams set (prevgm, nextgm) = ('${prevGameString}', '${nextGameString}') where name = '${school.name}' returning name`)
-                    i = games.length;
-
+                var i = games.length - 1;
+                if (!games[i].children[7].children[0]) {
+                // if last row is future game (not game with score)
+                  var nextGameString = buildGameString(games[i], false);
+                  if (games[i-1].children[7].children[0].data === 'Type') {
+                  // if prev row is header
+                    var prevGameString = buildGameString(games[i-2], true);
+                  } else {
+                  // if prev row is game
+                    var prevGameString = buildGameString(games[i-1], true)
                   }
+                } else {
+                  // if last row is completed game
+                  var prevGameString = buildGameString(games[i], true)
+                  var nextGameString = 'TBD';
                 }
+                // escape st mary's for db lookup
+                if (school.name === 'Saint Mary\'s (CA)') {
+                  school.name = 'Saint Mary\'\'s (CA)'
+                }
+                db.query(`update teams set (prevgm, nextgm) = ('${prevGameString}', '${nextGameString}') where name = '${school.name}' returning name`)
               })
             if (i === schools.length - 1) {
               console.log('team sched data saved');
@@ -83,6 +106,7 @@ const collectTeamData = (db) => {
       const updateTeamRow = (domTableRow) => {
 
         if (domTableRow > 386) {
+          db.query(`UPDATE update_timestamps set updated_at = current_timestamp where type = 'standings';`)
           return console.log('team WL data saved!')
         }
 
