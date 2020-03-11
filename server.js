@@ -3,10 +3,11 @@ const express = require('express');
 const bodyParser = require('body-parser');
 const app = express();
 const port = process.env.PORT || 5000;
-// const axios = require('axios');
+const axios = require('axios');
 const pgp = require('pg-promise')(/*options*/);
 const collectTeamData = require('./collectTeamData');
 const pickFiveData = require('./pickFiveData');
+const scoreboard = require('./scoreboard');
 const db = pgp(process.env.DATABASE_URL || 'postgres://akppnbjeltipma:d83a3e7a826cd09a205551a1e4063b60f365201ca4ad6ed875dfdc5cb4e07bac@ec2-54-243-46-32.compute-1.amazonaws.com:5432/d35h8248bl7gm9?ssl=true');
 
 // DYNAMIC DB URL
@@ -15,6 +16,12 @@ const db = pgp(process.env.DATABASE_URL || 'postgres://akppnbjeltipma:d83a3e7a82
 
 // TO UPDATE STANDINGS
 // collectTeamData.collectTeamData(db);
+
+// TO UPDATE SCOREBOARD
+// scoreboard.fetchScores(db)
+
+// TO RECORD ESPN TEAM ABBREVS IN DB
+// scoreboard.populateAbbreviations(db);
 
 server = app.listen(port, function(){
   console.log('server is running on port', port)
@@ -68,6 +75,45 @@ app.get('/api/port', (req, res) => {
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
+
+app.get('/api/scores', (req, res) => {
+  const selectedTeams = ['MIZ','SDSU','FGCU','LIU','COR','HALL','PSU','LOU','MD','UK','BUT','GONZ','KU','USU','MEM','BCU','ND','BAY','FLA','RICH','WEB','VAN','WRST','VILL','STAN','UTEP','SC','FUR','IONA','CAL','TEX','CLMB','RICE','XAV','SMC','UVA','OSU','UCLA','VCU','ORE','DUKE','ARIZ','MSU','ILL','IND','UNLV','MIA','PUR','PROV','GTWN','HARV','DAV','UGA','ETSU','LT'];
+  axios.get('http://site.api.espn.com/apis/site/v2/sports/basketball/mens-college-basketball/scoreboard?limit=500&dates=20200311&groups=50')
+    .then(espnres => {
+      let scoresData = [];
+      for (let i = 0; i < espnres.data.events.length; i++) {
+        console.log(espnres.data.events[i].competitions[0].competitors[0].team.abbreviation)
+        let selected = false
+        if (selectedTeams.includes(espnres.data.events[i].competitions[0].competitors[0].team.abbreviation) || selectedTeams.includes(espnres.data.events[i].competitions[0].competitors[1].team.abbreviation)) {
+
+          selected = true;
+        }
+        if (selected) {
+          console.log('home', espnres.data.events[i].competitions[0].competitors[0].team.abbreviation)
+          var eventObj = {
+            homeTeam: {
+              abbreviation: espnres.data.events[i].competitions[0].competitors[0].team.abbreviation,
+              score: espnres.data.events[i].competitions[0].competitors[0].score
+            },
+            awayTeam: {
+              abbreviation: espnres.data.events[i].competitions[0].competitors[1].team.abbreviation,
+              score: espnres.data.events[i].competitions[0].competitors[1].score
+            },
+            clock: espnres.data.events[i].status.type.shortDetail
+          };
+          if (eventObj.clock.indexOf('/') !== -1) {
+            eventObj.clock = espnres.data.events[i].status.type.shortDetail.slice(espnres.data.events[i].status.type.shortDetail.indexOf('-') + 2, espnres.data.events[i].status.type.shortDetail.length);
+          }
+          scoresData.push(eventObj);
+        }
+        if (i === espnres.data.events.length - 1) {
+          res.send(scoresData);
+        }
+      }
+    })
+})
+
+testFunc();
 
 app.get('/api/password', (req, res) => {
   db.query(`SELECT * FROM users WHERE password = '${req.query.password}'`)
