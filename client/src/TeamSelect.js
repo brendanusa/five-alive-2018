@@ -2,6 +2,8 @@ import React, { Component } from 'react';
 import './TeamSelect.css';
 import Team from './Team';
 
+console.log('HI')
+
 class TeamSelect extends Component {
 
   constructor(props) {
@@ -204,17 +206,3 @@ class TeamSelect extends Component {
 }
 
 export default TeamSelect;
-
-
-// inside map for Team comp
-// <Team key={i} name={team.name} w={team.w} l={team.l} handleClick={this.handleTeamsBoxClick.bind(this)}/>
-
-// render for post-deadline
-  // render() {
-  //   return (
-  //     <div className="TeamSelectTempContainer">
-  //       <div className="TeamSelectTemp">
-  //         NICE TRY! Team selection for 2019-2020 is OVER!
-  //       </div>
-  //     </div>
-  //   )
