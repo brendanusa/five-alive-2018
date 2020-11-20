@@ -133,7 +133,7 @@ class TeamSelect extends Component {
             <div className="UserBoxTeams">
               Current Teams:
               <br></br>
-              <p className="UserBoxTeamsList">
+              <div className="UserBoxTeamsList">
                 <div>
                 {this.state.user.teams_2020 ? null : 'None'}
                 </div>
@@ -150,7 +150,7 @@ class TeamSelect extends Component {
                 {this.state.user.teams_2020 ? this.state.teamsHard[this.state.user.teams_2020[3] - 2].name : null}
                 </div>
                 {this.state.user.teams_2020 ? this.state.teamsHard[this.state.user.teams_2020[4] - 2].name : null}
-              </p>
+              </div>
             </div>
           </div>
         </div>
