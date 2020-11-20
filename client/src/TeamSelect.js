@@ -16,6 +16,7 @@ class TeamSelect extends Component {
   }
 
   componentDidMount() {
+    console.log('hello')
     fetch('/api/schools')
       .then(res => res.json())
       .then(data => {
@@ -60,10 +61,6 @@ class TeamSelect extends Component {
         return this.state.selectedTeams[team].selected === true;
       }).map(teamid => parseInt(teamid) + 2);
 
-    // console.log('bren', this.state.selectedTeams)
-    // console.log('user', this.state.user)
-    // console.log('teamshard', this.state.teamsHard)
-
     const activeWinsTotal = actualSelectedTeams.reduce((acc, val) => {
       return acc += this.state.teamsHard[val - 2].w2019
     }, 0);
@@ -95,20 +92,6 @@ class TeamSelect extends Component {
 
   }
 
-// inside map for Team comp
-// <Team key={i} name={team.name} w={team.w} l={team.l} handleClick={this.handleTeamsBoxClick.bind(this)}/>
-
-// render for post-deadline
-  // render() {
-  //   return (
-  //     <div className="TeamSelectTempContainer">
-  //       <div className="TeamSelectTemp">
-  //         NICE TRY! Team selection for 2019-2020 is OVER!
-  //       </div>
-  //     </div>
-  //   )
-
-// render for pre-deadline
   render() {
     return (
       <div className="TeamSelect">
@@ -221,3 +204,17 @@ class TeamSelect extends Component {
 }
 
 export default TeamSelect;
+
+
+// inside map for Team comp
+// <Team key={i} name={team.name} w={team.w} l={team.l} handleClick={this.handleTeamsBoxClick.bind(this)}/>
+
+// render for post-deadline
+  // render() {
+  //   return (
+  //     <div className="TeamSelectTempContainer">
+  //       <div className="TeamSelectTemp">
+  //         NICE TRY! Team selection for 2019-2020 is OVER!
+  //       </div>
+  //     </div>
+  //   )
