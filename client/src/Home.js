@@ -3,7 +3,7 @@ import React, { Component } from 'react';
 import Chat from './Chat';
 import Standings from './Standings';
 import ChatTestimonials from './ChatTestimonials';
-import Scoreboard from './Scoreboard';
+// import Scoreboard from './Scoreboard';
 
 class Home extends Component {
 
