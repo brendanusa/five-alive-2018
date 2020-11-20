@@ -106,7 +106,7 @@ const collectTeamData = (db) => {
       const updateTeamRow = (domTableRow) => {
 
         if (domTableRow > 386) {
-          db.query(`UPDATE update_timestamps set updated_at = current_timestamp where type = 'standings';`)
+          // db.query(`UPDATE update_timestamps set updated_at = current_timestamp where type = 'standings';`)
           return console.log('team WL data saved!')
         }
 

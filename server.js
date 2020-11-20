@@ -82,14 +82,14 @@ app.get('/api/scores', (req, res) => {
     .then(espnres => {
       let scoresData = [];
       for (let i = 0; i < espnres.data.events.length; i++) {
-        console.log(espnres.data.events[i].competitions[0].competitors[0].team.abbreviation)
+        // console.log(espnres.data.events[i].competitions[0].competitors[0].team.abbreviation)
         let selected = false
         if (selectedTeams.includes(espnres.data.events[i].competitions[0].competitors[0].team.abbreviation) || selectedTeams.includes(espnres.data.events[i].competitions[0].competitors[1].team.abbreviation)) {
 
           selected = true;
         }
         if (selected) {
-          console.log('home', espnres.data.events[i].competitions[0].competitors[0].team.abbreviation)
+          // console.log('home', espnres.data.events[i].competitions[0].competitors[0].team.abbreviation)
           var eventObj = {
             homeTeam: {
               abbreviation: espnres.data.events[i].competitions[0].competitors[0].team.abbreviation,
@@ -112,8 +112,6 @@ app.get('/api/scores', (req, res) => {
       }
     })
 })
-
-testFunc();
 
 app.get('/api/password', (req, res) => {
   db.query(`SELECT * FROM users WHERE password = '${req.query.password}'`)
@@ -243,7 +241,7 @@ app.get('/api/teams', (req, res) => {
   console.log('Picks received!')
   let teamsArray = req.query.teamids.split(',')
   teamsArray = teamsArray.map(teamId => parseInt(teamId));
-  db.query(`update users set teams_2019 = '{${teamsArray}}' where id=${parseInt(req.query.userid)} returning teams_2019`)
+  db.query(`update users set teams_2020 = '{${teamsArray}}' where id=${parseInt(req.query.userid)} returning teams_2020`)
     .then(() => {
       res.send('Picks saved!')
     })
@@ -280,9 +278,10 @@ app.get('/api/pickfive/champs', (req, res) => {
   res.send(pickFiveData.pickFiveChamps)
 })
 
+// route for teamselect
 app.get('/api/schools', (req, res) => {
   console.log('fetching team select school list');
-  db.query('SELECT name, w1819, l1819 from teams order by name asc;')
+  db.query('SELECT name, w2019, l2019 from teams order by name asc;')
     .then(data => {
       res.send(data)
     })
