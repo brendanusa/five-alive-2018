@@ -12,7 +12,7 @@ class Main extends Component {
       <main>
         <Router>
           <div>
-            <Route path='/' exact component={Login}/>
+            <Route path='/' exact component={TeamSelect}/>
             <Route path='/login' component={Login}/>
             <Route path='/teamselect' component={TeamSelect}/>
             <Route path='/standingsold' component={Standings}/>
