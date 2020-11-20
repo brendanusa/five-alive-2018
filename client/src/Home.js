@@ -3,6 +3,7 @@ import React, { Component } from 'react';
 import Chat from './Chat';
 import Standings from './Standings';
 import ChatTestimonials from './ChatTestimonials';
+import Scoreboard from './Scoreboard';
 
 class Home extends Component {
 
@@ -59,9 +60,11 @@ class Home extends Component {
           {this.state.testimonialsActive ? <ChatTestimonials /> : null}
         </div>
         <div id="dim">
-          <div className="Home">
-            <div><Standings /></div>
-            <div className="ChatContainer"><Chat /></div>
+          <div className="HomeContainer">
+            <div className="Home">
+              <div><Standings /></div>
+              <div className="ChatContainer"><Chat /></div>
+            </div>
           </div>
         </div>
         <div className="TestimonialsToggle">
