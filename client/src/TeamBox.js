@@ -7,7 +7,7 @@ const TeamBox = (props) => {
 
     <div className="TeamBox">
       <div className="TeamLogoContainer">
-        <img src={`https://five-alive-team-logos.s3-us-west-1.amazonaws.com/${props.team.name}.gif`} />
+        <img alt={'logo'} src={`https://five-alive-team-logos.s3-us-west-1.amazonaws.com/${props.team.name}.gif`} />
       </div>
       <div className="TeamTextContainer">
         <h2>{props.team.name} {props.team.nickname}</h2>

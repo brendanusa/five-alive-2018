@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import './TeamSelect.css';
-import Team from './Team';
+// import Team from './Team';
 
 console.log('HI')
 
@@ -147,7 +147,7 @@ class TeamSelect extends Component {
           <div className="TeamsContainerBody">
             {this.state.teamsHard.map((team, i) => {
               return (
-                <div className="TeamSelectRow" id={i} onClick={this.handleTeamsBoxClick}>
+                <div className="TeamSelectRow" id={i} key={i} onClick={this.handleTeamsBoxClick}>
                   <span id={i} className="MainTeamName">{team.name}</span>
                   <span id={i} className="MainTeamRecord">{team.w2019}-{team.l2019}</span>
                 </div>

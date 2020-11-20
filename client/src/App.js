@@ -31,8 +31,8 @@ class App extends Component {
         <Router>
           <div>
             <Header />
-            <Route path='/' exact component={Home}/>
-            <Route path='/home' component={Home}/>
+            <Route path='/' exact component={TeamSelect}/>
+            <Route path='/home' component={TeamSelect}/>
             <Route path='/about' component={About}/>
             <Route path='/pastchamps' component={PastChamps}/>
             <Route path='/picks' component={Picks}/>
