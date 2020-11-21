@@ -1,0 +1,11 @@
+.ScoreboardGame {
+  display: flex;
+}
+
+.ScoreboardGame div {
+  display: flex;
+  flex-direction: ;
+  justify-content: space-between;
+  color: blue;
+}
+
