@@ -113,7 +113,7 @@ class Chat extends Component {
             <span><img src={logo} alt="logo" /></span>
             <span> CHAT TECHNOLOGY</span>
           </div>
-          <div>AND ZOOM-LINK TECHNOLOGY</div>
+          <div>AND LINKZOOM TECHNOLOGY</div>
         </div>
         <div className="Messages" id="scrollhere">
           {this.state.messages.map((message, i) => {
