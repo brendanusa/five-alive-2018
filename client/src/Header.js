@@ -23,7 +23,7 @@ const Header = () => (
           <Link to={'/home'}>HOME</Link>
         </span>
         <span>
-          <Link to={'/teamselect'}>STATS</Link>
+          <Link to={'/teamselect'}>TEAMS</Link>
         </span>
         <span>
           <Link to={'/about'}>ABOUT</Link>
