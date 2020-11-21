@@ -6,7 +6,6 @@ import About from './About';
 import PastChamps from './PastChamps';
 import Picks from './Picks';
 import PickFive from './PickFive';
-import TeamSelect from './TeamSelect';
 import Basketballs from './Basketballs';
 import backgroundImage from './diakite2-fivea.jpeg'
 
@@ -31,14 +30,13 @@ class App extends Component {
         <Router>
           <div>
             <Header />
-            <Route path='/' exact component={TeamSelect}/>
-            <Route path='/home' component={TeamSelect}/>
+            <Route path='/' exact component={Home}/>
+            <Route path='/home' component={Home}/>
             <Route path='/about' component={About}/>
             <Route path='/pastchamps' component={PastChamps}/>
-            <Route path='/picks' component={Picks}/>
+            <Route path='/picks' component={About}/>
             <Route path='/pickfive' component={PickFive}/>
             <Route path='/basketballs' component={Basketballs}/>
-            <Route path='/teamselect' component={TeamSelect}/>
           </div>
         </Router>
       </div>

@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import './TeamSelect.css';
-// import Team from './Team';
 
 console.log('HI')
 
