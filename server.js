@@ -206,6 +206,7 @@ app.get('/api/standings', (req, res) => {
               return acc += resData.teams[val - 2].w2019;
             }, 0)
             resData.users[i].teams_2019 = resData.users[i].teams_2019.map(teamid => {
+              console.log(resData.teams[teamid - 2].name)
               return resData.teams[teamid - 2];
             })
           })
@@ -281,7 +282,7 @@ app.get('/api/pickfive/champs', (req, res) => {
 // route for teamselect
 app.get('/api/schools', (req, res) => {
   console.log('fetching team select school list');
-  db.query('SELECT name, w2019, l2019 from teams order by name asc;')
+  db.query('SELECT name, w2019, l2019 from teams WHERE w2019 is not null order by name asc;')
     .then(data => {
       res.send(data)
     })
