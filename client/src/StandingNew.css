@@ -1,13 +1,10 @@
 .StandingNew {
-  padding: 3px;
   border-top: 2px solid;
-  border-left: 2px solid;
-  border-right: 2px solid;
+  border-left: 1px solid;
   border-radius: 8px;
   border-color: #ff6e00;
   margin-top: calc(2px + 0.5vw);
   font-size: calc(8px + 0.4vw);
-  background-color: rgb(255, 110, 0, 0.2);
 }
 
 .StandingName {
@@ -22,9 +19,12 @@
 
 .StandingHeader {
   display: flex;
-  margin-top: 1px;
-  margin-bottom: 2px;
+  border-radius: 8px;
+  padding: 3px;
+  padding-top: 4px;
+  padding-bottom: 4px;
   justify-content: space-between;
+  background-color: rgb(255, 110, 0, 0.2);
 }
 
 .StandingHeader :active {
