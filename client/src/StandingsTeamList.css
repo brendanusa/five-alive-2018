@@ -102,14 +102,6 @@
   overflow: hidden;
 }
 
-.StandingsTeamListPointer div {
-  width: 24%;
-  height: calc(2px + 0.2vw);
-  border-left: 1px solid #42d117;
-  border-top-left-radius: 4px;
-  border-top: 1px solid #42d117;
-}
-
 .StandingsTeamRound {
   font-size: calc(6px + 0.2vw);
 }

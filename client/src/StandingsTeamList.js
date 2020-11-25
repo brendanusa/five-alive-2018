@@ -26,9 +26,6 @@ class StandingsTeamList extends Component {
     return(
       <div className="StandingsTeamList">
         <div className="StandingsTeamListContainer">
-          <div className="StandingsTeamListPointer">
-            <div></div>
-          </div>
           {this.props.teams.map((team, i) => {
             return (
               <div className="StandingsTeamContainer">
