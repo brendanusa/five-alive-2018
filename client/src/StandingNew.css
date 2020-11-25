@@ -7,6 +7,7 @@
   border-color: #ff6e00;
   margin-top: calc(2px + 0.5vw);
   font-size: calc(8px + 0.4vw);
+  background-color: rgb(255, 110, 0, 0.2);
 }
 
 .StandingName {

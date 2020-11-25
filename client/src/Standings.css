@@ -19,9 +19,10 @@
 }
 
 .StandingsContainer h3 {
-  font-size: calc(7px + 0.4vw);
+  font-size: calc(9px + 0.45vw);
   border: 2px solid;
   border-radius: 8px;
+  background-color: rgb(255, 110, 0, 0.2);
   text-align: center;
 }
 

@@ -1,10 +1,10 @@
 self.__precacheManifest = [
   {
-    "revision": "0b479a2cb17da67ef66f",
-    "url": "/static/css/main.7327197e.chunk.css"
+    "revision": "e1063a8569101a516195",
+    "url": "/static/css/main.ed89c5fd.chunk.css"
   },
   {
-    "revision": "0b479a2cb17da67ef66f",
+    "revision": "e1063a8569101a516195",
     "url": "/static/js/main.d9aa826b.chunk.js"
   },
   {
@@ -32,6 +32,10 @@ self.__precacheManifest = [
     "url": "/static/media/diakite2-fivea-lowres.c8fced6f.jpg"
   },
   {
+    "revision": "ced611daf7709cc778da928fec876475",
+    "url": "/static/media/slick.ced611da.eot"
+  },
+  {
     "revision": "b7c9e1e479de3b53f1e4e30ebac2403a",
     "url": "/static/media/slick.b7c9e1e4.woff"
   },
@@ -40,15 +44,11 @@ self.__precacheManifest = [
     "url": "/static/media/slick.d41f55a7.ttf"
   },
   {
-    "revision": "ced611daf7709cc778da928fec876475",
-    "url": "/static/media/slick.ced611da.eot"
-  },
-  {
     "revision": "f97e3bbf73254b0112091d0192f17aec",
     "url": "/static/media/slick.f97e3bbf.svg"
   },
   {
-    "revision": "d4e68eea1e9d814374be8d908cc0a6dd",
+    "revision": "36353713768865e23da653494da74e76",
     "url": "/index.html"
   }
 ];
