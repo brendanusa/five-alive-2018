@@ -153,14 +153,14 @@ app.get('/api/simscore', (req, res) => {
 app.get('/api/picksbyschool', (req, res) => {
   const picksBySchoolObj = {};
   const picksBySchoolArr = [];
-  db.query('select teams_2019 from users')
+  db.query('select teams_2020 from users')
     .then(users => {
       users.forEach(user => {
-        for (var key in user.teams_2019) {
-          if (picksBySchoolObj[user.teams_2019[key]]) {
-            picksBySchoolObj[user.teams_2019[key]]++;
+        for (var key in user.teams_2020) {
+          if (picksBySchoolObj[user.teams_2020[key]]) {
+            picksBySchoolObj[user.teams_2020[key]]++;
           } else {
-            picksBySchoolObj[user.teams_2019[key]] = 1;
+            picksBySchoolObj[user.teams_2020[key]] = 1;
           }
         }
       })
@@ -194,18 +194,18 @@ app.get('/api/picksbyschool', (req, res) => {
 
 app.get('/api/standings', (req, res) => {
   let resData = {}
-  db.query('SELECT id, name, w1819, l1819, w2019, l2019, nickname, conference, prevgm, nextgm from teams;')
+  db.query('SELECT id, name, w2019, l2019, w2020, l2020, nickname, conference, prevgm, nextgm from teams;')
     .then(data => {
       resData.teams = data.sort((a, b) => a.id - b.id);
-      db.query('SELECT name, teams_2019 from users where teams_2019 is not null order by name asc;')
+      db.query('SELECT name, teams_2020 from users where teams_2020 is not null order by name asc;')
         .then(data => {
           resData.users = data;
           resData.users.forEach((user, i) => {
-            resData.users[i].wins = user.teams_2019.reduce((acc, val) => {
+            resData.users[i].wins = user.teams_2020.reduce((acc, val) => {
               // index of team offset bc first id in db = 2
-              return acc += resData.teams[val - 2].w2019;
+              return acc += resData.teams[val - 2].w2020;
             }, 0)
-            resData.users[i].teams_2019 = resData.users[i].teams_2019.map(teamid => {
+            resData.users[i].teams_2020 = resData.users[i].teams_2020.map(teamid => {
               console.log(resData.teams[teamid - 2].name)
               return resData.teams[teamid - 2];
             })

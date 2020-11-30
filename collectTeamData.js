@@ -23,7 +23,7 @@ const collectTeamData = (db) => {
       return gameString;
     }
 
-    const teamUrl = ('https://www.sports-reference.com/cbb/schools/[name]/2020-schedule.html')
+    const teamUrl = ('https://www.sports-reference.com/cbb/schools/[name]/2021-schedule.html')
     db.query('SELECT name from teams where nickname is not null order by id asc;')
       .then(schools => {
 
@@ -86,7 +86,7 @@ const collectTeamData = (db) => {
                 if (school.name === 'Saint Mary\'s (CA)') {
                   school.name = 'Saint Mary\'\'s (CA)'
                 }
-                db.query(`update teams set (prevgm, nextgm) = ('${prevGameString}', '${nextGameString}') where name = '${school.name}' returning name`)
+                db.query(`UPDATE teams set (prevgm, nextgm) = ('${prevGameString}', '${nextGameString}') where name = '${school.name}' returning name`)
               })
             if (i === schools.length - 1) {
               console.log('team sched data saved');
@@ -95,7 +95,7 @@ const collectTeamData = (db) => {
         })
   }
 
-  axios.get('https://www.sports-reference.com/cbb/seasons/2020-ratings.html')
+  axios.get('https://www.sports-reference.com/cbb/seasons/2021-ratings.html')
     .then(res => {
       console.log('initiating collectWLData hypernet ignition sequence')
       var $ = cheerio.load(res.data);
@@ -131,7 +131,7 @@ const collectTeamData = (db) => {
           var w = rows[domTableRow].children[5].children[0].data;
           var l = rows[domTableRow].children[6].children[0].data;
           console.log(name, w, '-', l)
-          db.query(`UPDATE teams SET w2019 = ${w}, l2019 = ${l} WHERE name = '${name}';`)
+          db.query(`UPDATE teams SET w2020 = ${w}, l2020 = ${l} WHERE name = '${name}';`)
             .then(() => {
               return updateTeamRow(domTableRow + 1);
             })
@@ -145,7 +145,7 @@ const collectTeamData = (db) => {
 
     })
 
-  collectSchedData();
+  // collectSchedData();
 
 
 }

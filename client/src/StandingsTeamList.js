@@ -31,7 +31,7 @@ class StandingsTeamList extends Component {
               <div className="StandingsTeamContainer">
                 <div key={i} className={"StandingsTeam" + [i]} onClick={this.handleClick}>
                   <span className={"StandingsSpan" + [i]}>{team.name}</span>
-                  <span>{team.w2019}</span>
+                  <span>{team.w2020}</span>
                 </div>
               </div>
             )

@@ -14,9 +14,9 @@ const TeamBox = (props) => {
         <h6>CONF</h6>
         <div>{props.team.conference}</div>
         <h6>W-L</h6>
+        <div>{props.team.w2020}-{props.team.l2020}</div>
+        <h6>2019-20 W-L</h6>
         <div>{props.team.w2019}-{props.team.l2019}</div>
-        <h6>2018-19 W-L</h6>
-        <div>{props.team.w1819}-{props.team.l1819}</div>
         <h6>PREV</h6>
         <div>{props.team.prevgm}</div>
         <h6>NEXT</h6>

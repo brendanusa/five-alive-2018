@@ -33,7 +33,7 @@ class Standings extends Component {
         <div>
           {this.state.standings ? this.state.standings.map((user, i) => {
             return (
-              <StandingNew key={i} name={user.name} teams={user.teams_2019} wins={user.wins} isActive={false}/>
+              <StandingNew key={i} name={user.name} teams={user.teams_2020} wins={user.wins} isActive={false}/>
             )
           }) : null}
         </div>
