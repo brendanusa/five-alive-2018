@@ -222,9 +222,12 @@ class TeamSelect extends Component {
   //   return (
   //     <div className="TeamSelectTempContainer">
   //       <div className="TeamSelectTemp">
-  //         NICE TRY! Team selection for 2019-2020 is OVER!
+  //         <div><h1>BZZZ!</h1></div>
+  //         <div>Team selection for 2020-21 is OVER</div>
   //       </div>
   //     </div>
   //   )
+  // }
+
 
 export default TeamSelect;

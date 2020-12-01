@@ -196,18 +196,20 @@ app.get('/api/standings', (req, res) => {
   let resData = {}
   db.query('SELECT id, name, w2019, l2019, w2020, l2020, nickname, conference, prevgm, nextgm from teams;')
     .then(data => {
-      resData.teams = data.sort((a, b) => a.id - b.id);
+      // resData.teams = data.sort((a, b) => a.id - b.id);
+      resData.teams = {};
+      data.forEach(team => {
+        resData.teams[team.id] = team;
+      })
       db.query('SELECT name, teams_2020 from users where teams_2020 is not null order by name asc;')
         .then(data => {
           resData.users = data;
           resData.users.forEach((user, i) => {
-            resData.users[i].wins = user.teams_2020.reduce((acc, val) => {
-              // index of team offset bc first id in db = 2
-              return acc += resData.teams[val - 2].w2020;
+            resData.users[i].wins = user.teams_2020.reduce((acc, val, i) => {
+              return acc += resData.teams[user.teams_2020[i]].w2020;
             }, 0)
             resData.users[i].teams_2020 = resData.users[i].teams_2020.map(teamid => {
-              console.log(resData.teams[teamid - 2].name)
-              return resData.teams[teamid - 2];
+                return resData.teams[teamid];
             })
           })
           resData.users.sort((a, b) => {
