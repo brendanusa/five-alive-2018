@@ -21,14 +21,14 @@ class SimScore extends Component {
   render() {
     return (
     <div>
-      <h3><span>SHADEK-FACKENTHAL SIMDEX</span></h3>
+      <h3><span>SHADEK-ACTIONTHAL SIMDEX</span></h3>
       <div className="SimScore">
         <div>
           {this.state.users.map((user, i) => {
             return (
               <div className="SimScoreScore">
                 <span className="SimScoreName">{user.name}</span>
-                <span className="SimScoreNumber">{user.sim_score_2019}</span>
+                <span className="SimScoreNumber">{user.sim_score_2020}</span>
               </div>
             )
           })}

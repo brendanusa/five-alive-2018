@@ -27,7 +27,7 @@ class PicksBySchool extends Component {
           {this.state.schools.map(school => {
             return <div className="PicksBySchoolSchool">
               <span className="PickSchoolName">{school.name}</span>
-              <span className="PickNumber">{school.picks}</span>
+              <span className="PickNumber">{school.count}</span>
             </div>
           })}
         </div>

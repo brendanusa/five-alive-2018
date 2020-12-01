@@ -27,7 +27,7 @@ class Pickles extends Component {
         <div>
           {this.state.pickles ? this.state.pickles.map((user, i) => {
             return (
-              <PickNew key={i} name={user.name} teams={user.teams_2019}/>
+              <PickNew key={i} name={user.name} teams={user.teams_2020}/>
             )
           }) : null}
         </div>

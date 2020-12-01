@@ -1,11 +1,6 @@
 import React from 'react';
 import { BrowserRouter as Router, Link } from 'react-router-dom';
 import './Header.css';
-        
-// SELECT TEAMS LINK
-// <span>
-//   <Link to={'/teamselect'} style={{marginRight:"40px"}}>SELECT TEAMS</Link>
-// </span>
 
 const Header = () => (
   <header>
@@ -23,7 +18,7 @@ const Header = () => (
           <Link to={'/home'}>HOME</Link>
         </span>
         <span>
-          <Link to={'/teamselect'}>TEAMS</Link>
+          <Link to={'/picks'}>PICKS</Link>
         </span>
         <span>
           <Link to={'/about'}>ABOUT</Link>

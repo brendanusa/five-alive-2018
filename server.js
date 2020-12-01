@@ -137,10 +137,10 @@ app.get('/api/picks', (req, res) => {
 })
 
 app.get('/api/simscore', (req, res) => {
-  db.query('select name, sim_score_2019 from users where teams_2019 is not null;')
+  db.query('select name, sim_score_2020 from users where teams_2020 is not null;')
     .then(users => {
       users.sort((a, b) => {
-        return a.sim_score_2019 - b.sim_score_2019;
+        return a.sim_score_2020 - b.sim_score_2020;
       })
       res.send(users);
     })
@@ -151,40 +151,9 @@ app.get('/api/simscore', (req, res) => {
 })
 
 app.get('/api/picksbyschool', (req, res) => {
-  const picksBySchoolObj = {};
-  const picksBySchoolArr = [];
-  db.query('select teams_2020 from users')
-    .then(users => {
-      users.forEach(user => {
-        for (var key in user.teams_2020) {
-          if (picksBySchoolObj[user.teams_2020[key]]) {
-            picksBySchoolObj[user.teams_2020[key]]++;
-          } else {
-            picksBySchoolObj[user.teams_2020[key]] = 1;
-          }
-        }
-      })
-      db.query('select id, name from teams')
-        .then(teams => {
-          const teamsMap = {};
-          teams.forEach(team => {
-            teamsMap[team.id] = team.name;
-          })
-          for (var key in picksBySchoolObj) {
-            picksBySchoolArr.push({
-              name: teamsMap[key],
-              picks: picksBySchoolObj[key]
-            })
-          }
-          picksBySchoolArr.sort((a, b) => {
-            return b.picks - a.picks || b.name - a.name;
-          })
-          res.send(picksBySchoolArr)
-        })
-        .catch(error => {
-          console.log('ERROR ' + error)
-          res.send('Unable to retrieve teams: ' + error)
-        })
+  db.query('select teams.id, teams.name, count(distinct users.id) from users join teams on teams.id = any (users.teams_2020) group by teams.id order by count desc;')
+    .then(teams => {
+      res.send(teams)
     })
     .catch(error => {
       console.log('ERROR ' + error)
