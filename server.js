@@ -165,7 +165,6 @@ app.get('/api/standings', (req, res) => {
   let resData = {}
   db.query('SELECT id, name, w2019, l2019, w2020, l2020, nickname, conference, prevgm, nextgm from teams;')
     .then(data => {
-      // resData.teams = data.sort((a, b) => a.id - b.id);
       resData.teams = {};
       data.forEach(team => {
         resData.teams[team.id] = team;
@@ -207,6 +206,7 @@ app.get('/api/standingsDate', (req, res) => {
     res.send('Unable to retrieve standings date: ' + error);
   })
 })
+
 
 // TODO: Change to post req
 app.get('/api/teams', (req, res) => {
