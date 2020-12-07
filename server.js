@@ -151,7 +151,7 @@ app.get('/api/simscore', (req, res) => {
 })
 
 app.get('/api/picksbyschool', (req, res) => {
-  db.query('select teams.id, teams.name, count(distinct users.id) from users join teams on teams.id = any (users.teams_2020) group by teams.id order by count desc;')
+  db.query('select teams.id, teams.name, count(distinct users.id) from users join teams on teams.id = any (users.teams_2020) group by teams.id order by count desc, name asc;')
     .then(teams => {
       res.send(teams)
     })

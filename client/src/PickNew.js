@@ -20,7 +20,9 @@ class PickNew extends Component {
   render() {
     return(
       <div className="PickNew" onClick={this.handleClick}>
-        <span className="PickName">{this.props.name}</span>
+        <div className="StandingHeader" onClick={this.handleClick}>
+          <span className="StandingName">{this.props.name}</span>
+        </div>
         <div>
           {this.state.isActive ? <PicksTeamList teams={this.props.teams} /> : null}
         </div>

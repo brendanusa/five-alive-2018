@@ -23,4 +23,6 @@
   border-bottom: 1px solid;
   border-color: #5a19ff;
   margin-top: 8px;
+  padding: 2px;
+  background-color: rgb(90,25,255,0.2);
 }

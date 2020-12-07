@@ -12,7 +12,6 @@ class PicksTeamList extends Component {
 
     return(
       <div className="PicksTeamList">
-        <div className="pointer"></div>
           <div className="PicksTeamListContainer">
             {this.props.teams.map((team, i) => {
               return (
@@ -30,8 +29,5 @@ class PicksTeamList extends Component {
   }
 
 }
-
-// insert this before map to sort teams by wins
-// .sort((a, b) => b.w2018-a.w2018)
 
 export default PicksTeamList;

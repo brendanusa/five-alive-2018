@@ -160,55 +160,55 @@ const collectTeamData = (db) => {
       })
   }
 
-  // axios.get('https://www.sports-reference.com/cbb/seasons/2021-ratings.html')
-  //   .then(res => {
-  //     console.log('initiating collectWLData hypernet ignition sequence')
-  //     var $ = cheerio.load(res.data);
-  //     var rows = $('#ratings tbody tr');
+  axios.get('https://www.sports-reference.com/cbb/seasons/2021-ratings.html')
+    .then(res => {
+      console.log('initiating collectWLData hypernet ignition sequence')
+      var $ = cheerio.load(res.data);
+      var rows = $('#ratings tbody tr');
 
-  //     let teams = [];
+      let teams = [];
 
-  //     const updateTeamRow = (domTableRow) => {
+      const updateTeamRow = (domTableRow) => {
 
-  //       if (domTableRow > 386) {
-  //         db.query(`UPDATE update_timestamps set updated_at = current_timestamp where type = 'standings'`)
-  //         return console.log('team WL data saved!')
-  //       }
+        if (domTableRow > 386) {
+          db.query(`UPDATE update_timestamps set updated_at = current_timestamp where type = 'standings'`)
+          return console.log('team WL data saved!')
+        }
 
-  //       if (rows[domTableRow].children.length === 19) {
-  //         var name = rows[domTableRow].children[1].children[0].children[0].data;
-  //         name = name.replace("\'", "''")
-  //         if (name === 'Long Island University') {
-  //           name = 'LIU-Brooklyn';
-  //         }
-  //         if (name === 'Nevada-Las Vegas') {
-  //           name = 'UNLV';
-  //         }
-  //         if (name === 'University of California') {
-  //           name = 'California';
-  //         }
-  //         if (name === 'Virginia Commonwealth') {
-  //           name = 'VCU';
-  //         }
-  //         if (name === 'Texas-El Paso') {
-  //           name = 'UTEP';
-  //         }
-  //         var w = rows[domTableRow].children[5].children[0].data;
-  //         var l = rows[domTableRow].children[6].children[0].data;
-  //         console.log(name, w, '-', l)
-  //         db.query(`UPDATE teams SET w2020 = ${w}, l2020 = ${l} WHERE name = '${name}';`)
-  //           .then(() => {
-  //             return updateTeamRow(domTableRow + 1);
-  //           })
-  //       } else {
-  //         return updateTeamRow(domTableRow + 1);
-  //       }
+        if (rows[domTableRow].children.length === 19) {
+          var name = rows[domTableRow].children[1].children[0].children[0].data;
+          name = name.replace("\'", "''")
+          if (name === 'Long Island University') {
+            name = 'LIU-Brooklyn';
+          }
+          if (name === 'Nevada-Las Vegas') {
+            name = 'UNLV';
+          }
+          if (name === 'University of California') {
+            name = 'California';
+          }
+          if (name === 'Virginia Commonwealth') {
+            name = 'VCU';
+          }
+          if (name === 'Texas-El Paso') {
+            name = 'UTEP';
+          }
+          var w = rows[domTableRow].children[5].children[0].data;
+          var l = rows[domTableRow].children[6].children[0].data;
+          console.log(name, w, '-', l)
+          db.query(`UPDATE teams SET w2020 = ${w}, l2020 = ${l} WHERE name = '${name}';`)
+            .then(() => {
+              return updateTeamRow(domTableRow + 1);
+            })
+        } else {
+          return updateTeamRow(domTableRow + 1);
+        }
 
-  //     }
+      }
 
-  //     updateTeamRow(0);
+      updateTeamRow(0);
 
-  //   })
+    })
 
   collectSchedData();
 

@@ -11,6 +11,8 @@
   border-color: #42d117;
   margin-top: 8px;
   align-items: center;
+  padding: 2px;
+  background-color: rgb(66,209,23,0.2);
 }
 
 .SimScoreName {

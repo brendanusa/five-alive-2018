@@ -15,7 +15,16 @@ class Pickles extends Component {
     fetch('/api/standings')
       .then(res => res.json())
       .then(data => {
-        this.setState({pickles: data})
+        console.log(data[0])
+        this.setState({pickles: data.sort((a, b) => {
+          if (a.name < b.name) {
+            return -1;
+          }
+          if (a.name > b.name) {
+            return 1;
+          }
+          return 0;
+        })})
       })
   }
 

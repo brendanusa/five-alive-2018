@@ -1,10 +1,11 @@
 .PickNew {
   padding: 2px;
-  border-top: 2px solid;
-  border-left: 2px solid;
+  border-top: 1px solid;
+  border-left: 1px solid;
   border-radius: 8px;
   border-color: #ff6e00;
   margin-top: 12px;
+/*  background-color: rgb(255, 110, 0, 0.2);*/
 }
 
 .PickName {
