@@ -38,7 +38,7 @@ class Standings extends Component {
           }) : null}
         </div>
       </div>
-      <div className="UpdateTime">UPDATED {this.state.updated}</div>
+      <div className="UpdateTime"><p>UPDATED</p><p>{this.state.updated} GMT</p></div>
     </div>
     );
   }
