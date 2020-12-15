@@ -9,17 +9,21 @@ const fetchScores = (db) => {
       activeTeams.forEach((team, i) => {
         activeTeams[i] = team.abbreviation;
       })
-      axios.get('http://site.api.espn.com/apis/site/v2/sports/basketball/mens-college-basketball/scoreboard?limit=500&dates=20201214&groups=50')
+      axios.get('http://site.api.espn.com/apis/site/v2/sports/basketball/mens-college-basketball/scoreboard?limit=500&dates=20201215&groups=50')
         .then(res => {
           for (i = 0; i < res.data.events.length; i++) {
             // check for active team
             if (activeTeams.includes(res.data.events[i].competitions[0].competitors[0].team.abbreviation) || activeTeams.includes(res.data.events[i].competitions[0].competitors[1].team.abbreviation)) {
-              db.query(`insert into scores (id, hometeam, awayteam, homescore, awayscore, clock) values (${res.data.events[i].id}, '${res.data.events[i].competitions[0].competitors[0].team.abbreviation}', '${res.data.events[i].competitions[0].competitors[1].team.abbreviation}', ${res.data.events[i].competitions[0].competitors[0].score}, ${res.data.events[i].competitions[0].competitors[1].score}, '${res.data.events[i].status.type.shortDetail}') on conflict (id) do update set homescore = ${res.data.events[i].competitions[0].competitors[0].score} returning id;`)
+              // parse clock string
+              let clock = res.data.events[i].status.type.shortDetail;
+              if (clock.indexOf('-') !== -1) {
+                clock = clock.slice(clock.indexOf('-') + 2, clock.length);
+              }
+              db.query(`insert into scores (id, hometeam, awayteam, homescore, awayscore, clock, state) values (${res.data.events[i].id}, '${res.data.events[i].competitions[0].competitors[0].team.abbreviation}', '${res.data.events[i].competitions[0].competitors[1].team.abbreviation}', ${res.data.events[i].competitions[0].competitors[0].score}, ${res.data.events[i].competitions[0].competitors[1].score}, '${clock}', '${res.data.events[i].status.type.state}') on conflict (id) do update set homescore = ${res.data.events[i].competitions[0].competitors[0].score}, awayscore = ${res.data.events[i].competitions[0].competitors[1].score}, clock = '${clock}', state = '${res.data.events[i].status.type.state}' returning id;`)
                 .then(res => {
-                  console.log('game id', res[0].id, 'updated')
+                  console.log('game', res[0].id, 'updated')
                 })
-
-            } 
+            }
           }
         })
     })
