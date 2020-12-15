@@ -12,17 +12,6 @@ class Message extends Component {
     };
   }
 
-  componentDidMount() {
-    // const messageLinks = linkify.find(this.props.text);
-    // if (messageLinks.length > 0) {
-    //   messageLinks.forEach((link, i) => {
-    //     messageLinks[i].firstIndex = this.props.text.indexOf(messageLinks[i].value)
-    //   })
-    // } else {
-    //   messageTextSegments[0] = this.props.text;
-    // }
-  }
-
   render() {
 
     return (

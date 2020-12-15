@@ -96,15 +96,6 @@ class Chat extends Component {
 
   render() {
 
-    const chatInput =
-
-    <input
-      type="text"
-      value={this.state.post}
-      onChange={e => this.setState({post: e.target.value})}
-      style={{marginRight:"10px"}}
-    />
-
     return (
       <div className="Chat">
         <div className="ChatHeader">

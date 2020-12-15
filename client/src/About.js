@@ -16,12 +16,12 @@ const About = () => {
         <p>The rules are simple, and pleasing to the eye - participants select five teams that collectively won no more than 100 games the previous season. The person whose teams win the most games this year (excluding non-NCAA postseason tournaments - i.e. NIT, CIT, etc.) wins the grand prize: a drawing of a basketball and a gift certificate for warm vinegar.
           <br></br>
           <p style={{color: "yellow"}}>
-          To sign up for the 2020-21 season, and for college/professional recommendations, please contact Brendan Bansavage.
+          For more information or college/professional recommendations, please contact Brendan Bansavage.
           </p>
         </p>
         <br></br>
         <h2>EXCITEMENT INFO</h2>
-        <p>This season promises to be our least exciting yet, with the following #5ALIVE legends sitting on the Rules and Excitement Committee:
+        <p>This season promises to be our most reent season yet, with the following #5ALIVE legends sitting on the Cancellation and Recency Committee:
             <br></br>
             <br></br>
             <li>Chris Godfrey</li>
@@ -32,7 +32,6 @@ const About = () => {
             <li>Michael Jordan</li>
             <li>Harrison Godfrey</li>
             <li>Wilt Chamberlain</li>
-            <li>Rob "The Committee" Coloney</li>
         </p>
       </div>
     </div>

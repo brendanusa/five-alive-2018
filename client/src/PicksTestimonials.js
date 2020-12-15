@@ -3,8 +3,6 @@ import './Testimonials.css';
 
 const PicksTestimonials = () => {
 
-  console.log('HELLO')
-
   return (
 
     <div>

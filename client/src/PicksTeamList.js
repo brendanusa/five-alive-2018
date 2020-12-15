@@ -9,7 +9,6 @@ class PicksTeamList extends Component {
   }
 
   render() {
-
     return(
       <div className="PicksTeamList">
           <div className="PicksTeamListContainer">
@@ -25,7 +24,6 @@ class PicksTeamList extends Component {
           </div>
       </div>
     )
-
   }
 
 }

@@ -12,12 +12,7 @@ import backgroundImage from './diakite2-fivea.jpeg'
 
 class App extends Component {
 
-  constructor(props) {
-    super(props)
-  }
-
   updateBackgroundImage() {
-    // console.log(typeof document.body.style)
     document.body.style.backgroundImage = `url(${backgroundImage})`;
   }
 

@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import StandingNew from './StandingNew';
+import Standing from './Standing';
 import './Standings.css'
 
 class Standings extends Component {
@@ -33,7 +33,7 @@ class Standings extends Component {
         <div>
           {this.state.standings ? this.state.standings.map((user, i) => {
             return (
-              <StandingNew key={i} name={user.name} teams={user.teams_2020} wins={user.wins} isActive={false}/>
+              <Standing key={i} name={user.name} teams={user.teams_2020} wins={user.wins} isActive={false}/>
             )
           }) : null}
         </div>

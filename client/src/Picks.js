@@ -8,12 +8,10 @@ import SimScore from './SimScore';
 class Picks extends Component {
 
   constructor(props) {
-
     super(props);
     this.state = {
       testimonialsActive: false
     }
-
   }
 
   handleTestimonialsClick = (e) => {

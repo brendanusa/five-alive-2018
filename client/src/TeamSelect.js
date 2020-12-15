@@ -1,8 +1,6 @@
 import React, { Component } from 'react';
 import './TeamSelect.css';
 
-console.log('HI')
-
 class TeamSelect extends Component {
 
   constructor(props) {

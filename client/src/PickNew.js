@@ -11,6 +11,7 @@ class PickNew extends Component {
     }
 
     this.handleClick = this.handleClick.bind(this);
+    
   }
 
   handleClick() {

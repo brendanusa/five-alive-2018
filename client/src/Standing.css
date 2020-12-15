@@ -1,5 +1,36 @@
 .Standing {
-  padding: 4px;
-  font-weight: bold;
-  font-size: 12px;
+  border-top: 2px solid;
+  border-left: 1px solid;
+  border-radius: 8px;
+  border-color: #ff6e00;
+  margin-top: calc(2px + 0.5vw);
+  font-size: calc(8px + 0.4vw);
+}
+
+.StandingName {
+  margin-left: 5px;
+  margin-right: 5px;
+}
+
+.StandingWins {
+  margin-left: 5px;
+  margin-right: 5px;
+}
+
+.StandingHeader {
+  display: flex;
+  border-radius: 8px;
+  padding: 3px;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  justify-content: space-between;
+  background-color: rgb(255, 110, 0, 0.2);
+}
+
+.StandingHeader :active {
+  color: #fff200;
+}
+
+.StandingNew:hover {
+  border-color: #fff200;
 }
