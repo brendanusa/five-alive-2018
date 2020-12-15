@@ -3,7 +3,7 @@ import React, { Component } from 'react';
 import Chat from './Chat';
 import Standings from './Standings';
 import ChatTestimonials from './ChatTestimonials';
-// import Scoreboard from './Scoreboard';
+import Scoreboard from './Scoreboard';
 
 class Home extends Component {
 
@@ -61,6 +61,7 @@ class Home extends Component {
         </div>
         <div id="dim">
           <div className="HomeContainer">
+            <div className="ScoreboardContainer"><Scoreboard /></div>
             <div className="Home">
               <div><Standings /></div>
               <div className="ChatContainer"><Chat /></div>

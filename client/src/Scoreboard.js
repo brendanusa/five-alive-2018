@@ -24,7 +24,7 @@ class Scoreboard extends Component {
       <div className="Scoreboard">
         {this.state.scores.map((game, i) => {
           return (
-            <ScoreboardGame key={i} homeTeam={game.homeTeam.abbreviation} homeScore={game.homeTeam.score} awayTeam={game.awayTeam.abbreviation} awayScore={game.awayTeam.score} clock={game.clock}/>
+            <ScoreboardGame key={i} homeTeam={game.hometeam} homeScore={game.homescore} awayTeam={game.awayteam} awayScore={game.awayscore} clock={game.clock}/>
           )
         })}
       </div>

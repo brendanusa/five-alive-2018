@@ -1,11 +1,34 @@
 .ScoreboardGame {
-  display: flex;
+  padding: calc(4px + 0.3vw);
+  background-color: rgba(255, 255, 255, 0.4);
+  border-radius: 8px;
+  /*border: 1px solid white;*/
+  margin: 10px 12px 10px 12px;
+  color: white;
 }
 
 .ScoreboardGame div {
   display: flex;
-  flex-direction: ;
+  flex-direction: row;
   justify-content: space-between;
-  color: blue;
+  font-size: calc(7px + 0.5vw);
 }
 
+.ScoreboardGameTeam {
+  font-weight: bold;
+  margin-right: calc(30px + 1.5vw);
+  margin-bottom: 2px;
+}
+
+.ScoreboardGame > div {
+  display: flex;
+  flex-direction: column;
+}
+
+.ScoreboardGameClock {
+  margin-top: 8px;
+}
+
+.ScoreboardGameClock span {
+  font-size: calc(5.6px + 0.4vw);
+}

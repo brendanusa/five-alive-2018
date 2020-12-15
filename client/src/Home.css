@@ -2,8 +2,18 @@
   display: flex;
   justify-content: space-evenly;
   align-items: center;
-  margin-top: 6vw;
+  margin-top: 4vw;
   margin-bottom: 100px;
+}
+
+.HomeContainer {
+  display: flex;
+  flex-direction: column;
+}
+
+.ScoreboardContainer {
+  display: flex;
+  justify-content: center;
 }
 
 .Home > div {

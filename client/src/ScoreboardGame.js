@@ -6,15 +6,17 @@ const ScoreboardGame = (props) => {
   return (
     <div className="ScoreboardGame">
       <div>
-        <span>{props.awayTeam}</span>
-        <span>{props.awayScore}</span>
+        <div>
+          <span className="ScoreboardGameTeam">{props.awayTeam}</span>
+          <span>{props.awayScore}</span>
+        </div>
+        <div>
+          <span className="ScoreboardGameTeam">{props.homeTeam}</span>
+          <span>{props.homeScore}</span>
+        </div>
       </div>
-      <div>
-        <span>{props.homeTeam}</span>
-        <span>{props.homeScore}</span>
-      </div>
-      <div className="clock">
-        {props.clock}
+      <div className="ScoreboardGameClock">
+        <span>{props.clock}</span>
       </div>
     </div>
   )
