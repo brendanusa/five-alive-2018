@@ -1,121 +1,27 @@
 const axios = require('axios');
-
-
-// const returnGames = (populatedGames) => {
-//   // console.log('meow', populatedGames)
-//   return populatedGames;
-// }
-
-const selectedTeams = ['MIZ ',
-'SDSU ',
-'FGCU ',
-'LIU ',
-'COR ',
-'HALL ',
-'PSU ',
-'LOU ',
-'MD ',
-'UK ',
-'BUT ',
-'GONZ ',
-'KU ',
-'USU ',
-'MEM ',
-'BCU ',
-'ND ',
-'BAY ',
-'FLA ',
-'RICH ',
-'WEB ',
-'VAN ',
-'WRST ',
-'VILL ',
-'STAN ',
-'UTEP ',
-'SC ',
-'FUR ',
-'IONA ',
-'CAL ',
-'TEX ',
-'CLMB ',
-'RICE ',
-'XAV ',
-'SMC ',
-'UVA ',
-'OSU ',
-'UCLA ',
-'VCU ',
-'ORE ',
-'DUKE ',
-'ARIZ ',
-'MSU ',
-'ILL ',
-'IND ',
-'UNLV ',
-'MIA ',
-'PUR ',
-'PROV ',
-'GTWN ',
-'HARV ',
-'DAV ',
-'UGA ',
-'ETSU ',
-'LT '];
+const pgp = require('pg-promise')(/*options*/);
 
 const fetchScores = (db) => {
-  console.log('hi')
-  axios.get('http://site.api.espn.com/apis/site/v2/sports/basketball/mens-college-basketball/scoreboard?limit=500&dates=20200311&groups=50')
-    .then(res => {
-      return res.data.events[0].competitions[0].competitors[0].team.abbreviation;
-      // for (let i = 0; i < res.data.events.length; i++) {
-        // console.log(event.competitions[0].competitors[0].team.abbreviation,
-        //   event.competitions[0].competitors[0].score,
-        //   '-',
-        //   event.competitions[0].competitors[1].team.abbreviation,
-        //   event.competitions[0].competitors[1].score,
-        //   event.status.type.shortDetail)
-        // let selected = false;
-        // only send to client if event includes #5ALIVE team
+  // fetch active teams
+  db.query('select abbreviation from teams where active = true')
+    .then(data => {
+      activeTeams = data;
+      activeTeams.forEach((team, i) => {
+        activeTeams[i] = team.abbreviation;
+      })
+      axios.get('http://site.api.espn.com/apis/site/v2/sports/basketball/mens-college-basketball/scoreboard?limit=500&dates=20201214&groups=50')
+        .then(res => {
+          for (i = 0; i < res.data.events.length; i++) {
+            // check for active team
+            if (activeTeams.includes(res.data.events[i].competitions[0].competitors[0].team.abbreviation) || activeTeams.includes(res.data.events[i].competitions[0].competitors[1].team.abbreviation)) {
+              db.query(`insert into scores (id, hometeam, awayteam, homescore, awayscore, clock) values (${res.data.events[i].id}, '${res.data.events[i].competitions[0].competitors[0].team.abbreviation}', '${res.data.events[i].competitions[0].competitors[1].team.abbreviation}', ${res.data.events[i].competitions[0].competitors[0].score}, ${res.data.events[i].competitions[0].competitors[1].score}, '${res.data.events[i].status.type.shortDetail}') on conflict (id) do update set homescore = ${res.data.events[i].competitions[0].competitors[0].score} returning id;`)
+                .then(res => {
+                  console.log('game id', res[0].id, 'updated')
+                })
 
-
-        // ---
-        // db.query(`select name from teams where abbreviation = '${res.data.events[i].competitions[0].competitors[0].team.abbreviation} ' and nickname is not null`)
-        //   .then(data => {
-        //     if (data.length === 1) {
-        //       selected = true;
-        //     }
-        //     db.query(`select name from teams where abbreviation = '${res.data.events[i].competitions[0].competitors[0].team.abbreviation} ' and nickname is not null`)
-        //       .then(data => {
-        //         if (data.length === 1) {
-        //           selected = true;
-        //         }
-        //         if (selected) {
-        //           var eventObj = {
-        //             homeTeam: {
-        //               abbreviation: res.data.events[i].competitions[0].competitors[0].team.abbreviation,
-        //               score: res.data.events[i].competitions[0].competitors[0].score
-        //             },
-        //             awayTeam: {
-        //               abbreviation: res.data.events[i].competitions[0].competitors[1].team.abbreviation,
-        //               score: res.data.events[i].competitions[0].competitors[1].score
-        //             },
-        //             clock: res.data.events[i].status.type.shortDetail
-        //           };
-        //           if (eventObj.clock.indexOf('/') !== -1) {
-        //             eventObj.clock = res.data.events[i].status.type.shortDetail.slice(res.data.events[i].status.type.shortDetail.indexOf('-') + 2, res.data.events[i].status.type.shortDetail.length);
-        //           }
-        //           games.push(eventObj);
-        //         }
-        //         if (i === res.data.events.length - 1) {
-        //           console.log('finished', games)
-        //           return games;
-        //         }
-        //       })
-        //   })
-
-        //   ---
-
-      // }
+            } 
+          }
+        })
     })
 }
 
@@ -130,5 +36,4 @@ const fetchScores = (db) => {
 //     })
 // }
 
-module.exports.fetchScores = fetchScores;
-// module.exports.populateAbbreviations = populateAbbreviations;
+fetchScores(pgp(process.env.DATABASE_URL || 'postgres://akppnbjeltipma:d83a3e7a826cd09a205551a1e4063b60f365201ca4ad6ed875dfdc5cb4e07bac@ec2-54-243-46-32.compute-1.amazonaws.com:5432/d35h8248bl7gm9?ssl=true'));

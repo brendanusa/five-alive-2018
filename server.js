@@ -13,12 +13,6 @@ const db = pgp(process.env.DATABASE_URL || 'postgres://akppnbjeltipma:d83a3e7a82
 // DATABASE_URL=$(heroku config:get DATABASE_URL -a five-alive-2018) your_process
 // var db = pgp(process.env.DATABASE_URL || 'postgres://bbansavage:pass@localhost:5432/five_alive_2018');
 
-// TO UPDATE SCOREBOARD
-// scoreboard.fetchScores(db)
-
-// TO RECORD ESPN TEAM ABBREVS IN DB
-// scoreboard.populateAbbreviations(db);
-
 server = app.listen(port, function(){
   console.log('server is running on port', port)
 });
@@ -73,7 +67,6 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
 app.get('/api/scores', (req, res) => {
-  const selectedTeams = ['MIZ','SDSU','FGCU','LIU','COR','HALL','PSU','LOU','MD','UK','BUT','GONZ','KU','USU','MEM','BCU','ND','BAY','FLA','RICH','WEB','VAN','WRST','VILL','STAN','UTEP','SC','FUR','IONA','CAL','TEX','CLMB','RICE','XAV','SMC','UVA','OSU','UCLA','VCU','ORE','DUKE','ARIZ','MSU','ILL','IND','UNLV','MIA','PUR','PROV','GTWN','HARV','DAV','UGA','ETSU','LT'];
   axios.get('http://site.api.espn.com/apis/site/v2/sports/basketball/mens-college-basketball/scoreboard?limit=500&dates=20200311&groups=50')
     .then(espnres => {
       let scoresData = [];
