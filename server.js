@@ -67,38 +67,19 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
 app.get('/api/scores', (req, res) => {
-  axios.get('http://site.api.espn.com/apis/site/v2/sports/basketball/mens-college-basketball/scoreboard?limit=500&dates=20200311&groups=50')
-    .then(espnres => {
-      let scoresData = [];
-      for (let i = 0; i < espnres.data.events.length; i++) {
-        // console.log(espnres.data.events[i].competitions[0].competitors[0].team.abbreviation)
-        let selected = false
-        if (selectedTeams.includes(espnres.data.events[i].competitions[0].competitors[0].team.abbreviation) || selectedTeams.includes(espnres.data.events[i].competitions[0].competitors[1].team.abbreviation)) {
-
-          selected = true;
+  db.query(`SELECT * from scores order by state desc, clock asc`)
+    .then((data => {
+      data.forEach(game => {
+        if (game.homescore === 0 && game.awayscore === 0) {
+          game.homescore = ' ';
+          game.awayscore = ' ';
         }
-        if (selected) {
-          // console.log('home', espnres.data.events[i].competitions[0].competitors[0].team.abbreviation)
-          var eventObj = {
-            homeTeam: {
-              abbreviation: espnres.data.events[i].competitions[0].competitors[0].team.abbreviation,
-              score: espnres.data.events[i].competitions[0].competitors[0].score
-            },
-            awayTeam: {
-              abbreviation: espnres.data.events[i].competitions[0].competitors[1].team.abbreviation,
-              score: espnres.data.events[i].competitions[0].competitors[1].score
-            },
-            clock: espnres.data.events[i].status.type.shortDetail
-          };
-          if (eventObj.clock.indexOf('/') !== -1) {
-            eventObj.clock = espnres.data.events[i].status.type.shortDetail.slice(espnres.data.events[i].status.type.shortDetail.indexOf('-') + 2, espnres.data.events[i].status.type.shortDetail.length);
-          }
-          scoresData.push(eventObj);
-        }
-        if (i === espnres.data.events.length - 1) {
-          res.send(scoresData);
-        }
-      }
+      })
+      res.send(data)
+    }))
+    .catch(error => {
+      console.log('ERROR', error);
+      res.send('Unable to fetch scores');
     })
 })
 
