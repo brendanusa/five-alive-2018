@@ -67,7 +67,7 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
 app.get('/api/scores', (req, res) => {
-  db.query(`SELECT * from scores order by state desc, clock asc`)
+  db.query(`SELECT * from scores order by state asc, clock asc`)
     .then((data => {
       data.forEach(game => {
         if (game.homescore === 0 && game.awayscore === 0) {
