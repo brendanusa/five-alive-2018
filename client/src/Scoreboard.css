@@ -1,9 +1,13 @@
 .Scoreboard {
   display: flex;
-  width: 90%;
+  width: 80%;
   overflow: scroll;
   margin-top: 2vw;
   border: 3px solid white;
   border-radius: 8px;
   background-color: rgba(0, 0, 0, 0.8);
+}
+
+.MarginCorrection {
+  border: 0.01px solid black;
 }

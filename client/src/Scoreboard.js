@@ -27,6 +27,7 @@ class Scoreboard extends Component {
             <ScoreboardGame key={i} homeTeam={game.hometeam} homeScore={game.homescore} awayTeam={game.awayteam} awayScore={game.awayscore} clock={game.clock}/>
           )
         })}
+        <div className="MarginCorrection"></div>
       </div>
     );
   }
