@@ -9,7 +9,7 @@ const fetchScores = (db) => {
       activeTeams.forEach((team, i) => {
         activeTeams[i] = team.abbreviation;
       })
-      axios.get('http://site.api.espn.com/apis/site/v2/sports/basketball/mens-college-basketball/scoreboard?limit=500&dates=20201215&groups=50')
+      axios.get('http://site.api.espn.com/apis/site/v2/sports/basketball/mens-college-basketball/scoreboard?limit=500&dates=20201216&groups=50')
         .then(res => {
           for (i = 0; i < res.data.events.length; i++) {
             // check for active team
