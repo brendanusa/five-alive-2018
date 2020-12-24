@@ -11,3 +11,9 @@
 .MarginCorrection {
   border: 0.01px solid black;
 }
+
+.Empty {
+  font-weight: bold;
+  font-size: calc(8px + 1vw);
+  padding: 20px;
+}

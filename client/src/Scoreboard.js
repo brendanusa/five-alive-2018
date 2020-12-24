@@ -22,11 +22,14 @@ class Scoreboard extends Component {
   render() {
     return(
       <div className="Scoreboard">
-        {this.state.scores.map((game, i) => {
-          return (
-            <ScoreboardGame key={i} homeTeam={game.hometeam} homeScore={game.homescore} awayTeam={game.awayteam} awayScore={game.awayscore} clock={game.clock}/>
-          )
-        })}
+        {this.state.scores[0] ?
+          this.state.scores.map((game, i) => {
+            return (
+              <ScoreboardGame key={i} homeTeam={game.hometeam} homeScore={game.homescore} awayTeam={game.awayteam} awayScore={game.awayscore} clock={game.clock}/>
+            )
+          }) :
+          <div className="Empty">NO #5ALIVE GAMES TODAY!</div>
+        }
         <div className="MarginCorrection"></div>
       </div>
     );

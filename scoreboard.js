@@ -9,7 +9,7 @@ const fetchScores = (db) => {
       activeTeams.forEach((team, i) => {
         activeTeams[i] = team.abbreviation;
       })
-      // parse current date for espn url
+      // parse current date and insert into url
       var date = new Date(Date.now())
       axios.get(`http://site.api.espn.com/apis/site/v2/sports/basketball/mens-college-basketball/scoreboard?limit=500&dates=${date.getFullYear()}${date.getMonth()+1}${date.getDate()}&groups=50`)
         .then(res => {
@@ -32,7 +32,7 @@ const fetchScores = (db) => {
     })
 }
 
-// to update team abbreviations in db
+// *to update team abbreviations in db*
 // const populateAbbreviations = (db) => {
 //   axios.get('http://site.api.espn.com/apis/site/v2/sports/basketball/mens-college-basketball/teams?limit=800')
 //     .then(res => {
