@@ -1,9 +1,15 @@
 .ScoreboardGame {
-  padding: calc(4px + 0.3vw);
+  padding: calc(3px + 0.3vw);
   background-color: rgba(255, 255, 255, 0.4);
+  border: 1px solid transparent;
   border-radius: 8px;
   margin: 10px 12px 10px 12px;
   color: white;
+  text-decoration: none
+}
+
+.ScoreboardGame:hover {
+  border: 1px solid white;
 }
 
 .ScoreboardGame div {
@@ -30,4 +36,10 @@
 
 .ScoreboardGameClock span {
   font-size: calc(5.6px + 0.4vw);
+}
+
+.ScoreboardGame a {
+  position: absolute;
+  border-radius: 8px;
+  border: 5px solid red;
 }

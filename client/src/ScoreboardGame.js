@@ -4,21 +4,21 @@ import './ScoreboardGame.css';
 const ScoreboardGame = (props) => {
 
   return (
-    <div className="ScoreboardGame">
-      <div>
+    <a className="ScoreboardGame" href={`https://www.espn.com/mens-college-basketball/game?gameId=${props.id}`} target="_blank">
         <div>
-          <span className="ScoreboardGameTeam">{props.awayTeam}</span>
-          <span>{props.awayScore}</span>
+          <div>
+            <span className="ScoreboardGameTeam">{props.awayTeam}</span>
+            <span>{props.awayScore}</span>
+          </div>
+          <div>
+            <span className="ScoreboardGameTeam">{props.homeTeam}</span>
+            <span>{props.homeScore}</span>
+          </div>
         </div>
-        <div>
-          <span className="ScoreboardGameTeam">{props.homeTeam}</span>
-          <span>{props.homeScore}</span>
+        <div className="ScoreboardGameClock">
+          <span>{props.clock}</span>
         </div>
-      </div>
-      <div className="ScoreboardGameClock">
-        <span>{props.clock}</span>
-      </div>
-    </div>
+    </a>
   )
 
 }

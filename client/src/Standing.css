@@ -7,6 +7,10 @@
   font-size: calc(8px + 0.4vw);
 }
 
+.Standing:hover {
+  border-color: #fff200;
+}
+
 .StandingName {
   margin-left: 5px;
   margin-right: 5px;
@@ -25,6 +29,7 @@
   padding-bottom: 4px;
   justify-content: space-between;
   background-color: rgb(255, 110, 0, 0.2);
+  cursor: pointer;
 }
 
 .StandingHeader :active {
