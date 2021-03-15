@@ -1,16 +1,14 @@
-import React, { Component } from 'react';
-import './PickFiveStandingsTeamList.css';
+import React, { Component } from "react";
+import "./PickFiveStandingsTeamList.css";
 
 class PickFiveStandingsTeamList extends Component {
-
   constructor(props) {
     super(props);
     this.state = {};
   }
 
   render() {
-
-    return(
+    return (
       <div className="PickFiveStandingsTeamList">
         <div className="PickFiveStandingsTeamListContainer">
           <div className="PickFivePointer">
@@ -21,18 +19,20 @@ class PickFiveStandingsTeamList extends Component {
               <div className="PickFiveStandingsTeamContainer">
                 <div key={i} className={"PickFiveStandingsTeam" + [i]}>
                   <span>{team.name}</span>
-                  <span className="PickFiveStandingsTeamRound">{team.round}</span>
-                  <span className="PickFiveStandingsTeamPoints">{team.points}</span>
+                  <span className="PickFiveStandingsTeamRound">
+                    {team.round}
+                  </span>
+                  <span className="PickFiveStandingsTeamPoints">
+                    {team.points}
+                  </span>
                 </div>
               </div>
-            )
+            );
           })}
         </div>
       </div>
-    )
-
+    );
   }
-
 }
 
 // insert this before map to sort teams by wins

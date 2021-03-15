@@ -4,7 +4,7 @@
   }
   100% {
     transform: translateY(0%);
-  } 
+  }
 }
 
 @keyframes Hide {
@@ -41,26 +41,26 @@
 }
 
 .PicksTeam0 {
-  animation: SlideDown .05s ease-in-out;
+  animation: SlideDown 0.05s ease-in-out;
   overflow: hidden;
 }
 
 .PicksTeam1 {
-  animation: SlideDown .05s ease-in-out .05s, Hide .055s;
+  animation: SlideDown 0.05s ease-in-out 0.05s, Hide 0.055s;
   overflow: hidden;
 }
 
 .PicksTeam2 {
-  animation: SlideDown .05s ease-in-out .1s, Hide .105s;
+  animation: SlideDown 0.05s ease-in-out 0.1s, Hide 0.105s;
   overflow: hidden;
 }
 
 .PicksTeam3 {
-  animation: SlideDown .05s ease-in-out .15s, Hide .155s;
+  animation: SlideDown 0.05s ease-in-out 0.15s, Hide 0.155s;
   overflow: hidden;
 }
 
 .PicksTeam4 {
-  animation: SlideDown .05s ease-in-out .2s, Hide .205s;
+  animation: SlideDown 0.05s ease-in-out 0.2s, Hide 0.205s;
   overflow: hidden;
 }

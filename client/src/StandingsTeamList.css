@@ -4,7 +4,7 @@
   }
   100% {
     transform: translateY(0%);
-  } 
+  }
 }
 
 @keyframes Hide {
@@ -41,9 +41,9 @@
   display: flex;
   justify-content: space-between;
   border-radius: 8px 16px 16px 16px;
-  background-color: rgb(66,209,23,0.2);
+  background-color: rgb(66, 209, 23, 0.2);
   margin-top: calc(1px + 0.2vw);
-  border-top: 1px solid rgb(66,209,23,0.35);
+  border-top: 1px solid rgb(66, 209, 23, 0.35);
   border-bottom: 1px transparent;
   cursor: pointer;
 }
@@ -54,9 +54,9 @@
 
 .StandingsTeamContainer > div:active {
   color: yellow;
-  background-color: rgb(66,209,23,0.25);
+  background-color: rgb(66, 209, 23, 0.25);
   border-top: 1px transparent;
-  border-bottom: 1px solid rgb(66,209,23,0.35);
+  border-bottom: 1px solid rgb(66, 209, 23, 0.35);
 }
 
 .StandingsTeamContainer span {
@@ -69,32 +69,32 @@
 }
 
 .StandingsTeam0 {
-  animation: SlideDown .08s ease-in-out 0.3s, Hide 0.35s;;
+  animation: SlideDown 0.08s ease-in-out 0.3s, Hide 0.35s;
   overflow: hidden;
 }
 
 .StandingsTeam1 {
-  animation: SlideDown .08s ease-in-out 0.38s, Hide 0.385s;
+  animation: SlideDown 0.08s ease-in-out 0.38s, Hide 0.385s;
   overflow: hidden;
 }
 
 .StandingsTeam2 {
-  animation: SlideDown .08s ease-in-out 0.46s, Hide 0.465s;
+  animation: SlideDown 0.08s ease-in-out 0.46s, Hide 0.465s;
   overflow: hidden;
 }
 
 .StandingsTeam3 {
-  animation: SlideDown .08s ease-in-out 0.54s, Hide 0.545s;
+  animation: SlideDown 0.08s ease-in-out 0.54s, Hide 0.545s;
   overflow: hidden;
 }
 
 .StandingsTeam4 {
-  animation: SlideDown .08s ease-in-out 0.62s, Hide 0.625s;
+  animation: SlideDown 0.08s ease-in-out 0.62s, Hide 0.625s;
   overflow: hidden;
 }
 
 .StandingsTeam5 {
-  animation: SlideDown .08s ease-in-out 0.7s, Hide 0.705s;
+  animation: SlideDown 0.08s ease-in-out 0.7s, Hide 0.705s;
   overflow: hidden;
 }
 
@@ -103,7 +103,7 @@
 }
 
 .StandingsTeamPoints {
-  background-color: rgb(66,209,23,0.35);
+  background-color: rgb(66, 209, 23, 0.35);
   border-right: 1px solid #42d117;
   padding: 0.8px;
   padding-left: calc(2px + 0.2vw);
@@ -118,7 +118,7 @@
   left: calc(84px + 20vw);
   top: calc(160px + 16vw);
   border-radius: 8px;
-  background-color: rgb(0,0,0,0.8);
+  background-color: rgb(0, 0, 0, 0.8);
   padding: 16px;
   border: 4px solid white;
 }

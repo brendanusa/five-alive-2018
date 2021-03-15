@@ -1,45 +1,41 @@
-import './PickFiveStanding.css';
-import React, { Component } from 'react';
-import PickFiveStandingsTeamList from './PickFiveStandingsTeamList';
+import "./PickFiveStanding.css";
+import React, { Component } from "react";
+import PickFiveStandingsTeamList from "./PickFiveStandingsTeamList";
 
 class PickFiveStanding extends Component {
-
   constructor(props) {
     super(props);
     this.state = {
-      isActive: false
-    }
+      isActive: false,
+    };
 
     this.handleClick = this.handleClick.bind(this);
   }
 
   handleClick() {
-    this.setState({isActive: !this.state.isActive})
+    this.setState({ isActive: !this.state.isActive });
   }
 
   render() {
-    return(
+    return (
       <div className="PickFiveStanding" onClick={this.handleClick}>
         <div className="PickFiveStandingHeader">
           <span className="PickFiveStandingNameYearContainer">
-            <span className="PickFiveStandingName">
-              {this.props.name}
-            </span>
+            <span className="PickFiveStandingName">{this.props.name}</span>
             <span className="PickFiveStandingYear">
               {this.props.year || null}
             </span>
           </span>
-          <span className="PickFiveStandingScore">
-            {this.props.score}
-          </span>
+          <span className="PickFiveStandingScore">{this.props.score}</span>
         </div>
         <div>
-          {this.state.isActive ? <PickFiveStandingsTeamList teams={this.props.teams} /> : null}
+          {this.state.isActive ? (
+            <PickFiveStandingsTeamList teams={this.props.teams} />
+          ) : null}
         </div>
       </div>
-    )
+    );
   }
-
 }
 
 export default PickFiveStanding;

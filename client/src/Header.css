@@ -3,19 +3,33 @@ header {
 }
 
 @keyframes TitleSqueeze {
-  40% {transform: scale(1.5, 0.8);}
-  70% {transform: scale(0.8, 1.2);}
-  85% {transform: scale(1.1, 0.9);}
+  40% {
+    transform: scale(1.5, 0.8);
+  }
+  70% {
+    transform: scale(0.8, 1.2);
+  }
+  85% {
+    transform: scale(1.1, 0.9);
+  }
 }
 
 @keyframes TitleShrink {
-  0% {font-size: 500px;}
+  0% {
+    font-size: 500px;
+  }
 }
 
 @keyframes FadeIn {
-  0%   { opacity: 0; }
-  92%  { opacity: 0; }
-  100% { opacity: 1; }
+  0% {
+    opacity: 0;
+  }
+  92% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
 }
 
 a {
@@ -40,11 +54,10 @@ a {
   width: 3.5vw;
   display: inline-block;
   transform: skew(10deg);
-
 }
 
 .links {
-/*background-color: (200,200,200,0.8);*/
+  /*background-color: (200,200,200,0.8);*/
   font-weight: bold;
   font-size: calc(4px + 1vw);
   position: absolute;
@@ -87,7 +100,7 @@ a {
 }
 
 #two {
- border-color: #f20e0e;
+  border-color: #f20e0e;
 }
 
 #three {

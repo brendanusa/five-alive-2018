@@ -69,11 +69,11 @@
 }
 
 .TestimonialsToggle :hover {
-  background-color: rgba(0, 0, 0, 0.1)
+  background-color: rgba(0, 0, 0, 0.1);
 }
 
 .TestimonialsToggle :active {
   color: #fff200;
   border-color: #fff200;
-  background-color: rgba(0, 0, 0, 0.1)
+  background-color: rgba(0, 0, 0, 0.1);
 }
