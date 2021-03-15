@@ -16,7 +16,7 @@ class Main extends Component {
             <Route path='/login' component={Login}/>
             <Route path='/teamselect' component={TeamSelect}/>
             <Route path='/standingsold' component={Standings}/>
-            <Route path='/pastchamps' component={PastChamps}
+            <Route path='/pastchamps' component={PastChamps}>
           </div>
         </Router>
       </main>
