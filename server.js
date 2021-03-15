@@ -12,53 +12,53 @@ console.log('dbtype', typeof db)
 
 // DYNAMIC DB URL
 // DATABASE_URL=$(heroku config:get DATABASE_URL -a five-alive-2018) your_process
-// var db = pgp(process.env.DATABASE_URL || 'postgres://bbansavage:pass@localhost:5432/five_alive_2018');
+// db = pgp(process.env.DATABASE_URL || 'postgres://bbansavage:pass@localhost:5432/five_alive_2018');
 
 server = app.listen(port, function(){
   console.log('server is running on port', port)
 });
 
-var socket = require('socket.io');
-io = socket(server);
+// var socket = require('socket.io');
+// io = socket(server);
 
-io.on('connection', (socket) => {
-  console.log('Client connected on socket', socket.id)
+// io.on('connection', (socket) => {
+//   console.log('Client connected on socket', socket.id)
 
-  socket.on('SEND_MESSAGE', function(data){
-    console.log('Client sent new message')
-    let {
-      userid,
-      username,
-      text
-    } = data;
-    const timestamp = new Date()
-    let i = 0;
-    while (i < text.length) {
-      if (text[i] === '\'') {
-        text = text.slice(0, i + 1) + '\'' + text.slice(i + 1);
-        i++;
-      }
-      i++;
-    }
-    db.query(`insert into messages (user_id, user_name, text) values (${userid}, '${username}', '${text}');`)
-      .then(() => {
-        db.query('select * from messages order by created desc limit 50')
-        .then(data => {
-          io.emit('RECEIVE_MESSAGES', data.reverse());
-        })
-        .catch(error => {
-          console.log('ERROR ' + error)
-          res.send('Unable to retrieve messages: ' + error)
-        })
-      })
-      .catch(error => {
-        console.log('ERROR ', error)
-        io.emit('Unable to save message: ', error);
-      })
-  })
+//   socket.on('SEND_MESSAGE', function(data){
+//     console.log('Client sent new message')
+//     let {
+//       userid,
+//       username,
+//       text
+//     } = data;
+//     const timestamp = new Date()
+//     let i = 0;
+//     while (i < text.length) {
+//       if (text[i] === '\'') {
+//         text = text.slice(0, i + 1) + '\'' + text.slice(i + 1);
+//         i++;
+//       }
+//       i++;
+//     }
+//     db.query(`insert into messages (user_id, user_name, text) values (${userid}, '${username}', '${text}');`)
+//       .then(() => {
+//         db.query('select * from messages order by created desc limit 50')
+//         .then(data => {
+//           io.emit('RECEIVE_MESSAGES', data.reverse());
+//         })
+//         .catch(error => {
+//           console.log('ERROR ' + error)
+//           res.send('Unable to retrieve messages: ' + error)
+//         })
+//       })
+//       .catch(error => {
+//         console.log('ERROR ', error)
+//         io.emit('Unable to save message: ', error);
+//       })
+//   })
 
-  socket.on('disconnect', () => console.log('Client disconnected'));
-});
+//   socket.on('disconnect', () => console.log('Client disconnected'));
+// });
 
 app.get('/api/port', (req, res) => {
   res.send(port.toString())
@@ -235,6 +235,7 @@ app.get('/api/schools', (req, res) => {
 })
 
 if (process.env.NODE_ENV === 'production') {
+  console.log('NODE_ENV is production')
   // Serve any static files
   app.use('/', express.static(path.join(__dirname, 'client/build')));
   // Handle React routing, return all requests to React app
