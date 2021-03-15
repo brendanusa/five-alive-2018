@@ -90,7 +90,6 @@
 }
 
 @media only screen and (max-width: 600px) {
-  
   .Picks {
     flex-direction: column;
     height: 600px;
@@ -107,5 +106,4 @@
   .SimScoreContainer {
     max-height: 120px;
   }
-
 }

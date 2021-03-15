@@ -1,107 +1,108 @@
-import React, { Component } from 'react';
-import './TeamSelect.css';
+import React, { Component } from "react";
+import "./TeamSelect.css";
 
 class TeamSelect extends Component {
-
   constructor(props) {
     super(props);
     this.state = {
       selectedTeams: {},
       user: {},
-      post: '',
-      submitFeedback: '',
-      teamsHard: []
+      post: "",
+      submitFeedback: "",
+      teamsHard: [],
     };
   }
 
   componentDidMount() {
-    console.log('hello')
-    fetch('/api/schools')
-      .then(res => res.json())
-      .then(data => {
-        this.setState({teamsHard: data})
-      })
+    console.log("hello");
+    fetch("/api/schools")
+      .then((res) => res.json())
+      .then((data) => {
+        this.setState({ teamsHard: data });
+      });
   }
 
   handleUserBoxSubmit = (e) => {
     e.preventDefault();
-      fetch('/api/password?password=' + this.state.post)
-        .then(res => res.json())
-        .then(data => {
-          if (data[0]) {
-            this.setState({user: data[0]});
-            this.setState({isAuthenticated: true});
-            this.setState({post: ''})
-          } else {
-            window.alert('Invalid password!')
-          }
-        })
-  }
+    fetch("/api/password?password=" + this.state.post)
+      .then((res) => res.json())
+      .then((data) => {
+        if (data[0]) {
+          this.setState({ user: data[0] });
+          this.setState({ isAuthenticated: true });
+          this.setState({ post: "" });
+        } else {
+          window.alert("Invalid password!");
+        }
+      });
+  };
 
   handleTeamsBoxClick = (e) => {
-
     e.preventDefault();
-    document.getElementById(e.target.id).classList.toggle('highlighted');
+    document.getElementById(e.target.id).classList.toggle("highlighted");
     let tempState = this.state.selectedTeams;
 
     if (tempState[e.target.id]) {
       tempState[e.target.id].selected = !tempState[e.target.id].selected;
     } else {
-      tempState[e.target.id] = {selected: true};
+      tempState[e.target.id] = { selected: true };
     }
 
-    this.setState({selectedTeams: tempState});
-
-  }
+    this.setState({ selectedTeams: tempState });
+  };
 
   handleSelectBoxSubmit = () => {
-    
-    const actualSelectedTeams = Object.keys(this.state.selectedTeams).filter(team => {
+    const actualSelectedTeams = Object.keys(this.state.selectedTeams)
+      .filter((team) => {
         return this.state.selectedTeams[team].selected === true;
-      }).map(teamid => parseInt(teamid) + 2);
+      })
+      .map((teamid) => parseInt(teamid) + 2);
 
     const activeWinsTotal = actualSelectedTeams.reduce((acc, val) => {
-      return acc += this.state.teamsHard[val - 2].w2019
+      return (acc += this.state.teamsHard[val - 2].w2019);
     }, 0);
 
-    console.log('activeWinsTotal', activeWinsTotal)
+    console.log("activeWinsTotal", activeWinsTotal);
 
     if (!this.state.user.name) {
-      this.setState({submitFeedback: 'Not signed in!'});
+      this.setState({ submitFeedback: "Not signed in!" });
     } else if (actualSelectedTeams.length !== 5) {
-      this.setState({submitFeedback: 'Select five teams!'});
+      this.setState({ submitFeedback: "Select five teams!" });
     } else if (activeWinsTotal > 100) {
-      this.setState({submitFeedback: 'Try again!'});
+      this.setState({ submitFeedback: "Try again!" });
     } else {
-      fetch(`/api/teams?teamids=${actualSelectedTeams.join(',')}&userid=${this.state.user.id}`)
-        .then(data => {
-          fetch('/api/password?password=' + this.state.user.password)
-            .then(res => res.json())
-            .then(data => {
-              console.log(data[0])
-              if (data[0]) {
-                let tempState = this.state;
-                tempState.user = data[0];
-                tempState.submitFeedback = 'Picks submitted!';
-                this.setState({tempState});
-              }
-            })
-        })
+      fetch(
+        `/api/teams?teamids=${actualSelectedTeams.join(",")}&userid=${
+          this.state.user.id
+        }`
+      ).then((data) => {
+        fetch("/api/password?password=" + this.state.user.password)
+          .then((res) => res.json())
+          .then((data) => {
+            console.log(data[0]);
+            if (data[0]) {
+              let tempState = this.state;
+              tempState.user = data[0];
+              tempState.submitFeedback = "Picks submitted!";
+              this.setState({ tempState });
+            }
+          });
+      });
     }
-
-  }
+  };
 
   render() {
     return (
       <div className="TeamSelectTempContainer">
         <div className="TeamSelectTemp">
-          <div><h1>BZZZ!</h1></div>
+          <div>
+            <h1>BZZZ!</h1>
+          </div>
           <div>Team selection for 2020-21 is OVER</div>
         </div>
       </div>
-    )
+    );
   }
-
 }
 
 // render for pre-deadline
@@ -113,7 +114,7 @@ class TeamSelect extends Component {
 //           <div className="UserBox">
 //             <div className="UserBoxMessageContainer">
 //               <div className="UserBoxMessage">WELCOME TO THE NCAA TEAM SELECTION PORTAL</div>
-//               <div className="UserBoxForm">{this.state.user.name ? this.state.user.name+' has entered the team selection portal.' : 
+//               <div className="UserBoxForm">{this.state.user.name ? this.state.user.name+' has entered the team selection portal.' :
 //                   <form onSubmit={this.handleUserBoxSubmit}>
 //                     Enter password:
 //                     <input
@@ -216,16 +217,15 @@ class TeamSelect extends Component {
 //   }
 
 // render for post-deadline
-  // render() {
-  //   return (
-  //     <div className="TeamSelectTempContainer">
-  //       <div className="TeamSelectTemp">
-  //         <div><h1>BZZZ!</h1></div>
-  //         <div>Team selection for 2020-21 is OVER</div>
-  //       </div>
-  //     </div>
-  //   )
-  // }
-
+// render() {
+//   return (
+//     <div className="TeamSelectTempContainer">
+//       <div className="TeamSelectTemp">
+//         <div><h1>BZZZ!</h1></div>
+//         <div>Team selection for 2020-21 is OVER</div>
+//       </div>
+//     </div>
+//   )
+// }
 
 export default TeamSelect;
