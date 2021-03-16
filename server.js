@@ -10,7 +10,7 @@ const pickFiveData = require('./pickFiveData');
 const db = pgp('postgres://akppnbjeltipma:d83a3e7a826cd09a205551a1e4063b60f365201ca4ad6ed875dfdc5cb4e07bac@ec2-54-243-46-32.compute-1.amazonaws.com:5432/d35h8248bl7gm9?ssl=true');
 
 console.log('dbtype', typeof db)
-console.log('12', process.env.DATABASE_URL)
+console.log('process.env.DATABASE_URL', process.env.DATABASE_URL)
 
 // DYNAMIC DB URL
 // DATABASE_URL=$(heroku config:get DATABASE_URL -a five-alive-2018) your_process
@@ -253,5 +253,3 @@ if (process.env.NODE_ENV === 'production') {
     res.sendFile(path.join(__dirname, 'client/build', 'index.html'));
   });
 }
-
-// app.listen(port, () => console.log(`Listening on port ${port}`));
