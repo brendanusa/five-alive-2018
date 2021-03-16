@@ -13,9 +13,6 @@ class PickFiveStandingsTeamList extends Component {
     return(
       <div className="PickFiveStandingsTeamList">
         <div className="PickFiveStandingsTeamListContainer">
-          <div className="PickFivePointer">
-            <div></div>
-          </div>
           {this.props.teams.map((team, i) => {
             return (
               <div className="PickFiveStandingsTeamContainer">

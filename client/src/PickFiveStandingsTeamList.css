@@ -38,7 +38,7 @@
 
 .PickFiveStandingsTeamContainer > div {
   display: flex;
-  justify-content: space-around;
+  justify-content: space-between;
   border-bottom: 1px solid rgb(66,209,23,0.35);
   border-bottom-right-radius: 8px;
   border-bottom-left-radius: 8px;
@@ -50,6 +50,7 @@
 .PickFiveStandingsTeamContainer span {
   display: flex;
   align-items: center;
+  margin-left: 8px;
 }
 
 .PickFiveStandingsTeam0 {

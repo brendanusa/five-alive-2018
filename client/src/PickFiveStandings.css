@@ -9,14 +9,14 @@
   text-align: left;
   background-color: rgba(0, 0, 0, 0.7);
   animation: FadeIn 1s ease;
-  max-height: 560px;
+  max-height: 480px;
+  overflow: scroll;
 }
 
 .PickFiveStandings {
   overflow: auto;
   margin-left: 4px;
   margin-right: 4px;
-  max-height: 480px;
 }
 
 .PickFiveStandingsStandings > div {
@@ -27,4 +27,12 @@
   border-color: #5a19ff;
   margin-top: calc(2px + 0.5vw);
   font-size: calc(8px + 0.4vw);
+}
+
+@media only screen and (max-width: 800px) {
+
+  .PickFiveStandingsContainer {
+    max-height: 160px;
+  }
+
 }

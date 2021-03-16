@@ -11,11 +11,12 @@
 
 .PickFiveStandingName {
   padding: 1px;
+  margin-left: 4px;
   font-size: calc(10px + 0.2vw);
 }
 
 .PickFiveStandingScore {
-  border-right: 1px solid #00c0ce;
+  /*border-right: 1px solid #00c0ce;*/
   border-radius: 8px;
   padding: 4px;
   background-color: rgb(0,192,206, 0.3);
