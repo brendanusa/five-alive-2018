@@ -98,6 +98,7 @@ app.use(bodyParser.urlencoded({ extended: true }));
 // })
 
 app.get('/api/picks', (req, res) => {
+  console.log('PICKS REQUEST')
   db.query('select name, teams_2019 from users where teams_2019 is not null;')
     .then(users => {
       console.log(users)
