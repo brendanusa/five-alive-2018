@@ -1,8 +1,18 @@
-// const pgp = require('pg-promise')(/*options*/);
-// const db = pgp(process.env.DATABASE_URL || 'postgres://akppnbjeltipma:d83a3e7a826cd09a205551a1e4063b60f365201ca4ad6ed875dfdc5cb4e07bac@ec2-54-243-46-32.compute-1.amazonaws.com:5432/d35h8248bl7gm9?ssl=true');
 const cheerio = require('cheerio');
 const axios = require('axios');
 const pgp = require('pg-promise')(/*options*/);
+
+const config = {
+  host: 'ec2-54-243-46-32.compute-1.amazonaws.com',
+  port: 5432,
+  database: 'd35h8248bl7gm9',
+  user: 'akppnbjeltipma',
+  password: 'd83a3e7a826cd09a205551a1e4063b60f365201ca4ad6ed875dfdc5cb4e07bac',
+  max: 30,
+  ssl: {rejectUnauthorized: false}
+};
+
+const db = pgp(config);
 
 const collectTeamData = (db) => {
 
@@ -217,6 +227,6 @@ const collectTeamData = (db) => {
 
 }
 
-collectTeamData(pgp(process.env.DATABASE_URL || 'postgres://akppnbjeltipma:d83a3e7a826cd09a205551a1e4063b60f365201ca4ad6ed875dfdc5cb4e07bac@ec2-54-243-46-32.compute-1.amazonaws.com:5432/d35h8248bl7gm9?ssl=true'));
+collectTeamData(db);
 
 module.exports.collectTeamData = collectTeamData;
