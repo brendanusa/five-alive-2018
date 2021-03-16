@@ -97,45 +97,46 @@ app.use(bodyParser.urlencoded({ extended: true }));
 //     })
 // })
 
-app.get('/api/picks', (req, res) => {
-  console.log('PICKS REQUEST')
-  db.query('select name, teams_2019 from users where teams_2019 is not null;')
-    .then(users => {
-      console.log(users)
-      res.send(users)
-    })
-    .catch(error => {
-      console.log('ERROR ' + error)
-      res.send('Unable to retrieve picks: ' + error)
-    })
-})
+// app.get('/api/picks', (req, res) => {
+//   console.log('PICKS REQUEST')
+//   db.query('select name, teams_2019 from users where teams_2019 is not null;')
+//     .then(users => {
+//       console.log(users)
+//       res.send(users)
+//     })
+//     .catch(error => {
+//       console.log('ERROR ' + error)
+//       res.send('Unable to retrieve picks: ' + error)
+//     })
+// })
 
-app.get('/api/simscore', (req, res) => {
-  db.query('select name, sim_score_2020 from users where teams_2020 is not null;')
-    .then(users => {
-      users.sort((a, b) => {
-        return a.sim_score_2020 - b.sim_score_2020;
-      })
-      res.send(users);
-    })
-    .catch(error => {
-      console.log('ERROR ' + error)
-      res.send('Unable to retrieve simScores: ' + error)
-    })
-})
+// app.get('/api/simscore', (req, res) => {
+//   db.query('select name, sim_score_2020 from users where teams_2020 is not null;')
+//     .then(users => {
+//       users.sort((a, b) => {
+//         return a.sim_score_2020 - b.sim_score_2020;
+//       })
+//       res.send(users);
+//     })
+//     .catch(error => {
+//       console.log('ERROR ' + error)
+//       res.send('Unable to retrieve simScores: ' + error)
+//     })
+// })
 
-app.get('/api/picksbyschool', (req, res) => {
-  db.query('select teams.id, teams.name, count(distinct users.id) from users join teams on teams.id = any (users.teams_2020) group by teams.id order by count desc, name asc;')
-    .then(teams => {
-      res.send(teams)
-    })
-    .catch(error => {
-      console.log('ERROR ' + error)
-      res.send('Unable to retrieve users: ' + error)
-    })
-})
+// app.get('/api/picksbyschool', (req, res) => {
+//   db.query('select teams.id, teams.name, count(distinct users.id) from users join teams on teams.id = any (users.teams_2020) group by teams.id order by count desc, name asc;')
+//     .then(teams => {
+//       res.send(teams)
+//     })
+//     .catch(error => {
+//       console.log('ERROR ' + error)
+//       res.send('Unable to retrieve users: ' + error)
+//     })
+// })
 
 app.get('/api/standings', (req, res) => {
+  console.log('STANDINGS REQUEST')
   let resData = {}
   db.query('SELECT id, name, w2019, l2019, w2020, l2020, nickname, conference, prevgm, nextgm from teams;')
     .then(data => {
