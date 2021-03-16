@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import './Chat.css';
 import Message from './Message';
-// import io from "socket.io-client";
+import io from "socket.io-client";
 import logo from './fivealivelogo.jpg';
 
 class Chat extends Component {
@@ -15,7 +15,7 @@ class Chat extends Component {
       messages: []
     }
 
-    // this.socket = io();
+    this.socket = io();
 
     var context = this;
 
@@ -24,10 +24,10 @@ class Chat extends Component {
       element.scrollTop = element.scrollHeight;
     }
 
-    // this.socket.on('RECEIVE_MESSAGES', function(data){
-    //   context.setState({messages: data})
-    //   context.updateScroll()
-    // });
+    this.socket.on('RECEIVE_MESSAGES', function(data){
+      context.setState({messages: data})
+      context.updateScroll()
+    });
 
     this.validCharacters = ['a','b','c','d','e','f','g','h','i','j','k','l','m','n','o','p','q','r','s','t','u','v','w','x','y','z','A',
     'B','C','D','E','F','G','H','I','J','K','L','M','N','O','P','Q','R','S','T','U','V','W','X','Y','Z','1','2','3','4','5','6','7','8','9','0','"',',','.',' ','\'','(',')','[', ']','|','@','$','%','^','*','=','_','!','?','-','+','/','<','>',';',':','#'];
@@ -78,11 +78,12 @@ class Chat extends Component {
       return window.alert('Couldn\'t send message - try removing any fancy punctuation');
     }
  
-    // this.socket.emit('SEND_MESSAGE', {
-    //   userid: this.state.user.id,
-    //   username: this.state.user.name,
-    //   text: this.state.post
-    // });
+    this.socket.emit('SEND_MESSAGE', {
+      userid: this.state.user.id,
+      username: this.state.user.name,
+      text: this.state.post
+    });
+    
     this.setState({post: ''});
   }
 
