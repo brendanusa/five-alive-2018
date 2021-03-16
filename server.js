@@ -8,6 +8,7 @@ const axios = require('axios');
 const pgp = require('pg-promise')(/*options*/);
 const pickFiveData = require('./pickFiveData');
 const db = pgp('postgres://akppnbjeltipma:d83a3e7a826cd09a205551a1e4063b60f365201ca4ad6ed875dfdc5cb4e07bac@ec2-54-243-46-32.compute-1.amazonaws.com:5432/d35h8248bl7gm9?ssl=true&sslmode=require');
+
 console.log('dbtype', typeof db)
 console.log('12', process.env.DATABASE_URL)
 
@@ -139,6 +140,10 @@ app.get('/api/standings', (req, res) => {
   console.log('STANDINGS REQUEST')
   let resData = {}
   db.query('SELECT id, name, w2019, l2019, w2020, l2020, nickname, conference, prevgm, nextgm from teams;')
+    .catch(error => {
+      console.log('ERROR', error)
+      res.send('Unable to retrieve teams: ' + error)
+    })
     .then(data => {
       console.log('143')
       resData.teams = {};
