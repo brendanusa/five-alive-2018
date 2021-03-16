@@ -21,16 +21,6 @@ const db = pgp(config);
 // const db = pgp('postgres://akppnbjeltipma:d83a3e7a826cd09a205551a1e4063b60f365201ca4ad6ed875dfdc5cb4e07bac@ec2-54-243-46-32.compute-1.amazonaws.com:5432/d35h8248bl7gm9')
 
 const pickFiveData = require('./pickFiveData');
-<<<<<<< HEAD
-
-console.log('dbtype', typeof db)
-console.log('process.env.DATABASE_URL', process.env.DATABASE_URL)
-=======
-const db = pgp('postgres://akppnbjeltipma:d83a3e7a826cd09a205551a1e4063b60f365201ca4ad6ed875dfdc5cb4e07bac@ec2-54-243-46-32.compute-1.amazonaws.com:5432/d35h8248bl7gm9?ssl=true');
-
-console.log('dbtype', typeof db)
-console.log('12', process.env.DATABASE_URL)
->>>>>>> 47566a58b9669e6f21654987de83ef7296f0c9f2
 
 // DYNAMIC DB URL
 // DATABASE_URL=$(heroku config:get DATABASE_URL -a five-alive-2018) your_process
@@ -89,36 +79,35 @@ app.get('/api/port', (req, res) => {
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
-// app.get('/api/scores', (req, res) => {
-//   db.query(`SELECT * from scores order by state asc, clock asc`)
-//     .then((data => {
-//       data.forEach(game => {
-//         if (game.homescore === 0 && game.awayscore === 0) {
-//           game.homescore = ' ';
-//           game.awayscore = ' ';
-//         }
-//       })
-//       res.send(data)
-//     }))
-//     .catch(error => {
-//       console.log('ERROR', error);
-//       res.send('Unable to fetch scores');
-//     })
-// })
+app.get('/api/scores', (req, res) => {
+  db.query(`SELECT * from scores order by state asc, clock asc`)
+    .then((data => {
+      data.forEach(game => {
+        if (game.homescore === 0 && game.awayscore === 0) {
+          game.homescore = ' ';
+          game.awayscore = ' ';
+        }
+      })
+      res.send(data)
+    }))
+    .catch(error => {
+      console.log('ERROR', error);
+      res.send('Unable to fetch scores');
+    })
+})
 
-// app.get('/api/password', (req, res) => {
-//   db.query(`SELECT * FROM users WHERE password = '${req.query.password}'`)
-//     .then((data) => {
-//       console.log('BRENDAN', data)
-//       res.send(data);
-//     })
-//     .catch(error => {
-//       console.log('ERROR', error)
-//       res.send('Unable to verify password: ', error);
-//     })
-// })
+app.get('/api/password', (req, res) => {
+  db.query(`SELECT * FROM users WHERE password = '${req.query.password}'`)
+    .then((data) => {
+      console.log('BRENDAN', data)
+      res.send(data);
+    })
+    .catch(error => {
+      console.log('ERROR', error)
+      res.send('Unable to verify password: ', error);
+    })
+})
 
-<<<<<<< HEAD
 app.get('/api/picks', (req, res) => {
   console.log('PICKS REQUEST')
   db.query('select name, teams_2019 from users where teams_2019 is not null;')
@@ -131,45 +120,44 @@ app.get('/api/picks', (req, res) => {
       res.send('Unable to retrieve picks: ' + error)
     })
 })
-=======
-// app.get('/api/picks', (req, res) => {
-//   console.log('PICKS REQUEST')
-//   db.query('select name, teams_2019 from users where teams_2019 is not null;')
-//     .then(users => {
-//       console.log(users)
-//       res.send(users)
-//     })
-//     .catch(error => {
-//       console.log('ERROR ' + error)
-//       res.send('Unable to retrieve picks: ' + error)
-//     })
-// })
->>>>>>> 47566a58b9669e6f21654987de83ef7296f0c9f2
 
-// app.get('/api/simscore', (req, res) => {
-//   db.query('select name, sim_score_2020 from users where teams_2020 is not null;')
-//     .then(users => {
-//       users.sort((a, b) => {
-//         return a.sim_score_2020 - b.sim_score_2020;
-//       })
-//       res.send(users);
-//     })
-//     .catch(error => {
-//       console.log('ERROR ' + error)
-//       res.send('Unable to retrieve simScores: ' + error)
-//     })
-// })
+app.get('/api/picks', (req, res) => {
+  console.log('PICKS REQUEST')
+  db.query('select name, teams_2019 from users where teams_2019 is not null;')
+    .then(users => {
+      console.log(users)
+      res.send(users)
+    })
+    .catch(error => {
+      console.log('ERROR ' + error)
+      res.send('Unable to retrieve picks: ' + error)
+    })
+})
 
-// app.get('/api/picksbyschool', (req, res) => {
-//   db.query('select teams.id, teams.name, count(distinct users.id) from users join teams on teams.id = any (users.teams_2020) group by teams.id order by count desc, name asc;')
-//     .then(teams => {
-//       res.send(teams)
-//     })
-//     .catch(error => {
-//       console.log('ERROR ' + error)
-//       res.send('Unable to retrieve users: ' + error)
-//     })
-// })
+app.get('/api/simscore', (req, res) => {
+  db.query('select name, sim_score_2020 from users where teams_2020 is not null;')
+    .then(users => {
+      users.sort((a, b) => {
+        return a.sim_score_2020 - b.sim_score_2020;
+      })
+      res.send(users);
+    })
+    .catch(error => {
+      console.log('ERROR ' + error)
+      res.send('Unable to retrieve simScores: ' + error)
+    })
+})
+
+app.get('/api/picksbyschool', (req, res) => {
+  db.query('select teams.id, teams.name, count(distinct users.id) from users join teams on teams.id = any (users.teams_2020) group by teams.id order by count desc, name asc;')
+    .then(teams => {
+      res.send(teams)
+    })
+    .catch(error => {
+      console.log('ERROR ' + error)
+      res.send('Unable to retrieve users: ' + error)
+    })
+})
 
 app.get('/api/standings', (req, res) => {
   console.log('STANDINGS REQUEST')
@@ -212,72 +200,72 @@ app.get('/api/standings', (req, res) => {
     })
 })
 
-// app.get('/api/standingsDate', (req, res) => {
-//   db.query('select to_char(updated_at, \'mm/dd/yyyy hh:mi:ss\') as updated from update_timestamps where type = \'standings\';')
-//   .then(data => {
-//     res.send(data);
-//   })
-//   .catch(error => {
-//     console.log('ERROR', error)
-//     res.send('Unable to retrieve standings date: ' + error);
-//   })
-// })
+app.get('/api/standingsDate', (req, res) => {
+  db.query('select to_char(updated_at, \'mm/dd/yyyy hh:mi:ss\') as updated from update_timestamps where type = \'standings\';')
+  .then(data => {
+    res.send(data);
+  })
+  .catch(error => {
+    console.log('ERROR', error)
+    res.send('Unable to retrieve standings date: ' + error);
+  })
+})
 
 
-// // TODO: Change to post req
-// app.get('/api/teams', (req, res) => {
-//   console.log('Picks received!')
-//   let teamsArray = req.query.teamids.split(',')
-//   teamsArray = teamsArray.map(teamId => parseInt(teamId));
-//   db.query(`update users set teams_2020 = '{${teamsArray}}' where id=${parseInt(req.query.userid)} returning teams_2020`)
-//     .then(() => {
-//       res.send('Picks saved!')
-//     })
-//     .catch(error => {
-//       console.log('ERROR ' + error)
-//       res.send('Unable to save picks: ' + error)
-//     })
-// })
+// TODO: Change to post req
+app.get('/api/teams', (req, res) => {
+  console.log('Picks received!')
+  let teamsArray = req.query.teamids.split(',')
+  teamsArray = teamsArray.map(teamId => parseInt(teamId));
+  db.query(`update users set teams_2020 = '{${teamsArray}}' where id=${parseInt(req.query.userid)} returning teams_2020`)
+    .then(() => {
+      res.send('Picks saved!')
+    })
+    .catch(error => {
+      console.log('ERROR ' + error)
+      res.send('Unable to save picks: ' + error)
+    })
+})
 
-// app.get('/api/messages', (req, res) => {
-//   console.log('retrieving messages...')
-//   db.query('select * from messages order by created desc limit 50')
-//     .then((data) => {
-//       res.send(data.reverse());
-//     })
-//     .catch(error => {
-//       console.log('ERROR', error)
-//       res.send('Unable to retrieve messages: ' + error);
-//     })
-// })
+app.get('/api/messages', (req, res) => {
+  console.log('retrieving messages...')
+  db.query('select * from messages order by created desc limit 50')
+    .then((data) => {
+      res.send(data.reverse());
+    })
+    .catch(error => {
+      console.log('ERROR', error)
+      res.send('Unable to retrieve messages: ' + error);
+    })
+})
 
-// app.get('/api/pickfive/standings', (req, res) => {
-//   console.log('retrieving pickfive standings')
-//   res.send(pickFiveData.pickFiveStandings)
-// })
+app.get('/api/pickfive/standings', (req, res) => {
+  console.log('retrieving pickfive standings')
+  res.send(pickFiveData.pickFiveStandings)
+})
 
-// app.get('/api/pickfive/highscores', (req, res) => {
-//   console.log('retrieving pickfive highscores')
-//   res.send(pickFiveData.pickFiveHighScores)
-// })
+app.get('/api/pickfive/highscores', (req, res) => {
+  console.log('retrieving pickfive highscores')
+  res.send(pickFiveData.pickFiveHighScores)
+})
 
-// app.get('/api/pickfive/champs', (req, res) => {
-//   console.log('retrieving pickfive champs')
-//   res.send(pickFiveData.pickFiveChamps)
-// })
+app.get('/api/pickfive/champs', (req, res) => {
+  console.log('retrieving pickfive champs')
+  res.send(pickFiveData.pickFiveChamps)
+})
 
-// // route for teamselect
-// app.get('/api/schools', (req, res) => {
-//   console.log('fetching team select school list');
-//   db.query('SELECT name, w2019, l2019 from teams WHERE w2019 is not null order by name asc;')
-//     .then(data => {
-//       res.send(data)
-//     })
-//     .catch(error => {
-//       console.log('ERROR', error)
-//       res.send('Unable to retrieve school list: ' + error);
-//     })
-// })
+// route for teamselect
+app.get('/api/schools', (req, res) => {
+  console.log('fetching team select school list');
+  db.query('SELECT name, w2019, l2019 from teams WHERE w2019 is not null order by name asc;')
+    .then(data => {
+      res.send(data)
+    })
+    .catch(error => {
+      console.log('ERROR', error)
+      res.send('Unable to retrieve school list: ' + error);
+    })
+})
 
 if (process.env.NODE_ENV === 'production') {
   console.log('NODE_ENV is production')
