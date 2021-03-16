@@ -7,7 +7,7 @@ const port = process.env.PORT || 5000;
 const axios = require('axios');
 const pgp = require('pg-promise')(/*options*/);
 const pickFiveData = require('./pickFiveData');
-const db = pgp('postgres://akppnbjeltipma:d83a3e7a826cd09a205551a1e4063b60f365201ca4ad6ed875dfdc5cb4e07bac@ec2-54-243-46-32.compute-1.amazonaws.com:5432/d35h8248bl7gm9?ssl=true');
+const db = pgp('postgres://akppnbjeltipma:d83a3e7a826cd09a205551a1e4063b60f365201ca4ad6ed875dfdc5cb4e07bac@ec2-54-243-46-32.compute-1.amazonaws.com:5432/d35h8248bl7gm9?ssl=true&sslmode=require');
 console.log('dbtype', typeof db)
 console.log('12', process.env.DATABASE_URL)
 
