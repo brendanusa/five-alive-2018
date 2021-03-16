@@ -28,7 +28,7 @@ class Scoreboard extends Component {
               <ScoreboardGame key={i} homeTeam={game.hometeam} homeScore={game.homescore} awayTeam={game.awayteam} awayScore={game.awayscore} clock={game.clock} id={game.id}/>
             )
           }) :
-          <div className="Empty">THANK YOU FOR YOUR PATIENCE AS WE UPGRADE #5ALIVE TO A WHOLE NEW DIGITAL EXPERIENCE</div>
+          <div className="Empty">NO #5ALIVE GAMES TODAY. FEEL FREE TO GO OUTSIDE OR INTERACT WITH LOVED ONES.</div>
         }
         <div className="MarginCorrection"></div>
       </div>
