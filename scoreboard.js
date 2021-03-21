@@ -1,6 +1,18 @@
 const axios = require('axios');
 const pgp = require('pg-promise')(/*options*/);
 
+const config = {
+  host: 'ec2-54-243-46-32.compute-1.amazonaws.com',
+  port: 5432,
+  database: 'd35h8248bl7gm9',
+  user: 'akppnbjeltipma',
+  password: 'd83a3e7a826cd09a205551a1e4063b60f365201ca4ad6ed875dfdc5cb4e07bac',
+  max: 30,
+  ssl: {rejectUnauthorized: false}
+};
+
+const db = pgp(config);
+
 const fetchScores = (db) => {
   // fetch active teams
   db.query('select abbreviation from teams where active = true')
@@ -11,7 +23,7 @@ const fetchScores = (db) => {
       })
       // parse current date and insert into url
       var date = new Date(Date.now())
-      axios.get(`http://site.api.espn.com/apis/site/v2/sports/basketball/mens-college-basketball/scoreboard?limit=500&dates=${date.getFullYear()}0${date.getMonth()+1}${date.getDate()}&groups=50`)
+      axios.get(`http://site.api.espn.com/apis/site/v2/sports/basketball/mens-college-basketball/scoreboard?limit=500&dates=${date.getFullYear()}0${date.getMonth()+1}${date.getDate()}`)
         .then(res => {
           for (i = 0; i < res.data.events.length; i++) {
             // check for active team
@@ -45,9 +57,9 @@ const fetchScores = (db) => {
 // }
 
 //delayed call
-setTimeout(function() {
-  fetchScores(pgp(process.env.DATABASE_URL || 'postgres://akppnbjeltipma:d83a3e7a826cd09a205551a1e4063b60f365201ca4ad6ed875dfdc5cb4e07bac@ec2-54-243-46-32.compute-1.amazonaws.com:5432/d35h8248bl7gm9?ssl=true'));
-}, Math.random()*60000)
+// setTimeout(function() {
+//   fetchScores(db);
+// }, Math.random()*60000)
 
 // immediate call
-// fetchScores(pgp(process.env.DATABASE_URL || 'postgres://akppnbjeltipma:d83a3e7a826cd09a205551a1e4063b60f365201ca4ad6ed875dfdc5cb4e07bac@ec2-54-243-46-32.compute-1.amazonaws.com:5432/d35h8248bl7gm9?ssl=true'))
+fetchScores(db);
