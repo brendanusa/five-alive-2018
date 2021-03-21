@@ -244,7 +244,7 @@ const pickFiveHighScores = [
   },
   {
     name: 'Patrick Godfrey',
-    year: 2018,
+    year: 2017,
     score: 125,
     teams: [
       {
