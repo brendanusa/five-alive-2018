@@ -28,7 +28,7 @@ class PickFiveStandings extends Component {
   render() {
     return (
     <div className="PickFiveStandingsContainer">
-      <h3 onClick={this.handleClick}>2019 FINAL STANDINGS</h3>
+      <h3 onClick={this.handleClick}>CURRENT STANDINGS</h3>
 
       {this.state.isActive ? 
 
