@@ -554,31 +554,55 @@ const pickFiveTeams = [
 ];
 
 const pickFivePicks = [
-  { name: "Dave Andrist", score: 6, teams: [1, 33, 34, 45, 12] },
-  { name: "Phil Cohen", score: 3, teams: [1, 2, 34, 12, 16] },
-  { name: "Chris Jennings", score: 24, teams: [1, 25, 42, 43, 12] },
-  { name: "Adam Sidney", score: 38, teams: [24, 25, 32, 39, 43] },
-  { name: "Ben Aparo", score: 19, teams: [1, 31, 32, 42, 45] },
-  { name: "Ryan Corbalis", score: 11, teams: [31, 32, 35, 15, 21] },
-  { name: "Alan Merriman", score: 29, teams: [25, 29, 35, 54, 10] },
-  { name: "Josh Smilowitz", score: 25, teams: [1, 33, 42, 45, 18] },
-  { name: "Brendan Bansavage", score: 26, teams: [24, 32, 47, 11, 15] },
-  { name: "Patrick Cushing", score: 22, teams: [30, 32, 33, 37, 41] },
-  { name: "Monika Sanchez", score: 20, teams: [3, 25, 38, 47, 7] },
-  { name: "Dan Vogel", score: 27, teams: [25, 33, 36, 41, 47] },
-  { name: "Zach Baron", score: 47, teams: [25, 32, 39, 48, 55] },
-  { name: "Karl Fils-Aime", score: 21, teams: [29, 30, 32, 37, 38] },
-  { name: "Casey Schutte", score: 17, teams: [30, 35, 39, 44, 46] },
-  { name: "Krysti Walker", score: 18, teams: [0, 1, 30, 47, 15] },
-  { name: "Elya Beer", score: 22, teams: [27, 29, 31, 39, 42] },
-  { name: "Noah Garber", score: 35, teams: [0, 1, 31, 42, 9] },
-  { name: "Jeff Selikoff", score: 16, teams: [25, 29, 45, 55, 12] },
-  { name: "Joe Cal", score: 13, teams: [0, 1, 2, 24, 33] },
+  { name: "Dave Andrist", score: 10, teams: [1, 33, 34, 45, 12] },
+
+  { name: "Phil Cohen", score: 7, teams: [1, 2, 34, 12, 16] },
+
+  { name: "Chris Jennings", score: 60, teams: [1, 25, 42, 43, 12] },
+
+  { name: "Adam Sidney", score: 81, teams: [24, 25, 32, 39, 43] },
+
+  { name: "Ben Aparo", score: 27, teams: [1, 31, 32, 42, 45] },
+
+  { name: "Ryan Corbalis", score: 15, teams: [31, 32, 35, 15, 21] },
+
+  { name: "Alan Merriman", score: 81, teams: [25, 29, 35, 54, 10] },
+
+  { name: "Josh Smilowitz", score: 29, teams: [1, 33, 42, 45, 18] },
+
+  { name: "Brendan Bansavage", score: 39, teams: [24, 32, 47, 11, 15] },
+
+  { name: "Patrick Cushing", score: 31, teams: [30, 32, 33, 37, 41] },
+
+  { name: "Monika Sanchez", score: 39, teams: [3, 25, 38, 47, 7] },
+
+  { name: "Dan Vogel", score: 42, teams: [25, 33, 36, 41, 47] },
+
+  { name: "Zach Baron", score: 72, teams: [25, 32, 39, 48, 55] },
+
+  { name: "Karl Fils-Aime", score: 30, teams: [29, 30, 32, 37, 38] },
+
+  { name: "Casey Schutte", score: 22, teams: [30, 35, 39, 44, 46] },
+
+  { name: "Krysti Walker", score: 33, teams: [0, 1, 30, 47, 15] },
+
+  { name: "Elya Beer", score: 27, teams: [27, 29, 31, 39, 42] },
+
+  { name: "Noah Garber", score: 54, teams: [0, 1, 31, 42, 9] },
+
+  { name: "Jeff Selikoff", score: 24, teams: [25, 29, 45, 55, 12] },
+
+  { name: "Joe Cal", score: 23, teams: [0, 1, 2, 24, 33] },
+
   { name: "Chris Godfrey", score: 12, teams: [27, 33, 34, 49, 50] },
-  { name: "Kelly Shellenberger", score: 17, teams: [28, 31, 32, 34, 53] },
-  { name: "Alex Chen", score: 35, teams: [1, 2, 39, 40, 9] },
-  { name: "Patrick Godfrey", score: 33, teams: [27, 34, 43, 49, 18] },
-  { name: "Bob Shellenberger", score: 17, teams: [28, 29, 30, 32, 41] },
+
+  { name: "Kelly Shellenberger", score: 33, teams: [28, 31, 32, 34, 53] },
+
+  { name: "Alex Chen", score: 55, teams: [1, 2, 39, 40, 9] },
+
+  { name: "Patrick Godfrey", score: 57, teams: [27, 34, 43, 49, 18] },
+
+  { name: "Bob Shellenberger", score: 33, teams: [28, 29, 30, 32, 41] },
 ];
 
 const parseTeamRound = (pickFiveDataset) => {
