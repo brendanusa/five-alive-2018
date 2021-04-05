@@ -495,8 +495,8 @@ const pickFiveChamps = [
 ];
 
 const pickFiveTeams = [
-  { name: "1) Baylor", points: 10, round: "Final Four" },
-  { name: "1) Gonzaga", points: 10, round: "Final Four" },
+  { name: "1) Baylor", points: 15, round: "Final" },
+  { name: "1) Gonzaga", points: 15, round: "Final" },
   { name: "1) Illinois", points: 1, round: "Second Rd" },
   { name: "1) Michigan", points: 6, round: "Elite 8" },
   { name: "10) Maryland", points: 10, round: "Second Rd" },
@@ -554,21 +554,21 @@ const pickFiveTeams = [
 ];
 
 const pickFivePicks = [
-  { name: "Dave Andrist", score: 14, teams: [1, 33, 34, 45, 12] },
+  { name: "Dave Andrist", score: 19, teams: [1, 33, 34, 45, 12] },
 
-  { name: "Phil Cohen", score: 11, teams: [1, 2, 34, 12, 16] },
+  { name: "Phil Cohen", score: 16, teams: [1, 2, 34, 12, 16] },
 
-  { name: "Chris Jennings", score: 72, teams: [1, 25, 42, 43, 12] },
+  { name: "Chris Jennings", score: 77, teams: [1, 25, 42, 43, 12] },
 
   { name: "Adam Sidney", score: 89, teams: [24, 25, 32, 39, 43] },
 
-  { name: "Ben Aparo", score: 31, teams: [1, 31, 32, 42, 45] },
+  { name: "Ben Aparo", score: 36, teams: [1, 31, 32, 42, 45] },
 
   { name: "Ryan Corbalis", score: 15, teams: [31, 32, 35, 15, 21] },
 
   { name: "Alan Merriman", score: 133, teams: [25, 29, 35, 54, 10] },
 
-  { name: "Josh Smilowitz", score: 33, teams: [1, 33, 42, 45, 18] },
+  { name: "Josh Smilowitz", score: 38, teams: [1, 33, 42, 45, 18] },
 
   { name: "Brendan Bansavage", score: 39, teams: [24, 32, 47, 11, 15] },
 
@@ -584,21 +584,21 @@ const pickFivePicks = [
 
   { name: "Casey Schutte", score: 22, teams: [30, 35, 39, 44, 46] },
 
-  { name: "Krysti Walker", score: 41, teams: [0, 1, 30, 47, 15] },
+  { name: "Krysti Walker", score: 51, teams: [0, 1, 30, 47, 15] },
 
   { name: "Elya Beer", score: 27, teams: [27, 29, 31, 39, 42] },
 
-  { name: "Noah Garber", score: 62, teams: [0, 1, 31, 42, 9] },
+  { name: "Noah Garber", score: 72, teams: [0, 1, 31, 42, 9] },
 
   { name: "Jeff Selikoff", score: 32, teams: [25, 29, 45, 55, 12] },
 
-  { name: "Joe Cal", score: 31, teams: [0, 1, 2, 24, 33] },
+  { name: "Joe Cal", score: 41, teams: [0, 1, 2, 24, 33] },
 
   { name: "Chris Godfrey", score: 12, teams: [27, 33, 34, 49, 50] },
 
   { name: "Kelly Shellenberger", score: 33, teams: [28, 31, 32, 34, 53] },
 
-  { name: "Alex Chen", score: 59, teams: [1, 2, 39, 40, 9] },
+  { name: "Alex Chen", score: 64, teams: [1, 2, 39, 40, 9] },
 
   { name: "Patrick Godfrey", score: 57, teams: [27, 34, 43, 49, 18] },
 
