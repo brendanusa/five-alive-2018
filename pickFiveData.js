@@ -216,6 +216,33 @@ const pickFiveHighScores = [
     ],
   },
   {
+    name: "Alan Merriman",
+    year: 2021,
+    score: 133,
+    teams: [
+      {
+        name: "2) Houston",
+        points: "20 (Final Four)",
+      },
+      {
+        name: "3) Kansas",
+        points: "3 (Second Rd)",
+      },
+      {
+        name: "4) Virginia",
+        points: "0 (First Rd)",
+      },
+      {
+        name: "9) St. Bonaventure",
+        points: "0 (First Rd)",
+      },
+      {
+        name: "11) UCLA",
+        points: "110 (Final Four)",
+      },
+    ],
+  },
+  {
     name: "Nick Kordesch",
     year: 2018,
     score: 128,
@@ -272,6 +299,33 @@ const pickFiveHighScores = [
 ];
 
 const pickFiveChamps = [
+  {
+    name: "Alan Merriman",
+    year: 2021,
+    score: 133,
+    teams: [
+      {
+        name: "2) Houston",
+        points: "20 (Final Four)",
+      },
+      {
+        name: "3) Kansas",
+        points: "3 (Second Rd)",
+      },
+      {
+        name: "4) Virginia",
+        points: "0 (First Rd)",
+      },
+      {
+        name: "9) St. Bonaventure",
+        points: "0 (First Rd)",
+      },
+      {
+        name: "11) UCLA",
+        points: "110 (Final Four)",
+      },
+    ],
+  },
   {
     name: "Dave Andrist",
     year: 2019,
@@ -495,7 +549,7 @@ const pickFiveChamps = [
 ];
 
 const pickFiveTeams = [
-  { name: "1) Baylor", points: 15, round: "Final" },
+  { name: "1) Baylor", points: 21, round: "Won Title" },
   { name: "1) Gonzaga", points: 15, round: "Final" },
   { name: "1) Illinois", points: 1, round: "Second Rd" },
   { name: "1) Michigan", points: 6, round: "Elite 8" },
@@ -584,15 +638,15 @@ const pickFivePicks = [
 
   { name: "Casey Schutte", score: 22, teams: [30, 35, 39, 44, 46] },
 
-  { name: "Krysti Walker", score: 51, teams: [0, 1, 30, 47, 15] },
+  { name: "Krysti Walker", score: 57, teams: [0, 1, 30, 47, 15] },
 
   { name: "Elya Beer", score: 27, teams: [27, 29, 31, 39, 42] },
 
-  { name: "Noah Garber", score: 72, teams: [0, 1, 31, 42, 9] },
+  { name: "Noah Garber", score: 78, teams: [0, 1, 31, 42, 9] },
 
   { name: "Jeff Selikoff", score: 32, teams: [25, 29, 45, 55, 12] },
 
-  { name: "Joe Cal", score: 41, teams: [0, 1, 2, 24, 33] },
+  { name: "Joe Cal", score: 47, teams: [0, 1, 2, 24, 33] },
 
   { name: "Chris Godfrey", score: 12, teams: [27, 33, 34, 49, 50] },
 

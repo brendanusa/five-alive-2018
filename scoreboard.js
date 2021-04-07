@@ -27,7 +27,7 @@
 //         .get(
 //           `http://site.api.espn.com/apis/site/v2/sports/basketball/mens-college-basketball/scoreboard?limit=500&dates=${date.getFullYear()}0${
 //             date.getMonth() + 1
-//           }${date.getDate()}`
+//           }0${date.getDate()}`
 //         )
 //         .then((res) => {
 //           for (i = 0; i < res.data.events.length; i++) {
