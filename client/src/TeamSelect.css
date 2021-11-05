@@ -11,7 +11,7 @@
   min-width: 240px;
   border: 5px solid;
   border-color: #42d117;
-  background-color: rgba(0, 0, 0, 0.5);
+  background-color: rgba(0, 0, 0, 0.7);
   border-radius: 8px;
   padding: 12px;
   animation: FadeIn 1.5s ease;
@@ -37,11 +37,11 @@
 }
 
 .TeamsContainerBody div:hover {
-  background-color: rgba(0,192,206,0.5)
+  background-color: rgba(0, 192, 206, 0.5);
 }
 
 .TeamsContainerBody div:active {
-  background-color: rgba(0,192,206)
+  background-color: rgba(0, 192, 206);
 }
 
 .TeamSelectRow {
@@ -56,7 +56,7 @@
   margin-right: 80px;
   border: 5px solid;
   border-color: #fff200;
-  background-color: rgba(0, 0, 0, 0.5);
+  background-color: rgba(0, 0, 0, 0.7);
   border-radius: 8px;
   padding: 12px;
   animation: FadeIn 2s ease;
@@ -113,7 +113,7 @@
   margin-top: 8px;
   color: #fff200;
   border-radius: 8px;
-  background-color: rgb(0,0,0,0.2);
+  background-color: rgb(0, 0, 0, 0.2);
 }
 
 .UserBox {
@@ -123,7 +123,7 @@
   height: 264px;
   border: 3px solid;
   border-color: #00c0ce;
-  background-color: rgba(0, 0, 0, 0.5);
+  background-color: rgba(0, 0, 0, 0.7);
   border-radius: 8px;
   padding: 12px;
   animation: FadeIn 1s ease;
@@ -162,7 +162,7 @@
 
 .UserBoxTeams {
   border-radius: 8px;
-  background-color: rgb(255,255,255,0.1);
+  background-color: rgb(255, 255, 255, 0.1);
 }
 
 .UserBoxTeamsList {
@@ -170,7 +170,7 @@
 }
 
 .highlighted {
-  background-color: rgba(0,192,206)
+  background-color: rgba(0, 192, 206);
 }
 
 .TeamSelectTempContainer {
