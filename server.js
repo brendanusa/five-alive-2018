@@ -271,7 +271,7 @@ app.get("/api/pickfive/champs", (req, res) => {
 app.get("/api/schools", (req, res) => {
   console.log("fetching team select school list");
   db.query(
-    "SELECT name, w2020, l2020 from teams WHERE w2020 is not null order by name asc;"
+    "SELECT name, w2021, l2021 from teams WHERE w2021 is not null order by name asc;"
   )
     .then((data) => {
       res.send(data);
