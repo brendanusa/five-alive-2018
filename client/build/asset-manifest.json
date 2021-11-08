@@ -1,18 +1,18 @@
 {
-  "main.css": "/static/css/main.eb48e02e.chunk.css",
-  "main.js": "/static/js/main.d84ddbed.chunk.js",
-  "main.js.map": "/static/js/main.d84ddbed.chunk.js.map",
+  "main.css": "/static/css/main.77f0eaa6.chunk.css",
+  "main.js": "/static/js/main.7a54b8fa.chunk.js",
+  "main.js.map": "/static/js/main.7a54b8fa.chunk.js.map",
   "runtime~main.js": "/static/js/runtime~main.a8a9905a.js",
   "runtime~main.js.map": "/static/js/runtime~main.a8a9905a.js.map",
   "static/js/2.f6f80fce.chunk.js": "/static/js/2.f6f80fce.chunk.js",
   "static/js/2.f6f80fce.chunk.js.map": "/static/js/2.f6f80fce.chunk.js.map",
   "index.html": "/index.html",
-  "precache-manifest.6869dc29072ad6af8e3776168a4129a0.js": "/precache-manifest.6869dc29072ad6af8e3776168a4129a0.js",
+  "precache-manifest.61642f999d2e3024cd1915dad4052517.js": "/precache-manifest.61642f999d2e3024cd1915dad4052517.js",
   "service-worker.js": "/service-worker.js",
-  "static/css/main.eb48e02e.chunk.css.map": "/static/css/main.eb48e02e.chunk.css.map",
+  "static/css/main.77f0eaa6.chunk.css.map": "/static/css/main.77f0eaa6.chunk.css.map",
   "static/media/52014.jpeg": "/static/media/52014.fa90b3a8.jpeg",
-  "static/media/index.css": "/static/media/diakite2-fivea-lowres.c8fced6f.jpg",
-  "static/media/diakite2-fivea.jpeg": "/static/media/diakite2-fivea.8289c41b.jpeg",
   "static/media/fivealivelogo.jpg": "/static/media/fivealivelogo.2829ca5d.jpg",
-  "static/media/slick-theme.css": "/static/media/slick.f97e3bbf.svg"
+  "static/media/slick-theme.css": "/static/media/slick.f97e3bbf.svg",
+  "static/media/umbc_bkgd.jpg": "/static/media/umbc_bkgd.2527e3e6.jpg",
+  "static/media/index.css": "/static/media/umbc_bkgd_lowres.88d483fa.jpg"
 }

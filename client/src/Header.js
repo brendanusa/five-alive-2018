@@ -34,6 +34,9 @@ const Header = () => (
         <Link to={"/home"}>HOME</Link>
       </span>
       <span>
+        <Link to={"/teamselect"}>TEAMS</Link>
+      </span>
+      <span>
         <Link to={"/about"}>ABOUT</Link>
       </span>
       <span style={{ marginLeft: "1.5vw" }}>

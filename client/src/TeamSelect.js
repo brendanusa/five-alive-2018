@@ -60,7 +60,7 @@ class TeamSelect extends Component {
       .map((teamid) => parseInt(teamid) + 2);
 
     const activeWinsTotal = actualSelectedTeams.reduce((acc, val) => {
-      return (acc += this.state.teamsHard[val - 2].w2020);
+      return (acc += this.state.teamsHard[val - 2].w2021);
     }, 0);
 
     console.log("activeWinsTotal", activeWinsTotal);
@@ -128,30 +128,30 @@ class TeamSelect extends Component {
                 <div>{this.state.user.teams_2020 ? null : "None"}</div>
                 <div>
                   {this.state.user.teams_2020
-                    ? this.state.teamsHard[this.state.user.teams_2020[0] - 2]
+                    ? this.state.teamsHard[this.state.user.teams_2021[0] - 2]
                         .name
                     : null}
                 </div>
                 <div>
                   {this.state.user.teams_2020
-                    ? this.state.teamsHard[this.state.user.teams_2020[1] - 2]
+                    ? this.state.teamsHard[this.state.user.teams_2021[1] - 2]
                         .name
                     : null}
                 </div>
                 <div>
                   {this.state.user.teams_2020
-                    ? this.state.teamsHard[this.state.user.teams_2020[2] - 2]
+                    ? this.state.teamsHard[this.state.user.teams_2021[2] - 2]
                         .name
                     : null}
                 </div>
                 <div>
                   {this.state.user.teams_2020
-                    ? this.state.teamsHard[this.state.user.teams_2020[3] - 2]
+                    ? this.state.teamsHard[this.state.user.teams_2021[3] - 2]
                         .name
                     : null}
                 </div>
                 {this.state.user.teams_2020
-                  ? this.state.teamsHard[this.state.user.teams_2020[4] - 2].name
+                  ? this.state.teamsHard[this.state.user.teams_2021[4] - 2].name
                   : null}
               </div>
             </div>
@@ -175,7 +175,7 @@ class TeamSelect extends Component {
                     {team.name}
                   </span>
                   <span id={i} className="MainTeamRecord">
-                    {team.w2020}-{team.l2020}
+                    {team.w2021}-{team.l2021}
                   </span>
                 </div>
               );
@@ -197,7 +197,7 @@ class TeamSelect extends Component {
                         {this.state.teamsHard[teamId].name + " - "}
                       </span>
                       <span className="smallteamwins">
-                        {this.state.teamsHard[teamId].w2020}
+                        {this.state.teamsHard[teamId].w2021}
                       </span>
                     </div>
                   );
@@ -208,7 +208,7 @@ class TeamSelect extends Component {
                 <div>
                   {Object.keys(this.state.selectedTeams).reduce((acc, val) => {
                     if (this.state.selectedTeams[val].selected) {
-                      return (acc += this.state.teamsHard[val].w2020);
+                      return (acc += this.state.teamsHard[val].w2021);
                     } else {
                       return acc;
                     }
@@ -230,6 +230,7 @@ class TeamSelect extends Component {
   }
 }
 
+// render for post-deadline
 // render() {
 //   return (
 //     <div className="TeamSelectTempContainer">
@@ -242,17 +243,5 @@ class TeamSelect extends Component {
 // }
 
 // render for pre-deadline
-
-// render for post-deadline
-// render() {
-//   return (
-//     <div className="TeamSelectTempContainer">
-//       <div className="TeamSelectTemp">
-//         <div><h1>BZZZ!</h1></div>
-//         <div>Team selection for 2020-21 is OVER</div>
-//       </div>
-//     </div>
-//   )
-// }
 
 export default TeamSelect;
