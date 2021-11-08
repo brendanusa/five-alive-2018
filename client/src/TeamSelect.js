@@ -125,32 +125,32 @@ class TeamSelect extends Component {
               Current Teams:
               <br></br>
               <div className="UserBoxTeamsList">
-                <div>{this.state.user.teams_2020 ? null : "None"}</div>
+                <div>{this.state.user.teams_2021 ? null : "None"}</div>
                 <div>
-                  {this.state.user.teams_2020
+                  {this.state.user.teams_2021
                     ? this.state.teamsHard[this.state.user.teams_2021[0] - 2]
                         .name
                     : null}
                 </div>
                 <div>
-                  {this.state.user.teams_2020
+                  {this.state.user.teams_2021
                     ? this.state.teamsHard[this.state.user.teams_2021[1] - 2]
                         .name
                     : null}
                 </div>
                 <div>
-                  {this.state.user.teams_2020
+                  {this.state.user.teams_2021
                     ? this.state.teamsHard[this.state.user.teams_2021[2] - 2]
                         .name
                     : null}
                 </div>
                 <div>
-                  {this.state.user.teams_2020
+                  {this.state.user.teams_2021
                     ? this.state.teamsHard[this.state.user.teams_2021[3] - 2]
                         .name
                     : null}
                 </div>
-                {this.state.user.teams_2020
+                {this.state.user.teams_2021
                   ? this.state.teamsHard[this.state.user.teams_2021[4] - 2].name
                   : null}
               </div>

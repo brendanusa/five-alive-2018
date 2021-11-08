@@ -227,9 +227,9 @@ app.get("/api/teams", (req, res) => {
   let teamsArray = req.query.teamids.split(",");
   teamsArray = teamsArray.map((teamId) => parseInt(teamId));
   db.query(
-    `update users set teams_2020 = '{${teamsArray}}' where id=${parseInt(
+    `update users set teams_2021 = '{${teamsArray}}' where id=${parseInt(
       req.query.userid
-    )} returning teams_2020`
+    )} returning teams_2021`
   )
     .then(() => {
       res.send("Picks saved!");
