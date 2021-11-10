@@ -69,8 +69,8 @@ class TeamSelect extends Component {
       this.setState({ submitFeedback: "Not signed in!" });
     } else if (actualSelectedTeams.length !== 5) {
       this.setState({ submitFeedback: "Select five teams!" });
-    } else if (activeWinsTotal > 100) {
-      this.setState({ submitFeedback: "Try again!" });
+    } else if (activeWinsTotal > 70) {
+      this.setState({ submitFeedback: ">70! Try again!" });
     } else {
       fetch(
         `/api/teams?teamids=${actualSelectedTeams.join(",")}&userid=${
