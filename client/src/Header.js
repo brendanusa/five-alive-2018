@@ -34,7 +34,7 @@ const Header = () => (
         <Link to={"/home"}>HOME</Link>
       </span>
       <span>
-        <Link to={"/teamselect"}>TEAMS</Link>
+        <Link to={"/picks"}>PICKS</Link>
       </span>
       <span>
         <Link to={"/about"}>ABOUT</Link>
@@ -47,7 +47,3 @@ const Header = () => (
 );
 
 export default Header;
-
-// <span>
-//   <Link to={'/picks'}>PICKS</Link>
-// </span>

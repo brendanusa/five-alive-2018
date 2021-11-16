@@ -108,7 +108,7 @@ app.get("/api/password", (req, res) => {
 
 app.get("/api/picks", (req, res) => {
   console.log("PICKS REQUEST");
-  db.query("select name, teams_2019 from users where teams_2019 is not null;")
+  db.query("select name, teams_2021 from users where teams_2021 is not null;")
     .then((users) => {
       console.log(users);
       res.send(users);
@@ -121,7 +121,7 @@ app.get("/api/picks", (req, res) => {
 
 app.get("/api/picks", (req, res) => {
   console.log("PICKS REQUEST");
-  db.query("select name, teams_2019 from users where teams_2019 is not null;")
+  db.query("select name, teams_2021 from users where teams_2021 is not null;")
     .then((users) => {
       console.log(users);
       res.send(users);
@@ -134,11 +134,11 @@ app.get("/api/picks", (req, res) => {
 
 app.get("/api/simscore", (req, res) => {
   db.query(
-    "select name, sim_score_2020 from users where teams_2020 is not null;"
+    "select name, sim_score_2021 from users where teams_2021 is not null;"
   )
     .then((users) => {
       users.sort((a, b) => {
-        return a.sim_score_2020 - b.sim_score_2020;
+        return a.sim_score_2021 - b.sim_score_2021;
       });
       res.send(users);
     })
@@ -150,7 +150,7 @@ app.get("/api/simscore", (req, res) => {
 
 app.get("/api/picksbyschool", (req, res) => {
   db.query(
-    "select teams.id, teams.name, count(distinct users.id) from users join teams on teams.id = any (users.teams_2020) group by teams.id order by count desc, name asc;"
+    "select teams.id, teams.name, count(distinct users.id) from users join teams on teams.id = any (users.teams_2021) group by teams.id order by count desc, name asc;"
   )
     .then((teams) => {
       res.send(teams);
@@ -165,7 +165,7 @@ app.get("/api/standings", (req, res) => {
   console.log("STANDINGS REQUEST");
   let resData = {};
   db.query(
-    "SELECT id, name, w2019, l2019, w2020, l2020, nickname, conference, prevgm, nextgm from teams;"
+    "SELECT id, name, w2021, l2021, w2122, l2122, nickname, conference, prevgm, nextgm from teams;"
   )
     .catch((error) => {
       console.log("ERROR", error);
@@ -178,15 +178,15 @@ app.get("/api/standings", (req, res) => {
         resData.teams[team.id] = team;
       });
       db.query(
-        "SELECT name, teams_2020 from users where teams_2020 is not null order by name asc;"
+        "SELECT name, teams_2021 from users where teams_2021 is not null order by name asc;"
       )
         .then((data) => {
           resData.users = data;
           resData.users.forEach((user, i) => {
-            resData.users[i].wins = user.teams_2020.reduce((acc, val, i) => {
-              return (acc += resData.teams[user.teams_2020[i]].w2020);
+            resData.users[i].wins = user.teams_2021.reduce((acc, val, i) => {
+              return (acc += resData.teams[user.teams_2021[i]].w2122);
             }, 0);
-            resData.users[i].teams_2020 = resData.users[i].teams_2020.map(
+            resData.users[i].teams_2021 = resData.users[i].teams_2021.map(
               (teamid) => {
                 return resData.teams[teamid];
               }

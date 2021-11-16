@@ -87,11 +87,8 @@ const collectTeamData = (db) => {
     };
 
     const teamUrl =
-      "https://www.sports-reference.com/cbb/schools/[name]/2021-schedule.html";
-    // exclude Princeton (season cancelled)
-    db.query(
-      `SELECT name from teams where active = true and name != 'Princeton' order by id asc;`
-    )
+      "https://www.sports-reference.com/cbb/schools/[name]/2022-schedule.html";
+    db.query(`SELECT name from teams where active = true order by id asc;`)
       .then((schools) => {
         // ***DOM STRUCTURE***
         // games[GAME].children[COLUMN].children[0].data
@@ -141,35 +138,39 @@ const collectTeamData = (db) => {
             let nextGameString;
 
             // MID SEASON
-            // for (let i = 0; i < games.length; i++) {
-            //   if (!games[i].children[7].children[0]) {
-            //     if (i === 0) {
-            //       prevGameString = 'None';
-            //     } else {
-            //       prevGameString = buildGameString(games[i-1], true, school.name);
-            //     }
-            //     nextGameString = buildGameString(games[i], false, school.name);
-            //     i = games.length;
-            //   }
-            // }
+            for (let i = 0; i < games.length; i++) {
+              if (!games[i].children[7].children[0]) {
+                if (i === 0) {
+                  prevGameString = "None";
+                } else {
+                  prevGameString = buildGameString(
+                    games[i - 1],
+                    true,
+                    school.name
+                  );
+                }
+                nextGameString = buildGameString(games[i], false, school.name);
+                i = games.length;
+              }
+            }
 
             // END OF SEASON
-            var i = games.length - 1;
-            if (!games[i].children[7].children[0]) {
-              // if last row is future game (not game with score)
-              nextGameString = buildGameString(games[i], false);
-              if (games[i - 1].children[7].children[0].data === "Type") {
-                // if prev row is header
-                prevGameString = buildGameString(games[i - 2], true);
-              } else {
-                // if prev row is game
-                prevGameString = buildGameString(games[i - 1], true);
-              }
-            } else {
-              // if last row is completed game
-              prevGameString = buildGameString(games[i], true);
-              nextGameString = "-";
-            }
+            // var i = games.length - 1;
+            // if (!games[i].children[7].children[0]) {
+            //   // if last row is future game (not game with score)
+            //   nextGameString = buildGameString(games[i], false);
+            //   if (games[i - 1].children[7].children[0].data === "Type") {
+            //     // if prev row is header
+            //     prevGameString = buildGameString(games[i - 2], true);
+            //   } else {
+            //     // if prev row is game
+            //     prevGameString = buildGameString(games[i - 1], true);
+            //   }
+            // } else {
+            //   // if last row is completed game
+            //   prevGameString = buildGameString(games[i], true);
+            //   nextGameString = "-";
+            // }
 
             // escape st mary's and st joe's for db lookup
             if (school.name === "Saint Mary's (CA)") {
@@ -194,7 +195,7 @@ const collectTeamData = (db) => {
   };
 
   axios
-    .get("https://www.sports-reference.com/cbb/seasons/2021-ratings.html")
+    .get("https://www.sports-reference.com/cbb/seasons/2022-ratings.html")
     .then((res) => {
       console.log("initiating collectWLData hypernet ignition sequence");
       var $ = cheerio.load(res.data);
@@ -232,7 +233,7 @@ const collectTeamData = (db) => {
           var l = rows[domTableRow].children[6].children[0].data;
           console.log(name, w, "-", l);
           db.query(
-            `UPDATE teams SET w2021 = ${w}, l2021 = ${l} WHERE name = '${name}';`
+            `UPDATE teams SET w2122 = ${w}, l2122 = ${l} WHERE name = '${name}';`
           ).then(() => {
             return updateTeamRow(domTableRow + 1);
           });
