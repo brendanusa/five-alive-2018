@@ -177,6 +177,7 @@ app.get("/api/standings", (req, res) => {
       data.forEach((team) => {
         resData.teams[team.id] = team;
       });
+      console.log(data);
       db.query(
         "SELECT name, teams_2021 from users where teams_2021 is not null order by name asc;"
       )

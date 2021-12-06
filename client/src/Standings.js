@@ -28,7 +28,23 @@ class Standings extends Component {
     return (
       <div className="StandingsContainer">
         <h3>STANDINGS</h3>
-        <div className="Standings">COMING SOON</div>
+        <div className="Standings">
+          <div>
+            {this.state.standings
+              ? this.state.standings.map((user, i) => {
+                  return (
+                    <Standing
+                      key={i}
+                      name={user.name}
+                      teams={user.teams_2021}
+                      wins={user.wins}
+                      isActive={false}
+                    />
+                  );
+                })
+              : null}
+          </div>
+        </div>
         <div className="UpdateTime">
           <p>UPDATED</p>
           <p>{this.state.updated} GMT</p>
@@ -37,13 +53,5 @@ class Standings extends Component {
     );
   }
 }
-// sub for coming soon
-// <div>
-//   {this.state.standings ? this.state.standings.map((user, i) => {
-//     return (
-//       <Standing key={i} name={user.name} teams={user.teams_2020} wins={user.wins} isActive={false}/>
-//     )
-//   }) : null}
-// </div>
 
 export default Standings;
