@@ -3,11 +3,11 @@ const axios = require("axios");
 const pgp = require("pg-promise")(/*options*/);
 
 const config = {
-  host: "ec2-54-243-46-32.compute-1.amazonaws.com",
+  host: "ec2-18-206-112-235.compute-1.amazonaws.com",
   port: 5432,
-  database: "d35h8248bl7gm9",
-  user: "akppnbjeltipma",
-  password: "d83a3e7a826cd09a205551a1e4063b60f365201ca4ad6ed875dfdc5cb4e07bac",
+  database: "dag6ep3ss6gjqs",
+  user: "rtfioncdlaecxo",
+  password: "7036de1df00d2b62079ce7239fe44758fd7131e2d2d96b58218c877f6ef2d012",
   max: 30,
   ssl: { rejectUnauthorized: false },
 };
@@ -109,96 +109,92 @@ const collectTeamData = (db) => {
 
         schools.forEach((school, i) => {
           // for isolating problem teams
-          if (school.name === "UTEP") {
-            let schoolUrlName = school.name
-              .toLowerCase()
-              .replace(" ", "-")
-              .replace(" ", "-");
+          // if (school.name === "Kentucky") {
+          let schoolUrlName = school.name
+            .toLowerCase()
+            .replace(" ", "-")
+            .replace(" ", "-");
 
-            if (schoolUrlName === "saint-mary's-(ca)") {
-              schoolUrlName = "saint-marys-ca";
-            } else if (schoolUrlName === "liu-brooklyn") {
-              schoolUrlName = "long-island-university";
-            } else if (schoolUrlName === "vcu") {
-              schoolUrlName = "virginia-commonwealth";
-            } else if (schoolUrlName === "miami-(fl)") {
-              schoolUrlName = "miami-fl";
-            } else if (schoolUrlName === "saint-joseph's") {
-              schoolUrlName = "saint-josephs";
-            } else if (schoolUrlName === "unlv") {
-              schoolUrlName = "nevada-las-vegas";
-            } else if (schoolUrlName === "utep") {
-              schoolUrlName = "texas-el-paso";
-            } else if (schoolUrlName === "uc-santa-barbara") {
-              schoolUrlName = "california-santa-barbara";
-            } else if (schoolUrlName === "texas-a&m") {
-              schoolUrlName = "texas-am";
-            } else if (schoolUrlName === "loyola-(md)") {
-              schoolUrlName = "loyola-md";
-            } else if (schoolUrlName === "st.-bonaventure") {
-              schoolUrlName = "st-bonaventure";
-            }
+          if (schoolUrlName === "saint-mary's-(ca)") {
+            schoolUrlName = "saint-marys-ca";
+          } else if (schoolUrlName === "liu-brooklyn") {
+            schoolUrlName = "long-island-university";
+          } else if (schoolUrlName === "vcu") {
+            schoolUrlName = "virginia-commonwealth";
+          } else if (schoolUrlName === "miami-(fl)") {
+            schoolUrlName = "miami-fl";
+          } else if (schoolUrlName === "saint-joseph's") {
+            schoolUrlName = "saint-josephs";
+          } else if (schoolUrlName === "unlv") {
+            schoolUrlName = "nevada-las-vegas";
+          } else if (schoolUrlName === "utep") {
+            schoolUrlName = "texas-el-paso";
+          } else if (schoolUrlName === "uc-santa-barbara") {
+            schoolUrlName = "california-santa-barbara";
+          } else if (schoolUrlName === "texas-a&m") {
+            schoolUrlName = "texas-am";
+          } else if (schoolUrlName === "loyola-(md)") {
+            schoolUrlName = "loyola-md";
+          } else if (schoolUrlName === "st.-bonaventure") {
+            schoolUrlName = "st-bonaventure";
+          }
 
-            axios.get(teamUrl.replace("[name]", schoolUrlName)).then((res) => {
-              var $ = cheerio.load(res.data);
-              var games = $("#div_schedule tbody tr");
-              let prevGameString;
-              let nextGameString;
+          axios.get(teamUrl.replace("[name]", schoolUrlName)).then((res) => {
+            var $ = cheerio.load(res.data);
+            var games = $("#div_schedule tbody tr");
+            let prevGameString;
+            let nextGameString;
 
-              // MID SEASON
-              for (let i = 0; i < games.length; i++) {
-                if (!games[i].children[7].children[0]) {
-                  if (i === 0) {
-                    prevGameString = "None";
-                  } else {
-                    prevGameString = buildGameString(
-                      games[i - 1],
-                      true,
-                      school.name
-                    );
-                  }
-                  nextGameString = buildGameString(
-                    games[i],
-                    false,
+            // MID SEASON
+            for (let i = 0; i < games.length; i++) {
+              if (!games[i].children[7].children[0]) {
+                if (i === 0) {
+                  prevGameString = "None";
+                } else {
+                  prevGameString = buildGameString(
+                    games[i - 1],
+                    true,
                     school.name
                   );
-                  i = games.length;
                 }
+                nextGameString = buildGameString(games[i], false, school.name);
+                i = games.length;
               }
-
-              // END OF SEASON
-              // var i = games.length - 1;
-              // if (!games[i].children[7].children[0]) {
-              //   // if last row is future game (not game with score)
-              //   nextGameString = buildGameString(games[i], false);
-              //   if (games[i - 1].children[7].children[0].data === "Type") {
-              //     // if prev row is header
-              //     prevGameString = buildGameString(games[i - 2], true);
-              //   } else {
-              //     // if prev row is game
-              //     prevGameString = buildGameString(games[i - 1], true);
-              //   }
-              // } else {
-              //   // if last row is completed game
-              //   prevGameString = buildGameString(games[i], true);
-              //   nextGameString = "-";
-              // }
-
-              // escape st mary's and st joe's for db lookup
-              if (school.name === "Saint Mary's (CA)") {
-                school.name = "Saint Mary''s (CA)";
-              }
-              if (school.name === "Saint Joseph's") {
-                school.name = "Saint Joseph''s";
-              }
-              db.query(
-                `UPDATE teams set (prevgm, nextgm) = ('${prevGameString}', '${nextGameString}') where name = '${school.name}' returning name`
-              );
-            });
-            if (i === schools.length - 1) {
-              return;
             }
+
+            // END OF SEASON
+            // var i = games.length - 1;
+            // if (!games[i].children[7].children[0]) {
+            //   // if last row is future game (not game with score)
+            //   nextGameString = buildGameString(games[i], false);
+            //   if (games[i - 1].children[7].children[0].data === "Type") {
+            //     // if prev row is header
+            //     prevGameString = buildGameString(games[i - 2], true);
+            //   } else {
+            //     // if prev row is game
+            //     prevGameString = buildGameString(games[i - 1], true);
+            //   }
+            // } else {
+            //   // if last row is completed game
+            //   prevGameString = buildGameString(games[i], true);
+            //   nextGameString = "-";
+            // }
+
+            // escape st mary's and st joe's for db lookup
+            if (school.name === "Saint Mary's (CA)") {
+              school.name = "Saint Mary''s (CA)";
+            }
+            if (school.name === "Saint Joseph's") {
+              school.name = "Saint Joseph''s";
+            }
+            db.query(
+              `UPDATE teams set (prevgm, nextgm) = ('${prevGameString}', '${nextGameString}') where name = '${school.name}' returning name`
+            );
+          });
+          if (i === schools.length - 1) {
+            return;
           }
+          // }
         });
       })
       .catch((error) => {
@@ -247,16 +243,16 @@ const collectTeamData = (db) => {
           db.query(
             `UPDATE teams SET w2122 = ${w}, l2122 = ${l} WHERE name = '${name}';`
           ).then(() => {
-            return;
-            // return updateTeamRow(domTableRow + 1);
+            // return;
+            return updateTeamRow(domTableRow + 1);
           });
         } else {
-          return;
-          // return updateTeamRow(domTableRow + 1);
+          // return;
+          return updateTeamRow(domTableRow + 1);
         }
       };
 
-      updateTeamRow(0);
+      // updateTeamRow(0);
     });
 
   collectSchedData();

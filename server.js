@@ -7,11 +7,11 @@ const port = process.env.PORT || 5000;
 const pgp = require("pg-promise")(/*options*/);
 
 const config = {
-  host: "ec2-54-243-46-32.compute-1.amazonaws.com",
+  host: "ec2-18-206-112-235.compute-1.amazonaws.com",
   port: 5432,
-  database: "d35h8248bl7gm9",
-  user: "akppnbjeltipma",
-  password: "d83a3e7a826cd09a205551a1e4063b60f365201ca4ad6ed875dfdc5cb4e07bac",
+  database: "dag6ep3ss6gjqs",
+  user: "rtfioncdlaecxo",
+  password: "7036de1df00d2b62079ce7239fe44758fd7131e2d2d96b58218c877f6ef2d012",
   max: 30,
   ssl: { rejectUnauthorized: false },
 };
