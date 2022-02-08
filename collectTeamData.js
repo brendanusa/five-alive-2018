@@ -252,10 +252,10 @@ const collectTeamData = (db) => {
         }
       };
 
-      // updateTeamRow(0);
+      updateTeamRow(0);
     });
 
-  collectSchedData();
+  // collectSchedData();
 };
 
 collectTeamData(db);
