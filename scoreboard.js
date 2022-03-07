@@ -26,13 +26,13 @@ const fetchScores = (db) => {
       // parse current date and insert into url
       var date = new Date(Date.now());
       console.log(
-        `http://site.api.espn.com/apis/site/v2/sports/basketball/mens-college-basketball/scoreboard?limit=500&dates=${date.getFullYear()}0${
+        `http://site.api.espn.com/apis/site/v2/sports/basketball/mens-college-basketball/scoreboard?limit=500&groups=50&dates=${date.getFullYear()}0${
           date.getMonth() + 1
         }0${date.getDate()}`
       );
       axios
         .get(
-          `http://site.api.espn.com/apis/site/v2/sports/basketball/mens-college-basketball/scoreboard?limit=500&dates=${date.getFullYear()}0${
+          `http://site.api.espn.com/apis/site/v2/sports/basketball/mens-college-basketball/scoreboard?limit=500&groups=50&dates=${date.getFullYear()}0${
             date.getMonth() + 1
           }0${date.getDate()}`
         )
