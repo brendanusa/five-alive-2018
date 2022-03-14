@@ -8,6 +8,11 @@
   background-color: rgba(0, 0, 0, 0.8);
 }
 
+.ScoreboardGamesContainer {
+  display: flex;
+  overflow: scroll;
+}
+
 .MarginCorrection {
   border: 0.01px solid black;
 }
@@ -16,4 +21,14 @@
   font-weight: bold;
   font-size: calc(8px + 1vw);
   padding: 20px;
+}
+
+.ScoreboardDate {
+  margin-right: 10px;
+  text-align: center;
+  font-size: calc(6px + 0.4vw);
+  padding: 4px;
+  background-color: rgba(255, 255, 255, 0.4);
+  writing-mode: vertical-lr;
+  transform: scale(-1, -1);
 }
