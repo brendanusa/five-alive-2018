@@ -109,7 +109,7 @@ const collectTeamData = (db) => {
 
         schools.forEach((school, i) => {
           // for isolating problem teams
-          // if (school.name === "Kentucky") {
+          // if (school.name === "Michigan") {
           let schoolUrlName = school.name
             .toLowerCase()
             .replace(" ", "-")
@@ -146,39 +146,47 @@ const collectTeamData = (db) => {
             let nextGameString;
 
             // MID SEASON
-            for (let i = 0; i < games.length; i++) {
-              if (!games[i].children[7].children[0]) {
-                if (i === 0) {
-                  prevGameString = "None";
-                } else {
-                  prevGameString = buildGameString(
-                    games[i - 1],
-                    true,
-                    school.name
-                  );
-                }
-                nextGameString = buildGameString(games[i], false, school.name);
-                i = games.length;
-              }
-            }
+            // for (let i = 0; i < games.length; i++) {
+            //   if (!games[i].children[7].children[0]) {
+            //     if (i === 0) {
+            //       prevGameString = "None";
+            //     } else {
+            //       prevGameString = buildGameString(
+            //         games[i - 1],
+            //         true,
+            //         school.name
+            //       );
+            //     }
+            //     nextGameString = buildGameString(games[i], false, school.name);
+            //     i = games.length;
+            //   }
+            // }
 
             // END OF SEASON
-            // var i = games.length - 1;
-            // if (!games[i].children[7].children[0]) {
-            //   // if last row is future game (not game with score)
-            //   nextGameString = buildGameString(games[i], false);
-            //   if (games[i - 1].children[7].children[0].data === "Type") {
-            //     // if prev row is header
-            //     prevGameString = buildGameString(games[i - 2], true);
-            //   } else {
-            //     // if prev row is game
-            //     prevGameString = buildGameString(games[i - 1], true);
-            //   }
-            // } else {
-            //   // if last row is completed game
-            //   prevGameString = buildGameString(games[i], true);
-            //   nextGameString = "-";
-            // }
+            var i = games.length - 1;
+            if (!games[i].children[7].children[0]) {
+              // if last row is future game (not game with score)
+              nextGameString = buildGameString(games[i], false, school.name);
+              if (games[i - 1].children[7].children[0].data === "Type") {
+                // if prev row is header
+                prevGameString = buildGameString(
+                  games[i - 2],
+                  true,
+                  school.name
+                );
+              } else {
+                // if prev row is game
+                prevGameString = buildGameString(
+                  games[i - 1],
+                  true,
+                  school.name
+                );
+              }
+            } else {
+              // if last row is completed game
+              prevGameString = buildGameString(games[i], true, school.name);
+              nextGameString = "-";
+            }
 
             // escape st mary's and st joe's for db lookup
             if (school.name === "Saint Mary's (CA)") {
