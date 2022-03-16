@@ -21,7 +21,7 @@ class Scoreboard extends Component {
   render() {
     return (
       <div className="Scoreboard">
-        <div className="ScoreboardDate">MARCH 13</div>
+        <div className="ScoreboardDate">MARCH 15</div>
         <div className="ScoreboardGamesContainer">
           {this.state.scores[0] ? (
             this.state.scores.map((game, i) => {
