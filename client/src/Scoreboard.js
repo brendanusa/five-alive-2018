@@ -7,6 +7,7 @@ class Scoreboard extends Component {
     super(props);
     this.state = {
       scores: [],
+      date: "",
     };
   }
 
@@ -16,12 +17,17 @@ class Scoreboard extends Component {
       .then((data) => {
         this.setState({ scores: data });
       });
+    fetch("/api/scoreboardDate")
+      .then((res) => res.json())
+      .then((data) => {
+        this.setState({ date: data[0].updated });
+      });
   }
 
   render() {
     return (
       <div className="Scoreboard">
-        <div className="ScoreboardDate">MARCH 15</div>
+        <div className="ScoreboardDate">{this.state.date}</div>
         <div className="ScoreboardGamesContainer">
           {this.state.scores[0] ? (
             this.state.scores.map((game, i) => {

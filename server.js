@@ -222,6 +222,19 @@ app.get("/api/standingsDate", (req, res) => {
     });
 });
 
+app.get("/api/scoreboardDate", (req, res) => {
+  db.query(
+    "select to_char(updated_at, 'MONTH DD') as updated from update_timestamps where type = 'scoreboard';"
+  )
+    .then((data) => {
+      res.send(data);
+    })
+    .catch((error) => {
+      console.log("ERROR", error);
+      res.send("Unable to retrieve standings date: " + error);
+    });
+});
+
 // TODO: Change to post req
 app.get("/api/teams", (req, res) => {
   console.log("Picks received!");
