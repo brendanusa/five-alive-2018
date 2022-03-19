@@ -584,7 +584,7 @@ const pickFiveTeams = [
   { name: "5) Iowa", points: 0, round: "First Rd" },
   { name: "5) St. Mary's", points: 5, round: "Second Rd" },
   { name: "5) Virginia Tech", points: 0, round: "First Rd" },
-  { name: "6) Alabama", points: 6, round: "Second Rd" },
+  { name: "6) Alabama", points: 0, round: "First Rd" },
   { name: "6) Colorado State", points: 0, round: "First Rd" },
   { name: "6) LSU", points: 0, round: "First Rd" },
   { name: "6) Texas", points: 6, round: "Second Rd" },
@@ -601,49 +601,50 @@ const pickFiveTeams = [
 
 const pickFivePicks = [
   { name: "Ben Aparo", score: 23, teams: [21, 24, 29, 31, 9] },
+
   { name: "Brendan Bansavage", score: 6, teams: [22, 29, 32, 10, 17] },
 
-  { name: "Zach Baron", score: 9, teams: [21, 29, 31, 32, 43] },
+  { name: "Zach Baron", score: 9, teams: [21, 29, 31, 32, 42] },
 
   { name: "Sam Bazar", score: 6, teams: [24, 25, 32, 5, 16] },
 
-  { name: "Elya Beer", score: 14, teams: [39, 40, 41, 46, 15] },
+  { name: "Elya Beer", score: 14, teams: [38, 39, 40, 45, 15] },
 
   { name: "Dante Carnevale", score: 7, teams: [24, 29, 32, 4, 10] },
 
-  { name: "Edward Carroll", score: 9, teams: [2, 22, 25, 26, 36] },
+  { name: "Edward Carroll", score: 9, teams: [2, 22, 25, 26, 35] },
 
   { name: "Alex Chen", score: 22, teams: [1, 22, 26, 28, 12] },
 
   { name: "Phil Cohen", score: 6, teams: [0, 3, 29, 32, 10] },
 
-  { name: "Andrew Collins", score: 16, teams: [26, 30, 31, 32, 45] },
+  { name: "Andrew Collins", score: 16, teams: [26, 30, 31, 32, 44] },
 
-  { name: "Ryan Corbalis", score: 14, teams: [22, 23, 47, 4, 18] },
+  { name: "Ryan Corbalis", score: 14, teams: [22, 23, 46, 4, 18] },
 
   { name: "Patrick Cushing", score: 11, teams: [23, 24, 30, 31, 32] },
 
-  { name: "Troy Davis", score: 27, teams: [25, 29, 45, 10, 12] },
+  { name: "Troy Davis", score: 27, teams: [25, 29, 44, 10, 12] },
 
-  { name: "Brendon Desrochers", score: 9, teams: [21, 29, 31, 32, 37] },
+  { name: "Brendon Desrochers", score: 9, teams: [21, 29, 31, 32, 36] },
 
-  { name: "Chris Donaghy", score: 13, teams: [24, 31, 32, 33, 40] },
+  { name: "Chris Donaghy", score: 13, teams: [24, 31, 32, 33, 39] },
 
   { name: "Noah Garber", score: 10, teams: [2, 22, 25, 29, 10] },
 
-  { name: "Chris Godfrey", score: 12, teams: [0, 29, 32, 39, 42] },
+  { name: "Chris Godfrey", score: 12, teams: [0, 29, 32, 38, 41] },
 
-  { name: "Harrison Godfrey", score: 24, teams: [3, 20, 27, 41, 6] },
+  { name: "Harrison Godfrey", score: 24, teams: [3, 20, 27, 40, 6] },
 
-  { name: "Patrick Godfrey", score: 14, teams: [39, 41, 42, 7, 11] },
+  { name: "Patrick Godfrey", score: 14, teams: [38, 40, 41, 7, 11] },
 
-  { name: "Kevin Hess", score: 31, teams: [35, 38, 42, 45, 9] },
+  { name: "Kevin Hess", score: 25, teams: [34, 37, 41, 44, 9] },
 
-  { name: "Chris Jennings", score: 23, teams: [19, 29, 32, 35, 9] },
+  { name: "Chris Jennings", score: 17, teams: [19, 29, 32, 34, 9] },
 
-  { name: "JP Kelly", score: 25, teams: [24, 29, 32, 35, 12] },
+  { name: "JP Kelly", score: 19, teams: [24, 29, 32, 34, 12] },
 
-  { name: "Nick Kordesch", score: 6, teams: [22, 27, 40, 46, 11] },
+  { name: "Nick Kordesch", score: 6, teams: [22, 27, 39, 45, 11] },
 
   { name: "Anish Kurian", score: 11, teams: [24, 26, 32, 33, 14] },
 
@@ -651,17 +652,17 @@ const pickFivePicks = [
 
   { name: "Matt Lidstone", score: 8, teams: [0, 25, 29, 32, 10] },
 
-  { name: "Reed Lyon", score: 33, teams: [20, 44, 9, 10, 13] },
+  { name: "Reed Lyon", score: 33, teams: [20, 43, 9, 10, 13] },
 
-  { name: "Mark McGill", score: 17, teams: [22, 23, 28, 45, 15] },
+  { name: "Mark McGill", score: 17, teams: [22, 23, 28, 44, 15] },
 
-  { name: "Justin McNamee", score: 11, teams: [21, 24, 45, 14, 17] },
+  { name: "Justin McNamee", score: 11, teams: [21, 24, 44, 14, 17] },
 
   { name: "Casey Schutte", score: 16, teams: [31, 32, 4, 9, 10] },
 
   { name: "Bob Shellenberger", score: 7, teams: [0, 19, 27, 10, 17] },
 
-  { name: "Erin Shellenberger", score: 8, teams: [21, 22, 32, 35, 17] },
+  { name: "Erin Shellenberger", score: 2, teams: [21, 22, 32, 34, 17] },
 
   { name: "Kelly Shellenberger", score: 21, teams: [22, 29, 33, 6, 10] },
 
