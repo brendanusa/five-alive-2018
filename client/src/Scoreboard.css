@@ -30,5 +30,6 @@
   padding: 4px;
   background-color: rgba(255, 255, 255, 0.4);
   writing-mode: vertical-lr;
-  transform: scale(-1, -1);
+  transform: rotate(180deg) scale(0.9, 1);
+  font-weight: 500;
 }

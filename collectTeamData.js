@@ -109,7 +109,7 @@ const collectTeamData = (db) => {
 
         schools.forEach((school, i) => {
           // for isolating problem teams
-          // if (school.name === "Michigan") {
+          // if (school.name === "Indiana") {
           let schoolUrlName = school.name
             .toLowerCase()
             .replace(" ", "-")
@@ -260,10 +260,10 @@ const collectTeamData = (db) => {
         }
       };
 
-      updateTeamRow(0);
+      // updateTeamRow(0);
     });
 
-  // collectSchedData();
+  collectSchedData();
 };
 
 collectTeamData(db);
