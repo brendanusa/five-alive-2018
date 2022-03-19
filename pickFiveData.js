@@ -675,7 +675,7 @@ const pickFivePicks = [
 
   { name: "Edward Stowe", score: 23, teams: [25, 29, 31, 5, 9] },
 
-  { name: "Geno Tartell III", score: 6, teams: [0, 2, 29, 32, 34] },
+  { name: "Geno Tartell III", score: 6, teams: [0, 2, 29, 32, 10] },
 
   { name: "Dan Vogel", score: 3, teams: [24, 4, 10, 14, 15] },
 
