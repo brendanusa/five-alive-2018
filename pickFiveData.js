@@ -582,7 +582,7 @@ const pickFiveTeams = [
   {name: '5) Connecticut', points: 0, round: 'First Rd'}, 
   {name: '5) Houston', points: 5, round: 'Second Rd'}, 
   {name: '5) Iowa', points: 0, round: 'First Rd'}, 
-  {name: '5) St. Mary's', points: 5, round: 'Second Rd'}, 
+  {name: '5) St. Mary\'s', points: 5, round: 'Second Rd'}, 
   {name: '5) Virginia Tech', points: 0, round: 'First Rd'}, 
   {name: '6) Alabama', points: 6, round: 'Second Rd'}, 
   {name: '6) Colorado State', points: 0, round: 'First Rd'}, 
