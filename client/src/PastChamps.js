@@ -6,6 +6,7 @@ const PastChamps = () => {
     <div className="champscontainer">
       <div className="champs">
         <h2>PAST CHAMPS</h2>
+        <div>2022 - Patrick Grove</div>
         <div>2021 - Kevin Meuse</div>
         <div>2020 - Action Vogel & Brendan Bansavage</div>
         <div>2019 - Mark McGill</div>
