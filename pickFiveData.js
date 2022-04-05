@@ -135,6 +135,114 @@ const pickFiveHighScores = [
     ],
   },
   {
+    name: "Kevin Hess",
+    year: 2022,
+    score: 159,
+    teams: [
+      {
+        name: "6) Alabama",
+        points: "0 (First Rd)",
+      },
+      {
+        name: "6) Texas",
+        points: "6 (Second Rd)",
+      },
+      {
+        name: "7) USC",
+        points: "0 (First Rd)",
+      },
+      {
+        name: "8) North Carolina",
+        points: "120 (Final)",
+      },
+      {
+        name: "11) Michigan",
+        points: "33 (Sweet 16)",
+      },
+    ],
+  },
+  {
+    name: "Andrew Collins",
+    year: 2022,
+    score: 153,
+    teams: [
+      {
+        name: "3) Wisconsin",
+        points: "3 (Second Rd)",
+      },
+      {
+        name: "5) Connecticut",
+        points: "0 (First Rd)",
+      },
+      {
+        name: "5) Houston",
+        points: "30 (Elite 8)",
+      },
+      {
+        name: "5) Iowa",
+        points: "0 (First Rd)",
+      },
+      {
+        name: "8) North Carolina",
+        points: "120 (Final)",
+      },
+    ],
+  },
+  {
+    name: "Troy Davis",
+    year: 2022,
+    score: 153,
+    teams: [
+      {
+        name: "3) Texas Tech",
+        points: "9 (Sweet 16)",
+      },
+      {
+        name: "4) UCLA",
+        points: "12 (Sweet 16)",
+      },
+      {
+        name: "8) North Carolina",
+        points: "120 (Final)",
+      },
+      {
+        name: "11) Virginia Tech",
+        points: "0 (First Rd)",
+      },
+      {
+        name: "12) New Mexico State",
+        points: "12 (Second Rd)",
+      },
+    ],
+  },
+  {
+    name: "Mark McGill",
+    year: 2022,
+    score: 153,
+    teams: [
+      {
+        name: "2) Villanova",
+        points: "20 (Final Four)",
+      },
+      {
+        name: "3) Purdue",
+        points: "9 (Sweet 16)",
+      },
+      {
+        name: "4) Illinois",
+        points: "4 (Second Rd)",
+      },
+      {
+        name: "8) North Carolina",
+        points: "120 (Final)",
+      },
+      {
+        name: "13) South Dakota State",
+        points: "0 (First Rd)",
+      },
+    ],
+  },
+  {
     name: "Dave Andrist",
     year: 2019,
     score: 149,
@@ -188,117 +296,36 @@ const pickFiveHighScores = [
       },
     ],
   },
-  {
-    name: "Brendan Bansavage",
-    year: 2018,
-    score: 135,
-    teams: [
-      {
-        name: "3) Michigan State",
-        points: "3 (Second Rd)",
-      },
-      {
-        name: "4) Arizona",
-        points: "0 (First Rd)",
-      },
-      {
-        name: "4) Gonzaga",
-        points: "12 (Sweet 16)",
-      },
-      {
-        name: "10) Butler",
-        points: "10 (Second Rd)",
-      },
-      {
-        name: "11) Loyola (IL)",
-        points: "110 (Final Four)",
-      },
-    ],
-  },
-  {
-    name: "Alan Merriman",
-    year: 2021,
-    score: 133,
-    teams: [
-      {
-        name: "2) Houston",
-        points: "20 (Final Four)",
-      },
-      {
-        name: "3) Kansas",
-        points: "3 (Second Rd)",
-      },
-      {
-        name: "4) Virginia",
-        points: "0 (First Rd)",
-      },
-      {
-        name: "9) St. Bonaventure",
-        points: "0 (First Rd)",
-      },
-      {
-        name: "11) UCLA",
-        points: "110 (Final Four)",
-      },
-    ],
-  },
-  {
-    name: "Nick Kordesch",
-    year: 2018,
-    score: 128,
-    teams: [
-      {
-        name: "2) Purdue",
-        points: "6 (Sweet 16)",
-      },
-      {
-        name: "4) Gonzaga",
-        points: "12 (Sweet 16)",
-      },
-      {
-        name: "10) Oklahoma",
-        points: "0 (First Rd)",
-      },
-      {
-        name: "11) Loyola (IL)",
-        points: "110 (Final Four)",
-      },
-      {
-        name: "12) New Mexico State",
-        points: "0 (First Rd)",
-      },
-    ],
-  },
-  {
-    name: "Patrick Godfrey",
-    year: 2018,
-    score: 125,
-    teams: [
-      {
-        name: "5) West Virginia",
-        points: "15 (Sweet 16)",
-      },
-      {
-        name: "8) Virginia Tech",
-        points: "0 (First Rd)",
-      },
-      {
-        name: "10) Providence",
-        points: "0 (First Rd)",
-      },
-      {
-        name: "11) Loyola (IL)",
-        points: "110 (Final Four)",
-      },
-      {
-        name: "13) UNC Greensboro",
-        points: "0 (First Rd)",
-      },
-    ],
-  },
 ];
 
 const pickFiveChamps = [
+  {
+    name: "Kevin Hess",
+    year: 2022,
+    score: 159,
+    teams: [
+      {
+        name: "6) Alabama",
+        points: "0 (First Rd)",
+      },
+      {
+        name: "6) Texas",
+        points: "6 (Second Rd)",
+      },
+      {
+        name: "7) USC",
+        points: "0 (First Rd)",
+      },
+      {
+        name: "8) North Carolina",
+        points: "120 (Final)",
+      },
+      {
+        name: "11) Michigan",
+        points: "33 (Sweet 16)",
+      },
+    ],
+  },
   {
     name: "Alan Merriman",
     year: 2021,
