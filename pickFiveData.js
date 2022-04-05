@@ -549,56 +549,6 @@ const pickFiveChamps = [
 ];
 
 const pickFiveTeams = [
-  { name: "1) Arizona", points: 3, round: "Sweet 16" },
-  { name: "1) Baylor", points: 1, round: "Second Rd" },
-  { name: "1) Gonzaga", points: 3, round: "Sweet 16" },
-  { name: "1) Kansas", points: 15, round: "Final" },
-  { name: "10) Davidson", points: 0, round: "First Rd" },
-  { name: "10) Loyola (IL)", points: 0, round: "First Rd" },
-  { name: "10) Miami (FL)", points: 60, round: "Elite 8" },
-  { name: "10) San Francisco", points: 0, round: "First Rd" },
-  { name: "11) Iowa State", points: 33, round: "Sweet 16" },
-  { name: "11) Michigan", points: 33, round: "Sweet 16" },
-  { name: "11) Virginia Tech", points: 0, round: "First Rd" },
-  { name: "12) Indiana", points: 0, round: "First Rd" },
-  { name: "12) New Mexico State", points: 12, round: "Second Rd" },
-  { name: "12) Richmond", points: 12, round: "Second Rd" },
-  { name: "12) UAB", points: 0, round: "First Rd" },
-  { name: "13) South Dakota State", points: 0, round: "First Rd" },
-  { name: "13) UT-Chattanooga", points: 0, round: "First Rd" },
-  { name: "13) Vermont", points: 0, round: "First Rd" },
-  { name: "14) Colgate", points: 0, round: "First Rd" },
-  { name: "2) Auburn", points: 2, round: "Second Rd" },
-  { name: "2) Duke", points: 20, round: "Final Four" },
-  { name: "2) Kentucky", points: 0, round: "First Rd" },
-  { name: "2) Villanova", points: 20, round: "Final Four" },
-  { name: "3) Purdue", points: 9, round: "Sweet 16" },
-  { name: "3) Tennessee", points: 3, round: "Second Rd" },
-  { name: "3) Texas Tech", points: 9, round: "Sweet 16" },
-  { name: "3) Wisconsin", points: 3, round: "Second Rd" },
-  { name: "4) Arkansas", points: 24, round: "Elite 8" },
-  { name: "4) Illinois", points: 4, round: "Second Rd" },
-  { name: "4) UCLA", points: 12, round: "Sweet 16" },
-  { name: "5) Connecticut", points: 0, round: "First Rd" },
-  { name: "5) Houston", points: 30, round: "Elite 8" },
-  { name: "5) Iowa", points: 0, round: "First Rd" },
-  { name: "5) St. Mary's", points: 5, round: "Second Rd" },
-  { name: "6) Alabama", points: 0, round: "First Rd" },
-  { name: "6) Colorado State", points: 0, round: "First Rd" },
-  { name: "6) LSU", points: 0, round: "First Rd" },
-  { name: "6) Texas", points: 6, round: "Second Rd" },
-  { name: "7) Michigan State", points: 7, round: "Second Rd" },
-  { name: "7) Murray State", points: 0, round: "First Rd" },
-  { name: "7) Ohio State", points: 7, round: "Second Rd" },
-  { name: "7) USC", points: 0, round: "First Rd" },
-  { name: "8) Boise State", points: 0, round: "First Rd" },
-  { name: "8) Memphis", points: 8, round: "Second Rd" },
-  { name: "8) North Carolina", points: 120, round: "Final" },
-  { name: "8) San Diego State", points: 0, round: "First Rd" },
-  { name: "9) Creighton", points: 9, round: "Second Rd" },
-];
-
-const pickFivePicks = [
   { name: "Ben Aparo", score: 78, teams: [21, 24, 29, 31, 9] },
 
   { name: "Brendan Bansavage", score: 32, teams: [22, 29, 32, 10, 17] },
@@ -615,7 +565,7 @@ const pickFivePicks = [
 
   { name: "Alex Chen", score: 40, teams: [1, 22, 26, 28, 12] },
 
-  { name: "Phil Cohen", score: 30, teams: [0, 3, 29, 32, 10] },
+  { name: "Phil Cohen", score: 36, teams: [0, 3, 29, 32, 10] },
 
   { name: "Andrew Collins", score: 153, teams: [26, 30, 31, 32, 44] },
 
@@ -633,7 +583,7 @@ const pickFivePicks = [
 
   { name: "Chris Godfrey", score: 22, teams: [0, 29, 32, 38, 41] },
 
-  { name: "Harrison Godfrey", score: 126, teams: [3, 20, 27, 40, 6] },
+  { name: "Harrison Godfrey", score: 132, teams: [3, 20, 27, 40, 6] },
 
   { name: "Patrick Godfrey", score: 14, teams: [38, 40, 41, 7, 11] },
 
