@@ -18,7 +18,6 @@ class TeamSelect extends Component {
     fetch("/api/schools")
       .then((res) => res.json())
       .then((data) => {
-        console.log("data", Object.entries(data));
         this.setState({ teamsHard: data });
       });
   }
@@ -39,7 +38,6 @@ class TeamSelect extends Component {
   };
 
   handleTeamsBoxClick = (e) => {
-    console.log(e.target);
     e.preventDefault();
     document.getElementById(e.target.id).classList.toggle("highlighted");
     let tempState = this.state.selectedTeams;
@@ -64,8 +62,6 @@ class TeamSelect extends Component {
       return (acc += this.state.teamsHard[val].w2122);
     }, 0);
 
-    console.log("activeWinsTotal", activeWinsTotal);
-
     if (!this.state.user.name) {
       this.setState({ submitFeedback: "Not signed in!" });
     } else if (actualSelectedTeams.length !== 5) {
@@ -81,7 +77,6 @@ class TeamSelect extends Component {
         fetch("/api/password?password=" + this.state.user.password)
           .then((res) => res.json())
           .then((data) => {
-            console.log(data[0]);
             if (data[0]) {
               let tempState = this.state;
               tempState.user = data[0];

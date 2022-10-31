@@ -97,7 +97,6 @@ app.get("/api/scores", (req, res) => {
 app.get("/api/password", (req, res) => {
   db.query(`SELECT * FROM users WHERE password = '${req.query.password}'`)
     .then((data) => {
-      console.log("BRENDAN", data);
       res.send(data);
     })
     .catch((error) => {
@@ -107,7 +106,6 @@ app.get("/api/password", (req, res) => {
 });
 
 app.get("/api/picks", (req, res) => {
-  console.log("PICKS REQUEST");
   db.query("select name, teams_2021 from users where teams_2021 is not null;")
     .then((users) => {
       console.log(users);
@@ -120,7 +118,6 @@ app.get("/api/picks", (req, res) => {
 });
 
 app.get("/api/picks", (req, res) => {
-  console.log("PICKS REQUEST");
   db.query("select name, teams_2021 from users where teams_2021 is not null;")
     .then((users) => {
       console.log(users);
@@ -162,7 +159,6 @@ app.get("/api/picksbyschool", (req, res) => {
 });
 
 app.get("/api/standings", (req, res) => {
-  console.log("STANDINGS REQUEST");
   let resData = {};
   db.query(
     "SELECT id, name, w2021, l2021, w2122, l2122, nickname, conference, prevgm, nextgm from teams;"
@@ -172,12 +168,10 @@ app.get("/api/standings", (req, res) => {
       res.send("Unable to retrieve teams: " + error);
     })
     .then((data) => {
-      console.log("143");
       resData.teams = {};
       data.forEach((team) => {
         resData.teams[team.id] = team;
       });
-      console.log(data);
       db.query(
         "SELECT name, teams_2021 from users where teams_2021 is not null order by name asc;"
       )
@@ -295,7 +289,6 @@ app.get("/api/schools", (req, res) => {
             l2122: team.l2122,
           })
       );
-      console.log(dataObj);
       res.send(dataObj);
     })
     .catch((error) => {

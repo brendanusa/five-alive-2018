@@ -85,4 +85,4 @@ const fetchScores = (db) => {
 // }, Math.random()*60000)
 
 // immediate call
-fetchScores(db);
+// fetchScores(db);
