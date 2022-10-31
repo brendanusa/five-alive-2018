@@ -241,9 +241,9 @@ app.get("/api/teams", (req, res) => {
   let teamsArray = req.query.teamids.split(",");
   teamsArray = teamsArray.map((teamId) => parseInt(teamId));
   db.query(
-    `update users set teams_2021 = '{${teamsArray}}' where id=${parseInt(
+    `update users set teams_22 = '{${teamsArray}}' where id=${parseInt(
       req.query.userid
-    )} returning teams_2021`
+    )} returning teams_22`
   )
     .then(() => {
       res.send("Picks saved!");
@@ -284,11 +284,19 @@ app.get("/api/pickfive/champs", (req, res) => {
 // route for teamselect
 app.get("/api/schools", (req, res) => {
   console.log("fetching team select school list");
-  db.query(
-    "SELECT name, w2021, l2021 from teams WHERE w2021 is not null order by name asc;"
-  )
+  db.query("SELECT id, name, w2122, l2122 from teams22 order by id asc;")
     .then((data) => {
-      res.send(data);
+      let dataObj = {};
+      data.forEach(
+        (team) =>
+          (dataObj[team.id] = {
+            name: team.name,
+            w2122: team.w2122,
+            l2122: team.l2122,
+          })
+      );
+      console.log(dataObj);
+      res.send(dataObj);
     })
     .catch((error) => {
       console.log("ERROR", error);
