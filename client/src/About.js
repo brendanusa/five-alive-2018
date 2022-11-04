@@ -22,8 +22,8 @@ const About = () => {
           five teams that collectively won no more than 100 games the previous
           season. The person whose teams win the most games this year (excluding
           non-NCAA postseason tournaments - i.e. NIT, CIT, etc.) wins the grand
-          prize: a drawing of a basketball and a gift certificate for warm
-          vinegar.
+          prize: a drawing of a basketball and Brendan's special family recipe
+          for water.
           <br></br>
           <p style={{ color: "yellow" }}>
             For more information or college/professional recommendations, please
@@ -34,18 +34,17 @@ const About = () => {
         <h2>EXCITEMENT INFO</h2>
         <p>
           This season promises to be our most recent season yet, with the
-          following #5ALIVE legends sitting on the Cancellation and Recency
-          Committee:
+          following #5ALIVE legends sitting on the Recency and Sports
+          Performance Committee:
           <br></br>
           <br></br>
           <li>Chris Godfrey</li>
           <li>Patrick Godfrey</li>
           <li>Ryan Excitement</li>
           <li>Action Vogel</li>
-          <li>JP Kelly</li>
-          <li>Michael Jordan</li>
-          <li>Harrison Godfrey</li>
+          <li>John Kelly</li>
           <li>Wilt Chamberlain</li>
+          <li>Michael Jorban</li>
         </p>
       </div>
     </div>

@@ -9,7 +9,7 @@
   border-radius: 8px;
   padding: 12px;
   text-align: center;
-  animation: FadeIn 2s ease;
+  animation: FadeIn 0.8s ease;
   font-size: calc(8px + 0.5vw);
   overflow: auto;
 }
