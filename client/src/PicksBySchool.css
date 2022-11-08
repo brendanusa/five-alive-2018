@@ -6,6 +6,7 @@
 
 .PickSchoolName {
   margin-left: 5px;
+  margin-top: 2px;
 }
 
 .PickNumber {
@@ -24,5 +25,5 @@
   border-color: #5a19ff;
   margin-top: 8px;
   padding: 2px;
-  background-color: rgb(90,25,255,0.2);
+  background-color: rgb(90, 25, 255, 0.4);
 }

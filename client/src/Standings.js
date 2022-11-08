@@ -36,7 +36,7 @@ class Standings extends Component {
                     <Standing
                       key={i}
                       name={user.name}
-                      teams={user.teams_2021}
+                      teams={user.teams_22}
                       wins={user.wins}
                       isActive={false}
                     />

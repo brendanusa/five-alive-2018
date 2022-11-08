@@ -34,7 +34,7 @@ const Header = () => (
         <Link to={"/home"}>HOME</Link>
       </span>
       <span>
-        <Link to={"/teamSelect"}>TEAMS</Link>
+        <Link to={"/picks"}>PICKS!</Link>
       </span>
       <span>
         <Link to={"/about"}>ABOUT</Link>

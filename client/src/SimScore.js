@@ -29,7 +29,7 @@ class SimScore extends Component {
               return (
                 <div className="SimScoreScore">
                   <span className="SimScoreName">{user.name}</span>
-                  <span className="SimScoreNumber">{user.sim_score_2021}</span>
+                  <span className="SimScoreNumber">{user.sim_score_22}</span>
                 </div>
               );
             })}
