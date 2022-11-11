@@ -87,7 +87,6 @@ class TeamSelect extends Component {
       });
     }
   };
-
   render() {
     return (
       <div className="TeamSelectTempContainer">
