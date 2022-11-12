@@ -191,7 +191,7 @@ app.get("/api/standings", (req, res) => {
 
 app.get("/api/standingsDate", (req, res) => {
   db.query(
-    "select to_char(updated_at, 'mm/dd/yyyy hh:mi:ss') as updated from update_timestamps where type = 'standings';"
+    "select to_char(updated_at, 'mm/dd/yyyy') as updated from update_timestamps where type = 'standings';"
   )
     .then((data) => {
       res.send(data);
