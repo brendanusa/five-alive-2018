@@ -16,7 +16,7 @@ const db = pgp(config);
 const fetchScores = (db) => {
   console.log("start");
   // fetch active teams
-  db.query("select abbreviation from teams where active = true").then(
+  db.query("select abbreviation from teams22 where active = true").then(
     (data) => {
       activeTeams = data;
       console.log(data);
@@ -37,10 +37,10 @@ const fetchScores = (db) => {
           }${date.getDate()}`
         )
         .then((res) => {
-          for (i = 20; i < res.data.events.length; i++) {
+          // clear db
+          db.query("delete from scores;").then(() => {
             const bball = (i) => {
-              console.log(i);
-              // check for active team
+              // check for active teams
               if (
                 activeTeams.includes(
                   res.data.events[i].competitions[0].competitors[0].team
@@ -63,9 +63,16 @@ const fetchScores = (db) => {
                   console.log(res[0].hometeam, "game updated");
                 });
               }
+              if (i < res.data.events.length - 1) {
+                return bball(i + 1);
+              } else {
+                return db.query(
+                  "update update_timestamps set updated_at = current_timestamp where id = 3;"
+                );
+              }
             };
-            bball(i);
-          }
+            bball(0);
+          });
         });
     }
   );
