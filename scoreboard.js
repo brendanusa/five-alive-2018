@@ -67,7 +67,7 @@ const fetchScores = (db) => {
                 return bball(i + 1);
               } else {
                 return db.query(
-                  "update update_timestamps set updated_at = current_timestamp where id = 3;"
+                  "update update_timestamps set updated_at = current_timestamp where id = 5;"
                 );
               }
             };

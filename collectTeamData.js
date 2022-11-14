@@ -41,7 +41,9 @@ const collectTeamData = (db) => {
           if (index < 361) {
             return updateTeam(index + 1);
           } else {
-            return console.log("standings updated!");
+            return db.query(
+              "update update_timestamps set updated_at = current_timestamp where id = 3;"
+            );
           }
         });
       };
