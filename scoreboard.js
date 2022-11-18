@@ -37,6 +37,7 @@ const fetchScores = (db) => {
           }${date.getDate()}`
         )
         .then((res) => {
+          const games = res.data.events;
           // clear db
           db.query("delete from scores;").then(() => {
             const bball = (i) => {
@@ -61,14 +62,22 @@ const fetchScores = (db) => {
                   `insert into scores (id, hometeam, awayteam, homescore, awayscore, clock, state) values (${res.data.events[i].id}, '${res.data.events[i].competitions[0].competitors[0].team.abbreviation}', '${res.data.events[i].competitions[0].competitors[1].team.abbreviation}', ${res.data.events[i].competitions[0].competitors[0].score}, ${res.data.events[i].competitions[0].competitors[1].score}, '${clock}', '${res.data.events[i].status.type.state}') on conflict (id) do update set homescore = ${res.data.events[i].competitions[0].competitors[0].score}, awayscore = ${res.data.events[i].competitions[0].competitors[1].score}, clock = '${clock}', state = '${res.data.events[i].status.type.state}' returning hometeam;`
                 ).then((res) => {
                   console.log(res[0].hometeam, "game updated");
+                  if (i < games.length - 1) {
+                    return bball(i + 1);
+                  } else {
+                    return db.query(
+                      "update update_timestamps set updated_at = current_timestamp where id = 5;"
+                    );
+                  }
                 });
-              }
-              if (i < res.data.events.length - 1) {
-                return bball(i + 1);
               } else {
-                return db.query(
-                  "update update_timestamps set updated_at = current_timestamp where id = 5;"
-                );
+                if (i < games.length - 1) {
+                  return bball(i + 1);
+                } else {
+                  return db.query(
+                    "update update_timestamps set updated_at = current_timestamp where id = 5;"
+                  );
+                }
               }
             };
             bball(0);
