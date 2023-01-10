@@ -32,9 +32,10 @@ const fetchScores = (db) => {
       );
       axios
         .get(
-          `http://site.api.espn.com/apis/site/v2/sports/basketball/mens-college-basketball/scoreboard?limit=500&groups=50&dates=${date.getFullYear()}${
+          `http://site.api.espn.com/apis/site/v2/sports/basketball/mens-college-basketball/scoreboard?limit=500&groups=50&dates=${date.getFullYear()}0${
             date.getMonth() + 1
-          }${date.getDate()}`
+          }0${date.getDate()}`
+          // "http://site.api.espn.com/apis/site/v2/sports/basketball/mens-college-basketball/scoreboard?limit=500&groups=50&dates=20221227"
         )
         .then((res) => {
           const games = res.data.events;
@@ -65,9 +66,10 @@ const fetchScores = (db) => {
                   if (i < games.length - 1) {
                     return bball(i + 1);
                   } else {
-                    return db.query(
-                      "update update_timestamps set updated_at = current_timestamp where id = 5;"
-                    );
+                    // return db
+                    //   .query
+                    //   "update update_timestamps set updated_at = current_timestamp where id = 5;"
+                    //   ();
                   }
                 });
               } else {
