@@ -24,9 +24,7 @@ const TeamBox = (props) => {
         <div>
           {props.team.w2122}-{props.team.l2122}
         </div>
-        <h6>PREV</h6>
         <div>{props.team.prevgm}</div>
-        <h6>NEXT</h6>
         <div>{props.team.nextgm}</div>
       </div>
     </div>
