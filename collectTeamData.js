@@ -41,9 +41,13 @@ const collectTeamData = (db) => {
           if (index < 361) {
             return updateTeam(index + 1);
           } else {
-            return db.query(
+            db.query(
               "update update_timestamps set updated_at = current_timestamp where id = 3;"
-            );
+            ).then(() => {
+              return db.query(
+                "update update_timestamps set updated_at = current_timestamp where id = 5;"
+              );
+            });
           }
         });
       };
