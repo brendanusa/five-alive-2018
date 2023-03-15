@@ -2,11 +2,11 @@ const axios = require("axios");
 const pgp = require("pg-promise")(/*options*/);
 
 const config = {
-  host: "ec2-34-225-159-178.compute-1.amazonaws.com",
+  host: "ec2-3-210-173-88.compute-1.amazonaws.com",
   port: 5432,
-  database: "desromfd4m8d0q",
-  user: "jiuegrmmnmapvj",
-  password: "5ef4bd5a48b8acf60cc21bca401862d1cb17b0996abd714465977b71826bd745",
+  database: "da0g66a43jf71l",
+  user: "dnibtphgdstqcb",
+  password: "41c7c229a0b5e41efb1295a06f6964d5e638a7417f1e95f0f3a14ffaa6c01b0b",
   max: 30,
   ssl: { rejectUnauthorized: false },
 };
@@ -28,13 +28,13 @@ const fetchScores = (db) => {
       console.log(
         `http://site.api.espn.com/apis/site/v2/sports/basketball/mens-college-basketball/scoreboard?limit=500&groups=50&dates=${date.getFullYear()}${
           date.getMonth() + 1
-        }0${date.getDate()}`
+        }${date.getDate()}`
       );
       axios
         .get(
           `http://site.api.espn.com/apis/site/v2/sports/basketball/mens-college-basketball/scoreboard?limit=500&groups=50&dates=${date.getFullYear()}0${
             date.getMonth() + 1
-          }0${date.getDate()}`
+          }${date.getDate()}`
           // "http://site.api.espn.com/apis/site/v2/sports/basketball/mens-college-basketball/scoreboard?limit=500&groups=50&dates=20221227"
         )
         .then((res) => {
