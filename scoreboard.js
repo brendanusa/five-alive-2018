@@ -25,19 +25,22 @@ const fetchScores = (db) => {
       });
       // parse current date and insert into url
       var date = new Date(Date.now());
+      // group # for reg season is 50; tournament is 100
       console.log(
-        `http://site.api.espn.com/apis/site/v2/sports/basketball/mens-college-basketball/scoreboard?limit=500&groups=50&dates=${date.getFullYear()}${
+        `http://site.api.espn.com/apis/site/v2/sports/basketball/mens-college-basketball/scoreboard?limit=500&groups=100&dates=${date.getFullYear()}${
           date.getMonth() + 1
         }${date.getDate()}`
       );
+      // group # for reg season is 50; tournament is 100
       axios
         .get(
-          `http://site.api.espn.com/apis/site/v2/sports/basketball/mens-college-basketball/scoreboard?limit=500&groups=50&dates=${date.getFullYear()}0${
+          `http://site.api.espn.com/apis/site/v2/sports/basketball/mens-college-basketball/scoreboard?limit=500&groups=100&dates=${date.getFullYear()}0${
             date.getMonth() + 1
           }${date.getDate()}`
           // "http://site.api.espn.com/apis/site/v2/sports/basketball/mens-college-basketball/scoreboard?limit=500&groups=50&dates=20221227"
         )
         .then((res) => {
+          console.log(res.data.events);
           const games = res.data.events;
           // clear db
           db.query("delete from scores;").then(() => {
