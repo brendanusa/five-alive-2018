@@ -639,7 +639,7 @@ const pickFiveTeams = [
 ];
 
 const pickFivePicks = [
-  { name: "Ben Aparo", score: 0, teams: [47, 41, 0, 34, 36] },
+  { name: "Ben Aparo", score: 0, teams: [0, 34, 36, 41, 47] },
 
   { name: "Brendan Bansavage", score: 0, teams: [33, 40, 44, 12, 13] },
 
@@ -647,9 +647,9 @@ const pickFivePicks = [
 
   { name: "Dante Carnevale", score: 0, teams: [36, 45, 13, 14, 18] },
 
-  { name: "Ed Carroll", score: 0, teams: [10, 11, 42, 33, 41] },
+  { name: "Ed Carroll", score: 0, teams: [33, 41, 42, 10, 11] },
 
-  { name: "Tyler Carson", score: 0, teams: [53, 32, 33, 46, 24] },
+  { name: "Tyler Carson", score: 0, teams: [32, 33, 46, 53, 24] },
 
   { name: "Phil Cohen", score: 0, teams: [33, 39, 43, 44, 46] },
 
@@ -661,13 +661,13 @@ const pickFivePicks = [
 
   { name: "Troy Davis", score: 0, teams: [33, 38, 42, 44, 7] },
 
-  { name: "Brendon Desrochers", score: 0, teams: [15, 0, 36, 44, 55] },
+  { name: "Brendon Desrochers", score: 0, teams: [0, 36, 44, 55, 15] },
 
-  { name: "Karl Fils-Aime", score: 0, teams: [56, 30, 36, 44, 46] },
+  { name: "Karl Fils-Aime", score: 0, teams: [30, 36, 44, 46, 56] },
 
-  { name: "Chris Godfrey", score: 0, teams: [47, 44, 38, 13, 30] },
+  { name: "Chris Godfrey", score: 0, teams: [30, 38, 44, 47, 13] },
 
-  { name: "Patrick Godfrey", score: 0, teams: [41, 33, 0, 40, 51] },
+  { name: "Patrick Godfrey", score: 0, teams: [0, 33, 40, 41, 51] },
 
   { name: "Kevin Hess", score: 0, teams: [0, 36, 44, 10, 12] },
 
@@ -675,25 +675,27 @@ const pickFivePicks = [
 
   { name: "John Kelly", score: 0, teams: [33, 40, 51, 7, 13] },
 
-  { name: "Keenan Klein", score: 0, teams: [13, 11, 36, 40, 44] },
+  { name: "Keenan Klein", score: 0, teams: [36, 40, 44, 11, 13] },
 
   { name: "Anish Kurian", score: 0, teams: [33, 40, 45, 9, 13] },
 
-  { name: "Reed Lyon", score: 0, teams: [38, 31, 58, 0, 53] },
+  { name: "Reed Lyon", score: 0, teams: [0, 31, 38, 53, 58] },
 
-  { name: "Ari Margolis", score: 0, teams: [44, 7, 46, 55, 38] },
+  { name: "Ari Margolis", score: 0, teams: [38, 44, 46, 55, 7] },
 
-  { name: "Casey Schutte", score: 0, teams: [29, 32, 36, 40, 42] },
+  { name: "Alex Raup", score: 0, teams: [29, 32, 36, 40, 42] },
 
-  { name: "Jeff Selikoff", score: 0, teams: [40, 46, 48, 50, 9] },
+  { name: "Casey Schutte", score: 0, teams: [40, 46, 48, 50, 9] },
 
-  { name: "Adam Sidney", score: 0, teams: [36, 38, 45, 52, 7] },
+  { name: "Jeff Selikoff", score: 0, teams: [36, 38, 45, 52, 7] },
 
-  { name: "Josh Silbereis", score: 0, teams: [33, 40, 44, 48, 56] },
+  { name: "Adam Sidney", score: 0, teams: [33, 40, 44, 48, 56] },
+
+  { name: "Josh Silbereis", score: 0, teams: [36, 40, 44, 46, 7] },
 
   { name: "Josh Smilowitz", score: 0, teams: [33, 40, 44, 48, 56] },
 
-  { name: "Ed Stowe", score: 0, teams: [7, 36, 40, 44, 46] },
+  { name: "Ed Stowe", score: 0, teams: [36, 40, 44, 46, 7] },
 
   { name: "Dan Vogel", score: 0, teams: [31, 37, 38, 44, 46] },
 
