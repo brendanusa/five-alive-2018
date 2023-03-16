@@ -576,139 +576,128 @@ const pickFiveChamps = [
 ];
 
 const pickFiveTeams = [
-  { name: "1) Arizona", points: 3, round: "Sweet 16" },
-  { name: "1) Baylor", points: 1, round: "Second Rd" },
-  { name: "1) Gonzaga", points: 3, round: "Sweet 16" },
-  { name: "1) Kansas", points: 21, round: "Won Title" },
-  { name: "10) Davidson", points: 0, round: "First Rd" },
-  { name: "10) Loyola (IL)", points: 0, round: "First Rd" },
-  { name: "10) Miami (FL)", points: 60, round: "Elite 8" },
-  { name: "10) San Francisco", points: 0, round: "First Rd" },
-  { name: "11) Iowa State", points: 33, round: "Sweet 16" },
-  { name: "11) Michigan", points: 33, round: "Sweet 16" },
-  { name: "11) Virginia Tech", points: 0, round: "First Rd" },
-  { name: "12) Indiana", points: 0, round: "First Rd" },
-  { name: "12) New Mexico State", points: 12, round: "Second Rd" },
-  { name: "12) Richmond", points: 12, round: "Second Rd" },
-  { name: "12) UAB", points: 0, round: "First Rd" },
-  { name: "13) South Dakota State", points: 0, round: "First Rd" },
-  { name: "13) UT-Chattanooga", points: 0, round: "First Rd" },
-  { name: "13) Vermont", points: 0, round: "First Rd" },
-  { name: "14) Colgate", points: 0, round: "First Rd" },
-  { name: "2) Auburn", points: 2, round: "Second Rd" },
-  { name: "2) Duke", points: 20, round: "Final Four" },
-  { name: "2) Kentucky", points: 0, round: "First Rd" },
-  { name: "2) Villanova", points: 20, round: "Final Four" },
-  { name: "3) Purdue", points: 9, round: "Sweet 16" },
-  { name: "3) Tennessee", points: 3, round: "Second Rd" },
-  { name: "3) Texas Tech", points: 9, round: "Sweet 16" },
-  { name: "3) Wisconsin", points: 3, round: "Second Rd" },
-  { name: "4) Arkansas", points: 24, round: "Elite 8" },
-  { name: "4) Illinois", points: 4, round: "Second Rd" },
-  { name: "4) UCLA", points: 12, round: "Sweet 16" },
-  { name: "5) Connecticut", points: 0, round: "First Rd" },
-  { name: "5) Houston", points: 30, round: "Elite 8" },
-  { name: "5) Iowa", points: 0, round: "First Rd" },
-  { name: "5) St. Mary's", points: 5, round: "Second Rd" },
-  { name: "6) Alabama", points: 0, round: "First Rd" },
-  { name: "6) Colorado State", points: 0, round: "First Rd" },
-  { name: "6) LSU", points: 0, round: "First Rd" },
-  { name: "6) Texas", points: 6, round: "Second Rd" },
-  { name: "7) Michigan State", points: 7, round: "Second Rd" },
-  { name: "7) Murray State", points: 0, round: "First Rd" },
-  { name: "7) Ohio State", points: 7, round: "Second Rd" },
-  { name: "7) USC", points: 0, round: "First Rd" },
-  { name: "8) Boise State", points: 0, round: "First Rd" },
-  { name: "8) Memphis", points: 8, round: "Second Rd" },
-  { name: "8) North Carolina", points: 120, round: "Final" },
-  { name: "8) San Diego State", points: 0, round: "First Rd" },
-  { name: "9) Creighton", points: 9, round: "Second Rd" },
+  { name: "1) Alabama", points: 0, round: "First Rd" },
+  { name: "1) Houston", points: 0, round: "First Rd" },
+  { name: "1) Kansas", points: 0, round: "First Rd" },
+  { name: "1) Purdue", points: 0, round: "First Rd" },
+  { name: "10) Boise State", points: 0, round: "First Rd" },
+  { name: "10) Penn State", points: 0, round: "First Rd" },
+  { name: "10) USC", points: 0, round: "First Rd" },
+  { name: "10) Utah State", points: 0, round: "First Rd" },
+  { name: "11) Arizona State", points: 0, round: "First Rd" },
+  { name: "11) NC State", points: 0, round: "First Rd" },
+  { name: "11) Pittsburgh", points: 0, round: "First Rd" },
+  { name: "11) Providence", points: 0, round: "First Rd" },
+  { name: "12) Charleston", points: 0, round: "First Rd" },
+  { name: "12) Drake", points: 0, round: "First Rd" },
+  { name: "12) Oral Roberts", points: 0, round: "First Rd" },
+  { name: "12) VCU", points: 0, round: "First Rd" },
+  { name: "13) Furman", points: 0, round: "First Rd" },
+  { name: "13) Iona", points: 0, round: "First Rd" },
+  { name: "13) Kent State", points: 0, round: "First Rd" },
+  { name: "13) Louisiana", points: 0, round: "First Rd" },
+  { name: "14) Grand Canyon", points: 0, round: "First Rd" },
+  { name: "14) Kennesaw State", points: 0, round: "First Rd" },
+  { name: "14) Montana State", points: 0, round: "First Rd" },
+  { name: "14) UCSB", points: 0, round: "First Rd" },
+  { name: "15) Colgate", points: 0, round: "First Rd" },
+  { name: "15) Princeton", points: 0, round: "First Rd" },
+  { name: "15) UNC Asheville", points: 0, round: "First Rd" },
+  { name: "15) Vermont", points: 0, round: "First Rd" },
+  { name: "2) Arizona", points: 0, round: "First Rd" },
+  { name: "2) Marquette", points: 0, round: "First Rd" },
+  { name: "2) Texas", points: 0, round: "First Rd" },
+  { name: "2) UCLA", points: 0, round: "First Rd" },
+  { name: "3) Baylor", points: 0, round: "First Rd" },
+  { name: "3) Gonzaga", points: 0, round: "First Rd" },
+  { name: "3) Kansas State", points: 0, round: "First Rd" },
+  { name: "3) Xavier", points: 0, round: "First Rd" },
+  { name: "4) Connecticut", points: 0, round: "First Rd" },
+  { name: "4) Indiana", points: 0, round: "First Rd" },
+  { name: "4) Tennessee", points: 0, round: "First Rd" },
+  { name: "4) Virginia", points: 0, round: "First Rd" },
+  { name: "5) Duke", points: 0, round: "First Rd" },
+  { name: "5) Miami (FL)", points: 0, round: "First Rd" },
+  { name: "5) San Diego State", points: 0, round: "First Rd" },
+  { name: "5) St. Mary's (CA)", points: 0, round: "First Rd" },
+  { name: "6) Creighton", points: 0, round: "First Rd" },
+  { name: "6) Iowa State", points: 0, round: "First Rd" },
+  { name: "6) Kentucky", points: 0, round: "First Rd" },
+  { name: "6) TCU", points: 0, round: "First Rd" },
+  { name: "7) Michigan State", points: 0, round: "First Rd" },
+  { name: "7) Missouri", points: 0, round: "First Rd" },
+  { name: "7) Northwestern", points: 0, round: "First Rd" },
+  { name: "7) Texas A&M", points: 0, round: "First Rd" },
+  { name: "8) Arkansas", points: 0, round: "First Rd" },
+  { name: "8) Iowa", points: 0, round: "First Rd" },
+  { name: "8) Maryland", points: 0, round: "First Rd" },
+  { name: "8) Memphis", points: 0, round: "First Rd" },
+  { name: "9) Auburn", points: 0, round: "First Rd" },
+  { name: "9) Florida Atlantic", points: 0, round: "First Rd" },
+  { name: "9) Illinois", points: 0, round: "First Rd" },
+  { name: "9) West Virginia", points: 0, round: "First Rd" },
 ];
 
 const pickFivePicks = [
-  { name: "Ben Aparo", score: 78, teams: [21, 24, 29, 31, 9] },
+  { name: "Ben Aparo", score: 0, teams: [47, 41, 0, 34, 36] },
 
-  { name: "Brendan Bansavage", score: 32, teams: [22, 29, 32, 10, 17] },
+  { name: "Brendan Bansavage", score: 0, teams: [33, 40, 44, 12, 13] },
 
-  { name: "Zach Baron", score: 42, teams: [21, 29, 31, 32, 42] },
+  { name: "Zach Baron", score: 0, teams: [31, 38, 43, 51, 59] },
 
-  { name: "Sam Bazar", score: 12, teams: [24, 25, 32, 5, 16] },
+  { name: "Dante Carnevale", score: 0, teams: [36, 45, 13, 14, 18] },
 
-  { name: "Elya Beer", score: 14, teams: [38, 39, 40, 45, 15] },
+  { name: "Ed Carroll", score: 0, teams: [10, 11, 42, 33, 41] },
 
-  { name: "Dante Carnevale", score: 15, teams: [24, 29, 32, 4, 10] },
+  { name: "Tyler Carson", score: 0, teams: [53, 32, 33, 46, 24] },
 
-  { name: "Edward Carroll", score: 35, teams: [2, 22, 25, 26, 35] },
+  { name: "Phil Cohen", score: 0, teams: [33, 39, 43, 44, 46] },
 
-  { name: "Alex Chen", score: 40, teams: [1, 22, 26, 28, 12] },
+  { name: "Andrew Collins", score: 0, teams: [30, 34, 44, 47, 18] },
 
-  { name: "Phil Cohen", score: 36, teams: [0, 3, 29, 32, 10] },
+  { name: "Ryan Corbalis", score: 0, teams: [33, 40, 44, 7, 13] },
 
-  { name: "Andrew Collins", score: 153, teams: [26, 30, 31, 32, 44] },
+  { name: "Patrick Cushing", score: 0, teams: [28, 30, 37, 40, 46] },
 
-  { name: "Ryan Corbalis", score: 38, teams: [22, 23, 46, 4, 18] },
+  { name: "Troy Davis", score: 0, teams: [33, 38, 42, 44, 7] },
 
-  { name: "Patrick Cushing", score: 42, teams: [23, 24, 30, 31, 32] },
+  { name: "Brendon Desrochers", score: 0, teams: [15, 0, 36, 44, 55] },
 
-  { name: "Troy Davis", score: 153, teams: [25, 29, 44, 10, 12] },
+  { name: "Karl Fils-Aime", score: 0, teams: [56, 30, 36, 44, 46] },
 
-  { name: "Brendon Desrochers", score: 42, teams: [21, 29, 31, 32, 36] },
+  { name: "Chris Godfrey", score: 0, teams: [47, 44, 38, 13, 30] },
 
-  { name: "Chris Donaghy", score: 38, teams: [24, 31, 32, 33, 39] },
+  { name: "Patrick Godfrey", score: 0, teams: [41, 33, 0, 40, 51] },
 
-  { name: "Noah Garber", score: 44, teams: [2, 22, 25, 29, 10] },
+  { name: "Kevin Hess", score: 0, teams: [0, 36, 44, 10, 12] },
 
-  { name: "Chris Godfrey", score: 22, teams: [0, 29, 32, 38, 41] },
+  { name: "Chris Jennings", score: 0, teams: [34, 35, 43, 51, 12] },
 
-  { name: "Harrison Godfrey", score: 132, teams: [3, 20, 27, 40, 6] },
+  { name: "John Kelly", score: 0, teams: [33, 40, 51, 7, 13] },
 
-  { name: "Patrick Godfrey", score: 14, teams: [38, 40, 41, 7, 11] },
+  { name: "Keenan Klein", score: 0, teams: [13, 11, 36, 40, 44] },
 
-  { name: "Kevin Hess", score: 159, teams: [34, 37, 41, 44, 9] },
+  { name: "Anish Kurian", score: 0, teams: [33, 40, 45, 9, 13] },
 
-  { name: "Chris Jennings", score: 47, teams: [19, 29, 32, 34, 9] },
+  { name: "Reed Lyon", score: 0, teams: [38, 31, 58, 0, 53] },
 
-  { name: "JP Kelly", score: 27, teams: [24, 29, 32, 34, 12] },
+  { name: "Ari Margolis", score: 0, teams: [44, 7, 46, 55, 38] },
 
-  { name: "Nick Kordesch", score: 44, teams: [22, 27, 39, 45, 11] },
+  { name: "Casey Schutte", score: 0, teams: [29, 32, 36, 40, 42] },
 
-  { name: "Anish Kurian", score: 11, teams: [24, 26, 32, 33, 14] },
+  { name: "Jeff Selikoff", score: 0, teams: [40, 46, 48, 50, 9] },
 
-  { name: "Kaleigh Lidstone", score: 54, teams: [2, 25, 29, 31, 17] },
+  { name: "Adam Sidney", score: 0, teams: [36, 38, 45, 52, 7] },
 
-  { name: "Matt Lidstone", score: 24, teams: [0, 25, 29, 32, 10] },
+  { name: "Josh Silbereis", score: 0, teams: [33, 40, 44, 48, 56] },
 
-  { name: "Reed Lyon", score: 73, teams: [20, 43, 9, 10, 13] },
+  { name: "Josh Smilowitz", score: 0, teams: [33, 40, 44, 48, 56] },
 
-  { name: "Mark McGill", score: 153, teams: [22, 23, 28, 44, 15] },
+  { name: "Ed Stowe", score: 0, teams: [7, 36, 40, 44, 46] },
 
-  { name: "Justin McNamee", score: 123, teams: [21, 24, 44, 14, 17] },
+  { name: "Dan Vogel", score: 0, teams: [31, 37, 38, 44, 46] },
 
-  { name: "Casey Schutte", score: 63, teams: [31, 32, 4, 9, 10] },
-
-  { name: "Bob Shellenberger", score: 29, teams: [0, 19, 27, 10, 17] },
-
-  { name: "Erin Shellenberger", score: 20, teams: [21, 22, 32, 34, 17] },
-
-  { name: "Kelly Shellenberger", score: 97, teams: [22, 29, 33, 6, 10] },
-
-  { name: "Scott Sherman", score: 21, teams: [0, 2, 24, 29, 15] },
-
-  { name: "Adam Sidney", score: 99, teams: [24, 27, 29, 32, 6] },
-
-  { name: "Matthew Silva", score: 42, teams: [29, 30, 31, 32, 10] },
-
-  { name: "Dillon Smith", score: 4, teams: [28, 32, 4, 11, 17] },
-
-  { name: "Edward Stowe", score: 84, teams: [25, 29, 31, 5, 9] },
-
-  { name: "Geno Tartell III", score: 18, teams: [0, 2, 29, 32, 10] },
-
-  { name: "Dan Vogel", score: 3, teams: [24, 4, 10, 14, 15] },
-
-  { name: "Krysti Walker", score: 18, teams: [0, 24, 29, 32, 10] },
-
-  { name: "Ross Warren", score: 69, teams: [2, 32, 7, 8, 9] },
+  { name: "Krysti Walker", score: 0, teams: [0, 36, 37, 40, 41] },
 ];
 
 const parseTeamRound = (pickFiveDataset) => {
