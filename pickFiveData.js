@@ -606,21 +606,21 @@ const pickFiveTeams = [
   { name: "15) Vermont", points: 0, round: "First Rd" },
   { name: "2) Arizona", points: 0, round: "First Rd" },
   { name: "2) Marquette", points: 2, round: "Second Rd" },
-  { name: "2) Texas", points: 6, round: "Sweet 16" },
+  { name: "2) Texas", points: 12, round: "Elite 8" },
   { name: "2) UCLA", points: 6, round: "Sweet 16" },
   { name: "3) Baylor", points: 3, round: "Second Rd" },
-  { name: "3) Gonzaga", points: 9, round: "Sweet 16" },
-  { name: "3) Kansas State", points: 9, round: "Sweet 16" },
+  { name: "3) Gonzaga", points: 18, round: "Elite 8" },
+  { name: "3) Kansas State", points: 18, round: "Elite 8" },
   { name: "3) Xavier", points: 9, round: "Sweet 16" },
-  { name: "4) Connecticut", points: 12, round: "Sweet 16" },
+  { name: "4) Connecticut", points: 40, round: "Final Four" },
   { name: "4) Indiana", points: 4, round: "Second Rd" },
   { name: "4) Tennessee", points: 12, round: "Sweet 16" },
   { name: "4) Virginia", points: 0, round: "First Rd" },
   { name: "5) Duke", points: 5, round: "Second Rd" },
-  { name: "5) Miami (FL)", points: 15, round: "Sweet 16" },
-  { name: "5) San Diego State", points: 15, round: "Sweet 16" },
+  { name: "5) Miami (FL)", points: 50, round: "Final Four" },
+  { name: "5) San Diego State", points: 50, round: "Final Four" },
   { name: "5) Saint Mary's (CA)", points: 5, round: "Second Rd" },
-  { name: "6) Creighton", points: 18, round: "Sweet 16" },
+  { name: "6) Creighton", points: 36, round: "Elite 8" },
   { name: "6) Iowa State", points: 0, round: "First Rd" },
   { name: "6) Kentucky", points: 6, round: "Second Rd" },
   { name: "6) TCU", points: 6, round: "Second Rd" },
@@ -633,73 +633,73 @@ const pickFiveTeams = [
   { name: "8) Maryland", points: 8, round: "Second Rd" },
   { name: "8) Memphis", points: 0, round: "First Rd" },
   { name: "9) Auburn", points: 9, round: "Second Rd" },
-  { name: "9) Florida Atlantic", points: 27, round: "Sweet 16" },
+  { name: "9) Florida Atlantic", points: 90, round: "Final Four" },
   { name: "9) Illinois", points: 0, round: "First Rd" },
   { name: "9) West Virginia", points: 0, round: "First Rd" },
 ];
 
 const pickFivePicks = [
-  { name: "Ben Aparo", score: 45, teams: [0, 34, 36, 41, 47] },
+  { name: "Ben Aparo", score: 117, teams: [0, 34, 36, 41, 47] },
 
-  { name: "Brendan Bansavage", score: 32, teams: [33, 40, 44, 12, 13] },
+  { name: "Brendan Bansavage", score: 59, teams: [33, 40, 44, 12, 13] },
 
   { name: "Zach Baron", score: 23, teams: [31, 38, 43, 51, 59] },
 
-  { name: "Dante Carnevale", score: 12, teams: [36, 45, 13, 14, 18] },
+  { name: "Dante Carnevale", score: 40, teams: [36, 45, 13, 14, 18] },
 
-  { name: "Ed Carroll", score: 50, teams: [33, 41, 42, 10, 11] },
+  { name: "Ed Carroll", score: 129, teams: [33, 41, 42, 10, 11] },
 
-  { name: "Tyler Carson", score: 18, teams: [32, 33, 46, 53, 24] },
+  { name: "Tyler Carson", score: 27, teams: [32, 33, 46, 53, 24] },
 
-  { name: "Phil Cohen", score: 30, teams: [0, 30, 40, 50, 56] },
+  { name: "Phil Cohen", score: 36, teams: [0, 30, 40, 50, 56] },
 
-  { name: "Andrew Collins", score: 38, teams: [33, 39, 43, 44, 46] },
+  { name: "Andrew Collins", score: 65, teams: [33, 39, 43, 44, 46] },
 
-  { name: "Ryan Corbalis", score: 39, teams: [30, 34, 44, 47, 18] },
+  { name: "Ryan Corbalis", score: 72, teams: [30, 34, 44, 47, 18] },
 
-  { name: "Patrick Cushing", score: 32, teams: [33, 40, 44, 7, 13] },
+  { name: "Patrick Cushing", score: 59, teams: [33, 40, 44, 7, 13] },
 
-  { name: "Troy Davis", score: 21, teams: [28, 30, 37, 40, 46] },
+  { name: "Troy Davis", score: 27, teams: [28, 30, 37, 40, 46] },
 
-  { name: "Brendon Desrochers", score: 54, teams: [33, 38, 42, 44, 7] },
+  { name: "Brendon Desrochers", score: 116, teams: [33, 38, 42, 44, 7] },
 
-  { name: "Karl Fils-Aime", score: 33, teams: [0, 36, 44, 55, 15] },
+  { name: "Karl Fils-Aime", score: 79, teams: [0, 36, 44, 55, 15] },
 
-  { name: "Chris Godfrey", score: 51, teams: [30, 36, 44, 46, 56] },
+  { name: "Chris Godfrey", score: 103, teams: [30, 36, 44, 46, 56] },
 
-  { name: "Patrick Godfrey", score: 42, teams: [30, 38, 44, 47, 13] },
+  { name: "Patrick Godfrey", score: 66, teams: [30, 38, 44, 47, 13] },
 
-  { name: "Kevin Hess", score: 32, teams: [0, 33, 40, 41, 51] },
+  { name: "Kevin Hess", score: 76, teams: [0, 33, 40, 41, 51] },
 
-  { name: "Chris Jennings", score: 44, teams: [0, 36, 44, 10, 12] },
+  { name: "Chris Jennings", score: 90, teams: [0, 36, 44, 10, 12] },
 
-  { name: "John Kelly", score: 23, teams: [34, 35, 43, 51, 12] },
+  { name: "John Kelly", score: 32, teams: [34, 35, 43, 51, 12] },
 
-  { name: "Keenan Klein", score: 14, teams: [33, 40, 51, 7, 13] },
+  { name: "Keenan Klein", score: 23, teams: [33, 40, 51, 7, 13] },
 
-  { name: "Anish Kurian", score: 35, teams: [36, 40, 44, 11, 13] },
+  { name: "Anish Kurian", score: 81, teams: [36, 40, 44, 11, 13] },
 
-  { name: "Reed Lyon", score: 14, teams: [33, 40, 45, 9, 13] },
+  { name: "Reed Lyon", score: 23, teams: [33, 40, 45, 9, 13] },
 
   { name: "Ari Margolis", score: 21, teams: [0, 31, 38, 53, 58] },
 
-  { name: "Alex Raup", score: 32, teams: [29, 39, 41, 43, 5] },
+  { name: "Alex Raup", score: 67, teams: [29, 39, 41, 43, 5] },
 
-  { name: "Casey Schutte", score: 36, teams: [38, 44, 46, 55, 7] },
+  { name: "Casey Schutte", score: 54, teams: [38, 44, 46, 55, 7] },
 
-  { name: "Jeff Selikoff", score: 37, teams: [29, 32, 36, 40, 42] },
+  { name: "Jeff Selikoff", score: 100, teams: [29, 32, 36, 40, 42] },
 
   { name: "Adam Sidney", score: 39, teams: [40, 46, 48, 50, 9] },
 
-  { name: "Josh Silbereis", score: 48, teams: [36, 38, 45, 52, 7] },
+  { name: "Josh Silbereis", score: 76, teams: [36, 38, 45, 52, 7] },
 
-  { name: "Josh Smilowitz", score: 62, teams: [33, 40, 44, 48, 56] },
+  { name: "Josh Smilowitz", score: 89, teams: [33, 40, 44, 48, 56] },
 
-  { name: "Ed Stowe", score: 41, teams: [36, 40, 44, 46, 7] },
+  { name: "Ed Stowe", score: 87, teams: [36, 40, 44, 46, 7] },
 
-  { name: "Dan Vogel", score: 46, teams: [31, 37, 38, 44, 46] },
+  { name: "Dan Vogel", score: 64, teams: [31, 37, 38, 44, 46] },
 
-  { name: "Krysti Walker", score: 39, teams: [0, 36, 37, 40, 41] },
+  { name: "Krysti Walker", score: 102, teams: [0, 36, 37, 40, 41] },
 ];
 
 const parseTeamRound = (pickFiveDataset) => {
