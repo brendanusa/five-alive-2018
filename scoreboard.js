@@ -29,14 +29,13 @@ const fetchScores = (db) => {
       console.log(
         `http://site.api.espn.com/apis/site/v2/sports/basketball/mens-college-basketball/scoreboard?limit=500&groups=100&dates=${date.getFullYear()}${
           date.getMonth() + 1
-        }${date.getDate()}`
+        }0${date.getDate()}`
       );
       // group # for reg season is 50; tournament is 100
+      // url below is fixed date showing final - use url from console.log above for dynamic
       axios
         .get(
-          `http://site.api.espn.com/apis/site/v2/sports/basketball/mens-college-basketball/scoreboard?limit=500&groups=100&dates=${date.getFullYear()}0${
-            date.getMonth() + 1
-          }0${date.getDate()}`
+          `http://site.api.espn.com/apis/site/v2/sports/basketball/mens-college-basketball/scoreboard?limit=500&groups=100&dates=20230403`
           // "http://site.api.espn.com/apis/site/v2/sports/basketball/mens-college-basketball/scoreboard?limit=500&groups=50&dates=20221227"
         )
         .then((res) => {

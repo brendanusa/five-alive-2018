@@ -81,6 +81,33 @@ const pickFiveHighScores = [
     ],
   },
   {
+    name: "Jeff Selikoff",
+    year: 2023,
+    score: 169,
+    teams: [
+      {
+        name: "2) Marquette",
+        points: "2 (Second Rd)",
+      },
+      {
+        name: "3) Baylor",
+        points: "3 (Second Rd)",
+      },
+      {
+        name: "4) Connecticut",
+        points: "84 (Won Title)",
+      },
+      {
+        name: "5) Duke",
+        points: "5 (Second Rd)",
+      },
+      {
+        name: "5) San Diego State",
+        points: "75 (Final)",
+      },
+    ],
+  },
+  {
     name: "Andrew Collins",
     year: 2016,
     score: 163,
@@ -104,6 +131,33 @@ const pickFiveHighScores = [
       {
         name: "11) Wichita State",
         points: "11 (Second Rd)",
+      },
+    ],
+  },
+  {
+    name: "Ben Aparo",
+    year: 2023,
+    score: 161,
+    teams: [
+      {
+        name: "1) Alabama",
+        points: "3 (Sweet 16)",
+      },
+      {
+        name: "3) Kansas State",
+        points: "18 (Elite 8)",
+      },
+      {
+        name: "4) Connecticut",
+        points: "84 (Won Title)",
+      },
+      {
+        name: "5) Miami (FL)",
+        points: "50 (Final Four)",
+      },
+      {
+        name: "6) TCU",
+        points: "6 (Second Rd)",
       },
     ],
   },
@@ -158,6 +212,33 @@ const pickFiveHighScores = [
       {
         name: "11) Michigan",
         points: "33 (Sweet 16)",
+      },
+    ],
+  },
+  {
+    name: "Ed Carroll",
+    year: 2023,
+    score: 154,
+    teams: [
+      {
+        name: "3) Gonzaga",
+        points: "18 (Elite 8)",
+      },
+      {
+        name: "5) Miami (FL)",
+        points: "50 (Final Four)",
+      },
+      {
+        name: "5) San Diego State",
+        points: "75 (Final)",
+      },
+      {
+        name: "11) Pittsburgh",
+        points: "11 (Second Rd)",
+      },
+      {
+        name: "11) Providence",
+        points: "0 (First Rd)",
       },
     ],
   },
@@ -270,6 +351,60 @@ const pickFiveHighScores = [
     ],
   },
   {
+    name: "Chris Godfrey",
+    year: 2023,
+    score: 147,
+    teams: [
+      {
+        name: "2) Texas",
+        points: "12 (Elite 8)",
+      },
+      {
+        name: "4) Connecticut",
+        points: "84 (Won Title)",
+      },
+      {
+        name: "6) Creighton",
+        points: "36 (Elite 8)",
+      },
+      {
+        name: "6) Kentucky",
+        points: "6 (Second Rd)",
+      },
+      {
+        name: "9) Auburn",
+        points: "9 (Second Rd)",
+      },
+    ],
+  },
+  {
+    name: "Krysti Walker",
+    year: 2023,
+    score: 146,
+    teams: [
+      {
+        name: "1) Alabama",
+        points: "3 (Second Rd)",
+      },
+      {
+        name: "4) Connecticut",
+        points: "84 (Won Title)",
+      },
+      {
+        name: "4) Indiana",
+        points: "4 (Second Rd)",
+      },
+      {
+        name: "5) Duke",
+        points: "5 (Second Rd)",
+      },
+      {
+        name: "5) Miami (FL)",
+        points: "50 (Final Four)",
+      },
+    ],
+  },
+  {
     name: "Tova Hill",
     year: 2016,
     score: 142,
@@ -299,6 +434,33 @@ const pickFiveHighScores = [
 ];
 
 const pickFiveChamps = [
+  {
+    name: "Jeff Selikoff",
+    year: 2023,
+    score: 169,
+    teams: [
+      {
+        name: "2) Marquette",
+        points: "2 (Second Rd)",
+      },
+      {
+        name: "3) Baylor",
+        points: "3 (Second Rd)",
+      },
+      {
+        name: "4) Connecticut",
+        points: "84 (Won Title)",
+      },
+      {
+        name: "5) Duke",
+        points: "5 (Second Rd)",
+      },
+      {
+        name: "5) San Diego State",
+        points: "75 (Final)",
+      },
+    ],
+  },
   {
     name: "Kevin Hess",
     year: 2022,
