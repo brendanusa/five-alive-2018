@@ -46,8 +46,7 @@ class Standings extends Component {
           </div>
         </div>
         <div className="UpdateTime">
-          <p>UPDATED</p>
-          <p>{this.state.updated}</p>
+          <p>UPDATED {this.state.updated}</p>
         </div>
       </div>
     );

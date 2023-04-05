@@ -30,9 +30,9 @@
 .UpdateTime {
   color: #fff200;
   font-weight: bold;
-  font-size: calc(6px + 0.4vw);
+  font-size: calc(5.5px + 0.3vw);
   text-align: center;
-  margin-top: calc(2px + 0.5vw);
+  margin-top: calc(2px + 0.12vw);
 }
 
 .UpdateTime > p {
