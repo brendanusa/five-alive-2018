@@ -1,10 +1,10 @@
 self.__precacheManifest = [
   {
-    "revision": "ca1e099bd92518c20b6c",
-    "url": "/static/css/main.ef601e0e.chunk.css"
+    "revision": "5576440c4352c5e258fc",
+    "url": "/static/css/main.6d6966e1.chunk.css"
   },
   {
-    "revision": "ca1e099bd92518c20b6c",
+    "revision": "5576440c4352c5e258fc",
     "url": "/static/js/main.d428d5c4.chunk.js"
   },
   {
@@ -32,12 +32,12 @@ self.__precacheManifest = [
     "url": "/static/media/umbc_bkgd_lowres.88d483fa.jpg"
   },
   {
-    "revision": "b7c9e1e479de3b53f1e4e30ebac2403a",
-    "url": "/static/media/slick.b7c9e1e4.woff"
-  },
-  {
     "revision": "ced611daf7709cc778da928fec876475",
     "url": "/static/media/slick.ced611da.eot"
+  },
+  {
+    "revision": "b7c9e1e479de3b53f1e4e30ebac2403a",
+    "url": "/static/media/slick.b7c9e1e4.woff"
   },
   {
     "revision": "d41f55a78e6f49a5512878df1737e58a",
@@ -48,7 +48,7 @@ self.__precacheManifest = [
     "url": "/static/media/slick.f97e3bbf.svg"
   },
   {
-    "revision": "3d338f7b5891776aca705e45b5e17d75",
+    "revision": "f8a903d49b4bd2382e9947695c8583a7",
     "url": "/index.html"
   }
 ];

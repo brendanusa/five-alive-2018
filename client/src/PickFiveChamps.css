@@ -11,6 +11,7 @@
   animation: FadeIn 1s ease;
   max-height: 480px;
   overflow: scroll;
+  box-shadow: 0 0 30px #f20e0e;
 }
 
 .PickFiveChamps {
@@ -31,9 +32,7 @@
 }
 
 @media only screen and (max-width: 800px) {
-
   .PickFiveChampsContainer {
     max-height: 160px;
   }
-
 }
